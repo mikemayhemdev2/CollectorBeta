@@ -15,35 +15,35 @@ import sneckomod.SneckoMod;
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHandTop;
+import static utilityClasses.Wiz.makeInHandTop;
 
 public class GreenpyreLocus extends AbstractCollectorCard {
     public final static String ID = makeID(GreenpyreLocus.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , 1, 1
 
     public GreenpyreLocus() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> allCollecteds = Wiz.getCardsMatchingPredicate(c -> c.color == CollectibleCardColorEnumPatch.CardColorPatch.COLLECTIBLE && c.rarity != CardRarity.SPECIAL && !c.hasTag(CardTags.HEALING), true);
+        ArrayList<AbstractCard> allCollecteds = Wiz.getCardsMatchingPredicate(c -> c.color == CollectibleCardColorEnumPatch.CardColorPatch.COLLECTIBLE && !c.hasTag(CardTags.HEALING), true);
         ArrayList<AbstractCard> selectionChoices = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < magicNumber; i++) {
             selectionChoices.add(allCollecteds.remove(AbstractDungeon.cardRandomRng.random(allCollecteds.size() - 1)));
         }
         addToBot(new SelectCardsCenteredAction(selectionChoices, 1, cardStrings.EXTENDED_DESCRIPTION[0], (cards) -> {
             AbstractCard tar = cards.get(0).makeCopy();
             CardModifierManager.addModifier(tar, new CollectedCardMod());
             makeInHandTop(tar);
-            for (int i = 0; i < magicNumber; i++) {
+            for (int i = 0; i < 2; i++) {
                 CollectorCollection.combatCollection.addToRandomSpot(tar.makeStatEquivalentCopy());
             }
         }));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 }

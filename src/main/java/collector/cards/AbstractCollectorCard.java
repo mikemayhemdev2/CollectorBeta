@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -17,12 +18,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.getModID;
 import static collector.CollectorMod.makeCardPath;
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.att;
 
 public abstract class AbstractCollectorCard extends CustomCard {
     public String betaArtPath;
@@ -109,6 +113,11 @@ public abstract class AbstractCollectorCard extends CustomCard {
         atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
 
+    //Is this loss?
+    protected void loss(AbstractMonster m, AbstractGameAction.AttackEffect fx, int amt) {
+        atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, amt, DamageInfo.DamageType.HP_LOSS), fx));
+    }
+
     protected void dmgTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
@@ -136,6 +145,16 @@ public abstract class AbstractCollectorCard extends CustomCard {
             issecondMagicModified = true;
         }
 
+    }//https://www.youtube.com/watch?v=xMHJGd3wwZk - Context: Look at "Hurting (collector card)".
+
+    protected boolean handHasKindling(){
+        if (AbstractDungeon.player != null && AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !DFL.pl().hand.isEmpty()) {
+            if (DFL.pl().hand.group.stream().anyMatch(c -> c.tags.contains(expansionContentMod.KINDLING))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected void upgradeSecondMagic(int amount) {

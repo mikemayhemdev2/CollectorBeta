@@ -6,25 +6,36 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class SuckerPunch extends AbstractCollectorCard {
     public final static String ID = makeID(SuckerPunch.class.getSimpleName());
     // intellij stuff attack, enemy, common, 7, 2, , , 1, 1
 
     public SuckerPunch() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 4;
         baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        applyToEnemy(m, new WeakPower(m, magicNumber, false));
+        if (this.secondMagic >= 2){
+            for (int i = 0; i < this.secondMagic; i++){
+                dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+                applyToEnemy(m, new WeakPower(m, magicNumber, false));
+            }
+        }else{
+            dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+            applyToEnemy(m, new WeakPower(m, magicNumber, false));
+        }
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+//        upgradeDamage(2);
+//        upgradeMagicNumber(1);
+        upgradeDamage(-1);
+        upgradeSecondMagic(1);
+        uDesc();
     }
 }

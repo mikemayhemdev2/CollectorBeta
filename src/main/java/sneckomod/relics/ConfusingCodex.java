@@ -2,25 +2,20 @@ package sneckomod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
-import sneckomod.cards.AbstractSneckoCard;
 import downfall.util.TextureLoader;
 import sneckomod.cards.TyphoonFang;
 import sneckomod.powers.CheatPower;
 
-import java.util.ArrayList;
-
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class ConfusingCodex extends CustomRelic {
 

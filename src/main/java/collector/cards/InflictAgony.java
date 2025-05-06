@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.vfx.combat.ViceCrushEffect;
 import hermit.util.Wiz;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class InflictAgony extends AbstractCollectorCard {
     public final static String ID = makeID(InflictAgony.class.getSimpleName());

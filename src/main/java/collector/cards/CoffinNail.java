@@ -3,23 +3,21 @@ package collector.cards;
 import collector.powers.AddCopyNextTurnPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
-import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.atb;
 
 public class CoffinNail extends AbstractCollectorCard {
     public final static String ID = makeID(CoffinNail.class.getSimpleName());
     // intellij stuff attack, enemy, rare, 5, 1, , , 5, 1
 
     public CoffinNail() {
-        super(ID, 0, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 6;
-        baseMagicNumber = magicNumber = 6;
+        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseDamage = 5;
+        baseMagicNumber = magicNumber = 4;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

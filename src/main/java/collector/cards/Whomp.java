@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class Whomp extends AbstractCollectorCard {
     public final static String ID = makeID(Whomp.class.getSimpleName());

@@ -42,7 +42,7 @@ public class SphericShield extends AbstractGuardianCard {
 
     public SphericShield() {
         super(ID, NAME, GuardianMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.GUARDIAN, RARITY, TARGET);
-        this.baseBlock = 10;
+//        this.baseBlock = 10;
         this.socketCount = 0;
         exhaust = true;
         updateDescription();
@@ -53,8 +53,9 @@ public class SphericShield extends AbstractGuardianCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
         AbstractDungeon.effectsQueue.add(new com.megacrit.cardcrawl.vfx.BorderFlashEffect(com.badlogic.gdx.graphics.Color.GOLD, true));
-        addToBot(new GainBlockAction(p, p, this.block));
+ //       addToBot(new GainBlockAction(p, p, this.block));
         addToBot(new ChangeStanceAction(new DefensiveMode()));
+        addToBot(new GainBlockAction(p, p, ModeShiftPower.BLOCK_ON_TRIGGER));
         addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DontLeaveDefensiveModePower(AbstractDungeon.player, 1), 1));
 
         ModeShifterPlus modeShifterPlusInstance = new ModeShifterPlus();
@@ -108,8 +109,9 @@ public class SphericShield extends AbstractGuardianCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBlock(4);
+            //           upgradeBlock(4);
         }
+        upgradeBaseCost(1);
     }
 
     public void updateDescription() {

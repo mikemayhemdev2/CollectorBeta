@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class Arrogance extends AbstractCollectorCard {
     public final static String ID = makeID(Arrogance.class.getSimpleName());
@@ -13,8 +13,8 @@ public class Arrogance extends AbstractCollectorCard {
 
     public Arrogance() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 7;
-        baseMagicNumber = magicNumber = 4;
+        baseBlock = 8;
+        baseMagicNumber = magicNumber = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,6 +24,6 @@ public class Arrogance extends AbstractCollectorCard {
 
     public void upp() {
         upgradeBlock(2);
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 }

@@ -41,6 +41,22 @@
     "NAMES": [
       "torchhead"
     ],
-    "DESCRIPTION": "While you have #yTemporary #yHP, each Attack you play triggers Torchhead."
+    "DESCRIPTION": "While you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], dealing unblocked #yAttack damage triggers the Torch Head."
+  },
+
+  {
+    "PROPER_NAME": "Kindling",
+    "NAMES": [
+      "kindling"
+    ],
+    "DESCRIPTION": "Not discarded at the end of your turn and cannot be played from your hand. \n If this card is Exhausted, its effects activate."
+  },
+
+  {
+    "PROPER_NAME": "Fueled",
+    "NAMES": [
+      "fueled"
+    ],
+    "DESCRIPTION": "This effect will occur if you use a #yKindling when exhausting a card through #yPyre [REMOVE_SPACE]."
   }
 ]

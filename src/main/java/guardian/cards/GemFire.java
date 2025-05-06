@@ -1,10 +1,9 @@
 package guardian.cards;
 
-import collector.util.Wiz;
+import utilityClasses.Wiz;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -23,12 +22,10 @@ import guardian.orbs.StasisOrb;
 import guardian.patches.AbstractCardEnum;
 import guardian.powers.LoseThornsPower;
 import hermit.actions.ReduceDebuffsAction;
-import sneckomod.SneckoMod;
 
 import java.util.ArrayList;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class GemFire extends AbstractGuardianCard {
     public static final String ID = GuardianMod.makeID("GemFire");

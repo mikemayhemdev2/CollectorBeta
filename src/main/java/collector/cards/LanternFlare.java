@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class LanternFlare extends AbstractCollectorCard {
     public final static String ID = makeID(LanternFlare.class.getSimpleName());
@@ -20,7 +20,7 @@ public class LanternFlare extends AbstractCollectorCard {
     public LanternFlare() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 12;
-        baseSecondMagic = secondMagic = 3;
+        baseSecondMagic = secondMagic = 4;
         isPyre();
     }
 

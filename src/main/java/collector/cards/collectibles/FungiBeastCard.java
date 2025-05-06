@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.forAllMonstersLiving;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.forAllMonstersLiving;
 
 public class FungiBeastCard extends AbstractCollectibleCard {
     public final static String ID = makeID(FungiBeastCard.class.getSimpleName());

@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import downfall.util.TextureLoader;
 
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.makeInHand;
 
 public class PrismaticTorch extends CustomRelic {
     public static final String ID = CollectorMod.makeID(PrismaticTorch.class.getSimpleName());
@@ -22,14 +22,18 @@ public class PrismaticTorch extends CustomRelic {
 
     public PrismaticTorch() {
         super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.BOSS, LandingSound.MAGICAL);
-        this.tips.add(new CardPowerTip(new Ember()));
+        Ember emm = new Ember();
+        emm.upgrade();
+        this.tips.add(new CardPowerTip(emm));
     }
 
     @Override
     public void atBattleStart() {
         flash();
-        makeInHand(new Ember(), EMBER_COUNT);
-        atb(new GainReservesAction(1));
+        Ember em = new Ember();
+        em.upgrade();
+        makeInHand(em.makeStatEquivalentCopy(), EMBER_COUNT);
+//        atb(new GainReservesAction(1));
     }
 
     @Override

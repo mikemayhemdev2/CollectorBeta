@@ -1,7 +1,4 @@
 package theHexaghost.events;
-
-
-import collector.CollectorChar;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,6 +20,7 @@ import downfall.relics.ExtraCursedKey;
 import hermit.characters.hermit;
 import theHexaghost.HexaMod;
 import downfall.cards.curses.Haunted;
+import utilityClasses.DFL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +45,15 @@ public class WanderingSpecter extends AbstractImageEvent {
 
     private boolean shopForMore;
     private boolean shopForMore2;
+    private boolean checkA15 = false;
 
     public WanderingSpecter() {
         super(NAME, DESCRIPTIONS[0], "hexamodResources/images/events/specter.png");
         this.screen = CurScreen.INTRO;
         this.noCardsInRewards = true;
-
+        if (DFL.GAL() >= 15){
+            checkA15 = true;
+        }
 
         ArrayList<String> possRelicsList = new ArrayList<>();
         ArrayList<String> possRelicsList2 = new ArrayList<>();
@@ -109,10 +110,10 @@ public class WanderingSpecter extends AbstractImageEvent {
                             cardsAdded.add(Haunted.ID);
                         }
                         this.imageEventText.clearAllDialogs();
-                        this.imageEventText.setDialogOption(OPTIONS[5]);
-                        this.imageEventText.setDialogOption(OPTIONS[6]);
-                        this.imageEventText.setDialogOption(OPTIONS[7]);
-                        this.imageEventText.setDialogOption(OPTIONS[9]);
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[10] : OPTIONS[5]);//Rare Card
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[11] : OPTIONS[6]);//Max HP
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[12] : OPTIONS[7]);//Souls
+                        this.imageEventText.setDialogOption(OPTIONS[9]);//Leave
                         this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
                         this.screen = CurScreen.TRADE;
                         return;
@@ -128,10 +129,10 @@ public class WanderingSpecter extends AbstractImageEvent {
 
                         }
                         this.imageEventText.clearAllDialogs();
-                        this.imageEventText.setDialogOption(OPTIONS[5]);
-                        this.imageEventText.setDialogOption(OPTIONS[6]);
-                        this.imageEventText.setDialogOption(OPTIONS[7]);
-                        this.imageEventText.setDialogOption(OPTIONS[9]);
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[10] : OPTIONS[5]);//Rare Card
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[11] : OPTIONS[6]);//Max HP
+                        this.imageEventText.setDialogOption(checkA15 ? OPTIONS[12] : OPTIONS[7]);//Souls
+                        this.imageEventText.setDialogOption(OPTIONS[9]);//Leave
                         this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
                         this.screen = CurScreen.TRADE;
                         return;
@@ -140,13 +141,12 @@ public class WanderingSpecter extends AbstractImageEvent {
                             this.imageEventText.updateBodyText(DESCRIPTIONS[7]);
                         } else {
                             this.imageEventText.updateBodyText(DESCRIPTIONS[6]);
-//                            AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2), new BlueCandle());// 83
                             AbstractDungeon.player.damage(new DamageInfo(null, 5, DamageInfo.DamageType.HP_LOSS));
                             AbstractDungeon.getCurrRoom().rewards.clear();
-                            if (!EvilModeCharacterSelect.evilMode) {
+                            if (!EvilModeCharacterSelect.evilMode && !(AbstractDungeon.player instanceof hermit)) {
                                 AbstractDungeon.getCurrRoom().addRelicToRewards(new BlueCandle());
                             }
-                            if (EvilModeCharacterSelect.evilMode) {
+                            else {
                                 AbstractDungeon.getCurrRoom().addRelicToRewards(new BlackCandle());
                             }
                             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
@@ -170,9 +170,12 @@ public class WanderingSpecter extends AbstractImageEvent {
                 AbstractCard curse;
                 switch (buttonPressed) {
                     case 0:
-                        curse = CardLibrary.getCurse().makeStatEquivalentCopy();
+                        curse = DFL.betterGetCurse2(AbstractDungeon.eventRng);
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float) (Settings.WIDTH * .3F), (float) (Settings.HEIGHT / 2)));// 66
                         AbstractCard rareCard = AbstractDungeon.getCard(AbstractCard.CardRarity.RARE, AbstractDungeon.cardRng).makeStatEquivalentCopy();
+                        if (!checkA15){
+                            rareCard.upgrade();
+                        }
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(rareCard, (float) (Settings.WIDTH * .7F), (float) (Settings.HEIGHT / 2)));// 66
 
                         this.imageEventText.updateDialogOption(0, OPTIONS[8], true);
@@ -183,26 +186,26 @@ public class WanderingSpecter extends AbstractImageEvent {
 
                         return;
                     case 1:
-                        curse = CardLibrary.getCurse().makeStatEquivalentCopy();
+                        curse = DFL.betterGetCurse2(AbstractDungeon.eventRng);
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float) (Settings.WIDTH * .5F), (float) (Settings.HEIGHT / 2)));// 66
-                        AbstractDungeon.player.increaseMaxHp(5, true);
+                        AbstractDungeon.player.increaseMaxHp(checkA15 ? 10 : 14, true);
                         this.imageEventText.updateDialogOption(1, OPTIONS[8], true);
 
                         this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                         cardsAdded.add(curse.cardID);
-                        maxHpAdded = 5;
+                        maxHpAdded = (checkA15 ? 10 : 14);
 
                         return;
                     case 2:
                         curse = CardLibrary.getCurse().makeStatEquivalentCopy();
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float) (Settings.WIDTH * .5F), (float) (Settings.HEIGHT / 2)));// 66
                         AbstractDungeon.effectList.add(new RainingGoldEffect(100));
-                        AbstractDungeon.player.gainGold(100);
+                        AbstractDungeon.player.gainGold(checkA15 ? 175 : 200);
                         this.imageEventText.updateDialogOption(2, OPTIONS[8], true);
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
 
                         cardsAdded.add(curse.cardID);
-                        goldAdded = 100;
+                        goldAdded = (checkA15 ? 175 : 200);
 
                         return;
                     case 3:

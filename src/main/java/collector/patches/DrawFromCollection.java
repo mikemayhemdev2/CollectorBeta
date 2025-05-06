@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class DrawFromCollection {
 
@@ -23,6 +23,9 @@ public class DrawFromCollection {
             if (AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR) || !CollectorCollection.collection.isEmpty()) {
                 if (AbstractDungeon.player.hasRelic(BlockedChakra.ID)) {
                     AbstractRelic r = AbstractDungeon.player.getRelic(BlockedChakra.ID);
+                    if (r.counter == 567){//It will get stuck after 99 turns so people don't try to make it count to 0.
+                        r.counter++;
+                    }
                     if (r.counter > 0) {
                         r.counter -= 1;
                         r.flash();

@@ -1,12 +1,11 @@
 package collector.powers;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class HealIfDieThisTurnPower extends AbstractCollectorPower {
     public static final String NAME = "HealIfDieThisTurn";

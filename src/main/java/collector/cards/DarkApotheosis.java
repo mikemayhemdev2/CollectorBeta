@@ -1,23 +1,19 @@
 package collector.cards;
 
-import basemod.helpers.CardModifierManager;
 import collector.CollectorCollection;
 import collector.CollectorMod;
-import collector.cardmods.CollectedCardMod;
 import collector.effects.MiniUpgradeShine;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hermit.util.Wiz;
 import sneckomod.SneckoMod;
 
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class DarkApotheosis extends AbstractCollectorCard {
     public final static String ID = makeID(DarkApotheosis.class.getSimpleName());
@@ -46,6 +42,7 @@ public class DarkApotheosis extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+        this.isInnate = true;
+        uDesc();
     }
 }

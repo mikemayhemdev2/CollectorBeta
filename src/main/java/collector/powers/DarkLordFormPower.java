@@ -4,8 +4,10 @@ import automaton.actions.RepeatCardAction;
 import collector.cards.InevitableDemise;
 import collector.cards.YouAreMine;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import utilityClasses.DFL;
 
 public class DarkLordFormPower extends AbstractCollectorPower {
     public static final String NAME = "DarkLordForm";
@@ -21,14 +23,9 @@ public class DarkLordFormPower extends AbstractCollectorPower {
     public void atStartOfTurnPostDraw() {
         flash();
         for (int i = 0; i < amount; i++) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    isDone = true;
-                    AbstractMonster q = AbstractDungeon.getRandomMonster();
-                    addToTop(new RepeatCardAction(q, new YouAreMine()));
-                }
-            });
+            for (AbstractMonster m : DFL.activeMonsterList()){
+                addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, DFL.pl().exhaustPile.size()), DFL.pl().exhaustPile.size()));
+            }
         }
     }
 }

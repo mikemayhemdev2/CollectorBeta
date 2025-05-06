@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class SufferingPower extends AbstractCollectorPower implements BetterOnApplyPowerPower {
     public static final String NAME = "Suffering";

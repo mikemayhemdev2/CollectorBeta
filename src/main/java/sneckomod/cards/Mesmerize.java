@@ -10,11 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
-import downfall.downfallMod;
 import sneckomod.SneckoMod;
 import sneckomod.actions.MuddleAction;
 
-import static collector.util.Wiz.forAllMonstersLiving;
+import static utilityClasses.Wiz.forAllMonstersLiving;
 
 public class Mesmerize extends AbstractSneckoCard {
 

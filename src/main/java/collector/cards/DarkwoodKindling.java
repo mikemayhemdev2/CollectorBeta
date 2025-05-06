@@ -1,17 +1,14 @@
 package collector.cards;
 
 import collector.actions.GainReservesAction;
-import collector.powers.DoomPower;
 import collector.powers.NextTurnReservePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.expansionContentMod;
-import hermit.util.Wiz;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class DarkwoodKindling extends AbstractCollectorCard {
     public final static String ID = makeID(DarkwoodKindling.class.getSimpleName());
@@ -19,8 +16,10 @@ public class DarkwoodKindling extends AbstractCollectorCard {
 
     public DarkwoodKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
         tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -36,11 +35,11 @@ public class DarkwoodKindling extends AbstractCollectorCard {
     public void triggerOnExhaust() {
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
-        applyToSelf(new NextTurnReservePower(magicNumber));
+        new GainReservesAction(magicNumber);
     }
 
     public void upp() {
-        selfRetain = true;
+        upgradeMagicNumber(1);
         uDesc();
     }
 }

@@ -7,7 +7,7 @@ import sneckomod.SneckoMod;
 import sneckomod.actions.MuddleHandAction;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class SneckoCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SneckoCard.class.getSimpleName());

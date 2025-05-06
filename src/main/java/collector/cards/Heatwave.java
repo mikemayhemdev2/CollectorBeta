@@ -10,17 +10,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.makeInHand;
 
 public class Heatwave extends AbstractCollectorCard {
     public final static String ID = makeID(Heatwave.class.getSimpleName());
     // intellij stuff attack, all_enemy, uncommon, 12, 4, , , , 
 
     public Heatwave() {
-        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 5;
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        baseDamage = 14;
         cardsToPreview = new Ember();
         isMultiDamage = true;
+        this.baseMagicNumber = magicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,10 +29,11 @@ public class Heatwave extends AbstractCollectorCard {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new ShockWaveEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, new Color(MathUtils.random(1.0f), MathUtils.random(0, 0.2f), MathUtils.random(0, 0.2f), 1.0f), ShockWaveEffect.ShockWaveType.NORMAL)));
         }
         allDmg(AbstractGameAction.AttackEffect.FIRE);
-        makeInHand(new Ember());
+        makeInHand(new Ember(), magicNumber);
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(5);
+        upgradeMagicNumber(1);
     }
 }

@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class ItMattersNot extends AbstractCollectorCard {
     public final static String ID = makeID(ItMattersNot.class.getSimpleName());
@@ -15,7 +15,7 @@ public class ItMattersNot extends AbstractCollectorCard {
 
     public ItMattersNot() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 13;
+        baseBlock = 12;
         baseMagicNumber = magicNumber = 1;
     }
 

@@ -9,16 +9,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.atb;
 
 public class DarkLordForm extends AbstractCollectorCard {
     public final static String ID = makeID(DarkLordForm.class.getSimpleName());
     // intellij stuff power, self, rare, , , , , , 
 
     public DarkLordForm() {
-        super(ID, 4, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-        cardsToPreview = new YouAreMine();
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+//        cardsToPreview = new YouAreMine();
         tags.add(BaseModCardTags.FORM);
     }
 
@@ -34,6 +34,7 @@ public class DarkLordForm extends AbstractCollectorCard {
 
     public void upp() {
         uDesc();
-        cardsToPreview.upgrade();
+//        upgradeBaseCost(5);
+//        cardsToPreview.upgrade();
     }
 }

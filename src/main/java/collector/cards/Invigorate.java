@@ -1,22 +1,17 @@
 package collector.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
-import collector.powers.NextTurnVigorPower;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsCenteredAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Blind;
 import com.megacrit.cardcrawl.cards.colorless.Trip;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
 
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class Invigorate extends AbstractCollectorCard {
     public final static String ID = makeID(Invigorate.class.getSimpleName());
@@ -33,7 +28,12 @@ public class Invigorate extends AbstractCollectorCard {
         ArrayList<AbstractCard> cards = new ArrayList<>();
         cards.add(new Trip());
         cards.add(new Blind());
-        if (upgraded) for (AbstractCard c : cards) c.upgrade();
+        if (upgraded){
+            for (AbstractCard c : cards)
+            {
+                c.upgrade();
+            }
+        }
         atb(new SelectCardsCenteredAction(cards, 1, cardStrings.EXTENDED_DESCRIPTION[0], (selected) -> {
             makeInHandTop(selected.get(0));
         }));

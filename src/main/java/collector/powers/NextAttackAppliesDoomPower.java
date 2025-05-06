@@ -1,21 +1,15 @@
 package collector.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class NextAttackAppliesDoomPower extends AbstractCollectorPower {
     public static final String NAME = "NextAttackAppliesDoom";

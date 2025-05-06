@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class TaskmasterCard extends AbstractCollectibleCard {
     public final static String ID = makeID(TaskmasterCard.class.getSimpleName());

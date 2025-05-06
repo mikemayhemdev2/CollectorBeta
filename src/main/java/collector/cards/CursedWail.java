@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class CursedWail extends AbstractCollectorCard {
     public final static String ID = makeID(CursedWail.class.getSimpleName());
@@ -18,8 +18,8 @@ public class CursedWail extends AbstractCollectorCard {
 
     public CursedWail() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = 9;
-        baseSecondMagic = secondMagic = 1;
+        baseMagicNumber = magicNumber = 6;
+        baseSecondMagic = secondMagic = 2;
         exhaust = true;
     }
 

@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.atb;
 
 public class Misdirect extends AbstractCollectorCard {
     public final static String ID = makeID(Misdirect.class.getSimpleName());

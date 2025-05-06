@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.atb;
 
 public class StashAway extends AbstractCollectorCard {
     public final static String ID = makeID(StashAway.class.getSimpleName());
@@ -15,7 +15,7 @@ public class StashAway extends AbstractCollectorCard {
 
     public StashAway() {
         super(ID, -1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseBlock = 4;
+        baseBlock = 5;
         exhaust = true;
     }
 
@@ -31,6 +31,6 @@ public class StashAway extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeBlock(3);
     }
 }

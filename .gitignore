@@ -2,10 +2,11 @@
 target
 *.psd
 pom.xml
+pomm.example
 *.iml
 
 .classpath
-
+.noAI
 .project
 *.DS_Store*
 steamresources/*

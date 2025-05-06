@@ -41,6 +41,6 @@
     "NAMES": [
       "torchhead"
     ],
-    "DESCRIPTION": "While you have #yTemporary #yHP, each Attack you play triggers Torchhead."
+    "DESCRIPTION": "While you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], each time you deal unblocked #yAttack damage the Torchhead is used."
   }
 ]

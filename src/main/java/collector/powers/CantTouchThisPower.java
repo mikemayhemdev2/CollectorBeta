@@ -4,8 +4,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.applyToEnemyTop;
+import static utilityClasses.Wiz.applyToEnemyTop;
 
 public class CantTouchThisPower extends AbstractCollectorPower {
     public static final String NAME = "CantTouchThis";
@@ -19,7 +18,10 @@ public class CantTouchThisPower extends AbstractCollectorPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (damageAmount <= owner.currentBlock && info.owner instanceof AbstractMonster && info.type == DamageInfo.DamageType.NORMAL) {
+        if (
+                //damageAmount <= owner.currentBlock && Old conditionality
+                info.owner instanceof AbstractMonster
+                && info.type == DamageInfo.DamageType.NORMAL) {
             flash();
             applyToEnemyTop((AbstractMonster) info.owner, new DoomPower((AbstractMonster) info.owner, amount));
         }

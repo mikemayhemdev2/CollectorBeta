@@ -1,26 +1,16 @@
-/*    */
 package downfall.events.shrines_evil;
-/*    */
-/*    */
-
-import com.megacrit.cardcrawl.cards.curses.Pain;
 import downfall.cards.curses.Aged;
-import downfall.cards.curses.Sapped;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-/*    */ import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-/*    */ import com.megacrit.cardcrawl.events.AbstractImageEvent;
-/*    */
-/*    */
+import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
-/*    */
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import downfall.downfallMod;
-/*    */ import java.util.ArrayList;
+import downfall.downfallMod;import java.util.ArrayList;
 
-/*    */
-/*    */ public class DuplicatorEvil extends AbstractImageEvent {
+
+    public class DuplicatorEvil extends AbstractImageEvent {
     public static final String ID = downfallMod.makeID("Duplicator");
 
     private static final EventStrings eventStrings = com.megacrit.cardcrawl.core.CardCrawlGame.languagePack.getEventString("Duplicator");

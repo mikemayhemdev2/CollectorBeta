@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.makeInHand;
 
 public class SunbloomKindling extends AbstractCollectorCard {
     public final static String ID = makeID(SunbloomKindling.class.getSimpleName());
@@ -18,8 +18,11 @@ public class SunbloomKindling extends AbstractCollectorCard {
     public SunbloomKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
         baseMagicNumber = magicNumber = 2;
+        baseSecondMagic = secondMagic = 2;
         cardsToPreview = new Ember();
         tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -35,10 +38,15 @@ public class SunbloomKindling extends AbstractCollectorCard {
     public void triggerOnExhaust() {
         CardCrawlGame.sound.play("HEAL_1");
         applyToSelf(new StrengthPower(AbstractDungeon.player, magicNumber));
-        makeInHand(new Ember(), 2);
+        if (secondMagic >= 1 && secondMagic <= 10) {
+            makeInHand(new Ember(), secondMagic);
+        }else{
+            makeInHand(new Ember(), 3);//Fallback is 3 and not 11.
+        }
     }
 
     public void upp() {
         upgradeMagicNumber(1);
+//        upgradeSecondMagic(-1);
     }
 }

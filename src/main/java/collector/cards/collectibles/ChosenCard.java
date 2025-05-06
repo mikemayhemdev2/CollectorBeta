@@ -3,14 +3,13 @@ package collector.cards.collectibles;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.getEnemies;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.getEnemies;
 
 public class ChosenCard extends AbstractCollectibleCard {
     public final static String ID = makeID(ChosenCard.class.getSimpleName());

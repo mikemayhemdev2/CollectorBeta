@@ -32,17 +32,19 @@
   "collector:DarkLordForm": {
     "NAME": "Dark Lord Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, play #yYou #yAre #yMine on a random enemy.",
-      "At the start of your turn, play #b",
-      " copies of #yYou #yAre #yMine on random enemies."
+      "At the start of your turn, apply #b",
+      " #yDoom to ALL enemies.",
+      " NL Repeated #b",
+      " times."
     ]
   },
   "collector:DarkLordFormPlus": {
     "NAME": "Dark Lord Form+",
     "DESCRIPTIONS": [
-      "At the start of your turn, play #yYou #yAre #yMine+ on a random enemy.",
-      "At the start of your turn, play #b",
-      " copies of #yYou #yAre #yMine+ on random enemies."
+      "At the start and end of your turn, apply #b",
+      " #yDoom to ALL enemies.",
+      " NL Repeated #b",
+      " times."
     ]
   },
   "collector:DoMayhem": {
@@ -187,7 +189,7 @@
   "collector:TorchHead": {
     "NAME": "Torch Head",
     "DESCRIPTIONS": [
-      "Whenever you play an #yAttack, if you have #yTemporary #yHP, Torch Head: NL ",
+      "Whenever you deal unblocked #yAttack damage, if you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], Torch Head: NL ",
       "Applies #b",
       " #yDoom to a random enemy.",
       "Deals #b",

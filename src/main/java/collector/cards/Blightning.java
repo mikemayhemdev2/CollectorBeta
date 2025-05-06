@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class Blightning extends AbstractCollectorCard {
     public final static String ID = makeID(Blightning.class.getSimpleName());

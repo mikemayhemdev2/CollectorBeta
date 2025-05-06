@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class TransientCardPower extends AbstractCollectorPower {
     public static final String NAME = "TransientCard";

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import javassist.CtBehavior;
 
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 public class ReservesPatch {
     @SpirePatch2(clz = AbstractCard.class, method = "hasEnoughEnergy")

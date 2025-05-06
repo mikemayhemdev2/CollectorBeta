@@ -1,33 +1,18 @@
 package sneckomod.cards;
 
-import automaton.cards.Undervolt;
-import collector.cards.Billow;
-import collector.cards.CursedWail;
-import collector.cards.IllTakeThat;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.Choke;
-import com.megacrit.cardcrawl.cards.green.PiercingWail;
-import com.megacrit.cardcrawl.cards.purple.TalkToTheHand;
-import com.megacrit.cardcrawl.cards.red.Disarm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.FrozenEgg2;
-import com.megacrit.cardcrawl.relics.MoltenEgg2;
-import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
-import hermit.cards.HighCaliber;
-import slimebound.cards.TongueLash;
 import sneckomod.SneckoMod;
-import sneckomod.relics.UnknownEgg;
-import sneckomod.util.ArchetypeHelper;
 
 import java.util.ArrayList;
 

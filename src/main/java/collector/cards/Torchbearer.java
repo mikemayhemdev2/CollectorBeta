@@ -1,13 +1,11 @@
 package collector.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class Torchbearer extends AbstractCollectorCard {
     public final static String ID = makeID(Torchbearer.class.getSimpleName());

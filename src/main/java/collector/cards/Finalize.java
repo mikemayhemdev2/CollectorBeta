@@ -6,27 +6,27 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class Finalize extends AbstractCollectorCard {
     public final static String ID = makeID(Finalize.class.getSimpleName());
     // intellij stuff skill, enemy, uncommon, , , , , 25, 5
 
     public Finalize() {
-        super(ID, 4, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 24;
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 7;
         baseSecondMagic = secondMagic = 6;
         tags.add(CardTags.HEALING);
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToEnemy(m, new HealIfDieThisTurnPower(m, secondMagic));
-        applyToEnemy(m, new DoomPower(m, magicNumber));
+        applyToEnemy(m, new HealIfDieThisTurnPower(m, magicNumber));
+        applyToEnemy(m, new DoomPower(m, secondMagic));
     }
 
     public void upp() {
-        upgradeMagicNumber(4);
-        upgradeSecondMagic(2);
+        upgradeMagicNumber(3);
+        upgradeSecondMagic(3);
     }
 }

@@ -1,10 +1,8 @@
 package collector.cards;
 
 import collector.powers.DoomPower;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,24 +10,29 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.EntangleEffect;
-import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class BlackBindings extends AbstractCollectorCard {
     public final static String ID = makeID(BlackBindings.class.getSimpleName());
     // intellij stuff skill, enemy, uncommon, , , , , 2, 1
 
     public BlackBindings() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
         baseSecondMagic = secondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EntangleEffect(p.hb.cX + 70.0F * Settings.scale, p.hb.cY + 10.0F * Settings.scale, m.hb.cX, m.hb.cY), 0.5F));
+        if (isAfflicted(m)){
+            applyToEnemy(m, new WeakPower(m, magicNumber, false));
+            applyToEnemyTop(m, new DoomPower(m, secondMagic));
+        }
         applyToEnemy(m, new WeakPower(m, magicNumber, false));
+        applyToEnemyTop(m, new DoomPower(m, secondMagic));
+        /*
         atb(new AbstractGameAction() {
             @Override
             public void update() {
@@ -41,10 +44,11 @@ public class BlackBindings extends AbstractCollectorCard {
                 }
             }
         });
+         */
     }
 
     public void upp() {
-        upgradeSecondMagic(2);
+        upgradeSecondMagic(1);
     }
 
     @Override //zhs card text thing

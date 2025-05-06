@@ -5,7 +5,6 @@ import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
 import collector.CollectorCollection;
 import collector.CollectorMod;
-import collector.actions.DrawCardFromCollectionAction;
 import collector.patches.CollectorBottleField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -16,8 +15,6 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import downfall.util.TextureLoader;
 
 import java.util.function.Predicate;
-
-import static collector.util.Wiz.atb;
 
 public class BottledCollectible extends CustomRelic implements CustomBottleRelic, CustomSavable<Integer> {
     public static final String ID = CollectorMod.makeID(BottledCollectible.class.getSimpleName());
@@ -30,7 +27,7 @@ public class BottledCollectible extends CustomRelic implements CustomBottleRelic
     private int idxToLoad = -1;
 
     public BottledCollectible() {
-        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.RARE, LandingSound.MAGICAL);
+        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
     @Override

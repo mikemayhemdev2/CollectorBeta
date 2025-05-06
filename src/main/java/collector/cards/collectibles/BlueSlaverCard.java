@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class BlueSlaverCard extends AbstractCollectibleCard {
     public final static String ID = makeID(BlueSlaverCard.class.getSimpleName());

@@ -1,12 +1,11 @@
 package collector.powers;
 
-import collector.util.Wiz;
+import utilityClasses.Wiz;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import gremlin.GremlinMod;
 
-import static collector.util.Wiz.isAfflicted;
+import static utilityClasses.Wiz.isAfflicted;
 
 public class KarmaPower extends AbstractCollectorPower {
     public static final String NAME = "Karma";

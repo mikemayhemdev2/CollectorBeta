@@ -1,31 +1,33 @@
 package collector.cards;
 
 import collector.effects.PurpleSearingBlowEffect;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class GreaterHurting extends AbstractCollectorCard {
     public final static String ID = makeID(GreaterHurting.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
     public GreaterHurting() {
-        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
-        baseDamage = 20;
-        isEthereal = true;
+        super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
+//        baseDamage = 20;
+        this.selfRetain = true;
+//        isEthereal = true;
         cardsToPreview = new GreatestHurting();
+        tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 6)));
-        dmg(m, AbstractGameAction.AttackEffect.FIRE);
+//        atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 6)));
+//        dmg(m, AbstractGameAction.AttackEffect.FIRE);
     }
 
     @Override
@@ -35,9 +37,13 @@ public class GreaterHurting extends AbstractCollectorCard {
         makeInHand(toAdd);
     }
 
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
+
     public void upp() {
-        upgradeDamage(6);
+ //       upgradeDamage(6);
         uDesc();
         cardsToPreview.upgrade();
     }
-}
+}//Look at the top of the next one

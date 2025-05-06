@@ -3,14 +3,7 @@ package collector.relics;
 import basemod.abstracts.CustomRelic;
 import collector.CollectorMod;
 import collector.util.EssenceSystem;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import downfall.util.TextureLoader;
-
-import static collector.util.Wiz.*;
 
 public class TheContract extends CustomRelic {
     public static final String ID = CollectorMod.makeID(TheContract.class.getSimpleName());

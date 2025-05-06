@@ -14,7 +14,9 @@ public class IronbarkKindling extends AbstractCollectorCard {
     public IronbarkKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         baseBlock = 9;
+        this.selfRetain = true;
         tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -33,7 +35,7 @@ public class IronbarkKindling extends AbstractCollectorCard {
     }
 
     public void upp() {
-        selfRetain = true;
+        upgradeBlock(3);
         uDesc();
     }
 }

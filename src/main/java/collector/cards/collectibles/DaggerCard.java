@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class DaggerCard extends AbstractCollectibleCard {
     public final static String ID = makeID(DaggerCard.class.getSimpleName());

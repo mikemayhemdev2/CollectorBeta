@@ -1,13 +1,12 @@
 package collector.cards;
 
-import collector.powers.OmenPower;
 import collector.powers.ShootingStarPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class ShootingStar extends AbstractCollectorCard {
     public final static String ID = makeID(ShootingStar.class.getSimpleName());

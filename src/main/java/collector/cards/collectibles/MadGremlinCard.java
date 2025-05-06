@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class MadGremlinCard extends AbstractCollectibleCard {
     public final static String ID = makeID(MadGremlinCard.class.getSimpleName());

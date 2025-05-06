@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class ShelledParasiteCard extends AbstractCollectibleCard {
     public final static String ID = makeID(ShelledParasiteCard.class.getSimpleName());

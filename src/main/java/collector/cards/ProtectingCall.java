@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class ProtectingCall extends AbstractCollectorCard {
     public final static String ID = makeID(ProtectingCall.class.getSimpleName());
@@ -14,7 +14,7 @@ public class ProtectingCall extends AbstractCollectorCard {
 
     public ProtectingCall() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 6;
+        baseMagicNumber = magicNumber = 8;
         baseSecondMagic = secondMagic = 2;
     }
 

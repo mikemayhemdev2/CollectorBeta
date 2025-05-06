@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class ThievesCardPower extends AbstractCollectorPower {
     public static final String NAME = "ThievesCard";

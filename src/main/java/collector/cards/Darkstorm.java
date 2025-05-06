@@ -1,15 +1,13 @@
 package collector.cards;
 
-import basemod.helpers.CardModifierManager;
-import collector.cardmods.CollectedCardMod;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
-import static collector.util.Wiz.shuffleIn;
+import static utilityClasses.Wiz.makeInHand;
+import static utilityClasses.Wiz.shuffleIn;
 
 public class Darkstorm extends AbstractCollectorCard {
     public final static String ID = makeID(Darkstorm.class.getSimpleName());

@@ -27,7 +27,7 @@ public class BlockedChakra extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        counter = 4;
+        counter = 666;
     }
 
     @Override

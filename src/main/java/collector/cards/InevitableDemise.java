@@ -2,18 +2,16 @@
 package collector.cards;
 
 import collector.powers.DemisePower;
-import collector.powers.DoomPower;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.InversionBeamEffect;
-import hermit.util.Wiz;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class InevitableDemise extends AbstractCollectorCard {
     public final static String ID = makeID(InevitableDemise.class.getSimpleName());
@@ -21,7 +19,7 @@ public class InevitableDemise extends AbstractCollectorCard {
 
     public InevitableDemise() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 9;
+        baseDamage = 10;
        // baseMagicNumber = magicNumber = 1;
     }
 

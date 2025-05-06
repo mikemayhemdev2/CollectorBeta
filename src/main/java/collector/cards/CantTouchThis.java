@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class CantTouchThis extends AbstractCollectorCard {
     public final static String ID = makeID(CantTouchThis.class.getSimpleName());
@@ -15,7 +15,7 @@ public class CantTouchThis extends AbstractCollectorCard {
     public CantTouchThis() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+        baseSecondMagic = secondMagic = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,6 +24,7 @@ public class CantTouchThis extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
+        upgradeSecondMagic(1);
     }
 }

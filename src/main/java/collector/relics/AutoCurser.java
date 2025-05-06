@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import downfall.util.TextureLoader;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.atb;
 
 public class AutoCurser extends CustomRelic {
     public static final String ID = CollectorMod.makeID(AutoCurser.class.getSimpleName());

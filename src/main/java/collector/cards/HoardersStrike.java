@@ -10,16 +10,16 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.att;
 
 public class HoardersStrike extends AbstractCollectorCard {
     public final static String ID = makeID(HoardersStrike.class.getSimpleName());
     // intellij stuff attack, enemy, rare, 12, 5, , , , 
 
     public HoardersStrike() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 16;
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 11;
         tags.add(CardTags.STRIKE);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -41,6 +41,6 @@ public class HoardersStrike extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
     }
 }

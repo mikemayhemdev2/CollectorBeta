@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.makeInHand;
 
 public class AddCopyNextTurnPower extends AbstractCollectorPower implements NonStackablePower {
     public static final String NAME = "AddCopyNextTurn";

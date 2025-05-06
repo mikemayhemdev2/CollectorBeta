@@ -187,7 +187,7 @@
   "collector:TorchHead": {
     "NAME": "Torch Head",
     "DESCRIPTIONS": [
-      "Whenever you play an #yAttack, if you have #yTemporary #yHP, Torch Head: NL ",
+      "Whenever you deal unblocked #yAttack damage, if you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], Torch Head: NL ",
       "Applies #b",
       " #yDoom to a random enemy.",
       "Deals #b",

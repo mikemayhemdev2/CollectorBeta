@@ -1,13 +1,17 @@
 package collector.cards.collectibles;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import downfall.util.CardIgnore;
 import hermit.util.Wiz;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
 
+@NoCompendium @NoPools @CardIgnore @Deprecated
 public class JousterCard extends AbstractCollectibleCard {
     public final static String ID = makeID(JousterCard.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 12, 3, 12, 3, , 
@@ -17,6 +21,7 @@ public class JousterCard extends AbstractCollectibleCard {
         baseDamage = 12;
         baseBlock = 12;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

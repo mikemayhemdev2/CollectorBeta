@@ -8,10 +8,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.cardmods.PropertiesMod;
-import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class Hoard extends AbstractCollectorCard {
     public final static String ID = makeID(Hoard.class.getSimpleName());
@@ -23,7 +22,8 @@ public class Hoard extends AbstractCollectorCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardAction(magicNumber, new AbstractGameAction() {
+        atb(new DrawCardAction(magicNumber));
+    /*new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
@@ -36,7 +36,7 @@ public class Hoard extends AbstractCollectorCard {
                         CardModifierManager.addModifier(q, mod);
                 }
             }
-        }));
+        }));*/
     }
 
     public void upp() {

@@ -6,14 +6,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelfTop;
+import static utilityClasses.Wiz.applyToSelfTop;
 
 public class SomberShield extends AbstractCollectorCard implements OnPyreCard {
     public final static String ID = makeID(SomberShield.class.getSimpleName());
     // intellij stuff skill, self, common, , , 7, 3, , 
 
     public SomberShield() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = 6;
         isPyre();
     }

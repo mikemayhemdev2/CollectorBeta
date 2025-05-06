@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.HeartBuffEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class Empower extends AbstractCollectorCard {
     public final static String ID = makeID(Empower.class.getSimpleName());
@@ -16,14 +16,14 @@ public class Empower extends AbstractCollectorCard {
 
     public Empower() {
         super(ID, -1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new EasyXCostAction(this, (effect, params) -> {
             if (effect > 0) {
                 att(new VFXAction(new HeartBuffEffect(Empower.this.hb.cX, Empower.this.hb.cY)));
-                applyToSelfTop(new StrengthOverTurnsPower(magicNumber, effect));
+                applyToSelfTop(new StrengthOverTurnsPower(2, effect+magicNumber));
             }
             return true;
         }));

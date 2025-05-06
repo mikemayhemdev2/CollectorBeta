@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class Pyromancy extends AbstractCollectorCard {
     public final static String ID = makeID(Pyromancy.class.getSimpleName());
@@ -13,14 +13,15 @@ public class Pyromancy extends AbstractCollectorCard {
 
     public Pyromancy() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-        isPyre();
+        baseMagicNumber = magicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new CracklePower());
+        applyToSelf(new CracklePower(this.magicNumber));
     }
 
     public void upp() {
+//        upgradeMagicNumber(1);
         upgradeBaseCost(1);
     }
 }

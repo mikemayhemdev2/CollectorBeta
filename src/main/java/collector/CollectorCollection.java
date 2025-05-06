@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.cards.red.Barricade;
 import com.megacrit.cardcrawl.cards.red.Immolate;
 import com.megacrit.cardcrawl.cards.red.Inflame;
 import com.megacrit.cardcrawl.cards.red.Reaper;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,6 +39,9 @@ import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.monsters.ending.SpireSpear;
 import com.megacrit.cardcrawl.monsters.exordium.*;
+import com.megacrit.cardcrawl.relics.FrozenEgg2;
+import com.megacrit.cardcrawl.relics.MoltenEgg2;
+import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import downfall.monsters.*;
@@ -149,6 +153,8 @@ public class CollectorCollection {
         collectionPool.put(Champ.ID, LastStand.ID);
         collectionPool.put(Donu.ID, ShapePower.ID);
         collectionPool.put(Deca.ID, ShapePower.ID);
+
+        collectionPool.put(ApologySlime.ID, beginningCollectible.ID);//Apology slime isn't real, it cant hurt you.
     }
 
     public static AbstractCard getCollectedCard(AbstractMonster m) {
@@ -234,12 +240,33 @@ public class CollectorCollection {
         combatCollection = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     }
 
+    public static void probe(){
+        if (AbstractDungeon.actNum == 1){
+            if (AbstractDungeon.floorNum >= 1){
+                if (collection.group.isEmpty()) {
+                    AbstractCard spookyGhost = new beginningCollectible();
+                    AbstractCard spookyGhost2 = new beginningCollectible();
+
+                    CardModifierManager.addModifier(spookyGhost, new CollectedCardMod());
+                    CardModifierManager.addModifier(spookyGhost2, new CollectedCardMod());
+
+                    collection.group.add(spookyGhost.makeStatEquivalentCopy());//Floor 0 collected cards.
+                    collection.group.add(spookyGhost2.makeStatEquivalentCopy());
+                }
+            }
+        }
+        if (AbstractDungeon.floorNum >= 7)
+        {
+            CollectorCollection.collection.group.removeIf(c -> c instanceof beginningCollectible);
+        };
+    }
+
     public static void atBattleStart() {
         combatCollection.clear();
         for (AbstractCard q : collection.group) {
             combatCollection.addToTop(q.makeSameInstanceOf());
         }
-        combatCollection.shuffle(AbstractDungeon.shuffleRng);
+//        combatCollection.shuffle(AbstractDungeon.shuffleRng); No longer shuffled.
         ArrayList<AbstractCard> toTopdeck = new ArrayList<>();
         for (AbstractCard q : combatCollection.group) {
             if (CollectorBottleField.inCollectionBottle.get(q)) {
@@ -260,9 +287,19 @@ public class CollectorCollection {
         if (!collectedAlready.contains(m) && !m.id.equals(NeowBoss.ID)) {
             if (AbstractDungeon.getCurrRoom().rewards.stream().noneMatch(q -> q instanceof EssenceReward)) {
                 AbstractDungeon.getCurrRoom().rewards.add(new EssenceReward(getEssenceAmount(AbstractDungeon.getCurrRoom())));
-            }
+        }
 
-            AbstractDungeon.getCurrRoom().rewards.add(new CollectibleCardReward(getCollectedCard(m)));
+            AbstractCard c = getCollectedCard(m);
+            if (c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasRelic(ToxicEgg2.ID)){
+                c.upgrade();
+            }
+            if (c.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasRelic(MoltenEgg2.ID)){
+                c.upgrade();
+            }
+            if (c.type == AbstractCard.CardType.POWER && AbstractDungeon.player.hasRelic(FrozenEgg2.ID)){
+                c.upgrade();
+            }
+            AbstractDungeon.getCurrRoom().rewards.add(new CollectibleCardReward(c));
             collectedAlready.add(m);
         }
 

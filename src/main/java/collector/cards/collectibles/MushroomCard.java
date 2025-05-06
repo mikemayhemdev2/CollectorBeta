@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class MushroomCard extends AbstractCollectibleCard {
     public final static String ID = makeID(MushroomCard.class.getSimpleName());

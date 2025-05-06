@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class StrengthOverTurnsPower extends AbstractCollectorPower implements NonStackablePower {
     public static final String NAME = "StrengthOverTurns";

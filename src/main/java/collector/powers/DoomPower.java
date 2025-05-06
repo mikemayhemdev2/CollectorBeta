@@ -12,10 +12,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import theHexaghost.relics.CandleOfCauterizing;
 
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.isAfflicted;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.isAfflicted;
 
 public class DoomPower extends AbstractCollectorPower implements HealthBarRenderPower {
     public static final String NAME = "Doom";

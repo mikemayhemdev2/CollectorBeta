@@ -19,7 +19,7 @@
 //import gremlin.actions.PseudoDamageRandomEnemyAction;
 //import gremlin.relics.FragmentationGrenade;
 //
-//import static collector.util.Wiz.att;
+//import static utilityClasses.Wiz.att;
 //
 //public class ScorchingRayAction extends AbstractGameAction {
 //    private final AbstractCard card;

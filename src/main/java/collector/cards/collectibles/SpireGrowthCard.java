@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class SpireGrowthCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SpireGrowthCard.class.getSimpleName());

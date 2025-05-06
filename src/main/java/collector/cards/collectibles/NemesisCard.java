@@ -1,14 +1,12 @@
 package collector.cards.collectibles;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.getEnemies;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class NemesisCard extends AbstractCollectibleCard {
     public final static String ID = makeID(NemesisCard.class.getSimpleName());

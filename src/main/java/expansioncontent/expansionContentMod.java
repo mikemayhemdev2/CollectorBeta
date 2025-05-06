@@ -82,6 +82,8 @@ public class expansionContentMod implements
     public static AbstractCard.CardTags ECHO;
     @SpireEnum
     public static AbstractCard.CardTags UNPLAYABLE;
+    @SpireEnum
+    public static AbstractCard.CardTags KINDLING;
 
     public static boolean teleportToWheelTime = false;
     private static String modID;

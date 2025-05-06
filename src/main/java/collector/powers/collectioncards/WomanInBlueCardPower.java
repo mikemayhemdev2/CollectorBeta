@@ -1,12 +1,8 @@
 package collector.powers.collectioncards;
 
 import collector.powers.AbstractCollectorPower;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.PotionSlot;
-
-import static collector.util.Wiz.atb;
 
 public class WomanInBlueCardPower extends AbstractCollectorPower {
     public static final String NAME = "WomanInBlueCard";

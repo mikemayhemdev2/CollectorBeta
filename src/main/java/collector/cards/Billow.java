@@ -5,15 +5,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class Billow extends AbstractCollectorCard {
     public final static String ID = makeID(Billow.class.getSimpleName());
     // intellij stuff skill, self, common, , , 12, , 1, 1
 
     public Billow() {
-        super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 18;
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseBlock = 12;
         cardsToPreview = new Bellow();
     }
 
@@ -23,6 +23,6 @@ public class Billow extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(5);
+        upgradeBlock(4);
     }
 }

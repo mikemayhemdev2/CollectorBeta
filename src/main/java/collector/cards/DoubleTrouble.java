@@ -7,17 +7,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.atb;
 
 public class DoubleTrouble extends AbstractCollectorCard {
     public final static String ID = makeID(DoubleTrouble.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , 6, 3, , 
 
     public DoubleTrouble() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 6;
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        baseBlock = 9;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -27,6 +28,6 @@ public class DoubleTrouble extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(4);
     }
 }

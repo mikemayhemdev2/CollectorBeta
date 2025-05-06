@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import utilityClasses.DFL;
 
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 public class FeelMyPainPower extends AbstractCollectorPower {
     public static final String NAME = "FeelMyPain";
@@ -24,15 +25,9 @@ public class FeelMyPainPower extends AbstractCollectorPower {
         AbstractCreature damageSource = this.owner;
         int damageAmount = this.amount;
         flash();
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                AbstractMonster tar = AbstractDungeon.getRandomMonster();
-                if ( tar != null && !tar.isDeadOrEscaped() )
-                    att(new LoseHPAction(tar, damageSource, damageAmount));
-            }
-        });
+        for (AbstractMonster m : DFL.activeMonsterList()){
+            DFL.atb(new LoseHPAction(m, owner, this.amount));
+        }
     }
 
     @Override

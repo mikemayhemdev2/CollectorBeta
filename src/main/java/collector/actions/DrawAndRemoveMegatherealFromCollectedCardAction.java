@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 public class DrawAndRemoveMegatherealFromCollectedCardAction extends AbstractGameAction {
     public DrawAndRemoveMegatherealFromCollectedCardAction() {

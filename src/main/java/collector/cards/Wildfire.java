@@ -3,27 +3,25 @@ package collector.cards;
 
 import collector.powers.DoomPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class Wildfire extends AbstractCollectorCard {
     public final static String ID = makeID(Wildfire.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 16, 5, , , , 
 
     public Wildfire() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 4;
-
+        baseMagicNumber = magicNumber = 1;
+        isPyre();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,9 +29,16 @@ public class Wildfire extends AbstractCollectorCard {
             @Override
             public void update() {
                 isDone = true;
+                int count = 0;
                 for (AbstractPower q : m.powers) {
                     if (q.type == AbstractPower.PowerType.DEBUFF) {
                         dmg(m, AttackEffect.FIRE);
+                        count++;
+                    }
+                }
+                if (count >= 1){
+                    for (int j = 0; count > j; j++){
+                        DFL.atb(new ApplyPowerAction(m, p, new DoomPower(m, magicNumber), magicNumber));
                     }
                 }
             }
@@ -41,7 +46,8 @@ public class Wildfire extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
+        upgradeDamage(1);
+        upgradeMagicNumber(1);
     }
 
     @Override //zhs card text thing

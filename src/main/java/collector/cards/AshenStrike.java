@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.makeInHand;
 
 public class AshenStrike extends AbstractCollectorCard {
     public final static String ID = makeID(AshenStrike.class.getSimpleName());

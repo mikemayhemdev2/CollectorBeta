@@ -37,6 +37,7 @@ import javassist.CtClass;
 import javassist.Modifier;
 import javassist.NotFoundException;
 import org.clapper.util.classutil.*;
+import utilityClasses.Wiz;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -55,7 +56,7 @@ public class CollectorMod implements
         OnStartBattleSubscriber,
         PostBattleSubscriber,
         StartGameSubscriber,
-        PostDungeonUpdateSubscriber, PostRenderSubscriber {
+        PostDungeonUpdateSubscriber, PostRenderSubscriber, PreRoomRenderSubscriber {
     public static final String SHOULDER1 = "collectorResources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = "collectorResources/images/char/mainChar/shoulderR.png";
     public static final String CORPSE = "collectorResources/images/char/mainChar/corpse.png";
@@ -382,5 +383,10 @@ public class CollectorMod implements
             hoverRewardWorkaround.renderCardOnHover(sb);
             hoverRewardWorkaround = null;
         }
+    }
+
+    @Override
+    public void receivePreRoomRender(SpriteBatch spriteBatch) {
+        CollectorCollection.probe();//I belive this hook goes off after the init?.
     }
 }

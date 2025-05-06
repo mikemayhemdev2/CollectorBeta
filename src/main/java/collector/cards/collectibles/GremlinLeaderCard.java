@@ -13,7 +13,7 @@ import sneckomod.SneckoMod;
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.makeInHand;
 
 public class GremlinLeaderCard extends AbstractCollectibleCard {
     public final static String ID = makeID(GremlinLeaderCard.class.getSimpleName());

@@ -1,14 +1,11 @@
 package collector;
 
 import basemod.abstracts.CustomPlayer;
-import collector.cards.Defend;
-import collector.cards.FuelTheFire;
-import collector.cards.Strike;
-import collector.cards.YouAreMine;
+import collector.cards.*;
 import collector.relics.EmeraldTorch;
 import collector.util.DoubleEnergyOrb;
 import collector.util.RenderOnlyTorchHead;
-import collector.util.Wiz;
+import utilityClasses.Wiz;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -107,7 +104,7 @@ public class CollectorChar extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                65, 65, 0, 99, 5, this, getStartingRelics(),
+                75, 75, 0, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -120,7 +117,7 @@ public class CollectorChar extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(YouAreMine.ID);
+        retVal.add(Condemn.ID);
         retVal.add(FuelTheFire.ID);
         return retVal;
     }
@@ -155,7 +152,7 @@ public class CollectorChar extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 7;
+        return 5;
     }
 
     @Override

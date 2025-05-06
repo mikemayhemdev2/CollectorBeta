@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.makeInHand;
 
 public class SsserpentCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SsserpentCard.class.getSimpleName());

@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.forAllMonstersLiving;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class SentryCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SentryCard.class.getSimpleName());

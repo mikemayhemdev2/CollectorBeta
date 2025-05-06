@@ -5,12 +5,11 @@ import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.getEnemies;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.getEnemies;
 
 public class BearCard extends AbstractCollectibleCard {
     public final static String ID = makeID(BearCard.class.getSimpleName());

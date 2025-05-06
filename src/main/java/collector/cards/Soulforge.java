@@ -13,23 +13,29 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.att;
 
 public class Soulforge extends AbstractCollectorCard {
     public final static String ID = makeID(Soulforge.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , 8, 3, , 
 
     public Soulforge() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        baseBlock = 6;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardFromCollectionAction());
-        if (!CollectorCollection.combatCollection.isEmpty() || AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
+        blck();
+        for (int i = 0; i < this.magicNumber; i++){
+            atb(new DrawCardFromCollectionAction());
+        }
+        /*
+         if (!CollectorCollection.combatCollection.isEmpty() || AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
+
             for (int i = 0; i < magicNumber; i++)
                 atb(new AbstractGameAction() {
                     @Override
@@ -44,10 +50,12 @@ public class Soulforge extends AbstractCollectorCard {
                         }
                     }
                 });
-        }
+              }
+         */
     }
 
     public void upp() {
+        upgradeBlock(2);
         upgradeMagicNumber(1);
         uDesc();
     }

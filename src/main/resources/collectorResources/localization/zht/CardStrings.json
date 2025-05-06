@@ -82,7 +82,8 @@
   },
   "collector:DarkApotheosis": {
     "NAME": "Dark Apotheosis",
-    "DESCRIPTION": "Upgrade the Collected pile for the rest of combat. NL Exhaust."
+    "DESCRIPTION": "Upgrade the Collected pile for the rest of combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Upgrade the Collected pile for the rest of combat. NL Exhaust."
   },
   "collector:DarkLordForm": {
     "NAME": "Dark Lord Form",
@@ -335,7 +336,7 @@
   },
   "collector:ShadowDaggers": {
     "NAME": "Shadow Daggers",
-    "DESCRIPTION": "Deal !D! damage for each Collected card played this combat. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage for each unique *Collected card in the Exhaust pile. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Hits ",
       " time.)",

@@ -9,12 +9,13 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class TorchHeadPower extends AbstractCollectorPower implements NonStackablePower {
     public static final String NAME = "TorchHead";
@@ -54,8 +55,12 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && TempHPField.tempHp.get(owner) > 0) {
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (damageAmount > 0 && target != this.owner && info.type == DamageInfo.DamageType.NORMAL && (TempHPField.tempHp.get(owner) > 0 || owner.currentBlock >= 1)) {
+            //Attack hit target that is not owner
+            //Unblocked attack damage dealt
+            //Owner has block or temp hp.
+
             if (onAttackRandomDoom > 0 || onAttackAOE > 0 || onAttackBlock > 0 || onAttackPoison > 0 || onAttackDraw > 0) {
                 flash();
             }

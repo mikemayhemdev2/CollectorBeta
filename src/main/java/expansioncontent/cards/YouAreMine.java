@@ -5,7 +5,6 @@ import collector.powers.DoomPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,8 +13,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import expansioncontent.expansionContentMod;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.forAllMonstersLiving;
+import static utilityClasses.Wiz.forAllMonstersLiving;
 import static expansioncontent.expansionContentMod.loadJokeCardImage;
 
 public class YouAreMine extends AbstractExpansionCard {

@@ -1,14 +1,18 @@
 package collector.cards.collectibles;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import downfall.util.CardIgnore;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
+@NoCompendium @NoPools @CardIgnore @Deprecated
 public class NlothCard extends AbstractCollectibleCard {
     public final static String ID = makeID(NlothCard.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 

@@ -17,11 +17,14 @@
       "[Right Box] #gObtain #ga #gCursed #gKey #gor #gCalling #gBell. #rIt #ris #rextra #rCursed.",
       "[Chase Away] #gObtain #ga #bCurse-Dispelling #bCandle. #rLose #r5 #rHP.",
       "[Chase Away] Leave.",
-      "[Trade for Power] #gGain a #grandom #yRare #gcard. #rBecome #rCursed #r- #rRandom.",
-      "[Trade for Life] #gGain #g5 #gMax #gHP. #rBecome #rCursed #r- #rRandom.",
-      "[Trade for Souls] #gGain #g100 #gSouls. #rBecome #rCursed #r- #rRandom.",
+      "[Trade for Power] #gGain a #grandom #yUpgraded #yRare #gcard. #rBecome #pCursed #r- #rRandom.",
+      "[Trade for Life] #gGain #g14 #gMax #gHP. #rBecome #rCursed #r- #rRandom.",
+      "[Trade for Souls] #gGain #g225 #gSouls. #rBecome #rCursed #r- #rRandom.",
       "[Locked] Trade Complete.",
-      "[Leave]"
+      "[Leave]",
+      "[Trade for Life] #gGain #g10 #gMax #gHP. #rBecome #rCursed #r- #rRandom.",
+      "[Trade for Souls] #gGain #g200 #gSouls. #rBecome #rCursed #r- #rRandom.",
+      "[Trade for Power] #gGain a #grandom #yRare #gcard. #rBecome #rCursed #r- #rRandom."
     ]
   },
   "hexamod:SealChamber": {

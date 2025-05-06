@@ -25,7 +25,7 @@ public class ModeShiftPower extends AbstractGuardianPower {
     private static final int STARTING_AMOUNT = 20;
     private static final int AMOUNT_GAIN_PER_ACTIVATION = 10;
     private static final int MAX_AMOUNT = 50;
-    private static final int BLOCK_ON_TRIGGER = 16;
+    public static final int BLOCK_ON_TRIGGER = 16;
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static String[] DESCRIPTIONS;
     private AbstractCreature source;

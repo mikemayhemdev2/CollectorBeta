@@ -5,6 +5,7 @@ import collector.cardmods.ActuallyCollectedCardMod;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class OmenPower extends AbstractCollectorPower {
     public static final String NAME = "Omen";
@@ -19,7 +20,7 @@ public class OmenPower extends AbstractCollectorPower {
     public void onAfterCardPlayed(AbstractCard card) {
         if (CardModifierManager.hasModifier(card, ActuallyCollectedCardMod.ID)) {
             this.flash();
-            applyToSelf(new StrengthPower(owner, amount));
+            applyToSelf(new ThornsPower(owner, amount));
         }
     }
 

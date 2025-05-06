@@ -13,7 +13,7 @@ import sneckomod.SneckoMod;
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 public class Forgery extends AbstractCollectorCard {
     public final static String ID = makeID(Forgery.class.getSimpleName());
@@ -21,7 +21,7 @@ public class Forgery extends AbstractCollectorCard {
 
     public Forgery() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 8;
+        baseDamage = 9;
         baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -42,7 +42,7 @@ public class Forgery extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(3);
+//        upgradeMagicNumber(1);
     }
 }

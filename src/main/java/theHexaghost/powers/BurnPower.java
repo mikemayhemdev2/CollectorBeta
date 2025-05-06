@@ -24,8 +24,7 @@ import theHexaghost.HexaMod;
 import theHexaghost.relics.CandleOfCauterizing;
 import theHexaghost.vfx.ExplosionSmallEffectGreen;
 
-import static collector.util.Wiz.applyToEnemy;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.atb;
 
 public class BurnPower extends TwoAmountPower implements CloneablePowerInterface, HealthBarRenderPower {
 

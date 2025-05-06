@@ -20,7 +20,7 @@ import theHexaghost.TheHexaghost;
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 public class ReceiveTribute extends AbstractCollectorCard {
     public final static String ID = makeID(ReceiveTribute.class.getSimpleName());
@@ -28,7 +28,7 @@ public class ReceiveTribute extends AbstractCollectorCard {
 
     public ReceiveTribute() {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
         isPyre();
         exhaust = true;
         tags.add(CardTags.HEALING);
@@ -42,6 +42,7 @@ public class ReceiveTribute extends AbstractCollectorCard {
             for (AbstractCard q : CardLibrary.getAllCards()) {
                 if (q.rarity != AbstractCard.CardRarity.SPECIAL && q.hasTag(expansionContentMod.STUDY) && !q.hasTag(AbstractCard.CardTags.HEALING)) {
 
+                    /*
                     if (AbstractDungeon.player instanceof SlimeboundCharacter) {
                         if (q.hasTag(expansionContentMod.STUDY_SLIMEBOSS)){continue;}
                     } else if (AbstractDungeon.player instanceof TheHexaghost) {
@@ -54,7 +55,8 @@ public class ReceiveTribute extends AbstractCollectorCard {
                         if(q.hasTag(expansionContentMod.STUDY_AUTOMATON)){continue;}
                     } else if (AbstractDungeon.player instanceof CollectorChar) {
                         if(q.hasTag(expansionContentMod.STUDY_COLLECTOR)){continue;}
-                    }
+                    }Too mungus and not listed on the card! what if I wanted a whirling flame and thought I was just getting unlucky!!!
+                     */
 
                     AbstractCard r = q.makeCopy();
                     possibilities.add(r);

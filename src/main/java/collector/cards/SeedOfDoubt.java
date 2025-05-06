@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.GiantEyeEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.applyToEnemy;
 
 public class SeedOfDoubt extends AbstractCollectorCard implements OnOtherCardExhaustInHand {
     public final static String ID = makeID(SeedOfDoubt.class.getSimpleName());
@@ -18,7 +18,7 @@ public class SeedOfDoubt extends AbstractCollectorCard implements OnOtherCardExh
 
     public SeedOfDoubt() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 4;
         baseSecondMagic = secondMagic = 1;
     }
 

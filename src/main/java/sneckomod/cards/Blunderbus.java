@@ -1,7 +1,7 @@
 package sneckomod.cards;
 
 import basemod.ReflectionHacks;
-import collector.util.Wiz;
+import utilityClasses.Wiz;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -26,7 +26,6 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import downfall.util.TextureLoader;
-import hermit.patches.EnumPatch;
 import sneckomod.SneckoMod;
 
 public class Blunderbus extends AbstractSneckoCard {

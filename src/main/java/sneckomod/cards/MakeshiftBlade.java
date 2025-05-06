@@ -1,31 +1,18 @@
 package sneckomod.cards;
 
-import automaton.cards.Undervolt;
-import collector.cards.Billow;
-import collector.cards.CursedWail;
-import collector.cards.IllTakeThat;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.green.Choke;
-import com.megacrit.cardcrawl.cards.green.PiercingWail;
-import com.megacrit.cardcrawl.cards.purple.TalkToTheHand;
-import com.megacrit.cardcrawl.cards.red.Disarm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.FrozenEgg2;
-import com.megacrit.cardcrawl.relics.MoltenEgg2;
-import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
-import slimebound.cards.TongueLash;
-import sneckomod.SneckoMod;
-import sneckomod.relics.UnknownEgg;
+import sneckomod.SneckoMod;;
 
 import java.util.ArrayList;
 

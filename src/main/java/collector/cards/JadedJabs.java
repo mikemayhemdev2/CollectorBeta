@@ -6,20 +6,21 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hermit.util.Wiz;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
     public final static String ID = makeID(JadedJabs.class.getSimpleName());
     // intellij stuff attack, enemy, common, 10, 2, , , , 
+    Shiv thisShiv = new Shiv();
 
     public JadedJabs() {
-        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 15;
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 7;
         baseMagicNumber = magicNumber = 1;
-        cardsToPreview = new Shiv();
+
+        cardsToPreview = thisShiv;
         isPyre();
     }
 
@@ -28,6 +29,9 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
         AbstractCard q = new Shiv();
+        if (this.upgraded){
+            q.upgrade();
+        }
         makeInHand(q, magicNumber);
         atb(new AbstractGameAction() {
             @Override
@@ -47,7 +51,8 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(4);
+        thisShiv.upgrade();
+        uDesc();
     }
 }

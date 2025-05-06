@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToSelf;
+import static utilityClasses.Wiz.applyToSelf;
 
 public class GiantHeadCardStageOne extends AbstractCollectibleCard {
     public final static String ID = makeID(GiantHeadCardStageOne.class.getSimpleName());

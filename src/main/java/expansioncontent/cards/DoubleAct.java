@@ -1,24 +1,12 @@
 package expansioncontent.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
-import downfall.actions.OctoChoiceAction;
-import downfall.cards.OctoChoiceCard;
-import downfall.util.OctopusCard;
 import expansioncontent.expansionContentMod;
 
-import static collector.util.Wiz.applyToEnemy;
 import static expansioncontent.expansionContentMod.loadJokeCardImage;
-
-import java.util.ArrayList;
 
 public class DoubleAct extends AbstractExpansionCard{
     public final static String ID = makeID("DoubleAct");

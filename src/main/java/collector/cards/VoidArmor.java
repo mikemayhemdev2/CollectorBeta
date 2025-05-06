@@ -11,7 +11,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class VoidArmor extends AbstractCollectorCard {
     public final static String ID = makeID(VoidArmor.class.getSimpleName());
@@ -19,7 +19,7 @@ public class VoidArmor extends AbstractCollectorCard {
 
     public VoidArmor() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL);
-        baseBlock = 10;
+        baseBlock = 8;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,7 +30,7 @@ public class VoidArmor extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(2);
     }
 
     @SpirePatch(clz= MonsterGroup.class, method="applyPreTurnLogic")

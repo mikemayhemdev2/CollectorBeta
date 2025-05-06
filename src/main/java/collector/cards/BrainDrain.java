@@ -11,15 +11,15 @@ import com.megacrit.cardcrawl.vfx.combat.LightBulbEffect;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.atb;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.makeInHand;
 
 public class BrainDrain extends AbstractCollectorCard {
     public final static String ID = makeID(BrainDrain.class.getSimpleName());
     // intellij stuff skill, enemy, uncommon, , , , , , 
 
     public BrainDrain() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         exhaust = true;
         baseMagicNumber = magicNumber = 6;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
@@ -33,8 +33,12 @@ public class BrainDrain extends AbstractCollectorCard {
             this.addToBot(new VFXAction(new LightBulbEffect(m.hb), 0.2F));
         }
         AbstractCard q = CollectorCollection.getCollectedCard(m);
-        if (upgraded)
+        if (upgraded) {
             q.upgrade();
+        }
+        q.cost = 0;
+        q.costForTurn = 0;
+        q.isCostModified = (q.makeCopy().cost != 0);
         makeInHand(q);
     }
 

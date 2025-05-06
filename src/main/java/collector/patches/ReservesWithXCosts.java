@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.CtBehavior;
 
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 @SpirePatch(
         clz = AbstractPlayer.class,

@@ -10,16 +10,16 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.applyToEnemyTop;
-import static collector.util.Wiz.atb;
+import static utilityClasses.Wiz.applyToEnemyTop;
+import static utilityClasses.Wiz.atb;
 
 public class Goodbye extends AbstractCollectorCard {
     public final static String ID = makeID(Goodbye.class.getSimpleName());
     // intellij stuff skill, enemy, rare, , , , , 2, 1
 
     public Goodbye() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 1;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 2;
         exhaust = true;
     }
 
@@ -41,6 +41,6 @@ public class Goodbye extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        upgradeBaseCost(0);
     }
 }

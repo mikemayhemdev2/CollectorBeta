@@ -5,6 +5,7 @@ import basemod.helpers.CardModifierManager;
 import collector.cardmods.PyreMod;
 import collector.cards.OnPyreCard;
 import collector.powers.OnPyrePower;
+import collector.relics.OnPyreRelic;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -15,8 +16,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import static collector.util.Wiz.att;
+import static utilityClasses.Wiz.att;
 
 @SpirePatch(clz = AbstractPlayer.class, method = "useCard")
 public class PyreAdditionalCostPatch {
@@ -31,6 +33,11 @@ public class PyreAdditionalCostPatch {
                         for (AbstractPower pow : AbstractDungeon.player.powers) {
                             if (pow instanceof OnPyrePower) {
                                 ((OnPyrePower) pow).onPyre(cards.get(0));
+                            }
+                        }
+                        for (AbstractRelic rel : AbstractDungeon.player.relics){
+                            if (rel instanceof OnPyreRelic){
+                                ((OnPyreRelic) rel).onPyre(cards.get(0));
                             }
                         }
                         if (c instanceof OnPyreCard)

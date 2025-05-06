@@ -118,7 +118,7 @@
   },
   "Guardian:SphericShield": {
     "NAME": "Spheric Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Enter guardianmod:Defensive *Mode. NL Exhaust."
+    "DESCRIPTION": "Enter guardianmod:Defensive *Mode, gaining 16 Block. NL Exhaust."
   },
   "Guardian:Harden": {
     "NAME": "Harden",

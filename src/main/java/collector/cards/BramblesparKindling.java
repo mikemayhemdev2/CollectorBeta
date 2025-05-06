@@ -1,13 +1,12 @@
 package collector.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
-import static collector.util.Wiz.makeInHand;
+import static utilityClasses.Wiz.makeInHand;
 
 public class BramblesparKindling extends AbstractCollectorCard {
     public final static String ID = makeID(BramblesparKindling.class.getSimpleName());
@@ -15,7 +14,10 @@ public class BramblesparKindling extends AbstractCollectorCard {
 
     public BramblesparKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
+        this.selfRetain = true;
         cardsToPreview = new BurningStrike();
+        tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

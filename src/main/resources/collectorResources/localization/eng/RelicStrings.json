@@ -6,14 +6,16 @@
       "Start each combat with #b1 #ycollector:Reserve."
     ]
   },
+
   "collector:PrismaticTorch": {
     "NAME": "Prismatic Torch",
     "FLAVOR": "The ever-changing flames reflect fortune's favor.",
     "DESCRIPTIONS": [
       "Replaces ",
-      "[] [REMOVE_SPACE]. At the start of each combat, add an #yEmber into your hand and gain #b1 #ycollector:Reserve. The first time you #yExhaust an #yEmber each turn, gain #b1 #ycollector:Reserve [REMOVE_SPACE]."
+      "[] [REMOVE_SPACE]. At the start of each combat, add an #yEmber+ into your hand. The first time you #yExhaust a #ycollector:Kindling each turn, gain #b1 #ycollector:Reserve [REMOVE_SPACE]."
     ]
   },
+
   "collector:HolidayCoal": {
     "NAME": "Krampian Coal",
     "FLAVOR": "\"Intriguing! But why only specific chimneys?\" - Ranwid",
@@ -21,6 +23,7 @@
       "When you would draw from an empty Collected pile, add a #yLucky #yWick to your hand."
     ]
   },
+
   "collector:BagOfTricks": {
     "NAME": "Bag of Tricks",
     "FLAVOR": "Tricky.",
@@ -29,6 +32,7 @@
       " Collected cards."
     ]
   },
+
   "collector:JadeRing": {
     "NAME": "Jade Ring",
     "FLAVOR": "Jade is the symbol of honesty.",
@@ -37,21 +41,24 @@
       " more damage from #ycollector:Doom [REMOVE_SPACE]."
     ]
   },
+
   "collector:SoullitLamp": {
     "NAME": "Soul-lit Lamp",
     "FLAVOR": "A ghoulish decoration. The crackles of fire are replaced by buzzing wails.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b3 #yEssence [REMOVE_SPACE]. At the start of combat, add an #yEmber into your hand."
+      "When you #yExhaust a card apply #b1 #yhexamod:Soulburn to ALL enemies."
     ]
   },
+
   "collector:ThimbleHelm": {
     "NAME": "Thimble Helm",
     "FLAVOR": "Worn by the Spire's miniest heroes.",
     "DESCRIPTIONS": [
       "Start each combat with #b",
-      " #yTemporary_HP [REMOVE_SPACE]. While you have #yTemporary_HP [REMOVE_SPACE], cards grant #b1 additional #yBlock [REMOVE_SPACE]."
+      " #yTemporary_HP [REMOVE_SPACE]. When you collector:Pyre a card, gain #b1 Temporary HP."
     ]
   },
+
   "collector:Incense": {
     "NAME": "Incense",
     "FLAVOR": "An antiquated form of mental clarification.",
@@ -59,6 +66,7 @@
       "You cannot gain #yWeak [REMOVE_SPACE], #yVulnerable or #yFrail while you are #yWeak [REMOVE_SPACE], #yVulnerable or #yFrail [REMOVE_SPACE]."
     ]
   },
+
   "collector:FuelCanister": {
     "NAME": "Fuel Canister",
     "FLAVOR": "Disgusting.",
@@ -66,6 +74,7 @@
       "At the end of your turn, #yRetain the lowest-cost card in your hand."
     ]
   },
+
   "collector:AutoCurser": {
     "NAME": "Hexx Talisman",
     "FLAVOR": "\"When I put this on, my rate of toe-stubbing increased drastically. I think it works!\" - Ranwid",
@@ -73,6 +82,7 @@
       "At the start of combat, apply #b1 #yWeak and #yVulnerable to a random enemy."
     ]
   },
+
   "collector:Bagpipes": {
     "NAME": "The Bagpipes",
     "FLAVOR": "This dreaded instrument is said to have driven Kublai the Great mad.",
@@ -80,6 +90,7 @@
       "Whenever you apply new #yWeak or #yVulnerable to an enemy, increase the amount applied by #b1 [REMOVE_SPACE]."
     ]
   },
+
   "collector:BottledCollectible": {
     "NAME": "Bottled Brain",
     "FLAVOR": "Collected from a wizard's laboratory.",
@@ -90,6 +101,7 @@
       "Select a card to bottle for "
     ]
   },
+
   "collector:TheContract": {
     "NAME": "The Contract",
     "FLAVOR": "Sign in blood.",
@@ -97,6 +109,7 @@
       "Upon pickup, gain #b10 #yEssence [REMOVE_SPACE]."
     ]
   },
+
   "collector:ForbiddenFruit": {
     "NAME": "Forbidden Fruit",
     "FLAVOR": "This species of fruit looks completely unfamiliar.",
@@ -107,6 +120,7 @@
       "Choose a Common card to add to your deck."
     ]
   },
+
   "collector:RoughDiamond": {
     "NAME": "Rough Diamond",
     "FLAVOR": "With the mines demolished, even this tarnished stone is valuable.",
@@ -115,11 +129,12 @@
       "Knowledge!"
     ]
   },
+
   "collector:BlockedChakra": {
     "NAME": "Blocked Chakra",
     "FLAVOR": "One pulled muscle is all it takes.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. You don't draw from your Collected pile until your 4th turn."
+      "Gain [E] at the start of your turn. You don't draw from your Collected pile at the start of your turn."
     ]
   }
 }

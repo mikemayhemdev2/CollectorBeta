@@ -3,6 +3,7 @@ package slimebound.relics;
 import automaton.cards.goodstatus.IntoTheVoid;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.EvolvePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import downfall.util.TextureLoader;
+import utilityClasses.DFL;
 
 public class StickyStick extends CustomRelic {
     public static final String ID = "Slimebound:StickyStick";
@@ -21,7 +23,7 @@ public class StickyStick extends CustomRelic {
     //Gelatinous Cube
     public StickyStick() {
         super(ID, new Texture(slimebound.SlimeboundMod.getResourcePath(IMG_PATH)), new Texture(slimebound.SlimeboundMod.getResourcePath(OUTLINE_IMG_PATH)),
-                RelicTier.RARE, LandingSound.SOLID);
+                RelicTier.UNCOMMON, LandingSound.SOLID);
         this.largeImg = TextureLoader.getTexture(slimebound.SlimeboundMod.getResourcePath(IMG_PATH_LARGE));
 
     }
@@ -32,23 +34,26 @@ public class StickyStick extends CustomRelic {
     }
 
     public void onCardDraw(AbstractCard card) {
-        if (this.counter == 2) {
-            this.grayscale = true;
-            return;
-        }
+//        if (this.counter == 2) {
+ //           this.grayscale = true;
+//            return;
+//        }
+ //       if (this.counter < 3) {
 
-        if (this.counter < 3) {
             if (card.type == AbstractCard.CardType.STATUS || card.type == AbstractCard.CardType.CURSE) {
-                this.flash();
-                ++this.counter;
-                //this.addToTop(new ExhaustSpecificCardAction(card,AbstractDungeon.player.hand));
-                this.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
-                if (card.cardID.equals(VoidCard.ID) || card.cardID.equals(IntoTheVoid.ID)) {
-                    this.flash();
-                    this.addToTop(new GainEnergyAction(1));
-                }
+//                this.flash();
+//                ++this.counter;
+                addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
+                addToTop(new AddTemporaryHPAction(DFL.pl(), DFL.pl(), 1));
             }
-        }
+//                this.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
+//                if (card.cardID.equals(VoidCard.ID) || card.cardID.equals(IntoTheVoid.ID)) {
+//                    this.flash();
+//                    this.addToTop(new GainEnergyAction(1));
+//                }
+//            }
+
+//        }
     }
 
     public void atTurnStart() {
