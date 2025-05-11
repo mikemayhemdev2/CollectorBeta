@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
-import sneckomod.SneckoMod;;
+import sneckomod.SneckoMod;
 
 import java.util.ArrayList;
 

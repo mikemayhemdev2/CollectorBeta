@@ -51,7 +51,8 @@
     "TEXT": [
       "Collected: ",
       "You may obtain this",
-      "Choose a Collected card to remove, then gain 5 Souls."
+      "Choose a card to remove. Gain 5 Souls if it is not a ",
+      "."
     ]
   },
   "collector:HoardedMod": {
