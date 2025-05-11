@@ -14,7 +14,7 @@ import sneckomod.SneckoMod;
 import java.util.ArrayList;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.makeInHand;
+import static utilityClasses.Wiz.*;
 
 public class TorchHeadCard extends AbstractCollectibleCard {
     public final static String ID = makeID(TorchHeadCard.class.getSimpleName());

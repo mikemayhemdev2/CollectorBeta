@@ -1,12 +1,14 @@
 package collector.cards.collectibles;
 
+import collector.actions.DrawAllShapesFromCollectionAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import sneckomod.SneckoMod;
 
+import static collector.CollectorMod.SHAPESWARM;
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.*;
 
 public class SpikerCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SpikerCard.class.getSimpleName());
@@ -14,15 +16,19 @@ public class SpikerCard extends AbstractCollectibleCard {
 
     public SpikerCard() {
         super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
-        this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(SHAPESWARM);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new ThornsPower(p, magicNumber));
+        applyToSelf(new ThornsPower(p, p.hand.size()));
     }
 
+
+    @Override
+    public void triggerWhenDrawn() {
+        atb(new DrawAllShapesFromCollectionAction());
+    }
     public void upp() {
-        upgradeMagicNumber(3);
+        upgradeBaseCost(0);
     }
 }

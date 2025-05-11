@@ -21,7 +21,7 @@ public class BottledCollectible extends CustomRelic implements CustomBottleRelic
     private static final String IMG_PATH = BottledCollectible.class.getSimpleName() + ".png";
     private static final String OUTLINE_IMG_PATH = BottledCollectible.class.getSimpleName() + ".png";
 
-    private static AbstractCard card;
+    public static AbstractCard card;
     private boolean cardSelected = true;
 
     private int idxToLoad = -1;

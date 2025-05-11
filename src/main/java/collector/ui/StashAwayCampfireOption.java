@@ -1,4 +1,6 @@
+/*
 package collector.ui;
+
 
 import basemod.ReflectionHacks;
 import collector.CollectorCollection;
@@ -73,3 +75,6 @@ public class StashAwayCampfireOption extends AbstractCampfireOption {
         super.update();
     }
 }
+
+
+ */

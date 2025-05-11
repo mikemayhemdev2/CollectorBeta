@@ -33,7 +33,7 @@ public class beginningCollectible  extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(40);
-        upgradeMagicNumber(403);
+        upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 }

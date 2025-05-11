@@ -49,7 +49,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import downfall.cards.MajorBeam;
 import downfall.cards.curses.Sapped;
 import collector.util.CollectibleCardReward;
-import collector.util.EssenceReward;
+//import collector.util.EssenceReward;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -620,7 +620,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             return new RewardSave(reward.type.toString(), s);
         });
 
-        BaseMod.registerCustomReward(RewardItemTypeEnumPatch.COLLECTOR_ESSENCE, (rewardSave) -> new EssenceReward(rewardSave.amount), (customReward) -> new RewardSave(customReward.type.toString(), null, customReward instanceof EssenceReward ? ((EssenceReward) customReward).amount : 0, 0));
+        //BaseMod.registerCustomReward(RewardItemTypeEnumPatch.COLLECTOR_ESSENCE, (rewardSave) -> new EssenceReward(rewardSave.amount), (customReward) -> new RewardSave(customReward.type.toString(), null, customReward instanceof EssenceReward ? ((EssenceReward) customReward).amount : 0, 0));
 
         //Guardian
         BaseMod.registerCustomReward(RewardItemTypeEnumPatch.GEM, (rewardSave) -> { //on load

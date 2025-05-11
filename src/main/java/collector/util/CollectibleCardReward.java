@@ -2,14 +2,18 @@ package collector.util;
 
 import basemod.abstracts.CustomReward;
 import basemod.helpers.CardModifierManager;
+import collector.CollectorCollection;
 import collector.CollectorMod;
 import collector.cardmods.CollectedCardMod;
-import collector.patches.EssencePatches.TopPanelEssence;
+//import collector.patches.EssencePatches.TopPanelEssence;
+import collector.patches.CollectorBottleField;
+import collector.relics.BottledCollectible;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,7 +23,10 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import downfall.downfallMod;
 import downfall.patches.RewardItemTypeEnumPatch;
 
 import static collector.CollectorMod.makeID;
@@ -38,6 +45,9 @@ public class CollectibleCardReward extends CustomReward {
     protected static final float REWARD_X_POS = Settings.WIDTH * 0.434F;
     public AbstractCard card;
     protected AbstractCard renderCard;
+
+    private boolean removedCard = false;
+
 
     public CollectibleCardReward(AbstractCard c) {
         super((Texture) null, "", RewardItemTypeEnumPatch.COLLECTOR_COLLECTIBLECARDREWARD);
@@ -64,13 +74,39 @@ public class CollectibleCardReward extends CustomReward {
 
     @Override
     public boolean claimReward() {
-        if (EssenceSystem.essenceCount() >= 3) {
-            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
-            EssenceSystem.changeEssence(-3);
+        if (removedCard){
+            this.hb.clicked = true;
+            this.isDone = true;
             return true;
-        } else {
-            return false;
+
         }
+
+            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
+            if (CollectorCollection.collection.size() > CollectorCollection.MaxCollectionSize - 1) {
+                if (AbstractDungeon.isScreenUp) {
+                    AbstractDungeon.dynamicBanner.hide();
+                    AbstractDungeon.overlayMenu.cancelButton.hide();
+                    AbstractDungeon.previousScreen = AbstractDungeon.screen;
+                }
+
+                CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+                for (AbstractCard col : CollectorCollection.collection.group) {
+                    if (col != card){
+                        if (!CollectorBottleField.inCollectionBottle.get(col)){
+                            tmp.addToTop(col);
+                        }
+                    }
+                }
+
+                AbstractDungeon.gridSelectScreen.open(tmp, 1, uiStrings.TEXT[2], false, false, false, true);
+            } else {
+
+                this.hb.clicked = true;
+                this.isDone = true;
+                return true;
+            }
+        return false;
     }
 
     @Override
@@ -79,8 +115,25 @@ public class CollectibleCardReward extends CustomReward {
             CardCrawlGame.sound.playA("UI_CLICK_1", 0.25f);
             CardCrawlGame.cardPopup.open(card);
         }
+        if (AbstractDungeon.isScreenUp) {
+            if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+
+                AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+                AbstractDungeon.effectsQueue.add(new PurgeCardEffect(c));
+                CollectorCollection.collection.removeCard(c);
+                AbstractDungeon.player.gainGold(5);
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+
+                removedCard = true;
+                claimReward();
+
+            }
+        }
+
+
         super.update();
     }
+
 
     @Override
     public void render(SpriteBatch sb) {
@@ -124,13 +177,16 @@ public class CollectibleCardReward extends CustomReward {
 
         hb.render(sb);
 
+        /*
         sb.draw(TopPanelEssence.ICON, GOLD_IMG_X + 5.0F * Settings.scale, this.y - 30.0F * Settings.scale, GOLD_IMG_SIZE, GOLD_IMG_SIZE);
         Color c = Color.WHITE.cpy();
         if (EssenceSystem.essenceCount() < 3) {
             c = Color.SALMON.cpy();
         }
         FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, Integer.toString(3), GOLD_TEXT_X, this.y , 1000.0F * Settings.scale, 0.0F, c);
+    */
     }
+
 
     //Due to reward scrolling's orthographic camera and render order of rewards, the card needs to be rendered outside of the render method
     public void renderCardOnHover(SpriteBatch sb) {

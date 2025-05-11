@@ -1,3 +1,4 @@
+/*
 package collector.patches;
 
 import basemod.ReflectionHacks;
@@ -28,3 +29,5 @@ public class EssenceOnCharacterSelect {
         return (float)ReflectionHacks.getPrivate(__instance, CharacterOption.class, fieldName);
     }
 }
+
+ */

@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToEnemy;
-import static utilityClasses.Wiz.forAllMonstersLiving;
+import static utilityClasses.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class LagavulinCard extends AbstractCollectibleCard {
     public final static String ID = makeID(LagavulinCard.class.getSimpleName());
@@ -17,6 +17,7 @@ public class LagavulinCard extends AbstractCollectibleCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.*;
 
 public class DarklingsCard extends AbstractCollectibleCard {
     public final static String ID = makeID(DarklingsCard.class.getSimpleName());
@@ -22,6 +22,7 @@ public class DarklingsCard extends AbstractCollectibleCard {
         isPyre();
         baseDamage = 8;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

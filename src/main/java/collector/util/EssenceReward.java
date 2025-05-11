@@ -1,3 +1,4 @@
+/*
 package collector.util;
 
 import basemod.abstracts.CustomReward;
@@ -24,3 +25,5 @@ public class EssenceReward extends CustomReward {
         return true;
     }
 }
+
+ */
