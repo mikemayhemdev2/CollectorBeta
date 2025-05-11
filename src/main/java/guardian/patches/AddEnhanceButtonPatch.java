@@ -1,4 +1,6 @@
 package guardian.patches;
+import collector.CollectorChar;
+import collector.CollectorCollection;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -35,10 +37,11 @@ public class AddEnhanceButtonPatch {
                 relicActive = AbstractDungeon.player.getRelic(PickAxe.ID).counter != -2;
                 ___buttons.add(new FindGemsOption(relicActive));
             }
-
-//            if (AbstractDungeon.player instanceof CollectorChar || !CollectorCollection.collection.isEmpty()) {
-//                ___buttons.add(new StashAwayCampfireOption());
-//            }
+            /*
+            if (AbstractDungeon.player instanceof CollectorChar || !CollectorCollection.collection.isEmpty()) {
+                ___buttons.add(new StashAwayCampfireOption());
+            }
+             */
         }
     }
 

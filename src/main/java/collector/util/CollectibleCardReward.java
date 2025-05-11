@@ -104,14 +104,15 @@ public class CollectibleCardReward extends CustomReward {
                 CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
                 for (AbstractCard col : CollectorCollection.collection.group) {
-                    if (col != card){
+                    //if (col != card){
                         if (!CollectorBottleField.inCollectionBottle.get(col)){
                             tmp.addToTop(col);
                         }
-                    }
+                   // }
                 }
+                tmp.addToTop(card);
 
-                AbstractDungeon.gridSelectScreen.open(tmp, 1, uiStrings.TEXT[2], false, false, false, true);
+                AbstractDungeon.gridSelectScreen.open(tmp, 1, uiStrings.TEXT[2] + card.name + uiStrings.TEXT[3], false, false, false, true);
             } else {
 
                 this.hb.clicked = true;
@@ -133,7 +134,7 @@ public class CollectibleCardReward extends CustomReward {
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
                 AbstractDungeon.effectsQueue.add(new PurgeCardEffect(c));
                 CollectorCollection.collection.removeCard(c);
-                AbstractDungeon.player.gainGold(5);
+                if (c.name != card.name) AbstractDungeon.player.gainGold(5);
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
 
                 removedCard = true;

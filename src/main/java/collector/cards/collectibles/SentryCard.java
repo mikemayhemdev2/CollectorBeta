@@ -1,10 +1,12 @@
 package collector.cards.collectibles;
 
+import collector.CollectorMod;
 import collector.powers.collectioncards.SentryPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -45,5 +47,15 @@ public class SentryCard extends AbstractCollectibleCard {
     public void upp() {
         upgradeDamage(3);
         //upgradeMagicNumber(1);
+    }
+
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (AbstractDungeon.player.hasPower(SentryPower.POWER_ID)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
+            return;
+        }
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
     }
 }
