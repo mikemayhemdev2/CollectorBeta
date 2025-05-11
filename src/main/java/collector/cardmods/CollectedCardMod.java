@@ -15,14 +15,14 @@ public class CollectedCardMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        //hadExhaust = card.exhaust;
+        //hadExhaust = card.exhaust; - Collectibles no longer default to exhausting on play.
         //card.exhaust = true;
         CardModifierManager.addModifier(card, new ActuallyCollectedCardMod());
     }
 
     @Override
     public void onRemove(AbstractCard card) {
-       // card.exhaust = hadExhaust;
+        //card.exhaust = hadExhaust;
     }
 
     @Override

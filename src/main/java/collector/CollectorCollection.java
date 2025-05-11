@@ -11,6 +11,8 @@ import charbosses.monsters.*;
 import collector.cardmods.CollectedCardMod;
 import collector.cards.collectibles.*;
 import collector.patches.CollectorBottleField;
+import collector.ui.ExcessPileRemoveEffect;
+import collector.ui.StashAwayCampfireEffect;
 import collector.util.CollectibleCardReward;
 //import collector.util.EssenceReward;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -313,6 +315,12 @@ public class CollectorCollection {
             collectedAlready.add(m);
         }
 
+    }
+
+    @Deprecated
+    public void overflow(){//Do not use. Replaced by better effect.
+        ExcessPileRemoveEffect ePRE = new ExcessPileRemoveEffect();
+        AbstractDungeon.effectList.add(ePRE);
     }
 
     private static int getEssenceAmount(AbstractRoom room) {

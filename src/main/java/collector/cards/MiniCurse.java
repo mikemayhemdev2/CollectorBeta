@@ -21,7 +21,7 @@ public class MiniCurse extends AbstractCollectorCard implements OnPyreCard {
     // intellij stuff skill, enemy, uncommon, , , , , , 
 
     public MiniCurse() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         isPyre();
         this.baseMagicNumber = this.magicNumber = 2;
     }
@@ -45,8 +45,9 @@ public class MiniCurse extends AbstractCollectorCard implements OnPyreCard {
 
     public void upp() {
 //        target = CardTarget.ALL_ENEMY;
-        upgradeMagicNumber(1);
-//        uDesc();
+//        upgradeMagicNumber(1);
+        this.target = CardTarget.ENEMY;
+        uDesc();
     }
 
     @Override

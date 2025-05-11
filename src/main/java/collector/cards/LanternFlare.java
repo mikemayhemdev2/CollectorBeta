@@ -20,7 +20,7 @@ public class LanternFlare extends AbstractCollectorCard {
     public LanternFlare() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 12;
-        baseSecondMagic = secondMagic = 4;
+        baseSecondMagic = secondMagic = 3;
         isPyre();
     }
 

@@ -14,10 +14,11 @@ public class SapStrength extends AbstractCollectorCard {
     public final static String ID = makeID(SapStrength.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 24, 8, , , , 
 
-    public SapStrength() {
+    public SapStrength() {//Current name - Blighted Strike.
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 2;
+        this.tags.add(CardTags.STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

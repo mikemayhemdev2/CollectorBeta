@@ -180,6 +180,14 @@
     "NAME": "Gourmand's Gaze",
     "DESCRIPTION": "Deal !D! damage. NL If you played a collector:Collected card this turn, gain !B! Block."
   },
+
+
+
+  "collector:Hurting": {
+    "NAME": "Hurting",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting+."
+  },
   "collector:GreaterHurting": {
     "NAME": "Greater Hurting",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greatest *Hurting.",
@@ -189,6 +197,9 @@
     "NAME": "Greatest Hurting",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain an *Ember."
   },
+
+
+
   "collector:GreenpyreLocus": {
     "NAME": "Greenpyre Locus",
     "DESCRIPTION": "Choose 1 of 3 Collected cards to add into your hand. Add !M! copies of it into your Collected pile.",
@@ -207,11 +218,6 @@
   "collector:HoardersStrike": {
     "NAME": "Hoarder's Strike",
     "DESCRIPTION": "Deal !D! damage. NL Play the top card of your Collected pile."
-  },
-  "collector:Hurting": {
-    "NAME": "Hurting",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting+."
   },
   "collector:IllTakeThat": {
     "NAME": "I'll Take That",

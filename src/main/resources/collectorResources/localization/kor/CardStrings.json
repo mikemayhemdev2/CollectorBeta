@@ -188,6 +188,15 @@
     "NAME": "심각한 아픔",
     "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *불씨를 얻습니다."
   },
+  "collector:GreaterHurting2": {
+    "NAME": "심한 아픔",
+    "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심각한 *아픔을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심각한 *아픔+을 얻습니다."
+  },
+  "collector:GreatestHurting2": {
+    "NAME": "심각한 아픔",
+    "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *불씨를 얻습니다."
+  },
   "collector:GreenpyreLocus": {
     "NAME": "머무는 녹색 불꽃",
     "DESCRIPTION": "collector:수집품 카드 3장 중 1장을 선택해 얻습니다. NL *수집품 카드 더미에 그 카드를 !M! 장 복사해 섞어 넣습니다.",
@@ -208,6 +217,11 @@
     "DESCRIPTION": "피해를 !D! 줍니다. NL 수집품 카드 더미 맨 위에 있는 카드를 사용합니다."
   },
   "collector:Hurting": {
+    "NAME": "아픔",
+    "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심한 *아픔을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심한 *아픔+을 얻습니다."
+  },
+  "collector:Hurting2": {
     "NAME": "아픔",
     "DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심한 *아픔을 얻습니다.",
     "UPGRADE_DESCRIPTION": "휘발성. NL 피해를 !D! 줍니다. NL 이 카드 소멸 시 *심한 *아픔+을 얻습니다."

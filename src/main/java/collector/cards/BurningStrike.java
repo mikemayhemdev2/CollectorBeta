@@ -13,7 +13,7 @@ public class BurningStrike extends AbstractCollectorCard {
 
     public BurningStrike() {
         super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
-        baseDamage = 10;
+        baseDamage = 12;
         baseMagicNumber = magicNumber = 2;
         tags.add(CardTags.STRIKE);
     }

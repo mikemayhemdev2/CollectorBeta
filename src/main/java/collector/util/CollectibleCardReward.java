@@ -72,13 +72,25 @@ public class CollectibleCardReward extends CustomReward {
         TIP_COL.a = 0.65f;
     }
 
+  /*
+      @Override
+    public boolean claimReward() {// Old Version!
+        if (EssenceSystem.essenceCount() >= 2) {
+            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
+            EssenceSystem.changeEssence(-2);
+            return true;
+        } else {
+            return false;
+        }
+    }
+  */
+  
     @Override
     public boolean claimReward() {
         if (removedCard){
             this.hb.clicked = true;
             this.isDone = true;
             return true;
-
         }
 
             AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
@@ -180,7 +192,7 @@ public class CollectibleCardReward extends CustomReward {
         /*
         sb.draw(TopPanelEssence.ICON, GOLD_IMG_X + 5.0F * Settings.scale, this.y - 30.0F * Settings.scale, GOLD_IMG_SIZE, GOLD_IMG_SIZE);
         Color c = Color.WHITE.cpy();
-        if (EssenceSystem.essenceCount() < 3) {
+        if (EssenceSystem.essenceCount() < 2) {
             c = Color.SALMON.cpy();
         }
         FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, Integer.toString(3), GOLD_TEXT_X, this.y , 1000.0F * Settings.scale, 0.0F, c);

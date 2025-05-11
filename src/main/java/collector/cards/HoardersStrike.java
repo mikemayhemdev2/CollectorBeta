@@ -18,8 +18,8 @@ public class HoardersStrike extends AbstractCollectorCard {
     // intellij stuff attack, enemy, rare, 12, 5, , , , 
 
     public HoardersStrike() {
-        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 11;
+        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 14;
         tags.add(CardTags.STRIKE);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -41,6 +41,6 @@ public class HoardersStrike extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
     }
 }

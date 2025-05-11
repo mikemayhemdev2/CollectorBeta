@@ -3,6 +3,7 @@ package collector.powers;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -13,7 +14,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import utilityClasses.DFL;
 
 import static utilityClasses.Wiz.*;
 
@@ -96,7 +99,7 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
             }
 
             if (onAttackDraw > 0) {
-                atb(new DrawCardAction(onAttackDraw));
+                atb(new ApplyPowerAction(DFL.pl(), DFL.pl(), new DrawCardNextTurnPower(DFL.pl(), onAttackDraw), onAttackDraw));
             }
         }
     }

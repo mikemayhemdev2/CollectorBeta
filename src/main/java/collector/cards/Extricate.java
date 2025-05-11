@@ -17,7 +17,7 @@ public class Extricate extends AbstractCollectorCard {
 
     public Extricate() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 15;
+        baseDamage = 16;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,7 +28,7 @@ public class Extricate extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(6);
     }
 
 }
