@@ -9,7 +9,6 @@ import basemod.interfaces.*;
 import collector.cardmods.CollectedCardMod;
 import collector.cards.*;
 import collector.patches.CollectiblesPatches.CollectibleCardColorEnumPatch;
-import collector.patches.EssencePatches.TopPanelEssence;
 import collector.patches.ExtraDeckButtonPatches.TopPanelExtraDeck;
 import collector.potions.DebuffDoublePotion;
 import collector.potions.MiniCursePotion;
@@ -22,6 +21,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.widepotions.WidePotionsMod;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardSave;
@@ -29,6 +29,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import downfall.downfallMod;
@@ -82,7 +84,21 @@ public class CollectorMod implements
     private CustomUnlockBundle unlocks4;
     public static Color COLLECTIBLE_CARD_COLOR = CardHelper.getColor(13, 158, 153);
     public static TopPanelExtraDeck extraDeckPanel;
-    public static TopPanelEssence essencePanel;
+    //public static TopPanelEssence essencePanel;
+
+    @SpireEnum
+    public static com.megacrit.cardcrawl.cards.AbstractCard.CardTags SHAPESWARM;
+    @SpireEnum
+    public static com.megacrit.cardcrawl.cards.AbstractCard.CardTags GREMLINGANG;
+
+
+    public static boolean redPlayedThisCombat;
+    public static boolean taskPlayedThisCombat;
+    public static boolean bluePlayedThisCombat;
+    public static boolean slaversActivated;
+    public static boolean bearPlayedThisCombat;
+    public static boolean romeoPlayedThisCombat;
+    public static boolean pointyPlayedThisCombat;
 
 
 
@@ -214,7 +230,7 @@ public class CollectorMod implements
     public void receivePostInitialize() {
         addPotions();
         initializeSavedData();
-        essencePanel = new TopPanelEssence();
+        //essencePanel = new TopPanelEssence();
         extraDeckPanel = new TopPanelExtraDeck();
     }
 
@@ -232,6 +248,14 @@ public class CollectorMod implements
             if (((CollectorChar) AbstractDungeon.player).torchHead == null)
                 ((CollectorChar) AbstractDungeon.player).torchHead = new RenderOnlyTorchHead();
         }
+
+        redPlayedThisCombat = false;
+        taskPlayedThisCombat = false;
+        bluePlayedThisCombat = false;
+        bearPlayedThisCombat = false;
+        romeoPlayedThisCombat = false;
+        pointyPlayedThisCombat = false;
+        slaversActivated = false;
     }
 
     @Override
@@ -310,17 +334,17 @@ public class CollectorMod implements
     public void receiveStartGame() {
         if (!CardCrawlGame.loadingSave) {
             CollectorCollection.init();
-            EssenceSystem.resetEssence();
+            //EssenceSystem.resetEssence();
         }
         combatCollectionPileButton = new CombatCollectionPileButton();
         NewReserves.resetReserves();
 
         if (AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR)) {
             BaseMod.addTopPanelItem(extraDeckPanel);
-            BaseMod.addTopPanelItem(essencePanel);
+            //BaseMod.addTopPanelItem(essencePanel);
         } else {
         	BaseMod.removeTopPanelItem(extraDeckPanel);
-            BaseMod.removeTopPanelItem(essencePanel);
+          //  BaseMod.removeTopPanelItem(essencePanel);
         }
     }
 
@@ -360,6 +384,7 @@ public class CollectorMod implements
             }
         });
 
+        /*
         BaseMod.addSaveField("CollectorEssences", new CustomSavable<Integer>() {
             @Override
             public Integer onSave() {
@@ -371,8 +396,14 @@ public class CollectorMod implements
                 if (integer != null)
                     EssenceSystem.setEssence(integer);
             }
-        });
+        }
+
+         */
+
+
     }
+
+
 
     //Due to reward scrolling's orthographic camera and render order of rewards, the card needs to be rendered outside of the render method
     public static CollectibleCardReward hoverRewardWorkaround;
@@ -388,5 +419,34 @@ public class CollectorMod implements
     @Override
     public void receivePreRoomRender(SpriteBatch spriteBatch) {
         CollectorCollection.probe();//I belive this hook goes off after the init?.
+    }
+
+
+   public static boolean banditBoost(int whichBandit) {
+   return banditBoost(whichBandit);
+   }
+    public static boolean banditBoost(int whichBandit, boolean forCardGlow){
+        switch (whichBandit) {
+            case 0:
+                if (!forCardGlow) bearPlayedThisCombat = true;
+                return (romeoPlayedThisCombat || pointyPlayedThisCombat);
+            case 1:
+                if (!forCardGlow) romeoPlayedThisCombat = true;
+                return (bearPlayedThisCombat || pointyPlayedThisCombat);
+            case 2:
+                if (!forCardGlow) pointyPlayedThisCombat = true;
+                return (romeoPlayedThisCombat || bearPlayedThisCombat);
+        }
+        return false;
+    }
+
+    public static void slaverTrioCheck() {
+        if (!slaversActivated) {
+            if (redPlayedThisCombat && bluePlayedThisCombat && taskPlayedThisCombat) {
+                slaversActivated = true;
+                Wiz.applyToSelf(new StrengthPower(AbstractDungeon.player, 2));
+                Wiz.applyToSelf(new DexterityPower(AbstractDungeon.player, 2));
+            }
+        }
     }
 }

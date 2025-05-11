@@ -8,6 +8,7 @@ public abstract class AbstractCollectibleCard extends AbstractCollectorCard {
     public AbstractCollectibleCard(String cardID, int cost, CardType type, CardRarity rarity, CardTarget target) {
         this(cardID, cost, type, rarity, target, CollectibleCardColorEnumPatch.CardColorPatch.COLLECTIBLE);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+
     }
 
 

@@ -13,25 +13,24 @@ import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
 
-public class SnakePlantCard extends AbstractCollectibleCard {
-    public final static String ID = makeID(SnakePlantCard.class.getSimpleName());
+public class EnragedCenturion extends AbstractCollectibleCard {
+    public final static String ID = makeID(EnragedCenturion.class.getSimpleName());
     // intellij stuff attack, enemy, common, 7, 2, , , ,
 
-    public SnakePlantCard() {
+    public EnragedCenturion() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        baseDamage = 10;
+        baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < 3; i++) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX + MathUtils.random(-50.0F, 50.0F) * Settings.scale, m.hb.cY + MathUtils.random(-50.0F, 50.0F) * Settings.scale, Color.CHARTREUSE.cpy()), 0.2F));
-            dmg(m, AbstractGameAction.AttackEffect.NONE);
+            dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
         }
     }
 
     public void upp() {
-        upgradeDamage(2);
+        upgradeMagicNumber(1);
     }
 }

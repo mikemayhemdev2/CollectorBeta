@@ -16,7 +16,6 @@ public class RanwidCard extends AbstractCollectibleCard {
     public RanwidCard() {
         super(ID, 1, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

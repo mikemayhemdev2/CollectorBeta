@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToSelf;
+import static utilityClasses.Wiz.*;
 
 public class SpireSpearCard extends AbstractCollectibleCard {
     public final static String ID = makeID(SpireSpearCard.class.getSimpleName());

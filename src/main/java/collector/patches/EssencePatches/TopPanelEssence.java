@@ -1,3 +1,4 @@
+/*
 package collector.patches.EssencePatches;
 
 import basemod.TopPanelItem;
@@ -33,6 +34,7 @@ public class TopPanelEssence extends TopPanelItem {
         return false;
     }
 
+
     @Override
     public void render(SpriteBatch sb) {
         if (AbstractDungeon.player.chosenClass == CollectorChar.Enums.THE_COLLECTOR) {
@@ -49,3 +51,6 @@ public class TopPanelEssence extends TopPanelItem {
 
     }
 }
+
+
+ */

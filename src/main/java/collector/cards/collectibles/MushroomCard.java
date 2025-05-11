@@ -1,5 +1,6 @@
 package collector.cards.collectibles;
 
+import collector.powers.collectioncards.MushroomDamagePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,7 +10,8 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToEnemy;
+import static utilityClasses.Wiz.*;
+import static utilityClasses.Wiz.*;
 
 public class MushroomCard extends AbstractCollectibleCard {
     public final static String ID = makeID(MushroomCard.class.getSimpleName());
@@ -17,8 +19,8 @@ public class MushroomCard extends AbstractCollectibleCard {
 
     public MushroomCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 5;
-        baseMagicNumber = magicNumber = 3;
+        baseDamage = 1;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -29,10 +31,23 @@ public class MushroomCard extends AbstractCollectibleCard {
         } else {
             applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
         }
+        applyToSelf(new MushroomDamagePower(magicNumber));
     }
 
+
+    public void applyPowers() {
+        if (AbstractDungeon.player.hasPower(MushroomDamagePower.POWER_ID)){
+            this.baseDamage = 1 + AbstractDungeon.player.getPower(MushroomDamagePower.POWER_ID).amount;
+            this.isDamageModified = true;
+        } else {
+            this.baseDamage = 1;
+        }
+        super.applyPowers();
+    }
+
+
     public void upp() {
-        upgradeDamage(1);
-        upgradeMagicNumber(1);
+        upgradeDamage(3);
+       // upgradeMagicNumber(1);
     }
 }

@@ -3,8 +3,6 @@ package collector.cardmods;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,8 +27,4 @@ public class ActuallyCollectedCardMod extends AbstractCardModifier {
         return !CardModifierManager.hasModifier(card, ID);
     }
 
-    @Override
-    public List<String> extraDescriptors(AbstractCard card) {
-        return Arrays.asList(CollectedCardMod.uiStrings.TEXT[1]);
-    }
 }

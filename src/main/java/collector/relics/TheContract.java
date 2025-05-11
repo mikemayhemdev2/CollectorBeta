@@ -2,7 +2,7 @@ package collector.relics;
 
 import basemod.abstracts.CustomRelic;
 import collector.CollectorMod;
-import collector.util.EssenceSystem;
+//import collector.util.EssenceSystem;
 import downfall.util.TextureLoader;
 
 public class TheContract extends CustomRelic {
@@ -16,7 +16,8 @@ public class TheContract extends CustomRelic {
 
     @Override
     public void onEquip() {
-        EssenceSystem.changeEssence(10);
+        //TODO - rework this.
+        //EssenceSystem.changeEssence(10);
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
+import static utilityClasses.Wiz.*;
 
 public class WrithingMassCard extends AbstractCollectibleCard {
     public final static String ID = makeID(WrithingMassCard.class.getSimpleName());
@@ -18,6 +18,7 @@ public class WrithingMassCard extends AbstractCollectibleCard {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

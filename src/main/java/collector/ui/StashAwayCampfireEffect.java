@@ -1,3 +1,4 @@
+/*
 package collector.ui;
 
 import collector.CollectorCollection;
@@ -111,3 +112,6 @@ public class StashAwayCampfireEffect extends com.megacrit.cardcrawl.vfx.Abstract
     public void dispose() {
     }
 }
+
+
+ */

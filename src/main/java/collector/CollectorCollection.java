@@ -14,7 +14,7 @@ import collector.patches.CollectorBottleField;
 import collector.ui.ExcessPileRemoveEffect;
 import collector.ui.StashAwayCampfireEffect;
 import collector.util.CollectibleCardReward;
-import collector.util.EssenceReward;
+//import collector.util.EssenceReward;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Buffer;
@@ -62,6 +62,8 @@ public class CollectorCollection {
     public static CardGroup combatCollection;
     public static HashMap<String, String> collectionPool;
 
+    public static int MaxCollectionSize = 5;
+
     private static ArrayList<AbstractMonster> collectedAlready = new ArrayList<>();
 
     static {
@@ -98,7 +100,7 @@ public class CollectorCollection {
         collectionPool.put(OrbWalker.ID, OrbWalkerCard.ID);
         collectionPool.put(Spiker.ID, SpikerCard.ID);
         collectionPool.put(Repulsor.ID, RepulsorCard.ID);
-        collectionPool.put(Exploder.ID, TheBomb.ID);
+        collectionPool.put(Exploder.ID, ExploderCard.ID);
         collectionPool.put(Maw.ID, MawCard.ID);
         collectionPool.put(WrithingMass.ID, WrithingMassCard.ID);
         collectionPool.put(SpireGrowth.ID, SpireGrowthCard.ID);
@@ -257,10 +259,13 @@ public class CollectorCollection {
                 }
             }
         }
+        /*
         if (AbstractDungeon.floorNum >= 7)
         {
             CollectorCollection.collection.group.removeIf(c -> c instanceof beginningCollectible);
         };
+
+         */
     }
 
     public static void atBattleStart() {
@@ -286,10 +291,15 @@ public class CollectorCollection {
     }
 
     public static void collect(AbstractMonster m) {
+
         if (!collectedAlready.contains(m) && !m.id.equals(NeowBoss.ID)) {
+
+            /*
             if (AbstractDungeon.getCurrRoom().rewards.stream().noneMatch(q -> q instanceof EssenceReward)) {
                 AbstractDungeon.getCurrRoom().rewards.add(new EssenceReward(getEssenceAmount(AbstractDungeon.getCurrRoom())));
         }
+
+             */
 
             AbstractCard c = getCollectedCard(m);
             if (c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasRelic(ToxicEgg2.ID)){

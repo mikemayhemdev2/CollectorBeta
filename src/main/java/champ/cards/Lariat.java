@@ -9,7 +9,7 @@ import static champ.ChampMod.loadJokeCardImage;
 
 public class Lariat extends AbstractChampCard {
     public final static String ID = makeID("Lariat");
-
+//test
     public Lariat() {
         super(ID, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = 5;

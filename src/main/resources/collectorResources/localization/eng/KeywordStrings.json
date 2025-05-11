@@ -58,5 +58,45 @@
       "fueled"
     ],
     "DESCRIPTION": "This effect will occur if you use a #yKindling when exhausting a card through #yPyre [REMOVE_SPACE]."
+  },
+  {
+    "PROPER_NAME": "Bandit Boost",
+    "NAMES": [
+      "bandit boost",
+      "bandit_boost"
+    ],
+    "DESCRIPTION": "Bonus effect which triggers if you have played a different Bandit Boost card this combat."
+  },
+  {
+    "PROPER_NAME": "Shape Swarm",
+    "NAMES": [
+      "shape swarm",
+      "shape_swarm"
+    ],
+    "DESCRIPTION": "When drawn, draw as many more Shape Swarm cards from your Collection as possible."
+  },
+  {
+    "PROPER_NAME": "Gremlin Gang",
+    "NAMES": [
+      "gremlin gang",
+      "gremlin_gang"
+    ],
+    "DESCRIPTION": "When you next play a different Gremlin Gang card this combat, play a copy of this."
+  },
+  {
+    "PROPER_NAME": "Slaver Trio",
+    "NAMES": [
+      "slaver trio",
+      "slaver_trio"
+    ],
+    "DESCRIPTION": "Once per combat, if you play all 3 unique Slaver Trio cards, gain 2 Strength and Dexterity."
+  },
+  {
+    "PROPER_NAME": "Fungal Bloom",
+    "NAMES": [
+      "fungal bloom",
+      "fungal_bloom"
+    ],
+    "DESCRIPTION": "Increases the damage dealt by Mushroom cards this combat."
   }
 ]

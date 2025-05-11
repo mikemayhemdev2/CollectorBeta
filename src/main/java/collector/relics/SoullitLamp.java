@@ -4,7 +4,7 @@ import basemod.abstracts.CustomRelic;
 import basemod.helpers.CardPowerTip;
 import collector.CollectorMod;
 import collector.cards.Ember;
-import collector.util.EssenceSystem;
+//import collector.util.EssenceSystem;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

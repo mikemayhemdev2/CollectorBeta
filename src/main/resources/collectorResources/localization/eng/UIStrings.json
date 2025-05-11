@@ -18,7 +18,7 @@
   "collector:CollectionUITopPanel": {
     "TEXT": [
       "Collection",
-      "View all cards in your Collection.",
+      "View all cards in your Collection. You can have up to 5 Collected cards. Gaining one after the 5th will require you to remove one of your current Collected cards.",
       "These cards start in your Collected pile each combat."
     ]
   },
@@ -47,16 +47,11 @@
       "To play this card, pay the additional cost of Exhausting cards from your hand."
     ]
   },
-  "collector:CollectedCardMod": {
-    "TEXT": [
-      "collector:Megathereal. NL ",
-      "Collected"
-    ]
-  },
   "collector:CollectibleCardReward": {
     "TEXT": [
       "Collected: ",
-      "You may obtain this"
+      "You may obtain this",
+      "Choose a Collected card to remove, then gain 5 Souls."
     ]
   },
   "collector:HoardedMod": {
