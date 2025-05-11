@@ -13,7 +13,7 @@ public class SpireShieldCard extends AbstractCollectibleCard {
     // intellij stuff power, self, rare, , , , , 3, 1
 
     public SpireShieldCard() {
-        super(ID, 0, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }

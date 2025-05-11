@@ -19,8 +19,8 @@ public class GremlinWizardCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 10, 5
 
     public GremlinWizardCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 4;
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 5;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }
@@ -32,7 +32,7 @@ public class GremlinWizardCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(4);
+        upgradeMagicNumber(3);
     }
 
 

@@ -18,8 +18,8 @@ public class BonfireSpiritsCard extends AbstractCollectibleCard implements OnPyr
     // intellij stuff skill, self, uncommon, , , , , 4, 2
 
     public BonfireSpiritsCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 2;
         isPyre();
         tags.add(CardTags.HEALING);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);

@@ -1,8 +1,4 @@
 package guardian.patches;
-
-import collector.CollectorChar;
-import collector.CollectorCollection;
-import collector.ui.StashAwayCampfireOption;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,8 +10,6 @@ import guardian.relics.PickAxe;
 import guardian.ui.EnhanceBonfireOption;
 import guardian.ui.FindGemsOption;
 import javassist.CtBehavior;
-import sneckomod.TheSnecko;
-import sneckomod.relics.UnknownEgg;
 
 
 import java.util.ArrayList;
@@ -42,9 +36,9 @@ public class AddEnhanceButtonPatch {
                 ___buttons.add(new FindGemsOption(relicActive));
             }
 
-            if (AbstractDungeon.player instanceof CollectorChar || !CollectorCollection.collection.isEmpty()) {
-                ___buttons.add(new StashAwayCampfireOption());
-            }
+//            if (AbstractDungeon.player instanceof CollectorChar || !CollectorCollection.collection.isEmpty()) {
+//                ___buttons.add(new StashAwayCampfireOption());
+//            }
         }
     }
 

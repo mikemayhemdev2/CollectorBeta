@@ -14,7 +14,7 @@ public class SneckoCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 3, 2
 
     public SneckoCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -25,6 +25,6 @@ public class SneckoCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
     }
 }

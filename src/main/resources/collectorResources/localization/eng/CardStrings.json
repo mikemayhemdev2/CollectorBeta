@@ -81,8 +81,8 @@
   },
   "collector:DarkApotheosis": {
     "NAME": "Dark Apotheosis",
-    "DESCRIPTION": "Upgrade the Collected pile for the rest of combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Upgrade the Collected pile for the rest of combat. NL Exhaust."
+    "DESCRIPTION": "Upgrade your Collected cards for the rest of combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Upgrade your Collected cards for the rest of combat. NL Exhaust."
   },
   "collector:DarkLordForm": {
     "NAME": "Dark Lord Form",
@@ -254,8 +254,8 @@
   },
   "collector:Invigorate": {
     "NAME": "Flash",
-    "DESCRIPTION": "collector:Pyre. NL Choose *Trip or *Blind to gain. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Choose *Trip+ or *Blind+ to gain. NL Exhaust.",
+    "DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable or apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable or apply !M! Weak.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand."
     ]
@@ -475,7 +475,7 @@
   },
   "collector:BronzeOrbCard": {
     "NAME": "Bronze Orb",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Reduce the cost of a *Hyperbeam by 1."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Reduce the cost of your *Large *Beams by 1 this combat."
   },
   "collector:ByrdCard": {
     "NAME": "Byrd",
@@ -607,7 +607,7 @@
   "collector:NemesisCard": {
     "NAME": "Nemesis",
     "DESCRIPTION": "Gain 1 Intangible. NL Insert 2 *Burns. NL Exhaust.",
-    "DESCRIPTION": "Gain 1 Intangible. NL Insert 1 *Burn. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Insert 1 *Burn. NL Exhaust."
   },
   "collector:NlothCard": {
     "NAME": "N'Loth",
@@ -723,7 +723,7 @@
   },
   "collector:VagrantCard": {
     "NAME": "Vagrant",
-    "DESCRIPTION": "Gain !M! collector:Reserve. NL Add a *Shame to the top of your draw pile."
+    "DESCRIPTION": "Gain !M! collector:Reserve. NL Add a *Shame to the top of your draw pile. NL Exhaust."
   },
   "collector:WomanInBlueCard": {
     "NAME": "Woman in Blue",

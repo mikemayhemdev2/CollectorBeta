@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import expansioncontent.expansionContentMod;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
@@ -20,9 +21,11 @@ public class MysticCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 6, 2
 
     public MysticCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 4;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
         cardsToPreview = new EnragedCenturion();
     }
 

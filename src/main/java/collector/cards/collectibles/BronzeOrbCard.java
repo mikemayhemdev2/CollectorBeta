@@ -1,6 +1,9 @@
 package collector.cards.collectibles;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import collector.CollectorCollection;
+import collector.cards.GreaterHurting2;
+import collector.cards.GreatestHurting2;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +12,7 @@ import com.megacrit.cardcrawl.cards.blue.Hyperbeam;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import expansioncontent.cards.HyperBeam;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
@@ -19,16 +23,31 @@ public class BronzeOrbCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, uncommon, 5, 2, 5, 2, , 
 
     public BronzeOrbCard() {
-        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 4;
-        baseBlock = 4;
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 6;
+        baseBlock = 5;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        MultiCardPreview.add(this, new Hyperbeam(), new HyperBeam(), new automaton.cards.HyperBeam());
     }
 
     public boolean searchPile(CardGroup cardsToSearch) {
 
         for (AbstractCard c : cardsToSearch.group) {
-            if (c instanceof Hyperbeam && c.cost > 0) {
+            if (c instanceof Hyperbeam && c.cost > 0) {//Defect one
+                c.updateCost(-1);
+                return true;
+            }
+        }
+
+        for (AbstractCard c : cardsToSearch.group) {
+            if (c instanceof HyperBeam && c.cost > 0) {//Auto one from boss pool
+                c.updateCost(-1);
+                return true;
+            }
+        }
+
+        for (AbstractCard c : cardsToSearch.group) {
+            if (c instanceof automaton.cards.HyperBeam && c.cost > 0) {//The other auto one, it drops from act 2 boss.
                 c.updateCost(-1);
                 return true;
             }
@@ -57,7 +76,7 @@ public class BronzeOrbCard extends AbstractCollectibleCard {
 
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeBlock(2);
+        upgradeDamage(3);
+        upgradeBlock(3);
     }
 }
