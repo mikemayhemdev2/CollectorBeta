@@ -20,8 +20,8 @@ public class MadGremlinCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 2, 2
 
     public MadGremlinCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 5;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }

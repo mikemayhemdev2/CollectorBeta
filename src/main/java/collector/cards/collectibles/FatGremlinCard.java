@@ -21,9 +21,9 @@ public class FatGremlinCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, common, 4, 1, , , 2, 1
 
     public FatGremlinCard() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 4;
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }
@@ -35,8 +35,8 @@ public class FatGremlinCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(1);
-        upgradeMagicNumber(1);
+        upgradeDamage(3);
+//        upgradeMagicNumber(1);
     }
 
 

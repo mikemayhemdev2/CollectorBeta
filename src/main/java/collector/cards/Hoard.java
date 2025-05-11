@@ -18,12 +18,13 @@ public class Hoard extends AbstractCollectorCard {
     public Hoard() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 2;
-        isPyre();
+        //isPyre();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
-    /*new AbstractGameAction() {
+
+    new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
@@ -32,11 +33,13 @@ public class Hoard extends AbstractCollectorCard {
                     PropertiesMod mod = new PropertiesMod();
                     if (!q.selfRetain)
                         mod.addProperty(PropertiesMod.supportedProperties.RETAIN, true);
-                    if (!mod.bonusPropertiesForThisTurn.isEmpty())
+                    if (!mod.bonusPropertiesForThisTurn.isEmpty()){
                         CardModifierManager.addModifier(q, mod);
+                    }
                 }
             }
-        }));*/
+        };
+
     }
 
     public void upp() {

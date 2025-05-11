@@ -1,7 +1,5 @@
 /*
 package collector.ui;
-
-
 import basemod.ReflectionHacks;
 import collector.CollectorCollection;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -75,6 +73,4 @@ public class StashAwayCampfireOption extends AbstractCampfireOption {
         super.update();
     }
 }
-
-
  */

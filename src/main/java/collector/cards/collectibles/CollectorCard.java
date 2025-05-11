@@ -17,9 +17,9 @@ public class CollectorCard extends AbstractCollectibleCard {
     // intellij stuff skill, self_and_enemy, rare, , , , , 1, 1
 
     public CollectorCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 3;
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 2;
+        baseSecondMagic = secondMagic = 5;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -32,6 +32,6 @@ public class CollectorCard extends AbstractCollectibleCard {
 
     public void upp() {
         upgradeMagicNumber(1);
-        upgradeSecondMagic(2);
+        upgradeSecondMagic(3);
     }
 }
