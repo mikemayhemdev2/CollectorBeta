@@ -15,7 +15,7 @@ public class Whomp extends AbstractCollectorCard {
     public Whomp() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 12;
-        baseMagicNumber = magicNumber = 12;
+        baseMagicNumber = magicNumber = 10;
         exhaust = true;
     }
 

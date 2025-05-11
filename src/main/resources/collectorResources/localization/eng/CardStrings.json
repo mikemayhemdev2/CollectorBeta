@@ -190,9 +190,35 @@
     "DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom.",
     "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom. NL Repeat if target is collector:Afflicted."
   },
+
+
+
+
+
+  "collector:Hurting2": {
+    "NAME": "Hurting",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting+."
+  },
+  "collector:GreaterHurting2": {
+    "NAME": "Greater Hurting",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greatest *Hurting.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greatest *Hurting+."
+  },
+  "collector:GreatestHurting2": {
+    "NAME": "Greatest Hurting",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Hurting.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Hurting+."
+  },
+
+
+
+
+
   "collector:GreenpyreLocus": {
     "NAME": "Greenpyre Locus",
-    "DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand. Add 2 copies of it into your Collected pile.",
+    "DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand and Collected Pile.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand and !clm2! copies in your Collected Pile",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand."
     ]
@@ -269,7 +295,7 @@
   },
   "collector:MiniCurse": {
     "NAME": "Mega-Curse",
-    "DESCRIPTION": "collector:Pyre. NL collector:Fueled - Apply !M! Weak and Vulnerable to ALL enemies.",
+    "DESCRIPTION": "collector:Pyre. NL collector:Fueled - Apply !M! Weak and Vulnerable.",
     "UPGRADE_DESCRIPTION": "collector:Pyre. NL collector:Fueled - Apply !M! Weak and Vulnerable to ALL enemies."
   },
   "collector:Misdirect": {
@@ -282,7 +308,8 @@
   },
   "collector:OakbrimKindling": {
     "NAME": "Oakbrim Kindling",
-    "DESCRIPTION": "collector:Kindling. NL Draw !M! cards.",
+    "DESCRIPTION": "collector:Kindling. NL Draw !M! card. NL Draw !clm2! card next turn.",
+    "UPGRADE_DESCRIPTION": "collector:Kindling. NL Draw !M! cards. NL Draw !clm2! card next turn.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."
     ]
@@ -323,7 +350,7 @@
     ]
   },
   "collector:SapStrength": {
-    "NAME": "Deathmark",
+    "NAME": "Blighted Strike",
     "DESCRIPTION": "Deal !D! damage. NL Repeat !M! times if the target is collector:Afflicted."
   },
   "collector:ScorchingRay": {
@@ -384,7 +411,7 @@
   },
   "collector:SunbloomKindling": {
     "NAME": "Sunbloom Kindling",
-    "DESCRIPTION": "collector:Kindling. NL Gain !M! Strength and add !clm2! *Embers into your hand.",
+    "DESCRIPTION": "collector:Kindling. NL Gain !M! Strength next turn and add !clm2! *Embers into your hand.",
     "EXTENDED_DESCRIPTION": [
       "I must burn this kindling to use it."
     ]
@@ -480,7 +507,7 @@
   },
   "collector:DesignerInSpireCard": {
     "NAME": "Designer-In-Spire",
-    "DESCRIPTION": "Gain !M! expansioncontent:Temp_HP. NL collector:Torchhead gains \"Draw 1 card.\""
+    "DESCRIPTION": "Gain !M! expansioncontent:Temp_HP. NL collector:Torchhead gains \"Draw 1 card next turn.\""
   },
   "collector:FinalBossCard": {
     "NAME": "Endgame",

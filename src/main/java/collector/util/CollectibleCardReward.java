@@ -2,6 +2,7 @@ package collector.util;
 
 import basemod.abstracts.CustomReward;
 import basemod.helpers.CardModifierManager;
+import collector.CollectorCollection;
 import collector.CollectorMod;
 import collector.cardmods.CollectedCardMod;
 import collector.patches.EssencePatches.TopPanelEssence;
@@ -64,9 +65,9 @@ public class CollectibleCardReward extends CustomReward {
 
     @Override
     public boolean claimReward() {
-        if (EssenceSystem.essenceCount() >= 3) {
+        if (EssenceSystem.essenceCount() >= 2) {
             AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
-            EssenceSystem.changeEssence(-3);
+            EssenceSystem.changeEssence(-2);
             return true;
         } else {
             return false;
@@ -126,7 +127,7 @@ public class CollectibleCardReward extends CustomReward {
 
         sb.draw(TopPanelEssence.ICON, GOLD_IMG_X + 5.0F * Settings.scale, this.y - 30.0F * Settings.scale, GOLD_IMG_SIZE, GOLD_IMG_SIZE);
         Color c = Color.WHITE.cpy();
-        if (EssenceSystem.essenceCount() < 3) {
+        if (EssenceSystem.essenceCount() < 2) {
             c = Color.SALMON.cpy();
         }
         FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, Integer.toString(3), GOLD_TEXT_X, this.y , 1000.0F * Settings.scale, 0.0F, c);

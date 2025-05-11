@@ -2,6 +2,7 @@ package collector.relics;
 
 import basemod.abstracts.CustomRelic;
 import collector.CollectorMod;
+import collector.actions.DrawCardFromCollectionAction;
 import collector.actions.GainReservesAction;
 import collector.cards.Ember;
 import downfall.util.TextureLoader;
@@ -29,6 +30,7 @@ public class EmeraldTorch extends CustomRelic {
     public void atBattleStart() {
         flash();
         Ember em = new Ember();
+        atb(new DrawCardFromCollectionAction());
         makeInHand(em.makeStatEquivalentCopy(), 1);
     }
 

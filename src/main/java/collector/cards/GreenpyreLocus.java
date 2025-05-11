@@ -23,8 +23,9 @@ public class GreenpyreLocus extends AbstractCollectorCard {
 
     public GreenpyreLocus() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -44,6 +45,7 @@ public class GreenpyreLocus extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
+        uDesc();
     }
 }

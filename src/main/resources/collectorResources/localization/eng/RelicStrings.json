@@ -3,7 +3,7 @@
     "NAME": "Emerald Torch",
     "FLAVOR": "The fires of greed never fade.",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 #ycollector:Reserve."
+      "Start each combat with #b1 #ycollector:Reserve and draw #b1 card from your collected pile."
     ]
   },
 
@@ -63,7 +63,7 @@
     "NAME": "Incense",
     "FLAVOR": "An antiquated form of mental clarification.",
     "DESCRIPTIONS": [
-      "You cannot gain #yWeak [REMOVE_SPACE], #yVulnerable or #yFrail while you are #yWeak [REMOVE_SPACE], #yVulnerable or #yFrail [REMOVE_SPACE]."
+      "While #yWeak [REMOVE_SPACE], #yVulnerable or #yFrail you cannot gain any of these effects."
     ]
   },
 

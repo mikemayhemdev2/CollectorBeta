@@ -163,19 +163,17 @@ import static sneckomod.OffclassHelper.getARandomOffclass;
 public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubscriber, PostDrawSubscriber, PostDungeonInitializeSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, AddCustomModeModsSubscriber, PostInitializeSubscriber, EditRelicsSubscriber, EditCardsSubscriber, PostUpdateSubscriber, StartGameSubscriber, StartActSubscriber, AddAudioSubscriber, RenderSubscriber, PostDeathSubscriber {
     public static final String modID = "downfall";
 
-    public static final boolean STEAM_MODE = true;
+    // Very important lever below!
+    public static final boolean STEAM_MODE = false;// Flip this when exporting the standalone version!
+    // If you see a main menu add in a version that's not meant to, change the above!
 
     public static boolean neowtextoverride = false;
-
-
     public static boolean choosingBossRelic = false;
     public static boolean choosingRemoveCard = false;
     public static boolean choosingUpgradeCard = false;
     public static boolean choosingTransformCard = false;
     public static boolean overrideBossDifficulty = false;
-
     public static boolean playedBossCardThisTurn = false; // TODO: remove this and fix related code (abs expansion card)
-
     public static boolean replaceMenuColor = true;
     public static boolean tempAscensionHack = false;
     public static int tempAscensionOriginalValue = 0;

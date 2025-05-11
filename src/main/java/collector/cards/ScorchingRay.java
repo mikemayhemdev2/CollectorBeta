@@ -18,9 +18,10 @@ import static utilityClasses.Wiz.att;
 public class ScorchingRay extends AbstractCollectorCard {
     public final static String ID = makeID(ScorchingRay.class.getSimpleName());
     // intellij stuff attack, enemy, common, 4, 1, , , 4,
+    //Hello this card is overrated, thanks for coming to my ted talk.
 
     public ScorchingRay() {
-        super(ID, -1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, -1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         baseDamage = 8;
 
     }

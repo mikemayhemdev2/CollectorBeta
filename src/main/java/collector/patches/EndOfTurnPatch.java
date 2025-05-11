@@ -14,11 +14,13 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.Arrays;
 
+@Deprecated
 public class EndOfTurnPatch {
     @SpirePatch(clz = AbstractRoom.class, method = "endTurn")
     public static class EndTurn {
         @SpirePrefixPatch
         public static void Prefix(AbstractRoom __instance) {
+            /*
             if (Wiz.isInCombat()) {
                 AbstractPlayer p = AbstractDungeon.player;
                 for (CardGroup cardGroup : Arrays.asList(p.hand, p.drawPile, p.discardPile)) {
@@ -35,6 +37,7 @@ public class EndOfTurnPatch {
                     }
                 }
             }
+             */// The effect of "Megathereal" on collected cards.
         }
     }
 }
