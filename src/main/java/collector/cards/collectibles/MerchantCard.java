@@ -14,8 +14,8 @@ public class MerchantCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, rare, , , , , 4, 2
 
     public MerchantCard() {
-        super(ID, 2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 4;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -28,6 +28,6 @@ public class MerchantCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
     }
 }

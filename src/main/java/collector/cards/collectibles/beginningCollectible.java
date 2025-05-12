@@ -13,27 +13,19 @@ public class beginningCollectible  extends AbstractCollectibleCard {
 
     public beginningCollectible() {
         super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        baseDamage = 2;
+        baseDamage = 1;//It does damage so it isn't bad into a very early nob and that's it.
         baseMagicNumber = magicNumber = 1;
-//        this.exhaust = true;
-//        this.isEthereal = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
         applyToEnemy(m, new WeakPower(m, magicNumber, false));
-        /*
-        if (AbstractDungeon.floorNum >= 7){//Wheeeeeee
-            AbstractCard c = this;
-            AbstractDungeon.effectsQueue.add(new PurgeCardEffect(c));
-            CollectorCollection.collection.removeCard(c);
-        }
-         */
     }
 
     public void upp() {
-        upgradeDamage(3);
-        upgradeMagicNumber(1);
+        upgradeDamage(17);//Hello this upgrade is like an Easter-egg, the card does not exist past floor 6.
+        upgradeMagicNumber(4);
     }
 }

@@ -256,20 +256,19 @@ public class CollectorCollection {
                 }
             }
         }
-        /*
-        if (AbstractDungeon.floorNum >= 7)
-        {
+        if (AbstractDungeon.floorNum >= 7){//The lil goobers escape!
             CollectorCollection.collection.group.removeIf(c -> c instanceof beginningCollectible);
-        };
-
-         */
+        }//Remove at your own peril!
     }
 
     public static void atBattleStart() {
         combatCollection.clear();
-        for (AbstractCard q : collection.group) {
+
+        for (int p = collection.group.size(); p-- > 0;) {//Behold! Count backwards to fill forwards:tm: its genius!
+            AbstractCard q = collection.group.get(p).makeSameInstanceOf();
             combatCollection.addToTop(q.makeSameInstanceOf());
         }
+
 //        combatCollection.shuffle(AbstractDungeon.shuffleRng); No longer shuffled.
         ArrayList<AbstractCard> toTopdeck = new ArrayList<>();
         for (AbstractCard q : combatCollection.group) {
@@ -320,6 +319,7 @@ public class CollectorCollection {
         AbstractDungeon.effectList.add(ePRE);
     }
 
+    @Deprecated
     private static int getEssenceAmount(AbstractRoom room) {
         if (room instanceof MonsterRoomBoss) {
             return 3;

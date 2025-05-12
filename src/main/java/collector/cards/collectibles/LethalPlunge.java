@@ -17,22 +17,14 @@ public class LethalPlunge extends AbstractCollectibleCard {
     public final static String ID = makeID(LethalPlunge.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 20, 4, , , 3, -1
 
-    private boolean noHover = false;
-    public LethalPlunge(boolean noHover) {
-        //TODO - does this need to be a Colorless, not a collectible?
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 20;
+    public LethalPlunge() {
+        super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
+        baseDamage = 23;
         isEthereal = true;
         exhaust = true;
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.noHover = noHover;
-        if (!this.noHover) cardsToPreview = new DaggerCard(true);
-    }
-
-
-    public LethalPlunge(){
-        this(false);
+//        cardsToPreview = new DaggerCard();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -41,12 +33,11 @@ public class LethalPlunge extends AbstractCollectibleCard {
         AbstractCard c = new DaggerCard();
         if (upgraded) c.upgrade();
         atb(new MakeTempCardInDrawPileAction(c, 1, true, true));
-
-
     }
 
     public void upp() {
-        upgradeDamage(5);
-        cardsToPreview.upgrade();
+        upgradeDamage(8);
+        upgradeMagicNumber(-1);
+//        cardsToPreview.upgrade();
     }
 }

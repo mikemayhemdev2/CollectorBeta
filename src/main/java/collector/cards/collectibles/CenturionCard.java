@@ -14,7 +14,7 @@ public class CenturionCard extends AbstractCollectibleCard {
 
     public CenturionCard() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 10;
+        baseBlock = 9;
         baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -25,7 +25,7 @@ public class CenturionCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBlock(4);
-        upgradeMagicNumber(1);
+        upgradeBlock(3);
+//        upgradeMagicNumber(1);
     }
 }

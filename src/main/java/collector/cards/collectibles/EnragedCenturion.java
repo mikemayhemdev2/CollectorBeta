@@ -19,7 +19,7 @@ public class EnragedCenturion extends AbstractCollectibleCard {
 
     public EnragedCenturion() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 10;
+        baseDamage = 7;
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -31,6 +31,7 @@ public class EnragedCenturion extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
+        upgradeDamage(3);
     }
 }

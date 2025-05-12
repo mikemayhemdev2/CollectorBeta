@@ -21,20 +21,21 @@ public class SneakyGremlinCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, common, 10, 5, , , , 
 
     public SneakyGremlinCard() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 12;
+        this.baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        atb(new DrawCardAction(1));
+        atb(new DrawCardAction(magicNumber));
         if (!p.hasPower(GremlinGangPower.POWER_ID)) applyToSelf(new GremlinGangPower(this));
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeMagicNumber(1);
     }
 
 

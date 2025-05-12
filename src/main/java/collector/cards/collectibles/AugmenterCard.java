@@ -30,10 +30,11 @@ public class AugmenterCard extends AbstractCollectibleCard {
         AbstractCard c = new JAX();
         CardModifierManager.addModifier(c, new EtherealMod());
         atb(new MakeTempCardInHandAction(c));
-        applyToSelf(new AugmenterPower(1));
+        applyToSelf(new AugmenterPower(1, this.upgraded));
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+//        upgradeBaseCost(0);
+        uDesc();
     }
 }

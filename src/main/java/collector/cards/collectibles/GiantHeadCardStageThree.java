@@ -12,8 +12,8 @@ public class GiantHeadCardStageThree extends AbstractCollectibleCard {
     // intellij stuff attack, all_enemy, uncommon, 55, 11, , , , 
 
     public GiantHeadCardStageThree() {
-        super(ID, 3, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, CardColor.COLORLESS);
-        baseDamage = 70;
+        super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
+        baseDamage = 50;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -22,6 +22,6 @@ public class GiantHeadCardStageThree extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(30);
+        upgradeDamage(10);
     }
 }

@@ -29,6 +29,8 @@ public class SpikerCard extends AbstractCollectibleCard {
         atb(new DrawAllShapesFromCollectionAction());
     }
     public void upp() {
-        upgradeBaseCost(0);
+        //upgradeBaseCost(0);
+        this.selfRetain = true;
+        uDesc();
     }
 }

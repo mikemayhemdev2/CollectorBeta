@@ -32,6 +32,7 @@ public class FingerOfDeath extends AbstractCollectorCard {
 
     public void upp() {
         uDesc();
+        upgradeMagicNumber(10);
         target = CardTarget.ALL_ENEMY;
     }
 }

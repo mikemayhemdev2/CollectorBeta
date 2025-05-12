@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
@@ -21,11 +22,20 @@ public class WomanInBlueCard extends AbstractCollectibleCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ObtainPotionAction(AbstractDungeon.returnRandomPotion(true)));
-        applyToSelf(new WomanInBlueCardPower());
+        this.addToBot(new ObtainPotionAction(
+                AbstractDungeon.returnRandomPotion(
+                        upgraded ? AbstractPotion.PotionRarity.UNCOMMON : AbstractPotion.PotionRarity.COMMON
+                        ,true)
+        ));
+        /*
+        if (!upgraded) {
+           applyToSelf(new WomanInBlueCardPower());
+        }
+         */
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+//        upgradeBaseCost(0);
+        uDesc();
     }
 }

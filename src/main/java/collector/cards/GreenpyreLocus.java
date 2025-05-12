@@ -24,6 +24,7 @@ public class GreenpyreLocus extends AbstractCollectorCard {
     public GreenpyreLocus() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
+        baseSecondMagic = secondMagic = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.exhaust = true;
     }
@@ -38,7 +39,8 @@ public class GreenpyreLocus extends AbstractCollectorCard {
             AbstractCard tar = cards.get(0).makeCopy();
             CardModifierManager.addModifier(tar, new CollectedCardMod());
             makeInHandTop(tar);
-            for (int i = 0; i < 2; i++) {
+            int count = upgraded ? secondMagic : 1;
+            for (int i = 0; i < count; i++) {
                 CollectorCollection.combatCollection.addToRandomSpot(tar.makeStatEquivalentCopy());
             }
         }));

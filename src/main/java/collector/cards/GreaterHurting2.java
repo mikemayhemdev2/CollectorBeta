@@ -1,6 +1,7 @@
 package collector.cards;
 
 import collector.effects.PurpleSearingBlowEffect;
+import collector.powers.AddCopyNextTurnPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,8 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.expansionContentMod;
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
-import static utilityClasses.Wiz.makeInHand;
+import static utilityClasses.Wiz.*;
 
 public class GreaterHurting2 extends AbstractCollectorCard {
     public final static String ID = makeID(GreaterHurting2.class.getSimpleName());
@@ -34,7 +34,7 @@ public class GreaterHurting2 extends AbstractCollectorCard {
         if (upgraded){
             toAdd.upgrade();
         }
-        makeInHand(toAdd);
+        applyToSelfTop(new AddCopyNextTurnPower(toAdd));
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

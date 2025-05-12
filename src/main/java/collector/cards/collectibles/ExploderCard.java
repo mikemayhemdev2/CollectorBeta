@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.SHAPESWARM;
 import static collector.CollectorMod.makeID;
@@ -22,9 +23,11 @@ public class ExploderCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 3, 1
 
     public ExploderCard() {
-        super(ID, -1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 14;
+        super(ID, -2, CardType.ATTACK, CardRarity.COMMON, CardTarget.NONE);
+        baseDamage = 12;
         this.tags.add(SHAPESWARM);
+        tags.add(expansionContentMod.UNPLAYABLE);
+        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -38,7 +41,7 @@ public class ExploderCard extends AbstractCollectibleCard {
 
     @Override
     public void triggerOnExhaust() {
-        this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.damage, false), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.damage, false), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -47,6 +50,6 @@ public class ExploderCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(6);
+        upgradeDamage(3);
     }
 }

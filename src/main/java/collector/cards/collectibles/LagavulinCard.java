@@ -15,7 +15,7 @@ public class LagavulinCard extends AbstractCollectibleCard {
 
     public LagavulinCard() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
     }

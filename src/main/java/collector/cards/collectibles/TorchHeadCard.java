@@ -43,7 +43,9 @@ public class TorchHeadCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+//        upgradeBaseCost(0);
+        this.selfRetain = true;
+        uDesc();
     }
 
     private void add_cards(){

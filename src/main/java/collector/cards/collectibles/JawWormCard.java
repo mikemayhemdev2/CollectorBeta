@@ -14,7 +14,7 @@ public class JawWormCard extends AbstractCollectibleCard {
 
     public JawWormCard() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 12;
+        baseBlock = 9;
         baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
