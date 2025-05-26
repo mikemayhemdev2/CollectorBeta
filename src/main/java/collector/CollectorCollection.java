@@ -268,8 +268,46 @@ public class CollectorCollection {
             AbstractDungeon.player.drawPile.addToRandomSpot(q.makeSameInstanceOf());
 
         }
-        
+
+//        combatCollection.shuffle(AbstractDungeon.shuffleRng); No longer shuffled.
+
+        /*
+        ArrayList<AbstractCard> toTopdeck = new ArrayList<>();
+        for (AbstractCard q : combatCollection.group) {
+            if (CollectorBottleField.inCollectionBottle.get(q)) {
+                toTopdeck.add(q);
+            }
+        }
+        toTopdeck.forEach(q -> {
+            combatCollection.removeCard(q);
+            combatCollection.addToTop(q);
+        });
+
+         */
     }
 
+    public static void atBattleEnd() {
+      //  combatCollection.clear();
+    }
+
+    public static void collect(AbstractMonster m) {
+
+        if (!collectedAlready.contains(m) && !m.id.equals(NeowBoss.ID)) {
+
+            AbstractCard c = getCollectedCard(m);
+            if (c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasRelic(ToxicEgg2.ID)){
+                c.upgrade();
+            }
+            if (c.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasRelic(MoltenEgg2.ID)){
+                c.upgrade();
+            }
+            if (c.type == AbstractCard.CardType.POWER && AbstractDungeon.player.hasRelic(FrozenEgg2.ID)){
+                c.upgrade();
+            }
+            AbstractDungeon.getCurrRoom().rewards.add(new CollectibleCardReward(c));
+            collectedAlready.add(m);
+        }
+
+    }
 
 }

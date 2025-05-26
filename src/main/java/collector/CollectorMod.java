@@ -237,7 +237,7 @@ public class CollectorMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        CollectorCollection.atBattleEnd();
+        //CollectorCollection.atBattleEnd();
         NewReserves.resetReserves();
     }
 
