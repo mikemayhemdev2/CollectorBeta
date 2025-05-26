@@ -256,80 +256,20 @@ public class CollectorCollection {
                 }
             }
         }
-        /*
-        if (AbstractDungeon.floorNum >= 7)
-        {
+        if (AbstractDungeon.floorNum >= 7){//The lil goobers escape!
             CollectorCollection.collection.group.removeIf(c -> c instanceof beginningCollectible);
-        };
-
-         */
+        }//Remove at your own peril!
     }
 
     public static void atBattleStart() {
+
      //   combatCollection.clear();
         for (AbstractCard q : collection.group) {
             AbstractDungeon.player.drawPile.addToRandomSpot(q.makeSameInstanceOf());
-        }
-//        combatCollection.shuffle(AbstractDungeon.shuffleRng); No longer shuffled.
 
-        /*
-        ArrayList<AbstractCard> toTopdeck = new ArrayList<>();
-        for (AbstractCard q : combatCollection.group) {
-            if (CollectorBottleField.inCollectionBottle.get(q)) {
-                toTopdeck.add(q);
-            }
         }
-        toTopdeck.forEach(q -> {
-            combatCollection.removeCard(q);
-            combatCollection.addToTop(q);
-        });
-
-         */
+        
     }
 
-    public static void atBattleEnd() {
-      //  combatCollection.clear();
-    }
 
-    public static void collect(AbstractMonster m) {
-
-        if (!collectedAlready.contains(m) && !m.id.equals(NeowBoss.ID)) {
-
-            /*
-            if (AbstractDungeon.getCurrRoom().rewards.stream().noneMatch(q -> q instanceof EssenceReward)) {
-                AbstractDungeon.getCurrRoom().rewards.add(new EssenceReward(getEssenceAmount(AbstractDungeon.getCurrRoom())));
-        }
-
-             */
-
-            AbstractCard c = getCollectedCard(m);
-            if (c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasRelic(ToxicEgg2.ID)){
-                c.upgrade();
-            }
-            if (c.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasRelic(MoltenEgg2.ID)){
-                c.upgrade();
-            }
-            if (c.type == AbstractCard.CardType.POWER && AbstractDungeon.player.hasRelic(FrozenEgg2.ID)){
-                c.upgrade();
-            }
-            AbstractDungeon.getCurrRoom().rewards.add(new CollectibleCardReward(c));
-            collectedAlready.add(m);
-        }
-
-    }
-
-    @Deprecated
-    public void overflow(){//Do not use. Replaced by better effect.
-        ExcessPileRemoveEffect ePRE = new ExcessPileRemoveEffect();
-        AbstractDungeon.effectList.add(ePRE);
-    }
-
-    private static int getEssenceAmount(AbstractRoom room) {
-        if (room instanceof MonsterRoomBoss) {
-            return 3;
-        } else if (room.eliteTrigger) {
-            return 2;
-        }
-        return 1;
-    }
 }

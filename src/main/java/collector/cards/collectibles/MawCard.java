@@ -13,7 +13,7 @@ public class MawCard extends AbstractCollectibleCard {
 
     public MawCard() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 32;
+        baseDamage = 42;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -22,6 +22,6 @@ public class MawCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(9);
+        upgradeDamage(8);
     }
 }

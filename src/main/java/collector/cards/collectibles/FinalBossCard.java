@@ -15,7 +15,7 @@ public class FinalBossCard extends AbstractCollectibleCard {
     // intellij stuff skill, enemy, rare, , , , , , 
 
     public FinalBossCard() {
-        super(ID, 5, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, 4, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -25,6 +25,6 @@ public class FinalBossCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBaseCost(4);
+        upgradeBaseCost(3);
     }
 }

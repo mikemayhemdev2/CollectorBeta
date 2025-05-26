@@ -20,8 +20,8 @@ public class TaskmasterCard extends AbstractCollectibleCard {
 
     public TaskmasterCard() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 12;
-        baseMagicNumber = magicNumber = 12;
+        baseDamage = 9;
+        baseMagicNumber = magicNumber = 9;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

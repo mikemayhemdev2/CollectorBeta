@@ -14,7 +14,7 @@ public class RanwidCard extends AbstractCollectibleCard {
     // intellij stuff power, self, uncommon, , , , , , 
 
     public RanwidCard() {
-        super(ID, 1, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -30,6 +30,6 @@ public class RanwidCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+        upgradeBaseCost(2);
     }
 }

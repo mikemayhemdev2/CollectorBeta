@@ -36,7 +36,7 @@
   },
   "collector:BlackBindings": {
     "NAME": "Black Bindings",
-    "DESCRIPTION": "Apply !M! Weak, then apply !clm2!. NL Repeat if the target was already collector:Afflicted."
+    "DESCRIPTION": "Apply !M! Weak, then apply !clm2! collector:Doom. NL Repeat if the target was already collector:Afflicted."
   },
   "collector:Blightning": {
     "NAME": "Blightning",
@@ -207,8 +207,8 @@
   },
   "collector:GreatestHurting2": {
     "NAME": "Greatest Hurting",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Hurting.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Hurting+."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If Exhausted, gain a *Hurting next turn.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If Exhausted, gain a *Hurting+ next turn."
   },
 
 
@@ -496,7 +496,7 @@
   },
   "collector:CultistCard": {
     "NAME": "Cultist",
-    "DESCRIPTION": "collector:Pyre. NL Gain 1 Strength at the start of your next 3 turns."
+    "DESCRIPTION": "collector:Pyre. NL Gain 1 Strength at the start of your next !M! turns."
   },
   "collector:DaggerCard": {
     "NAME": "Dagger",
@@ -505,7 +505,7 @@
   },
   "collector:LethalPlunge": {
     "NAME": "Lethal Plunge",
-    "DESCRIPTION": "Ethereal. NL Lose !M! HP. NL Deal !D! damage. NL Insert a *Dagger. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Lose !M! HP. NL Deal !D! damage. NL bronze:Insert a *Dagger. NL Exhaust."
   },
   "collector:DarklingsCard": {
     "NAME": "Darklings",
@@ -536,11 +536,13 @@
   },
   "collector:GiantHeadCardStageOne": {
     "NAME": "Tick",
-    "DESCRIPTION": "Next turn, gain a *Tock. NL Exhaust."
+    "DESCRIPTION": "Next turn, gain a *Tock. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain a *Tock+. NL Exhaust."
   },
   "collector:GiantHeadCardStageTwo": {
     "NAME": "Tock",
-    "DESCRIPTION": "Next turn, gain a *Headcrush. NL Exhaust."
+    "DESCRIPTION": "Next turn, gain a *Headcrush. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain a *Headcrush+. NL Exhaust."
   },
   "collector:GiantHeadCardStageThree": {
     "NAME": "Headcrush",
@@ -572,11 +574,12 @@
   },
   "collector:LivingWallCard": {
     "NAME": "Living Wall",
-    "DESCRIPTION": "collector:Pyre. NL Gain a random Upgraded card. NL It costs 0 until played."
+    "DESCRIPTION": "collector:Pyre. NL Gain a random Upgraded card. NL It costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Gain a random Upgraded card. NL It costs 0 this combat."
   },
   "collector:LouseCard": {
     "NAME": "Louse",
-    "DESCRIPTION": "Gain 1 bronze:Blur. NL The next time you receive unblocked attack damage, gain !B! Block."
+    "DESCRIPTION": "Gain !M! bronze:Blur. NL The next time you receive unblocked attack damage, gain !B! Block."
   },
   "collector:MadGremlinCard": {
     "NAME": "Mad Gremlin",
@@ -592,7 +595,7 @@
   },
   "collector:MushroomCard": {
     "NAME": "Mushroom",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak or Vulnerable at random. NL Gain !M! collector:Fungal_Bloom."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak or Vulnerable at random. NL Gain !clm2! collector:Fungal_Bloom."
   },
   "collector:MysticCard": {
     "NAME": "Mystic's Kindling",
@@ -603,8 +606,8 @@
   },
   "collector:NemesisCard": {
     "NAME": "Nemesis",
-    "DESCRIPTION": "Gain 1 Intangible. NL Insert 2 *Burns. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Insert 1 *Burn. NL Exhaust."
+    "DESCRIPTION": "Gain 1 Intangible. NL bronze:Insert 2 *Burns. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL bronze:Insert 1 *Burn. NL Exhaust."
   },
   "collector:NlothCard": {
     "NAME": "N'Loth",
@@ -633,7 +636,7 @@
   },
   "collector:RepulsorCard": {
     "NAME": "Repulsor",
-    "DESCRIPTION": "collector:Shape_Swarm. NL Insert a *Dazed. NL Draw !M! cards."
+    "DESCRIPTION": "collector:Shape_Swarm. NL bronze:Insert a *Dazed. NL Draw !M! cards."
   },
   "collector:RomeoCard": {
     "NAME": "Romeo",
@@ -661,7 +664,7 @@
   },
   "collector:SneakyGremlinCard": {
     "NAME": "Sneaky Gremlin",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL collector:Gremlin_Gang."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL collector:Gremlin_Gang."
   },
   "collector:SneckoCard": {
     "NAME": "Snecko",
@@ -673,7 +676,8 @@
   },
   "collector:SpikerCard": {
     "NAME": "Spiker",
-    "DESCRIPTION": "collector:Shape_Swarm. NL Gain 1 Thorns for each card in your hand."
+    "DESCRIPTION": "collector:Shape_Swarm. NL Gain 1 Thorns for each card in your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL collector:Shape_Swarm. NL Gain 1 Thorns for each card in your hand."
   },
   "collector:ExploderCard": {
     "NAME": "Exploder's Kindling",
@@ -700,7 +704,7 @@
   },
   "collector:SsserpentCard": {
     "NAME": "Ssserpent",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Doom. NL Insert a *Doubt."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Doom. NL bronze:Insert a *Doubt."
   },
   "collector:TaskmasterCard": {
     "NAME": "Taskmaster",
@@ -712,7 +716,8 @@
   },
   "collector:TorchHeadCard": {
     "NAME": "Torch Head",
-    "DESCRIPTION": "Add a random Torchhead Call into your hand. NL It costs 0 this turn."
+    "DESCRIPTION": "Add a random Torchhead Call into your hand. NL It costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Add a random Torchhead Call into your hand. NL It costs 0 this turn."
   },
   "collector:TransientCard": {
     "NAME": "Transient",
@@ -724,7 +729,8 @@
   },
   "collector:WomanInBlueCard": {
     "NAME": "Woman in Blue",
-    "DESCRIPTION": "Gain a random Potion. NL Lose ALL Potions at the end of combat."
+    "DESCRIPTION": "Gain a random Common Potion.",
+    "UPGRADE_DESCRIPTION": "Gain a random Uncommon Potion."
   },
   "collector:WrithingMassCard": {
     "NAME": "Writhing Mass",
@@ -748,6 +754,6 @@
   },
   "collector:beginningCollectible": {
     "NAME": "Lil Essence",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Exhaust. NL Escapes on floor 7."
   }
 }

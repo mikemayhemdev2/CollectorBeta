@@ -1,5 +1,6 @@
 package collector.cards.collectibles;
 
+import collector.cards.Ember;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -16,30 +17,25 @@ public class DaggerCard extends AbstractCollectibleCard {
     public final static String ID = makeID(DaggerCard.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 20, 4, , , 3, -1
 
-    private boolean noHover = false;
-    public DaggerCard(boolean noHover) {
+    public DaggerCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 10;
-       // baseMagicNumber = magicNumber = 3;
-        this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        baseDamage = 7;
         exhaust = true;
-        this.noHover = noHover;
-        if (!this.noHover) cardsToPreview = new LethalPlunge(true);
-    }
-
-    public DaggerCard(){
-        this(false);
+        cardsToPreview = new LethalPlunge();
+        this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         AbstractCard c = new LethalPlunge();
-        if (upgraded) c.upgrade();
+        if (upgraded) {
+            c.upgrade();
+        }
         atb(new MakeTempCardInHandAction(c));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
         cardsToPreview.upgrade();
     }
 }

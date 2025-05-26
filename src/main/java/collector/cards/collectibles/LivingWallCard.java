@@ -22,11 +22,19 @@ public class LivingWallCard extends AbstractCollectibleCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard toGen = AbstractDungeon.returnTrulyRandomCardInCombat();
         toGen.upgrade();
-        toGen.freeToPlayOnce = true;
+        if (this.upgraded && toGen.cost >= 1){
+            toGen.cost = 0;
+            toGen.isCostModified = true;
+        }else if (toGen.cost >= 0){
+            toGen.costForTurn = 0;
+//            toGen.freeToPlayOnce = true;
+            toGen.isCostModifiedForTurn = true;
+        }
         makeInHand(toGen);
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+//        upgradeBaseCost(0);
+        uDesc();
     }
 }

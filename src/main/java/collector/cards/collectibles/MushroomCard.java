@@ -8,9 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.*;
 import static utilityClasses.Wiz.*;
 
 public class MushroomCard extends AbstractCollectibleCard {
@@ -18,9 +16,10 @@ public class MushroomCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, uncommon, 5, 1, , , 3, 1
 
     public MushroomCard() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 1;
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 8;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -47,7 +46,8 @@ public class MushroomCard extends AbstractCollectibleCard {
 
 
     public void upp() {
-        upgradeDamage(3);
-       // upgradeMagicNumber(1);
+//        upgradeDamage(5); - If it feels bad uncomment this out, its one cycle worth of damage scaling.
+        upgradeSecondMagic(2);
+        upgradeMagicNumber(1);
     }
 }

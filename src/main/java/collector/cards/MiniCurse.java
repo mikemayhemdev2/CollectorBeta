@@ -46,7 +46,7 @@ public class MiniCurse extends AbstractCollectorCard implements OnPyreCard {
     public void upp() {
 //        target = CardTarget.ALL_ENEMY;
 //        upgradeMagicNumber(1);
-        this.target = CardTarget.ENEMY;
+        this.target = CardTarget.ALL;
         uDesc();
     }
 

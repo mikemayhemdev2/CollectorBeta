@@ -15,12 +15,13 @@ public class LouseCard extends AbstractCollectibleCard {
 
     public LouseCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 4;
+        baseBlock = 7;
+        this.baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new BlurPower(p, 1));
+        applyToSelf(new BlurPower(p, magicNumber));
         applyToSelf(new LouseCardPower(block));
     }
 
