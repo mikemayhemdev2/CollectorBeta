@@ -1,8 +1,9 @@
+/*
 package collector.patches;
 
 import collector.CollectorChar;
 import collector.CollectorCollection;
-import collector.actions.DrawCardFromCollectionAction;
+//import collector.actions.DrawCardFromCollectionAction;
 import collector.powers.IncreasedCollectionDrawPower;
 import collector.relics.BlockedChakra;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -42,3 +43,5 @@ public class DrawFromCollection {
         }
     }
 }
+
+ */

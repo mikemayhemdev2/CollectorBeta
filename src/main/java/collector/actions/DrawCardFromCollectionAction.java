@@ -1,3 +1,4 @@
+/*
 package collector.actions;
 
 import basemod.helpers.CardModifierManager;
@@ -45,12 +46,7 @@ public class DrawCardFromCollectionAction extends AbstractGameAction {
             AbstractCard tar = CollectorCollection.combatCollection.getTopCard();//Always gets the top card now.
            // AbstractCard tar = CollectorCollection.combatCollection.getRandomCard(AbstractDungeon.cardRandomRng);
 
-            /*
-            if(AbstractDungeon.player.hasRelic(FrozenEye.ID)) {
-                tar = CollectorCollection.combatCollection.getTopCard();
-            }
 
-             */
 
             if(AbstractDungeon.player.hasRelic(BottledCollectible.ID)) {
                 if ((AbstractDungeon.player.getRelic(BottledCollectible.ID).counter == 0)) {
@@ -83,3 +79,4 @@ public class DrawCardFromCollectionAction extends AbstractGameAction {
         this.isDone = true;
     }
 }
+*/

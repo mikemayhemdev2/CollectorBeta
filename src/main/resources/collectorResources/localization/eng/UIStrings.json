@@ -12,14 +12,14 @@
   "collector:CollectionScreen": {
     "TEXT": [
       "Hide",
-      "Your Collection starts combat with all cards here."
+      "Your Draw Pile starts combat with all cards here."
     ]
   },
   "collector:CollectionUITopPanel": {
     "TEXT": [
       "Collection",
       "View all cards in your Collection. You can have up to 5 Collected cards. Gaining one after the 5th will require you to remove one of your current Collected cards.",
-      "These cards start in your Collected pile each combat."
+      "These cards are added to your draw pile each combat."
     ]
   },
   "collector:CombatCollectionPileButton": {

@@ -30,21 +30,7 @@ public class DarkApotheosis extends AbstractCollectorCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> toCheck = new ArrayList<>(CollectorCollection.combatCollection.group);
 
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractCard q : toCheck) {
-                    q.upgrade();
-                }
-            }
-        });
-
-        if (toCheck.stream().anyMatch(q -> CollectorCollection.combatCollection.group.contains(q))) {
-            atb(new VFXAction(new MiniUpgradeShine(CollectorMod.combatCollectionPileButton.getRenderX(), CollectorMod.combatCollectionPileButton.getRenderY())));
-        }
 
         atb(new AbstractGameAction() {
             @Override
@@ -89,8 +75,7 @@ public class DarkApotheosis extends AbstractCollectorCard {
     }
 
     public void upp() {
- //       this.isInnate = true;
- //       uDesc();
+
         upgradeBaseCost(0);
     }
 }

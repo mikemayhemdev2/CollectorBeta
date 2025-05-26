@@ -1,3 +1,4 @@
+/*
 package collector.ui;
 
 import basemod.ClickableUIElement;
@@ -167,3 +168,6 @@ public class CombatCollectionPileButton extends ClickableUIElement {
     }
 
 }
+
+
+ */

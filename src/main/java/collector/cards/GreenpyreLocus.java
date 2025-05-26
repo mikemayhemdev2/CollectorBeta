@@ -37,10 +37,8 @@ public class GreenpyreLocus extends AbstractCollectorCard {
         addToBot(new SelectCardsCenteredAction(selectionChoices, 1, cardStrings.EXTENDED_DESCRIPTION[0], (cards) -> {
             AbstractCard tar = cards.get(0).makeCopy();
             CardModifierManager.addModifier(tar, new CollectedCardMod());
+            tar.setCostForTurn(0);
             makeInHandTop(tar);
-            for (int i = 0; i < 2; i++) {
-                CollectorCollection.combatCollection.addToRandomSpot(tar.makeStatEquivalentCopy());
-            }
         }));
     }
 

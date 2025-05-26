@@ -1,3 +1,4 @@
+/*
 package collector.actions;
 
 import basemod.BaseMod;
@@ -119,3 +120,6 @@ public class SeekFromCollectionAction extends AbstractGameAction {
         TEXT = uiStrings.TEXT;
     }
 }
+
+
+ */

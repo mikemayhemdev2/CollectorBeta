@@ -56,7 +56,7 @@ import java.util.HashMap;
 
 public class CollectorCollection {
     public static CardGroup collection;
-    public static CardGroup combatCollection;
+   // public static CardGroup combatCollection;
     public static HashMap<String, String> collectionPool;
 
     public static int MaxCollectionSize = 5;
@@ -238,7 +238,7 @@ public class CollectorCollection {
 
     public static void init() {
         collection = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        combatCollection = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        //combatCollection = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     }
 
     public static void probe(){
@@ -266,11 +266,13 @@ public class CollectorCollection {
     }
 
     public static void atBattleStart() {
-        combatCollection.clear();
+     //   combatCollection.clear();
         for (AbstractCard q : collection.group) {
-            combatCollection.addToTop(q.makeSameInstanceOf());
+            AbstractDungeon.player.drawPile.addToRandomSpot(q.makeSameInstanceOf());
         }
 //        combatCollection.shuffle(AbstractDungeon.shuffleRng); No longer shuffled.
+
+        /*
         ArrayList<AbstractCard> toTopdeck = new ArrayList<>();
         for (AbstractCard q : combatCollection.group) {
             if (CollectorBottleField.inCollectionBottle.get(q)) {
@@ -281,10 +283,12 @@ public class CollectorCollection {
             combatCollection.removeCard(q);
             combatCollection.addToTop(q);
         });
+
+         */
     }
 
     public static void atBattleEnd() {
-        combatCollection.clear();
+      //  combatCollection.clear();
     }
 
     public static void collect(AbstractMonster m) {

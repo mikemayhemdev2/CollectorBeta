@@ -19,28 +19,18 @@ public class HoardersStrike extends AbstractCollectorCard {
 
     public HoardersStrike() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 14;
+        baseDamage = 6;
         tags.add(CardTags.STRIKE);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        baseMagicNumber = magicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                if (!CollectorCollection.combatCollection.isEmpty()) {
-                    AbstractCard toPlay = CollectorCollection.combatCollection.getTopCard();
-                    CollectorCollection.combatCollection.removeCard(toPlay);
-                    AbstractDungeon.player.drawPile.addToTop(toPlay);
-                    att(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
-                }
-            }
-        });
+        //TODO: The scaling part
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeBaseCost(1);
     }
 }

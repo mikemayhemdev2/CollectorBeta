@@ -1,9 +1,10 @@
 package collector.cards;
 
-import collector.actions.DrawCardFromCollectionAction;
+////import collector.actions.DrawCardFromCollectionAction;
 import collector.powers.DoomPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -31,7 +32,7 @@ public class Blightning extends AbstractCollectorCard {
         atb(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.05F));
         applyToEnemy(m, new DoomPower(m, magicNumber));
         dmg(m, AbstractGameAction.AttackEffect.NONE);
-        atb(new DrawCardFromCollectionAction());
+        atb(new DrawCardAction(1));
     }
 
     public void upp() {

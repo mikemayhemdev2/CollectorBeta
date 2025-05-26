@@ -62,7 +62,7 @@ public class MysticCard extends AbstractCollectibleCard {
                 searchPile(AbstractDungeon.player.discardPile);
                 searchPile(AbstractDungeon.player.hand);
                 searchPile(AbstractDungeon.player.exhaustPile);
-                searchPile(CollectorCollection.combatCollection);
+               // searchPile(CollectorCollection.combatCollection);
             }
         });
 

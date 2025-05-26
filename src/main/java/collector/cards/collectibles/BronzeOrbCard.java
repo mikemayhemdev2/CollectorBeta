@@ -66,7 +66,7 @@ public class BronzeOrbCard extends AbstractCollectibleCard {
                     if (searchPile(AbstractDungeon.player.hand)) return;
                     if (searchPile(AbstractDungeon.player.drawPile)) return;
                     if (searchPile(AbstractDungeon.player.discardPile)) return;
-                    if (searchPile(CollectorCollection.combatCollection)) return;
+                   // if (searchPile(CollectorCollection.combatCollection)) return;
                     searchPile(AbstractDungeon.player.exhaustPile);
                 }
             });

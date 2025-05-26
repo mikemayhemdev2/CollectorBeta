@@ -1,7 +1,8 @@
 package collector.cards;
 
-import collector.actions.DrawCardFromCollectionAction;
+////import collector.actions.DrawCardFromCollectionAction;
 import collector.actions.GainReservesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,9 +26,8 @@ public class DragonsTrove extends AbstractCollectorCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("MAW_DEATH");
-        for (int i = 0; i < secondMagic; i++) {
-            atb(new DrawCardFromCollectionAction());
-        }
+
+        atb(new DrawCardAction(secondMagic));
         atb(new GainReservesAction(magicNumber));
     }
 

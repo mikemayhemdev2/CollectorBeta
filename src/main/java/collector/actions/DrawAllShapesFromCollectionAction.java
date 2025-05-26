@@ -25,14 +25,14 @@ public class DrawAllShapesFromCollectionAction extends AbstractGameAction {
     }
     @Override
     public void update() {
-        if (!CollectorCollection.combatCollection.isEmpty()) {
+        if (!AbstractDungeon.player.drawPile.isEmpty()) {
 
-            for (int i = 0; i < CollectorCollection.combatCollection.group.size(); i++) {
+            for (int i = 0; i < AbstractDungeon.player.drawPile.group.size(); i++) {
 
-                AbstractCard tar = CollectorCollection.combatCollection.group.get(i);
+                AbstractCard tar = AbstractDungeon.player.drawPile.group.get(i);
                 if (tar.hasTag(CollectorMod.SHAPESWARM)){
 
-                    CollectorCollection.combatCollection.removeCard(tar);
+                    AbstractDungeon.player.drawPile.removeCard(tar);
                     CardModifierManager.removeModifiersById(tar, CollectedCardMod.ID, true);
                     AbstractDungeon.player.drawPile.addToTop(tar);
                     att(new DrawCardAction(1));

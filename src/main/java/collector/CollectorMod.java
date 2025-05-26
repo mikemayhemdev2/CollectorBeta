@@ -15,7 +15,7 @@ import collector.potions.MiniCursePotion;
 import collector.potions.ReservePotion;
 import collector.potions.TempHPPotion;
 import collector.relics.*;
-import collector.ui.CombatCollectionPileButton;
+//import collector.ui.CombatCollectionPileButton;
 import collector.util.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -58,7 +58,8 @@ public class CollectorMod implements
         OnStartBattleSubscriber,
         PostBattleSubscriber,
         StartGameSubscriber,
-        PostDungeonUpdateSubscriber, PostRenderSubscriber, PreRoomRenderSubscriber {
+        //PostDungeonUpdateSubscriber,
+        PostRenderSubscriber, PreRoomRenderSubscriber {
     public static final String SHOULDER1 = "collectorResources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = "collectorResources/images/char/mainChar/shoulderR.png";
     public static final String CORPSE = "collectorResources/images/char/mainChar/corpse.png";
@@ -312,6 +313,7 @@ public class CollectorMod implements
         }
     }
 
+    /*
     public static CombatCollectionPileButton combatCollectionPileButton;
 
     public static void renderCombatUiElements(SpriteBatch sb) {
@@ -330,13 +332,15 @@ public class CollectorMod implements
         }
     }
 
+     */
+
     @Override
     public void receiveStartGame() {
         if (!CardCrawlGame.loadingSave) {
             CollectorCollection.init();
             //EssenceSystem.resetEssence();
         }
-        combatCollectionPileButton = new CombatCollectionPileButton();
+       // combatCollectionPileButton = new CombatCollectionPileButton();
         NewReserves.resetReserves();
 
         if (AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR)) {

@@ -1,11 +1,13 @@
 package collector.cards;
 
 import collector.CollectorCollection;
-import collector.actions.DrawCardFromCollectionAction;
+////import collector.actions.DrawCardFromCollectionAction;
+import collector.actions.DrawCollectedCardAction;
 import collector.relics.HolidayCoal;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,14 +26,15 @@ public class Soulforge extends AbstractCollectorCard {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseBlock = 6;
         baseMagicNumber = magicNumber = 1;
-        exhaust = true;
+        //exhaust = true;
+        isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         for (int i = 0; i < this.magicNumber; i++){
-            atb(new DrawCardFromCollectionAction());
+            this.addToBot(new DrawCollectedCardAction(1));
         }
         /*
          if (!CollectorCollection.combatCollection.isEmpty() || AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
@@ -55,9 +58,9 @@ public class Soulforge extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
-        upgradeMagicNumber(1);
-        uDesc();
+        upgradeBlock(3);
+        //upgradeMagicNumber(1);
+        //uDesc();
     }
 }
 

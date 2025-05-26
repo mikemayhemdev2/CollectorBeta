@@ -24,15 +24,16 @@ public class Forgery extends AbstractCollectorCard {
         baseDamage = 9;
         baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        if (!CollectorCollection.combatCollection.isEmpty()) {
+        if (!CollectorCollection.collection.isEmpty()) {
             ArrayList<AbstractCard> possibilities = new ArrayList<>();
             ArrayList<AbstractCard> toShow = new ArrayList<>();
-            possibilities.addAll(CollectorCollection.combatCollection.group);
-            for (int i = 0; i < Math.min(CollectorCollection.combatCollection.size(), magicNumber); i++) {
+            possibilities.addAll(CollectorCollection.collection.group);
+            for (int i = 0; i < Math.min(CollectorCollection.collection.size(), magicNumber); i++) {
                 toShow.add(possibilities.remove(AbstractDungeon.cardRandomRng.random(possibilities.size() - 1)));
             }
             addToBot(new SelectCardsCenteredAction(toShow, cardStrings.EXTENDED_DESCRIPTION[0], (cards) -> {

@@ -1,5 +1,6 @@
 package collector.cards;
 
+import collector.CollectorCollection;
 import collector.cards.collectibles.AbstractCollectibleCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,9 +19,9 @@ public class ShadowDaggers extends AbstractCollectorCard {
     // intellij stuff attack, enemy, uncommon, 4, 2, , , ,
 
     public ShadowDaggers() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 4;
-        exhaust = true;
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 3;
+        //exhaust = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -46,8 +47,8 @@ public class ShadowDaggers extends AbstractCollectorCard {
         int val = 0;
         ArrayList<String> cardIDs = new ArrayList<>();
 
-        for (AbstractCard card : DFL.pl().exhaustPile.group){
-            if (card instanceof AbstractCollectibleCard && !cardIDs.contains(card.cardID)){
+        for (AbstractCard card : CollectorCollection.collection.group){
+            if (!cardIDs.contains(card.cardID)){
                 cardIDs.add(card.cardID);
                 val++;
             }

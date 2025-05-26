@@ -40,7 +40,7 @@
   },
   "collector:Blightning": {
     "NAME": "Blightning",
-    "DESCRIPTION": "Apply !M! collector:Doom. NL Deal !D! damage. NL Draw 1 card from your Collected pile. NL Exhaust."
+    "DESCRIPTION": "Apply !M! collector:Doom. NL Deal !D! damage. NL Draw a card. NL Exhaust."
   },
   "collector:Bonfire": {
     "NAME": "Bonfire",
@@ -91,7 +91,7 @@
   },
   "collector:Darkstorm": {
     "NAME": "Darkstorm",
-    "DESCRIPTION": "Gain a *Blightning. NL Shuffle !M! more into your draw pile. NL Exhaust."
+    "DESCRIPTION": "Gain a *Blightning. NL Shuffle !M! more into your draw pile for every 5 cards in it. NL Exhaust."
   },
   "collector:DarkwoodKindling": {
     "NAME": "Darkwillow Kindling",
@@ -115,7 +115,7 @@
   },
   "collector:DragonsTrove": {
     "NAME": "Dragon's Trove",
-    "DESCRIPTION": "collector:Pyre. NL Draw !clm2! cards from your Collected pile. NL Gain !M! collector:Reserve. NL Exhaust."
+    "DESCRIPTION": "collector:Pyre. NL Draw !clm2! cards. NL Gain !M! collector:Reserve. NL Exhaust."
   },
   "collector:Ember": {
     "NAME": "Ember",
@@ -163,7 +163,7 @@
   },
   "collector:Forgery": {
     "NAME": "Forgery",
-    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your Collected pile to gain a copy of.",
+    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your Collection to gain a copy of. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "to add into your hand."
     ]
@@ -212,13 +212,9 @@
   },
 
 
-
-
-
   "collector:GreenpyreLocus": {
     "NAME": "Greenpyre Locus",
-    "DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand and Collected Pile.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand and !clm2! copies in your Collected Pile",
+    "DESCRIPTION": "Choose 1 of !M! Collected cards to gain. It costs 0 this turn. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand."
     ]
@@ -229,11 +225,14 @@
   },
   "collector:Hoard": {
     "NAME": "Hoard",
-    "DESCRIPTION": "collector:Pyre. NL Draw !M! cards."
+    "DESCRIPTION": "Draw !M! cards. NL Draw 2 more if have 20 or more cards in your draw pile."
   },
   "collector:HoardersStrike": {
     "NAME": "Hoarder's Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play the top card of your Collected pile."
+    "DESCRIPTION": "Deal !D! damage. NL Permanently gains !M! damage when you add a card to your deck or Collection.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "collector:Hurting": {
     "NAME": "Prepare Maleficence",
@@ -363,7 +362,7 @@
   },
   "collector:ShadowDaggers": {
     "NAME": "Shadow Daggers",
-    "DESCRIPTION": "Deal !D! damage for each unique *Collected card in your Exhaust pile. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage for each unique card in your *Collection.",
     "EXTENDED_DESCRIPTION": [
       " NL (Hits ",
       " time.)",
@@ -380,8 +379,7 @@
   },
   "collector:Soulforge": {
     "NAME": "Soulforge",
-    "DESCRIPTION": "Gain !B! Block. NL Draw a card from your Collected pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards from your Collected pile. NL Exhaust."
+    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Draw 1 Collected card."
   },
   "collector:Spark": {
     "NAME": "Spark",
@@ -447,8 +445,7 @@
   },
   "collector:AcidSlimeCard": {
     "NAME": "Acid Slime",
-    "DESCRIPTION": "Draw a collectible, then add a copy of it to your hand.",
-    "UPGRADE_DESCRIPTION": "Draw a collectible, then add !M! copies of it to your hand."
+    "DESCRIPTION": "Scry !M!. NL Draw a card, then add a copy of it to your hand. NL Exhaust."
   },
   "collector:AugmenterCard": {
     "NAME": "Augmenter",

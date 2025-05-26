@@ -1,3 +1,4 @@
+/*
 package collector.patches.ExtraDeckButtonPatches;
 
 import basemod.ReflectionHacks;
@@ -71,3 +72,5 @@ public class ExhaustPileViewScreenPatches {
         }
     }
 }
+
+ */

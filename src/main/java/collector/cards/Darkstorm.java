@@ -24,7 +24,12 @@ public class Darkstorm extends AbstractCollectorCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard q = new Blightning();
         makeInHand(q);
-        shuffleIn(q, magicNumber);
+        int cardsToGen;
+        if (p.drawPile.size() >= 5) {
+            cardsToGen = p.drawPile.size() / 5;
+            shuffleIn(q, cardsToGen);
+        }
+
     }
 
     public void upp() {

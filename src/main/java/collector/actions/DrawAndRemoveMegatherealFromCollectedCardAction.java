@@ -1,3 +1,4 @@
+/*
 package collector.actions;
 
 import basemod.helpers.CardModifierManager;
@@ -53,3 +54,5 @@ public class DrawAndRemoveMegatherealFromCollectedCardAction extends AbstractGam
         this.isDone = true;
     }
 }
+
+ */

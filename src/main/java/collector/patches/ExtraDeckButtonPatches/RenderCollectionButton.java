@@ -1,3 +1,4 @@
+/*
 package collector.patches.ExtraDeckButtonPatches;
 
 import collector.CollectorMod;
@@ -14,3 +15,6 @@ public class RenderCollectionButton {
         CollectorMod.renderCombatUiElements(spriteBatch);
     }
 }
+
+
+ */
