@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import expansioncontent.expansionContentMod;
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
@@ -15,12 +14,10 @@ public class GreaterHurting2 extends AbstractCollectorCard {
     public final static String ID = makeID(GreaterHurting2.class.getSimpleName());
 
     public GreaterHurting2() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardColor.COLORLESS);
+        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
         baseDamage = 21;
         isEthereal = true;
         cardsToPreview = new GreatestHurting2();
-        tags.add(expansionContentMod.UNPLAYABLE);
-        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

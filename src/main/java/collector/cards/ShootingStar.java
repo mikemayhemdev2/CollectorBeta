@@ -4,16 +4,14 @@ import collector.powers.ShootingStarPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToSelf;
 
 public class ShootingStar extends AbstractCollectorCard {
     public final static String ID = makeID(ShootingStar.class.getSimpleName());
     // intellij stuff power, self, rare, , , , , 20, 5
 
     public ShootingStar() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -22,6 +20,6 @@ public class ShootingStar extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBaseCost(2);
+        upgradeBaseCost(1);
     }
 }

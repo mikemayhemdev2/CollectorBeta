@@ -1,5 +1,7 @@
 package collector.cards.collectibles;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,6 +15,7 @@ import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
 
+@NoPools @NoCompendium @Deprecated
 public class EnragedCenturion extends AbstractCollectibleCard {
     public final static String ID = makeID(EnragedCenturion.class.getSimpleName());
     // intellij stuff attack, enemy, common, 7, 2, , , ,

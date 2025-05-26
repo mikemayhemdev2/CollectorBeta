@@ -17,6 +17,7 @@ public class MerchantCard extends AbstractCollectibleCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

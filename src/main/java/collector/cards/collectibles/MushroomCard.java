@@ -16,11 +16,11 @@ public class MushroomCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, uncommon, 5, 1, , , 3, 1
 
     public MushroomCard() {
-        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 8;
+        super(ID, 0, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 4;
         baseMagicNumber = magicNumber = 1;
         baseSecondMagic = secondMagic = 3;
-        this.tags.add(SneckoMod.BANNEDFORSNECKO);
+//        this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,7 +30,7 @@ public class MushroomCard extends AbstractCollectibleCard {
         } else {
             applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
         }
-        applyToSelf(new MushroomDamagePower(magicNumber));
+        applyToSelf(new MushroomDamagePower(secondMagic));
     }
 
 
@@ -46,8 +46,8 @@ public class MushroomCard extends AbstractCollectibleCard {
 
 
     public void upp() {
-//        upgradeDamage(5); - If it feels bad uncomment this out, its one cycle worth of damage scaling.
-        upgradeSecondMagic(2);
+        upgradeDamage(1);
+        upgradeSecondMagic(1);
         upgradeMagicNumber(1);
     }
 }

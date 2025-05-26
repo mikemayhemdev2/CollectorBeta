@@ -21,8 +21,8 @@ public class ScorchingRay extends AbstractCollectorCard {
     //Hello this card is overrated, thanks for coming to my ted talk.
 
     public ScorchingRay() {
-        super(ID, -1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 8;
+        super(ID, -1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        baseDamage = 9;
 
     }
 
@@ -39,6 +39,6 @@ public class ScorchingRay extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
     }
 }

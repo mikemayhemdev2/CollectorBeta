@@ -44,12 +44,12 @@
   },
   "collector:Bonfire": {
     "NAME": "Bonfire",
-    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Next turn, gain 1 collector:Reserve."
+    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL [#ff9407]Next[] [#ff9407]turn,[] [#ff9407]gain[] [#ff9407]1[] [#ff9407]Reserve.[]"
   },
   "collector:BrainDrain": {
     "NAME": "Brain Drain",
-    "DESCRIPTION": "Enemy loses !M! HP. NL Add their Collected card into your hand. NL Exhaust. NL It costs 0 this combat.",
-    "UPGRADE_DESCRIPTION": "Enemy loses !M! HP. NL Add their Collected card into your hand and Upgrade it. NL Exhaust. NL It costs 0 this combat."
+    "DESCRIPTION": "Gain !B! Block. NL Add target's Collected card into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add target's Upgraded Collected card into your hand. NL Exhaust."
   },
   "collector:BramblesparKindling": {
     "NAME": "Bramblespar Kindling",
@@ -115,7 +115,7 @@
   },
   "collector:DragonsTrove": {
     "NAME": "Dragon's Trove",
-    "DESCRIPTION": "collector:Pyre. NL Draw !clm2! cards from your Collected pile. NL Gain !M! collector:Reserve. NL Exhaust."
+    "DESCRIPTION": "collector:Pyre. NL Draw !clm2! cards from your Collected pile. NL [#ff9407]Gain[] [#ff9407]!M![] [#ff9407]Reserve.[] NL Exhaust."
   },
   "collector:Ember": {
     "NAME": "Ember",
@@ -137,9 +137,9 @@
     "DESCRIPTION": "Whenever you *Exhaust a card, ALL enemies lose !M! HP."
   },
   "collector:FiendFire": {
-    "NAME": "Ashfall Afterglow",
-    "DESCRIPTION": "Exhaust your hand. NL Deal !D! damage to ALL enemies for each card in your Exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust your hand. NL Deal !D! damage to ALL enemies for each card in your Exhaust pile.",
+    "NAME": "To Ashes!",
+    "DESCRIPTION": "Exhaust your hand. Add a random collector:Kindling to your hand for each card Exhausted.",
+    "UPGRADE_DESCRIPTION": "Exhaust your hand. Add a random Upgraded collector:Kindling to your hand for each card Exhausted.",
     "EXTENDED_DESCRIPTION": [
       "I must have other cards in my hand!"
     ]
@@ -155,11 +155,11 @@
   },
   "collector:FlameLash": {
     "NAME": "Flame Lash",
-    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Collector:Fueled: Hit ALL enemies instead."
+    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. [#ff9407]Hit[] [#ff9407]ALL[] [#ff9407]enemies[] [#ff9407]instead.[]"
   },
   "collector:FleetingEmbers": {
     "NAME": "Fleeting Embers",
-    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Gain !M! *Embers and upgrade them if a collector:Kindling was *Pyred."
+    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Gain !M! *Embers [#ff9407]and[] [#ff9407]Upgrade[] [#ff9407]them.[]"
   },
   "collector:Forgery": {
     "NAME": "Forgery",
@@ -170,7 +170,8 @@
   },
   "collector:FuelTheFire": {
     "NAME": "Fuel The Fire",
-    "DESCRIPTION": "collector:Pyre. NL Gain !M! collector:Reserve next turn. collector:Fueled: gain !clm2! more."
+    "DESCRIPTION": "collector:Pyre. NL Gain !M! Reserve next turn. NL [#ff9407]Gain[] [#ff9407]!M![] [#ff9407]more.[]",
+    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Gain !M! collector:Reserve next turn [#ff9407]and[] [#ff9407]draw[] [#ff9407]!clm2![] [#ff9407]card.[]"
   },
   "collector:Goodbye": {
     "NAME": "Goodbye",
@@ -191,10 +192,6 @@
     "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom. NL Repeat if target is collector:Afflicted."
   },
 
-
-
-
-
   "collector:Hurting2": {
     "NAME": "Hurting",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If this card is Exhausted, gain a *Greater *Hurting.",
@@ -211,10 +208,6 @@
     "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL If Exhausted, gain a *Hurting+ next turn."
   },
 
-
-
-
-
   "collector:GreenpyreLocus": {
     "NAME": "Greenpyre Locus",
     "DESCRIPTION": "Choose 1 of !M! Collected cards to add into your hand and Collected Pile.",
@@ -229,11 +222,11 @@
   },
   "collector:Hoard": {
     "NAME": "Hoard",
-    "DESCRIPTION": "collector:Pyre. NL Draw !M! cards."
+    "DESCRIPTION": "collector:Pyre. NL Draw !M! cards. NL [#ff9407]Draw[] [#ff9407]!clm2![] [#ff9407]More.[]"
   },
   "collector:HoardersStrike": {
     "NAME": "Hoarder's Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play the top card of your Collected pile."
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Play the top card of your Collected pile. NL Exhaust."
   },
   "collector:Hurting": {
     "NAME": "Prepare Maleficence",
@@ -250,12 +243,12 @@
   },
   "collector:InflictAgony": {
     "NAME": "Inflict Agony",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is not collector:Afflicted, apply 2 Weak and Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy is not collector:Afflicted, apply !M! Weak and Vulnerable."
   },
   "collector:Invigorate": {
     "NAME": "Flash",
-    "DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable or apply !M! Weak.",
-    "UPGRADE_DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable or apply !M! Weak.",
+    "DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable, else apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "If the enemy has more Weak than Vulnerable, apply !M! Vulnerable, else apply !M! Weak.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand."
     ]
@@ -274,8 +267,8 @@
   },
   "collector:JadedJabs": {
     "NAME": "Jaded Jabs",
-    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Gain *Shivs equal to *Pyred card's cost + !M!.",
-    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Gain *Shivs+ equal to *Pyred card's cost + !M!."
+    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Gain *Shivs equal to *Pyred card's cost [#ff9407]or[] [#ff9407]!M!.[]",
+    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Gain *Shivs+ equal to *Pyred card's cost [#ff9407]or[] [#ff9407]!M!.[]"
   },
   "collector:Karma": {
     "NAME": "Karma",
@@ -283,7 +276,7 @@
   },
   "collector:LanternFlare": {
     "NAME": "Lantern Flare",
-    "DESCRIPTION": "collector:Pyre. NL Apply !M! collector:Doom. NL Enemy gains !clm2! more at the end of each of its turns."
+    "DESCRIPTION": "collector:Pyre. NL Apply !M! collector:Doom. NL [#ff9407]Enemy[] [#ff9407]gains[] [#ff9407]!clm2![] [#ff9407]more[] [#ff9407]at[] [#ff9407]the[] [#ff9407]end[] [#ff9407]of[] [#ff9407]each[] [#ff9407]of[] [#ff9407]its[] [#ff9407]turns.[]"
   },
   "collector:LuckyWick": {
     "NAME": "Lucky Wick",
@@ -294,9 +287,9 @@
     "DESCRIPTION": "Unused!"
   },
   "collector:MiniCurse": {
-    "NAME": "Mega-Curse",
-    "DESCRIPTION": "collector:Pyre. NL collector:Fueled - Apply !M! Weak and Vulnerable.",
-    "UPGRADE_DESCRIPTION": "collector:Pyre. NL collector:Fueled - Apply !M! Weak and Vulnerable to ALL enemies."
+    "NAME": "Curse",
+    "DESCRIPTION": "collector:Pyre. NL Apply !M! Weak and Vulnerable. NL [#ff9407]Apply[] !M! [#ff9407]More.[]",
+    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Apply !M! Weak and Vulnerable to ALL enemies. NL [#ff9407]Apply[] !M! [#ff9407]More.[]"
   },
   "collector:Misdirect": {
     "NAME": "Misdirect",
@@ -333,14 +326,14 @@
   },
   "collector:ReceiveTribute": {
     "NAME": "Receive Tribute",
-    "DESCRIPTION": "collector:Pyre. NL Choose 1 of !M! Boss cards to gain. It gains Retain. NL Exhaust.",
+    "DESCRIPTION": "collector:Pyre. NL Choose 1 of !M! Boss cards to gain. NL [#ff9407]It[] [#ff9407]gains[] [#ff9407]Retain.[] NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand."
     ]
   },
   "collector:Roast": {
     "NAME": "Roast",
-    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage."
+    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL Exhaust. NL [#ff9407]Add[] [#ff9407]a[] [#ff9407]Copy[] [#ff9407]to[] [#ff9407]the[] [#ff9407]discard[] [#ff9407]pile.[]"
   },
   "collector:RotwoodKindling": {
     "NAME": "Rotwood Kindling",
@@ -372,7 +365,7 @@
   },
   "collector:SomberShield": {
     "NAME": "Somber Shield",
-    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Next turn, gain a copy of the *Exhausted card."
+    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Next turn, gain a copy of the *Exhausted card. NL [#ff9407]It[] [#ff9407]is[] [#ff9407]Upgraded.[]"
   },
   "collector:SoulSnare": {
     "NAME": "Soul Snare",
@@ -394,7 +387,7 @@
   },
   "collector:StashAway": {
     "NAME": "Stash Away",
-    "DESCRIPTION": "Gain !B! Block X times. NL Next turn, gain X collector:Reserve. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Your energy becomes equal collector:Reserves."
   },
   "collector:Strike": {
     "NAME": "Strike",
@@ -435,7 +428,7 @@
   },
   "collector:Wildfire": {
     "NAME": "Wildfire",
-    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage and apply !M! collector:Doom for each unique debuff on the enemy."
+    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage [#ff9407]and[] [#ff9407]apply[] [#ff9407]!M![] [#ff9407]Doom[] for each unique debuff on the enemy."
   },
   "collector:YouAreMine": {
     "NAME": "You Are Mine!",
@@ -479,11 +472,11 @@
   },
   "collector:ByrdCard": {
     "NAME": "Byrd",
-    "DESCRIPTION": "Deal !D! damage 5 times."
+    "DESCRIPTION": "Deal !D! damage 5 times. NL Exhaust."
   },
   "collector:CenturionCard": {
     "NAME": "Centurion",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Dexterity."
+    "DESCRIPTION": "Gain !B! Block. NL At the end of your turn, gain !M! Block."
   },
   "collector:EnragedCenturion": {
     "NAME": "Enraged Centurion",
@@ -495,11 +488,11 @@
   },
   "collector:ClericCard": {
     "NAME": "Cleric",
-    "DESCRIPTION": "collector:Pyre. NL Gain !M! expansioncontent:Temp_HP. NL If you already had expansioncontent:Temp_HP, Exhaust this."
+    "DESCRIPTION": "collector:Pyre. NL Gain !M! expansioncontent:Temp_HP. NL If you already had expansioncontent:Temp_HP, Exhaust this [#ff9407]or[] [#ff9407]don't.[]"
   },
   "collector:CultistCard": {
     "NAME": "Cultist",
-    "DESCRIPTION": "collector:Pyre. NL Gain 1 Strength at the start of your next !M! turns."
+    "DESCRIPTION": "collector:Pyre. NL Gain 1 Strength at the start of your next !M! turns. NL [#ff9407]Lasts[] [#ff9407]one[] [#ff9407]more[] [#ff9407]turn.[]"
   },
   "collector:DaggerCard": {
     "NAME": "Dagger",
@@ -582,7 +575,10 @@
   },
   "collector:LouseCard": {
     "NAME": "Louse",
-    "DESCRIPTION": "Gain !M! bronze:Blur. NL The next time you receive unblocked attack damage, gain !B! Block."
+    "DESCRIPTION": "collector:Kindling NL The next time you receive unblocked attack damage, gain !B! Block, and !M! bronze:Blur.",
+    "EXTENDED_DESCRIPTION": [
+      "I must light this kindling to use it."
+    ]
   },
   "collector:MadGremlinCard": {
     "NAME": "Mad Gremlin",
@@ -601,8 +597,8 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak or Vulnerable at random. NL Gain !clm2! collector:Fungal_Bloom."
   },
   "collector:MysticCard": {
-    "NAME": "Mystic's Kindling",
-    "DESCRIPTION": "collector:Kindling. NL Heal !M! HP, then *Enrage all *Centurion cards this combat.",
+    "NAME": "Mystic",
+    "DESCRIPTION": "collector:Kindling. NL Heal !M! HP.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."
     ]
@@ -683,8 +679,8 @@
     "UPGRADE_DESCRIPTION": "Retain. NL collector:Shape_Swarm. NL Gain 1 Thorns for each card in your hand."
   },
   "collector:ExploderCard": {
-    "NAME": "Exploder's Kindling",
-    "DESCRIPTION": "collector:Shape_Swarm. NL collector:Kindling. NL Deal 10 damage to ALL enemies.",
+    "NAME": "Exploder",
+    "DESCRIPTION": "collector:Shape_Swarm. NL collector:Kindling. NL Deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."
     ]
@@ -745,11 +741,11 @@
   },
   "collector:ShootingStar": {
     "NAME": "Shooting Star",
-    "DESCRIPTION": "The first time you collector:Pyre an Attack each turn, gain a copy of it. NL It costs 0 until played."
+    "DESCRIPTION": "The first time you collector:Pyre a collector:Kindling each turn, [#ff9407]gain[] [#ff9407]a[] [#ff9407]copy[] [#ff9407]of[] [#ff9407]it.[]"
   },
   "collector:CollectorCard": {
     "NAME": "Ouroboros",
-    "DESCRIPTION": "collector:Pyre. NL Apply !M! Weak. NL Apply !M! Vulnerable. NL Gain !clm2! Temporary_HP."
+    "DESCRIPTION": "collector:Pyre. NL Apply !M! Weak. NL Apply !M! Vulnerable [#ff9407](+4).[] Gain !clm2! Temporary_HP [#ff9407](+2).[]"
   },
   "collector:Sapped": {
     "NAME": "Sapped",

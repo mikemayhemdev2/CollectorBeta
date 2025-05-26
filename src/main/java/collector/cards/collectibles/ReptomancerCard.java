@@ -16,7 +16,7 @@ public class ReptomancerCard extends AbstractCollectibleCard {
     public ReptomancerCard() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 6;
-        baseSecondMagic = secondMagic = 3;
+        baseSecondMagic = secondMagic = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -26,7 +26,7 @@ public class ReptomancerCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
         upgradeSecondMagic(1);
     }
 }

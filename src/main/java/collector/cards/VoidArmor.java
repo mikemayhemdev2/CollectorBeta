@@ -19,7 +19,7 @@ public class VoidArmor extends AbstractCollectorCard {
 
     public VoidArmor() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL);
-        baseBlock = 8;
+        baseBlock = 9;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,7 +30,7 @@ public class VoidArmor extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeBlock(3);
     }
 
     @SpirePatch(clz= MonsterGroup.class, method="applyPreTurnLogic")

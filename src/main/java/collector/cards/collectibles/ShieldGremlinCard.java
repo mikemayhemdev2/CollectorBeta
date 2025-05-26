@@ -19,7 +19,7 @@ public class ShieldGremlinCard extends AbstractCollectibleCard {
 
     public ShieldGremlinCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 9;
+        baseBlock = 7;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }

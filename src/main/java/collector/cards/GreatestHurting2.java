@@ -16,12 +16,10 @@ public class GreatestHurting2 extends AbstractCollectorCard {
     public final static String ID = makeID(GreatestHurting2.class.getSimpleName());
 
     public GreatestHurting2() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardColor.COLORLESS);
+        super(ID, 3, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
         baseDamage = 32;
         isEthereal = true;
 //        cardsToPreview = new Hurting2(); - No circular references!
-        tags.add(expansionContentMod.UNPLAYABLE);
-        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,7 +29,7 @@ public class GreatestHurting2 extends AbstractCollectorCard {
 
     @Override
     public void triggerOnExhaust() {
-        AbstractCard toAdd = new Hurting();
+        AbstractCard toAdd = new Hurting2();
         if (upgraded){
             toAdd.upgrade();
         }

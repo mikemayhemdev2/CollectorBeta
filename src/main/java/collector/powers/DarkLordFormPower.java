@@ -1,9 +1,5 @@
 package collector.powers;
 
-import automaton.actions.RepeatCardAction;
-import collector.cards.InevitableDemise;
-import collector.cards.YouAreMine;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

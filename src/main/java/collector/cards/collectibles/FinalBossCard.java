@@ -16,6 +16,7 @@ public class FinalBossCard extends AbstractCollectibleCard {
 
     public FinalBossCard() {
         super(ID, 4, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

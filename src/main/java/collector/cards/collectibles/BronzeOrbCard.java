@@ -2,10 +2,7 @@ package collector.cards.collectibles;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import collector.CollectorCollection;
-import collector.cards.GreaterHurting2;
-import collector.cards.GreatestHurting2;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Hyperbeam;

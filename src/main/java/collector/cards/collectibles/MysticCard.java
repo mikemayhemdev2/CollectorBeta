@@ -26,7 +26,9 @@ public class MysticCard extends AbstractCollectibleCard {
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
-        cardsToPreview = new EnragedCenturion();
+        tags.add(CardTags.HEALING);
+//        cardsToPreview = new EnragedCenturion();
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,7 +41,7 @@ public class MysticCard extends AbstractCollectibleCard {
     }
 
     public void searchPile(CardGroup cardsToSearch) {
-
+/*
         for (AbstractCard c : cardsToSearch.group) {
             if (c instanceof CenturionCard) {
                 AbstractCard newthing = new EnragedCenturion();
@@ -48,12 +50,14 @@ public class MysticCard extends AbstractCollectibleCard {
                 cardsToSearch.group.remove(c);
             }
         }
+ */ //Too mungus.
     }
 
     @Override
     public void triggerOnExhaust() {
         atb(new HealAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
 
+        /*
         atb(new AbstractGameAction() {
             @Override
             public void update() {
@@ -65,8 +69,7 @@ public class MysticCard extends AbstractCollectibleCard {
                 searchPile(CollectorCollection.combatCollection);
             }
         });
-
-
+         */
     }
 
     public void upp() {

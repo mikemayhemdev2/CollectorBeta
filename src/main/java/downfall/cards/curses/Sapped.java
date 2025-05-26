@@ -4,11 +4,8 @@ import collector.cards.AbstractCollectorCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.SoulboundField;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import downfall.downfallMod;
-import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
 

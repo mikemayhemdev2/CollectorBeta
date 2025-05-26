@@ -35,6 +35,7 @@ public class YouAreMine extends AbstractExpansionCard {
         baseMagicNumber = magicNumber = MAGIC;
         this.exhaust = true;
         loadJokeCardImage(this, "YouAreMine.png");
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

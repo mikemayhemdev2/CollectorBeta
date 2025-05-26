@@ -24,7 +24,7 @@ public class TorchHeadCard extends AbstractCollectibleCard {
     private int previewIndex;
 
     public TorchHeadCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

@@ -12,9 +12,10 @@ public class ByrdCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, common, 1, 1, , , , 
 
     public ByrdCard() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
