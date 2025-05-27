@@ -82,6 +82,10 @@ THINGS I STILL WANT TO LOOK AT:
 
 Possibly adding one more source of Reserve, maybe in Uncommon.
 
+Somber Shield - It really doesn't need any change, but the orangetext system requires altering mechanics. I love the card as-is. Needs more thought.
+
+Maleficence - Want to give this a chance, and adding more reliable Doom source should help let it shine. But I still have my eye on it, just not sure when it is useful. Maybe merging the old "stop the next Doom removal" thing would help it?
+
 Another full audit on Collectibles. Probably changing more of the ones I left alone, adding spice.
 
 Torchhead. Still don't know what to do here.
