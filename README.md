@@ -28,7 +28,7 @@ Darkwood Kindling now Common, upgrades to give an E next turn instead of another
 
 Goodbye reworked, now Common, 1-cost, simple Deadly Poison for Doom staple draftable card. Apply 7(10) Doom. Context: Filling commons with more solid simple multi-copy draftables.
 
-Flash reworked, now Common, 1-cost, apply (3)2 Vuln and gain 2(3) Temp Strength. Staple Vuln draftable. Context: Filling commons with more solid simple multi-copy draftables.
+Flash reworked, now Common, 1-cost, apply (2)3 Vuln and gain 2(3) Temp Strength. Staple Vuln draftable. Context: Filling commons with more solid simple multi-copy draftables.
 
 Misdirect now 1-cost, 7 Block and 1 Reserve next turn (no immediate benefit at all). Context: Reducing 0-cost availability in commons. Always has been too easy of a pick.
 
