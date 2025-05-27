@@ -66,7 +66,7 @@ Dragon's Trove locked Reserve behind orangetext. Draw increased by 1. Context: F
 
 Shadow Daggers bumped to 2-cost. Context: It stronk.
 
-Finger of Doom+ changed to just reduce cost to 3. Context: Somewhat required change to match the Reserves change. Makes it playable without an energy relic.
+Finger of Doom+ changed to just reduce cost to 3. Context: Somewhat required change to match the Reserves change. Makes it playable without an energy relic. Alternative: Maybe just make it 6-cost?
 
 COLLECTIBLES
 
