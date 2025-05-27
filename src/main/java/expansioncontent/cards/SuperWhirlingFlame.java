@@ -45,14 +45,13 @@ public class SuperWhirlingFlame extends AbstractExpansionCard {
 
     public SuperWhirlingFlame() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 8;
+        baseDamage = 9;//Idk why these values were put in wrong, fixed them.
         isMultiDamage = true;
-        //todo attack bg instead of skill bg
         this.setBackgroundTexture("expansioncontentResources/images/512/bg_boss_collector.png", "expansioncontentResources/images/1024/bg_boss_collector.png");
 
         tags.add(expansionContentMod.STUDY_COLLECTOR);
         tags.add(expansionContentMod.STUDY);
-        expansionContentMod.loadJokeCardImage((AbstractCard)this, "SuperWhirlingFlame.png");
+        expansionContentMod.loadJokeCardImage(this, "SuperWhirlingFlame.png");
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -61,6 +60,6 @@ public class SuperWhirlingFlame extends AbstractExpansionCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
     }
 }

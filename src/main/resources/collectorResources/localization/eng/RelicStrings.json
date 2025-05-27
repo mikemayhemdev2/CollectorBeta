@@ -3,7 +3,7 @@
     "NAME": "Emerald Torch",
     "FLAVOR": "The fires of greed never fade.",
     "DESCRIPTIONS": [
-      "Start each combat with an *Ember and draw #b1 card from your collected pile."
+      "Start each combat with an #yEmber and draw #b1 card."
     ]
   },
 
@@ -46,7 +46,7 @@
     "NAME": "Soul-lit Lamp",
     "FLAVOR": "A ghoulish decoration. The crackles of fire are replaced by buzzing wails.",
     "DESCRIPTIONS": [
-      "When you #yExhaust a card apply #b1 #yhexamod:Soulburn to ALL enemies."
+      "When you #yExhaust a #ycollector:Kindling apply #b3 #yhexamod:Soulburn to ALL enemies."
     ]
   },
 

@@ -18,7 +18,7 @@ public class SsserpentCard extends AbstractCollectibleCard {
     public SsserpentCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
         baseDamage = 6;
-        baseMagicNumber = magicNumber = 10;
+        baseMagicNumber = magicNumber = 6;
         cardsToPreview = new Doubt();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -30,7 +30,7 @@ public class SsserpentCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(4);
+        upgradeDamage(3);
+        upgradeMagicNumber(3);
     }
 }

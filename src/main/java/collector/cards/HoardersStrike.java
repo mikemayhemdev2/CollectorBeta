@@ -23,6 +23,7 @@ public class HoardersStrike extends AbstractCollectorCard {
         tags.add(CardTags.STRIKE);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         baseMagicNumber = magicNumber = 1;
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

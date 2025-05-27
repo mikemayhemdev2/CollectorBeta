@@ -7,21 +7,24 @@
     "DESCRIPTION": "Creatures are Afflicted when they are both #yVulnerable and #yWeak."
   },
   {
+    "ID": "doom",
     "PROPER_NAME": "Doom",
     "NAMES": [
       "doom",
       "doomed"
     ],
-    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn, then Doom is removed #bunless the creature is #yAfflicted (has both #yWeak and #yVulnerable [REMOVE_SPACE])."
+    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn, then Doom is removed unless the creature is #yAfflicted (has both #yWeak and #yVulnerable [REMOVE_SPACE])."
   },
   {
+    "ID": "pyre",
     "PROPER_NAME": "Pyre",
     "NAMES": [
       "pyre"
     ],
-    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost."
+    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost. NL If the card used in pyre is a Kindling then it will [#ff9407]add[] [#ff9407]a[] [#ff9407]new[] [#ff9407]effect.[]"
   },
   {
+    "ID": "reserve",
     "PROPER_NAME": "Reserve",
     "NAMES": [
       "reserve",
@@ -45,17 +48,19 @@
   },
 
   {
+    "ID": "kindling",
     "PROPER_NAME": "Kindling",
     "NAMES": [
       "kindling"
     ],
-    "DESCRIPTION": "Not discarded at the end of your turn and cannot be played from your hand. \n If this card is Exhausted, its effects activate."
+    "DESCRIPTION": "Not playable or discarded at the end of your turn. NL When Exhausted, this card's effects activate."
   },
 
   {
     "PROPER_NAME": "Fueled",
     "NAMES": [
-      "fueled"
+      "fueled",
+      "Translator Note: NOT USED"
     ],
     "DESCRIPTION": "This effect will occur if you use a #yKindling when exhausting a card through #yPyre [REMOVE_SPACE]."
   },
@@ -65,7 +70,7 @@
       "bandit boost",
       "bandit_boost"
     ],
-    "DESCRIPTION": "Bonus effect which triggers if you have played a different Bandit Boost card this combat."
+    "DESCRIPTION": "Bonus effect which triggers if you have played a different #yBandit #yBoost card this combat."
   },
   {
     "PROPER_NAME": "Shape Swarm",
@@ -73,7 +78,7 @@
       "shape swarm",
       "shape_swarm"
     ],
-    "DESCRIPTION": "When drawn, draw as many more Shape Swarm cards from your Collection as possible."
+    "DESCRIPTION": "When drawn, draw as many more #yShape #ySwarm cards from your Collection as possible."
   },
   {
     "PROPER_NAME": "Gremlin Gang",
@@ -81,7 +86,7 @@
       "gremlin gang",
       "gremlin_gang"
     ],
-    "DESCRIPTION": "When you next play a different Gremlin Gang card this combat, play a copy of this."
+    "DESCRIPTION": "When you next play a different #yGremlin #yGang card this combat, play a copy of this."
   },
   {
     "PROPER_NAME": "Slaver Trio",
@@ -89,7 +94,7 @@
       "slaver trio",
       "slaver_trio"
     ],
-    "DESCRIPTION": "Once per combat, if you play all 3 unique Slaver Trio cards, gain 2 Strength and Dexterity."
+    "DESCRIPTION": "Once per combat, if you play all #b3 unique #ySlaver #yTrio cards, gain #b2 Strength and Dexterity."
   },
   {
     "PROPER_NAME": "Fungal Bloom",
@@ -97,6 +102,6 @@
       "fungal bloom",
       "fungal_bloom"
     ],
-    "DESCRIPTION": "Increases the damage dealt by Mushroom cards this combat."
+    "DESCRIPTION": "Increases the damage dealt by #yMushroom cards this combat."
   }
 ]

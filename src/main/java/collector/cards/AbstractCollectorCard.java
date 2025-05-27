@@ -4,7 +4,9 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 import collector.CollectorChar;
 import collector.cardmods.PyreMod;
+import collector.util.CollectorOrangeTextInterface;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -23,6 +25,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import expansioncontent.expansionContentMod;
+import theHexaghost.util.HexaPurpleTextInterface;
 import utilityClasses.DFL;
 
 import static collector.CollectorMod.getModID;
@@ -33,12 +36,18 @@ import static utilityClasses.Wiz.att;
 public abstract class AbstractCollectorCard extends CustomCard {
     public String betaArtPath;
 
-    protected final CardStrings cardStrings;
+    protected CardStrings cardStrings;
+    protected final String NAME;
+    protected final String DESCRIPTION;
+    protected final String UPGRADE_DESCRIPTION;
+    protected final String[] EXTENDED_DESCRIPTION;
+    static final Color pyreOrange = new Color(65/255f,138/255f,217/255f,1);
 
     public int secondMagic;
     public int baseSecondMagic;
     public boolean upgradedsecondMagic;
     public boolean issecondMagicModified;
+
 
     public AbstractCollectorCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, CollectorChar.Enums.COLLECTOR);
@@ -52,6 +61,12 @@ public abstract class AbstractCollectorCard extends CustomCard {
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
+
+        //Text tracking block.
+        NAME = cardStrings.NAME;
+        DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+        EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     }
 
 
@@ -167,5 +182,28 @@ public abstract class AbstractCollectorCard extends CustomCard {
         baseSecondMagic += amount;
         secondMagic = baseSecondMagic;
         upgradedsecondMagic = true;
+    }
+
+    @Override
+    public void initializeDescription() {
+        // Checks if the card is afterlife, and if so, colorize the Extended Description (Afterlife effect description) and append to rawDescription
+        if(this instanceof CollectorOrangeTextInterface && this.EXTENDED_DESCRIPTION != null && this.EXTENDED_DESCRIPTION.length >= 1 ){
+            String[] words = this.EXTENDED_DESCRIPTION[0].split(" ");
+            StringBuilder[] coloredWords = new StringBuilder[words.length];
+            for (int i = 0; i < words.length; i++) {
+                if(!words[i].equals("") && !words[i].equals("!D!") && !words[i].equals("!B!") && !words[i].equals("!M!") && !words[i].equals("!clm2!") && !words[i].equals("NL") ) {
+                    coloredWords[i] = new StringBuilder("[#ff9407]").append(words[i]).append("[]");
+                }else{
+                    coloredWords[i] = new StringBuilder(words[i]);
+                }
+            }
+
+            if(this.upgraded && this.UPGRADE_DESCRIPTION != null) {
+                this.rawDescription = this.UPGRADE_DESCRIPTION + String.join(" ", coloredWords);
+            }else{
+                this.rawDescription = this.DESCRIPTION + String.join(" ", coloredWords);
+            }
+        }
+        super.initializeDescription();
     }
 }

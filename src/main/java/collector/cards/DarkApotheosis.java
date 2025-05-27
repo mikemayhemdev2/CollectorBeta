@@ -14,6 +14,7 @@ import sneckomod.SneckoMod;
 import utilityClasses.DFL;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static collector.CollectorMod.COLLECTIBLE_CARD_COLOR;
 import static collector.CollectorMod.makeID;
@@ -31,13 +32,12 @@ public class DarkApotheosis extends AbstractCollectorCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-
         atb(new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
                 for (AbstractCard c : DFL.pl().discardPile.group) {
-                    if (c.canUpgrade() && c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && CollectorCollection.collection.contains(c.makeSameInstanceOf())) {
+                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
                         c.upgrade();
                         c.applyPowers();
                     }
@@ -50,7 +50,7 @@ public class DarkApotheosis extends AbstractCollectorCard {
             public void update() {
                 isDone = true;
                 for (AbstractCard c : DFL.pl().drawPile.group) {
-                    if (c.canUpgrade() && c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && CollectorCollection.collection.contains(c.makeSameInstanceOf())) {
+                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
                         c.upgrade();
                         c.applyPowers();
                     }
@@ -63,7 +63,7 @@ public class DarkApotheosis extends AbstractCollectorCard {
             public void update() {
                 isDone = true;
                 for (AbstractCard c : DFL.pl().hand.group) {
-                    if (c.canUpgrade() && c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && CollectorCollection.collection.contains(c.makeSameInstanceOf())) {
+                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
                         c.superFlash(); //Cards in your hand sparkle!
                         c.upgrade();
                         c.applyPowers();
@@ -72,6 +72,15 @@ public class DarkApotheosis extends AbstractCollectorCard {
             }
         });
 
+    }
+
+    public boolean compareUUIDtoPile(UUID cardUUID){
+        for (AbstractCard c : CollectorCollection.collection.group){
+            if (c.uuid == cardUUID){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void upp() {

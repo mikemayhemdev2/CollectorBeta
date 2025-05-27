@@ -24,7 +24,7 @@ public class SentryCard extends AbstractCollectibleCard {
 
     public SentryCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        baseDamage = 6;
         baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }

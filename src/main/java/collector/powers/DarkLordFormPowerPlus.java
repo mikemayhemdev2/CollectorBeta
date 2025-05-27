@@ -1,11 +1,9 @@
 package collector.powers;
 
-import automaton.actions.RepeatCardAction;
-import collector.cards.YouAreMine;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import utilityClasses.DFL;
 
 public class DarkLordFormPowerPlus extends AbstractCollectorPower {
     public static final String NAME = "DarkLordFormPlus";
@@ -21,16 +19,19 @@ public class DarkLordFormPowerPlus extends AbstractCollectorPower {
     public void atStartOfTurnPostDraw() {
         flash();
         for (int i = 0; i < amount; i++) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    isDone = true;
-                    AbstractMonster q = AbstractDungeon.getRandomMonster();
-                    AbstractCard c = new YouAreMine();
-                    c.upgrade();
-                    addToTop(new RepeatCardAction(q, c));
-                }
-            });
+            for (AbstractMonster m : DFL.activeMonsterList()){
+                addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, DFL.pl().exhaustPile.size()), DFL.pl().exhaustPile.size()));
+            }
+        }
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        flash();
+        for (int i = 0; i < amount; i++) {
+            for (AbstractMonster m : DFL.activeMonsterList()){
+                addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, DFL.pl().exhaustPile.size()), DFL.pl().exhaustPile.size()));
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import downfall.util.TextureLoader;
+import expansioncontent.expansionContentMod;
 import theHexaghost.powers.BurnPower;
 import utilityClasses.DFL;
 
@@ -29,18 +30,18 @@ public class SoullitLamp extends CustomRelic {
     @Override
     public void atBattleStart() {
         flash();
- //       makeInHand(new Ember());
     }
 
     @Override
     public void onEquip() {
-//        EssenceSystem.changeEssence(3);
     }
 
     @Override
     public void onExhaust(AbstractCard card){
-        for (AbstractMonster mon : DFL.activeMonsterList()){
-            atb(new ApplyPowerAction(mon, DFL.pl(), new BurnPower(mon, 1), 1));
+        if (card.tags.contains(expansionContentMod.KINDLING)) {
+            for (AbstractMonster mon : DFL.activeMonsterList()) {
+                atb(new ApplyPowerAction(mon, DFL.pl(), new BurnPower(mon, 2), 2));
+            }
         }
     }
 

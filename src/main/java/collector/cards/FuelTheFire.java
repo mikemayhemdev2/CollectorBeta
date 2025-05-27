@@ -1,6 +1,7 @@
 package collector.cards;
 
 import collector.powers.NextTurnReservePower;
+import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,13 +11,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import downfall.downfallMod;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
-public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard {
+public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, CollectorOrangeTextInterface {
     public final static String ID = makeID(FuelTheFire.class.getSimpleName());
     // intellij stuff skill, self, common, , , , , 2, 1
 
@@ -28,8 +30,9 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new NextTurnReservePower(magicNumber));
-//        addToBot(new ApplyPowerAction(m, DFL.pl(), new WeakPower(m, secondMagic, false), secondMagic));
+        if (this.upgraded) {
+            applyToSelf(new NextTurnReservePower(magicNumber));//When not upgraded, just 1*2R
+        }
     }
 
     @Override
@@ -41,7 +44,13 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard {
             pyredKindling = false;
         }
         if (pyredKindling){//Idk when this goes off so im just going to blow it up from both piles.
-            applyToSelf(new NextTurnReservePower(magicNumber));
+            if (!this.upgraded) {
+                applyToSelf(new NextTurnReservePower(magicNumber*2));//2*1R when not upgraded and fueled.
+            }else{
+                applyToSelf(new DrawCardNextTurnPower(DFL.pl(), secondMagic));//Upgrade draw 1 next turn effect.
+            }
+        }else if (!this.upgraded){
+            applyToSelf(new NextTurnReservePower(magicNumber));//1 when not upgraded and not fueled.
         }
     }
 
@@ -50,14 +59,25 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard {
         if (AbstractDungeon.player != null && AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null
                 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !DFL.pl().hand.isEmpty()) {
             if (DFL.pl().hand.group.stream().anyMatch(c -> c.tags.contains(expansionContentMod.KINDLING))) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
+                this.glowColor = pyreOrange;
                 return;
             }
         }
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
     }
 
+    @Override
+    public void initializeDescription() {
+        super.initializeDescription();
+        if (!this.upgraded) {
+            String get = downfallMod.keywords_and_proper_names.get("reserve");
+            this.keywords.add(get);
+        }
+    }
+
     public void upp() {
         upgradeMagicNumber(1);
+        uDesc();
+        initializeDescription();
     }
 }

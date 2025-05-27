@@ -3,6 +3,7 @@ package collector.powers;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import expansioncontent.expansionContentMod;
 
 public class ShootingStarPower extends AbstractCollectorPower implements OnPyrePower {
     public static final String NAME = "ShootingStar";
@@ -23,11 +24,11 @@ public class ShootingStarPower extends AbstractCollectorPower implements OnPyreP
 
     @Override
     public void onPyre(AbstractCard card) {
-        if (pyresThisTurn < amount && card.type == AbstractCard.CardType.ATTACK) {
+        if (pyresThisTurn < amount && card.tags.contains(expansionContentMod.KINDLING)) {
             flash();
             pyresThisTurn++;
             AbstractCard copy = card.makeStatEquivalentCopy();
-            copy.freeToPlayOnce = true;
+//            copy.freeToPlayOnce = true; - Kindling's are unplayable anyway.
             addToBot(new MakeTempCardInHandAction(copy, true));
         }
     }

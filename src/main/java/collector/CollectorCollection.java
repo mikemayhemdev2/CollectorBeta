@@ -15,10 +15,7 @@ import collector.ui.ExcessPileRemoveEffect;
 import collector.util.CollectibleCardReward;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.Buffer;
-import com.megacrit.cardcrawl.cards.blue.CoreSurge;
-import com.megacrit.cardcrawl.cards.blue.Seek;
-import com.megacrit.cardcrawl.cards.blue.WhiteNoise;
+import com.megacrit.cardcrawl.cards.blue.*;
 import com.megacrit.cardcrawl.cards.green.*;
 import com.megacrit.cardcrawl.cards.purple.ConjureBlade;
 import com.megacrit.cardcrawl.cards.purple.Omniscience;
@@ -195,7 +192,7 @@ public class CollectorCollection {
                         returnValue = CardLibrary.getCopy(Buffer.ID);
                         break;
                     case 2:
-                        returnValue = CardLibrary.getCopy(CoreSurge.ID);
+                        returnValue = CardLibrary.getCopy(Hyperbeam.ID);
                         break;
                     case 3:
                     default:

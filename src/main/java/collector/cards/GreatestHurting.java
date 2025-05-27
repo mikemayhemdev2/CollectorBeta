@@ -18,7 +18,7 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
     public GreatestHurting() {
-        super(ID, 3, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
+        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
         this.selfRetain = true;
     }
 

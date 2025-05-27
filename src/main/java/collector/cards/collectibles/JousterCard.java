@@ -16,8 +16,8 @@ public class JousterCard extends AbstractCollectibleCard {
 
     public JousterCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
-        baseDamage = 12;
-        baseBlock = 12;
+        baseDamage = 11;
+        baseBlock = 11;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

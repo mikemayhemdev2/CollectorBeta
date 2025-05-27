@@ -34,6 +34,6 @@ public class Heatwave extends AbstractCollectorCard {
 
     public void upp() {
         upgradeDamage(4);
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
     }
 }

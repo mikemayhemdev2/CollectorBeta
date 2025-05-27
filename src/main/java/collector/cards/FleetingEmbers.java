@@ -1,5 +1,6 @@
 package collector.cards;
 
+import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +12,7 @@ import utilityClasses.DFL;
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.makeInHand;
 
-public class FleetingEmbers extends AbstractCollectorCard implements OnPyreCard {
+public class FleetingEmbers extends AbstractCollectorCard implements OnPyreCard, CollectorOrangeTextInterface {
     public final static String ID = makeID(FleetingEmbers.class.getSimpleName());
     // intellij stuff skill, self, common, , , , , 2, 1
 
@@ -47,7 +48,7 @@ public class FleetingEmbers extends AbstractCollectorCard implements OnPyreCard 
         if (AbstractDungeon.player != null && AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null
                 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !DFL.pl().hand.isEmpty()) {
             if (DFL.pl().hand.group.stream().anyMatch(c -> c.tags.contains(expansionContentMod.KINDLING))) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
+                this.glowColor = pyreOrange;
                 return;
             }
         }

@@ -22,10 +22,7 @@ public class Hurting extends AbstractCollectorCard {
 
     public Hurting() {//Look at the bottom of the next one
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-//        baseDamage = 10;
         this.selfRetain = true;
-//        cardsToPreview = new GreaterHurting();
-//        cardsToPreview2 = new GreatestHurting();
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
         MultiCardPreview.add(this, new GreaterHurting(), new GreatestHurting());

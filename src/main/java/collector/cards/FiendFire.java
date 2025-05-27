@@ -14,37 +14,12 @@ public class FiendFire extends AbstractCollectorCard {
     public final static String ID = makeID(FiendFire.class.getSimpleName());
 
     public FiendFire() {
-        super(ID, 5, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-//        this.baseMagicNumber = 2;        this.baseSecondMagic = 2;       this.baseDamage = baseMagicNumber;
-        this.baseDamage = 5;
-        exhaust = true;
-        this.isMultiDamage = true;
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
+//        exhaust = true; - No touchy or else.
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new kaboomAction());
-        int times = 0;
-
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                int times = DFL.pl().exhaustPile.size();
-            }
-        });
-
-        atb(new AbstractGameAction() {//Staggered atb's to ensure the exhaust actions and counting all occurs BEFORE the game decides to try and count.
-            @Override
-            public void update() {
-                isDone = true;
-                if (!DFL.pl().exhaustPile.isEmpty()){
-                    for (int t = 0; t < times; t++) {//Note due to the order of statments, this is not 0.
-                        addToBot(new VFXAction(new ScreenOnFireEffect()));
-                        allDmg(AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-                    }
-                }
-            }
-        });
+        addToTop(new kaboomAction(this.upgraded));
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
@@ -58,18 +33,7 @@ public class FiendFire extends AbstractCollectorCard {
         return true;
     }
 
-/*    public void applyPowers() {
-        int add = EnergyPanel.totalCount;
-        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {add += 2;}
-        this.baseDamage = (secondMagic += (add * magicNumber));
-        super.applyPowers();
-    }*/
-
-
     public void upp() {
-  //      upgradeSecondMagic(1);
- //       upgradeMagicNumber(1);
-//        upgradeDamage(1);
         this.selfRetain = true;
         uDesc();
     }

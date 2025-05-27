@@ -1,23 +1,25 @@
 package collector.cards;
 
+import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
-public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
+public class JadedJabs extends AbstractCollectorCard implements OnPyreCard, CollectorOrangeTextInterface {
     public final static String ID = makeID(JadedJabs.class.getSimpleName());
     // intellij stuff attack, enemy, common, 10, 2, , , , 
     Shiv thisShiv = new Shiv();
 
     public JadedJabs() {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 8;
         baseMagicNumber = magicNumber = 1;
 
         cardsToPreview = thisShiv;
@@ -32,12 +34,12 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
         if (this.upgraded){
             q.upgrade();
         }
-        makeInHand(q, magicNumber);
+//        makeInHand(q, magicNumber);
         atb(new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
-                if (toAdd >= 0) {
+                if (toAdd >= 1) {
                     att(new MakeTempCardInHandAction(q, toAdd, true));
                 }
             }
@@ -46,12 +48,17 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard {
 
     @Override
     public void onPyred(AbstractCard card) {
-        int result = freeToPlay() ? 0 : card.costForTurn;
-        toAdd = result > 0 ? result : -1;
+        if (card.tags.contains(expansionContentMod.KINDLING)){
+            toAdd = this.magicNumber;
+        }else {
+            int result = freeToPlay() ? 0 : card.costForTurn;
+            toAdd = result > 0 ? result : -1;
+        }
     }
 
     public void upp() {
         upgradeDamage(4);
+        upgradeMagicNumber(1);
         thisShiv.upgrade();
         uDesc();
     }

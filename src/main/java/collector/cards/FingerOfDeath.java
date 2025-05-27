@@ -12,7 +12,7 @@ import static utilityClasses.Wiz.*;
 
 public class FingerOfDeath extends AbstractCollectorCard {
     public final static String ID = makeID(FingerOfDeath.class.getSimpleName());
-    // intellij stuff attack, enemy, rare, 50, , , , , 
+    // intellij stuff attack, enemy, rare, 50, , , , ,
 
     public FingerOfDeath() {
         super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
@@ -23,11 +23,7 @@ public class FingerOfDeath extends AbstractCollectorCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new VFXAction(p, new FingerOfDeathEffect(p.dialogX, p.dialogY, p.flipHorizontal), 0.1f));
-        if (upgraded) {
-            forAllMonstersLiving(q -> applyToEnemy(q, new DoomPower(q, magicNumber)));
-        } else {
-            applyToEnemy(m, new DoomPower(m, magicNumber));
-        }
+        forAllMonstersLiving(q -> applyToEnemy(q, new DoomPower(q, magicNumber)));
     }
 
     public void upp() {

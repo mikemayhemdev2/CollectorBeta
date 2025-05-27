@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import expansioncontent.expansionContentMod;
+import slimebound.powers.NextTurnGainStrengthPower;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.applyToSelf;
@@ -18,8 +20,8 @@ public class SunbloomKindling extends AbstractCollectorCard {
 
     public SunbloomKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
-        baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+        baseMagicNumber = magicNumber = 3;
+        baseSecondMagic = secondMagic = 1;
         cardsToPreview = new Ember();
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
@@ -38,11 +40,11 @@ public class SunbloomKindling extends AbstractCollectorCard {
     @Override
     public void triggerOnExhaust() {
         CardCrawlGame.sound.play("HEAL_1");
-        applyToSelf(new GainStrengthPower(AbstractDungeon.player, magicNumber));
+        applyToSelf(new NextTurnGainStrengthPower(DFL.pl(), DFL.pl(), magicNumber));
         if (secondMagic >= 1 && secondMagic <= 10) {
             makeInHand(new Ember(), secondMagic);
         }else{
-            makeInHand(new Ember(), 3);//Fallback is 3 and not 11.
+            makeInHand(new Ember(), 1);//Fallback is 1.
         }
     }
 

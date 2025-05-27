@@ -2,13 +2,14 @@ package collector.cards;
 
 import collector.actions.GainReservesAction;
 import collector.powers.NextTurnReservePower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToSelf;
 
 public class DarkwoodKindling extends AbstractCollectorCard {
     public final static String ID = makeID(DarkwoodKindling.class.getSimpleName());
@@ -35,7 +36,7 @@ public class DarkwoodKindling extends AbstractCollectorCard {
     public void triggerOnExhaust() {
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
-        new GainReservesAction(magicNumber);
+        addToBot(new ApplyPowerAction(DFL.pl(), DFL.pl(), new NextTurnReservePower(magicNumber), magicNumber));
     }
 
     public void upp() {

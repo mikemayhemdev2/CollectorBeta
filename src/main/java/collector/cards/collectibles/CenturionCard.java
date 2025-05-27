@@ -3,6 +3,7 @@ package collector.cards.collectibles;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
@@ -14,18 +15,18 @@ public class CenturionCard extends AbstractCollectibleCard {
 
     public CenturionCard() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 9;
-        baseMagicNumber = magicNumber = 1;
+        baseBlock = 7;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        applyToSelf(new DexterityPower(p, magicNumber));
+        applyToSelf(new MetallicizePower(p, magicNumber));
     }
 
     public void upp() {
-        upgradeBlock(3);
-//        upgradeMagicNumber(1);
+        upgradeBlock(2);
+        upgradeMagicNumber(1);
     }
 }

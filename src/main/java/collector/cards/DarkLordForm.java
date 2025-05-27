@@ -7,9 +7,7 @@ import collector.powers.DarkLordFormPowerPlus;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.applyToSelf;
 import static utilityClasses.Wiz.atb;
 
 public class DarkLordForm extends AbstractCollectorCard {
@@ -18,7 +16,6 @@ public class DarkLordForm extends AbstractCollectorCard {
 
     public DarkLordForm() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-//        cardsToPreview = new YouAreMine();
         tags.add(BaseModCardTags.FORM);
     }
 
@@ -34,7 +31,5 @@ public class DarkLordForm extends AbstractCollectorCard {
 
     public void upp() {
         uDesc();
-//        upgradeBaseCost(5);
-//        cardsToPreview.upgrade();
     }
 }

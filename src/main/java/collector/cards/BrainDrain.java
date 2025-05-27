@@ -19,14 +19,16 @@ public class BrainDrain extends AbstractCollectorCard {
     // intellij stuff skill, enemy, uncommon, , , , , , 
 
     public BrainDrain() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         exhaust = true;
-        baseMagicNumber = magicNumber = 6;
+        baseBlock = block = 3;
+//        baseMagicNumber = magicNumber = 6;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new LoseHPAction(m, p, magicNumber));
+//        atb(new LoseHPAction(m, p, magicNumber));
+        blck();
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(new LightBulbEffect(m.hb)));
         } else {
@@ -36,14 +38,15 @@ public class BrainDrain extends AbstractCollectorCard {
         if (upgraded) {
             q.upgrade();
         }
-        q.cost = 0;
-        q.costForTurn = 0;
-        q.isCostModified = (q.makeCopy().cost != 0);
+//        q.cost = 0;
+//        q.costForTurn = 0;
+//        q.isCostModified = (q.makeCopy().cost != 0);
         makeInHand(q);
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
+        upgradeBlock(3);
         uDesc();
     }
 }

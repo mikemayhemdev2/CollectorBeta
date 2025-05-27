@@ -5,10 +5,10 @@ import collector.CollectorMod;
 ////import collector.actions.DrawCardFromCollectionAction;
 import collector.actions.GainReservesAction;
 import collector.cards.Ember;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import downfall.util.TextureLoader;
 
-import static utilityClasses.Wiz.atb;
-import static utilityClasses.Wiz.makeInHand;
+import static utilityClasses.Wiz.*;
 
 public class EmeraldTorch extends CustomRelic {
     public static final String ID = CollectorMod.makeID("EmeraldTorch");
@@ -30,9 +30,8 @@ public class EmeraldTorch extends CustomRelic {
     public void atBattleStart() {
         flash();
         Ember em = new Ember();
-        //TODO - revisit this relic
-        //atb(new DrawCardFromCollectionAction());
         makeInHand(em.makeStatEquivalentCopy(), 1);
+        atb(new DrawCardAction(1));
     }
 
     @Override
