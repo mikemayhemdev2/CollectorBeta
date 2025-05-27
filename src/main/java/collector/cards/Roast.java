@@ -3,6 +3,7 @@ package collector.cards;
 import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +21,7 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
     public final static String ID = makeID(Roast.class.getSimpleName());
     // intellij stuff attack, enemy, common, 9, 3, , , , 
 
-    public Roast() {//Hello extremely overrated card.
+    public Roast() {
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 6;
         isPyre();
@@ -28,15 +29,14 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard self = this;
+        dmg(m, AbstractGameAction.AttackEffect.FIRE);
+
         atb(new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
-                dmg(m, AbstractGameAction.AttackEffect.FIRE);
-                if (!pyredKindling){
-//                    att(new ExhaustSpecificCardAction(self, DFL.pl().limbo));
-//                    att(new ExhaustSpecificCardAction(self, DFL.pl().discardPile));
+                if (pyredKindling){
+                    atb(new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), false));
                 }
             }
         });

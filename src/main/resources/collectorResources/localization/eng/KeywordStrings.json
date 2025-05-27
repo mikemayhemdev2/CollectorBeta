@@ -30,7 +30,7 @@
       "reserve",
       "reserves"
     ],
-    "DESCRIPTION": "An alternate type of Energy that is stored across turns."
+    "DESCRIPTION": "An alternate type of Energy that is stored across turns. It has an equal maximum amount to your Energy."
   },
   {
     "PROPER_NAME": "Megathereal",

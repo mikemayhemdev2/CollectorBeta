@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EnergizedPower;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
 
@@ -16,7 +17,7 @@ public class DarkwoodKindling extends AbstractCollectorCard {
     // intellij stuff skill, none, common, , , , , 10, 4
 
     public DarkwoodKindling() {
-        super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 1;
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
@@ -37,10 +38,11 @@ public class DarkwoodKindling extends AbstractCollectorCard {
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
         CardCrawlGame.sound.play("CARD_EXHAUST", 0.2F);
         addToBot(new ApplyPowerAction(DFL.pl(), DFL.pl(), new NextTurnReservePower(magicNumber), magicNumber));
+        if (upgraded) addToBot(new ApplyPowerAction(DFL.pl(), DFL.pl(), new EnergizedPower(DFL.pl(), 1)));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        //upgradeMagicNumber(1);
         uDesc();
     }
 }

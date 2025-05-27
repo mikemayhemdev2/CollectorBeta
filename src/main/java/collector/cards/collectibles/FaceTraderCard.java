@@ -15,7 +15,7 @@ public class FaceTraderCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, uncommon, , , , , 2, 1
 
     public FaceTraderCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }

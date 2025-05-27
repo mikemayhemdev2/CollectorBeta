@@ -1,3 +1,4 @@
+
 package collector.cards;
 
 import collector.effects.PurpleSearingBlowEffect;

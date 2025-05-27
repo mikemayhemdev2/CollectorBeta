@@ -21,7 +21,7 @@ public class ScrapOozeCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, uncommon, , , , , 2, 1
 
     public ScrapOozeCard() {
-        super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         isEthereal = true;

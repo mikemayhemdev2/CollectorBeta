@@ -25,32 +25,21 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, Co
     public FuelTheFire() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.NONE);
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 1;
         isPyre();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.upgraded) {
-            applyToSelf(new NextTurnReservePower(magicNumber));//When not upgraded, just 1*2R
+            applyToSelf(new DrawCardNextTurnPower(DFL.pl(), 1));
         }
     }
 
     @Override
     public void onPyred(AbstractCard card) {
-        boolean pyredKindling;
-        if (card.tags.contains(expansionContentMod.KINDLING)){
-            pyredKindling = true;
-        }else{
-            pyredKindling = false;
-        }
-        if (pyredKindling){//Idk when this goes off so im just going to blow it up from both piles.
-            if (!this.upgraded) {
-                applyToSelf(new NextTurnReservePower(magicNumber*2));//2*1R when not upgraded and fueled.
-            }else{
-                applyToSelf(new DrawCardNextTurnPower(DFL.pl(), secondMagic));//Upgrade draw 1 next turn effect.
-            }
-        }else if (!this.upgraded){
-            applyToSelf(new NextTurnReservePower(magicNumber));//1 when not upgraded and not fueled.
+        boolean pyredKindling = card.tags.contains(expansionContentMod.KINDLING);
+        applyToSelf(new NextTurnReservePower(magicNumber));
+        if (pyredKindling){
+            applyToSelf(new NextTurnReservePower(1));
         }
     }
 
@@ -66,18 +55,8 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, Co
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
     }
 
-    @Override
-    public void initializeDescription() {
-        super.initializeDescription();
-        if (!this.upgraded) {
-            String get = downfallMod.keywords_and_proper_names.get("reserve");
-            this.keywords.add(get);
-        }
-    }
-
     public void upp() {
-        upgradeMagicNumber(1);
+      //  upgradeMagicNumber(1);
         uDesc();
-        initializeDescription();
     }
 }

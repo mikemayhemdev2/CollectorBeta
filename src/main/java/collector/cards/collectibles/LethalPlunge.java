@@ -6,9 +6,13 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import guardian.cards.SentryWave;
 import sneckomod.SneckoMod;
+import utilityClasses.Wiz;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
@@ -30,13 +34,14 @@ public class LethalPlunge extends AbstractCollectibleCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new LoseHPAction(p, p, magicNumber));
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
+        applyToSelf(new StrengthPower(AbstractDungeon.player, 1));
         AbstractCard c = new DaggerCard();
         if (upgraded) c.upgrade();
         atb(new MakeTempCardInDrawPileAction(c, 1, true, true));
     }
 
     public void upp() {
-        upgradeDamage(8);
+        upgradeDamage(7);
         upgradeMagicNumber(-1);
 //        cardsToPreview.upgrade();
     }

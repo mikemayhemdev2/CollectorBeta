@@ -22,7 +22,7 @@ public class ScorchingRay extends AbstractCollectorCard {
 
     public ScorchingRay() {
         super(ID, -1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 9;
+        baseDamage = 8;
 
     }
 

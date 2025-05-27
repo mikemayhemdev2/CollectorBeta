@@ -28,7 +28,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
     public DragonsTrove() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+        baseSecondMagic = secondMagic = 3;
         exhaust = true;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
@@ -37,7 +37,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("MAW_DEATH");
         atb(new DrawCardAction(secondMagic));
-        atb(new GainReservesAction(magicNumber));
+        if (pyredKindling) atb(new GainReservesAction(magicNumber));
 
         atb(new AbstractGameAction() {
             @Override
@@ -53,7 +53,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
 
     public void upp() {
         upgradeMagicNumber(1);
-//        upgradeSecondMagic(1);
+      //  upgradeSecondMagic(1);
 
     }
 

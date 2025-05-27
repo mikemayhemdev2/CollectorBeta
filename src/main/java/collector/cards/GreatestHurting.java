@@ -18,29 +18,22 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
     public GreatestHurting() {
-        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
-        this.selfRetain = true;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        //
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         int loop = 1;
         int targetLoss = m.hasPower(DoomPower.POWER_ID) ? m.getPower(DoomPower.POWER_ID).amount : 0;
         if (targetLoss > 0) {
-            if (this.upgraded) {
-                atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
-                loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
-                if (isAfflicted(m)) {
-                    atb(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
-                    loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
-                }
-            } else {
                 atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
                 loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
             }
         }
-    }
+
+
 
     public void upp() {
-        uDesc();
+        this.selfRetain = true;
     }
 }

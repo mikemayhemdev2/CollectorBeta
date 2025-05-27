@@ -243,19 +243,24 @@ public class CollectorCollection {
             if (AbstractDungeon.floorNum >= 1){
                 if (collection.group.isEmpty()) {
                     AbstractCard spookyGhost = new beginningCollectible();
-                    AbstractCard spookyGhost2 = new beginningCollectible();
+                    //AbstractCard spookyGhost2 = new beginningCollectible();
 
                     CardModifierManager.addModifier(spookyGhost, new CollectedCardMod());
-                    CardModifierManager.addModifier(spookyGhost2, new CollectedCardMod());
+                   // CardModifierManager.addModifier(spookyGhost2, new CollectedCardMod());
 
                     collection.group.add(spookyGhost.makeStatEquivalentCopy());//Floor 0 collected cards.
-                    collection.group.add(spookyGhost2.makeStatEquivalentCopy());
+                    //collection.group.add(spookyGhost2.makeStatEquivalentCopy());
                 }
             }
         }
+
+        /*
         if (AbstractDungeon.floorNum >= 7){//The lil goobers escape!
             CollectorCollection.collection.group.removeIf(c -> c instanceof beginningCollectible);
-        }//Remove at your own peril!
+        }
+
+         */
+
     }
 
     public static void atBattleStart() {

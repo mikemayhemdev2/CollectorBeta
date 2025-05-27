@@ -30,8 +30,8 @@ public class EmeraldTorch extends CustomRelic {
     public void atBattleStart() {
         flash();
         Ember em = new Ember();
-        makeInHand(em.makeStatEquivalentCopy(), 1);
-        atb(new DrawCardAction(1));
+        makeInHand(em.makeStatEquivalentCopy(), 2);
+        //atb(new DrawCardAction(1));
     }
 
     @Override

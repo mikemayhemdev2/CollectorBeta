@@ -41,7 +41,7 @@ public abstract class AbstractCollectorCard extends CustomCard {
     protected final String DESCRIPTION;
     protected final String UPGRADE_DESCRIPTION;
     protected final String[] EXTENDED_DESCRIPTION;
-    static final Color pyreOrange = new Color(65/255f,138/255f,217/255f,1);
+    public static final Color pyreOrange = new Color(65/255f,138/255f,217/255f,1);
 
     public int secondMagic;
     public int baseSecondMagic;

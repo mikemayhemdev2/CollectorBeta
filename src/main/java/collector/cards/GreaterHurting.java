@@ -1,5 +1,8 @@
+
 package collector.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import collector.effects.PurpleSearingBlowEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -11,6 +14,9 @@ import expansioncontent.expansionContentMod;
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
+@NoPools
+@NoCompendium
+@Deprecated
 public class GreaterHurting extends AbstractCollectorCard {
     public final static String ID = makeID(GreaterHurting.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
@@ -46,4 +52,5 @@ public class GreaterHurting extends AbstractCollectorCard {
         uDesc();
         cardsToPreview.upgrade();
     }
-}//Look at the top of the next one
+}
+

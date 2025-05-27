@@ -1,6 +1,8 @@
 package collector.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import collector.effects.PurpleSearingBlowEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -16,9 +18,14 @@ import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.atb;
 import static utilityClasses.Wiz.makeInHand;
 
+
+@NoPools
+@NoCompendium
+@Deprecated
 public class Hurting extends AbstractCollectorCard {
     public final static String ID = makeID(Hurting.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
+
 
     public Hurting() {//Look at the bottom of the next one
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);

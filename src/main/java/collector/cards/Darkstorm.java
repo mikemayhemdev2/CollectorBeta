@@ -15,7 +15,7 @@ public class Darkstorm extends AbstractCollectorCard {
 
     public Darkstorm() {
         super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
         cardsToPreview = new Blightning();
         exhaust = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
@@ -23,7 +23,9 @@ public class Darkstorm extends AbstractCollectorCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard q = new Blightning();
+        if (upgraded) q.upgrade();
         makeInHand(q);
+
         int cardsToGen;
         if (p.drawPile.size() >= 5) {
             cardsToGen = p.drawPile.size() / 5;
@@ -33,6 +35,7 @@ public class Darkstorm extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        uDesc();
+        cardsToPreview.upgrade();
     }
 }

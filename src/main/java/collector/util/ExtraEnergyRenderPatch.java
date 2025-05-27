@@ -22,6 +22,7 @@ public class ExtraEnergyRenderPatch {
                 } else {
                     toShow = "0";
                 }
+                toShow = toShow + "/" + AbstractDungeon.player.energy.energyMaster;
                 AbstractDungeon.player.getEnergyNumFont().getData().setScale(1F); //TODO: See if this has issues
                 FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), toShow, __instance.current_x + DoubleEnergyOrb.X_OFFSET, __instance.current_y + DoubleEnergyOrb.Y_OFFSET, ENERGY_TEXT_COLOR);
             }

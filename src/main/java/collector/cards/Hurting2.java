@@ -28,7 +28,7 @@ public class Hurting2 extends AbstractCollectorCard {
 
     @Override
     public void triggerOnExhaust() {
-        AbstractCard toAdd = new GreaterHurting();
+        AbstractCard toAdd = new GreaterHurting2();
         if (upgraded) {
             toAdd.upgrade();
         }

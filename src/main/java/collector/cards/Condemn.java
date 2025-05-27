@@ -14,9 +14,9 @@ public class Condemn extends AbstractCollectorCard {
     // intellij stuff attack, enemy, common, 3, 1, , , 2, 
 
     public Condemn() {
-        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 6;
+        super(ID, 2, CardType.SKILL, CardRarity.BASIC, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 2;
+        baseSecondMagic = secondMagic = 8;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -26,7 +26,7 @@ public class Condemn extends AbstractCollectorCard {
     }
 
     public void upp() {
-//        upgradeMagicNumber(1);
-        upgradeSecondMagic(3);
+        upgradeMagicNumber(1);
+        upgradeSecondMagic(2);
     }
 }

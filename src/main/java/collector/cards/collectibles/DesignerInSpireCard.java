@@ -14,7 +14,7 @@ public class DesignerInSpireCard extends AbstractCollectibleCard {
     // intellij stuff power, self, uncommon, , , , , 6, 1
 
     public DesignerInSpireCard() {
-        super(ID, 3, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 6;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }

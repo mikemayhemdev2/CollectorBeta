@@ -17,7 +17,7 @@ public class Heatwave extends AbstractCollectorCard {
     // intellij stuff attack, all_enemy, uncommon, 12, 4, , , , 
 
     public Heatwave() {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         baseDamage = 14;
         cardsToPreview = new Ember();
         isMultiDamage = true;

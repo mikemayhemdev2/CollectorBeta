@@ -18,8 +18,8 @@ public class MushroomCard extends AbstractCollectibleCard {
     public MushroomCard() {
         super(ID, 0, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 4;
-        baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 3;
+        //baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 2;
 //        this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -46,8 +46,8 @@ public class MushroomCard extends AbstractCollectibleCard {
 
 
     public void upp() {
-        upgradeDamage(1);
-        upgradeSecondMagic(1);
-        upgradeMagicNumber(1);
+        //upgradeDamage(1);
+        upgradeSecondMagic(2);
+       // upgradeMagicNumber(1);
     }
 }
