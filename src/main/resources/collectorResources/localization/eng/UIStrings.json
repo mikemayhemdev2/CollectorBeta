@@ -51,8 +51,8 @@
     "TEXT": [
       "Collected: ",
       "You may obtain this",
-      "Your collection is full! Choose a card to remove.",
-      "."
+      "Your collection is full! Choose ",
+      " card(s) to remove."
     ]
   },
   "collector:HoardedMod": {
