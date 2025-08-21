@@ -1,5 +1,6 @@
 package collector.cards.collectibles;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Burn;
@@ -20,16 +21,22 @@ public class NemesisCard extends AbstractCollectibleCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new IntangiblePlayerPower(p, 1));
-        atb(new MakeTempCardInDrawPileAction(new Burn(), magicNumber, true, true));
+        applyToSelf(new IntangiblePlayerPower(p, magicNumber));
+        if (this.upgraded){
+            atb(new MakeTempCardInDiscardAction(new Burn(), secondMagic));
+        }else {
+            atb(new MakeTempCardInDrawPileAction(new Burn(), secondMagic, false, true));
+        }
     }
 
     public void upp() {
         uDesc();
-        upgradeMagicNumber(-1);
+        upgradeBaseCost(0);
+//        upgradeMagicNumber(-1);
     }
 }

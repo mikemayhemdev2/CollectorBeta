@@ -3,6 +3,7 @@ package collector.cards;
 import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +12,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
+
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.atb;
 import static utilityClasses.Wiz.att;
@@ -22,28 +25,30 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
 
     public Roast() {//Hello extremely overrated card.
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 5;
+        baseMagicNumber = magicNumber = 3;
         isPyre();
-        this.exhaust = true;
+//        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard self = this;
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
+        calculateCardDamage(m);
+//        AbstractCard self = this;
+
+        DFL.atb(new LaterAction(()->{
+            if (pyredKindling) {
+                this.baseDamage += this.magicNumber;
+                calculateCardDamage(m);
                 dmg(m, AbstractGameAction.AttackEffect.FIRE);
-                if (!pyredKindling){
-//                    att(new ExhaustSpecificCardAction(self, DFL.pl().limbo));
-//                    att(new ExhaustSpecificCardAction(self, DFL.pl().discardPile));
-                }
+            }else{
+                dmg(m, AbstractGameAction.AttackEffect.FIRE);
             }
-        });
+        }));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(2);
+        upgradeMagicNumber(1);
     }
 
     boolean pyredKindling = false;

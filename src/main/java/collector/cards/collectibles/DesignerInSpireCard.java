@@ -14,17 +14,18 @@ public class DesignerInSpireCard extends AbstractCollectibleCard {
     // intellij stuff power, self, uncommon, , , , , 6, 1
 
     public DesignerInSpireCard() {
-        super(ID, 3, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 6;
+        super(ID, 1, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+//        baseMagicNumber = magicNumber = 6;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new AddTemporaryHPAction(p, p, magicNumber));
+//        atb(new AddTemporaryHPAction(p, p, magicNumber));
         applyToSelf(new TorchHeadPower(4, 1));
     }
 
     public void upp() {
-        upgradeMagicNumber(3);
+//        upgradeMagicNumber(3);
+        upgradeBaseCost(0);
     }
 }

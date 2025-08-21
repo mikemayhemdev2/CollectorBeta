@@ -16,7 +16,6 @@ public class SpikerCard extends AbstractCollectibleCard {
 
     public SpikerCard() {
         super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
-        this.tags.add(SHAPESWARM);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

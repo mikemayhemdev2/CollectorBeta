@@ -18,45 +18,35 @@ import static utilityClasses.Wiz.makeInHand;
 
 public class Hurting extends AbstractCollectorCard {
     public final static String ID = makeID(Hurting.class.getSimpleName());
-    // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
     public Hurting() {//Look at the bottom of the next one
-        super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        this.selfRetain = true;
-        tags.add(expansionContentMod.UNPLAYABLE);
-        tags.add(expansionContentMod.KINDLING);
-        MultiCardPreview.add(this, new GreaterHurting(), new GreatestHurting());
-    }
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
+        this.exhaust = true;
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        /*
-        atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 3)));
-        dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        */
-    }
+//        tags.add(expansionContentMod.UNPLAYABLE);
+        MultiCardPreview.add(this, new GreatestHurting());
+    }// Prepare maleficence.
 
-    public void onRetained() {
-        if (this.upgraded){
-        atb(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        }
-    }
+    public void use(AbstractPlayer p, AbstractMonster m) {}
 
     @Override
     public void triggerOnExhaust() {
-        AbstractCard toAdd = new GreaterHurting();
+        AbstractCard toAdd = new GreatestHurting();
         if (upgraded) {
             toAdd.upgrade();
         }
         makeInHand(toAdd);
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
+//    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+//        return false;
+//    }
 
     public void upp() {
         uDesc();
 //        cardsToPreview.upgrade();
         MultiCardPreview.multiCardPreview.get(this).forEach(AbstractCard::upgrade);
+        this.selfRetain = true;
+        tags.add(expansionContentMod.KINDLING);
     }
 }

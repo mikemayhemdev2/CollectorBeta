@@ -12,16 +12,30 @@ public class OmenPower extends AbstractCollectorPower {
     public static final String POWER_ID = makeID(NAME);
     public static final PowerType TYPE = PowerType.BUFF;
     public static final boolean TURN_BASED = false;
+    private boolean hasPoppedThisTurn;
 
     public OmenPower(int amount) {
         super(NAME, TYPE, TURN_BASED, AbstractDungeon.player, null, amount);
+        hasPoppedThisTurn = false;
     }
 
+    @Override
+    public void atStartOfTurn(){
+        hasPoppedThisTurn = false;
+    }
+
+    @Override
     public void onAfterCardPlayed(AbstractCard card) {
-        if (CardModifierManager.hasModifier(card, ActuallyCollectedCardMod.ID)) {
+        if (CardModifierManager.hasModifier(card, ActuallyCollectedCardMod.ID) && !hasPoppedThisTurn) {
             this.flash();
-            applyToSelf(new ThornsPower(owner, amount));
+            applyToSelf(new StrengthPower(owner, amount));
+            hasPoppedThisTurn = true;
         }
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        hasPoppedThisTurn = false;
     }
 
 

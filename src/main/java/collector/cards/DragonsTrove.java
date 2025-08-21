@@ -2,6 +2,7 @@ package collector.cards;
 
 import collector.actions.DrawCardFromCollectionAction;
 import collector.actions.GainReservesAction;
+import collector.actions.NewDrawCollectiblesActionSet;
 import collector.powers.LanternFlarePower;
 import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,8 +27,8 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
 
     public DragonsTrove() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 3;
         exhaust = true;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
@@ -35,9 +36,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("MAW_DEATH");
-        for (int i = 0; i < secondMagic; i++) {
-            atb(new DrawCardFromCollectionAction());
-        }
+        atb(new NewDrawCollectiblesActionSet(true, this.secondMagic, true, AbstractDungeon.cardRandomRng));
 
         atb(new AbstractGameAction() {
             @Override
@@ -53,9 +52,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
-//        upgradeSecondMagic(1);
-
+        upgradeSecondMagic(1);
     }
 
     boolean pyredKindling = false;

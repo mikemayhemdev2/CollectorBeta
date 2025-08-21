@@ -34,10 +34,6 @@ public class GreaterHurting2 extends AbstractCollectorCard {
         applyToSelfTop(new AddCopyNextTurnPower(toAdd));
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-
     public void upp() {
         upgradeDamage(7);
         uDesc();

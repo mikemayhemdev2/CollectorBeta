@@ -19,7 +19,7 @@ public class CultistCard extends AbstractCollectibleCard implements OnPyreCard {
     public CultistCard() {
         super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
         isPyre();
-        this.baseMagicNumber = magicNumber = 3;
+        this.baseMagicNumber = magicNumber = 2;
         this.baseSecondMagic = secondMagic = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }

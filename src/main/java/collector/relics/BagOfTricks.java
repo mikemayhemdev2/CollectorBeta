@@ -19,23 +19,23 @@ public class BagOfTricks extends CustomRelic {
     private static final int EXTRA_CARDS = 2;
 
     public BagOfTricks() {
-        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.COMMON, LandingSound.MAGICAL);
     }
 
     @Override
     public void atBattleStart() {
-        flash();
-        for (int i = 0; i < EXTRA_CARDS; i++) {
-            atb(new DrawCardFromCollectionAction());
-            if (!CollectorCollection.combatCollection.isEmpty() || AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
-                att(new DrawCardAction(1));
-            }
-        }
+//        flash();
+//        for (int i = 0; i < EXTRA_CARDS; i++) {
+ //           atb(new DrawCardFromCollectionAction());
+//            if (!CollectorCollection.combatCollection.isEmpty() || AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
+ //               att(new DrawCardAction(1));
+  //          }
+   //     } Wonky comments fo today.
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + EXTRA_CARDS + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0];
     }
 }
 

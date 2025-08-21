@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
-import expansioncontent.cardmods.EtherealMod;
+import expansioncontent.cardmods.ActualEtherealMod;
 import theHexaghost.HexaMod;
 
 import java.util.ArrayList;
@@ -108,7 +108,7 @@ public class BackToBasicsHexaghost extends AbstractImageEvent {
                 if (buttonPressed == 0) {
 
                     for (AbstractCard c : cardsToRemove){
-                        CardModifierManager.addModifier(c, new EtherealMod());
+                        CardModifierManager.addModifier(c, new ActualEtherealMod());
                         cardsUpgraded.add(c.cardID);
                     }
                     logMetricUpgradeCards(ID, "Wistfulness", cardsUpgraded);

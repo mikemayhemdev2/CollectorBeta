@@ -2,6 +2,7 @@ package collector.cards.collectibles;
 
 import collector.CollectorMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
@@ -11,7 +12,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import guardian.cards.BodySlam;
 import sneckomod.SneckoMod;
+
+import java.util.Arrays;
 
 import static collector.CollectorMod.banditBoost;
 import static collector.CollectorMod.makeID;
@@ -24,54 +28,38 @@ public class BearCard extends AbstractCollectibleCard {
 
     public BearCard() {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
-       // baseDamage = 10;
-        baseBlock = 10;
+        baseMagicNumber = magicNumber = 4;
+        baseBlock = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        blck();
-        this.baseDamage = p.currentBlock;
-        this.calculateCardDamage(m);
-        dmg(m, AbstractGameAction.AttackEffect.SMASH);
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
-
-        if (CollectorMod.banditBoost(0)){
-            atb(new GainEnergyAction(1));
+        this.baseDamage = p.currentBlock + (this.block*this.magicNumber);
+        calculateCardDamage(m);
+        for (int mn = 0; mn < magicNumber; mn++) {
+            addToTop(new GainBlockAction(p, this.block));
         }
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
+        rawDescription = DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     public void applyPowers() {
-        this.baseDamage = AbstractDungeon.player.currentBlock;
+        this.baseDamage = AbstractDungeon.player.currentBlock + (this.block*this.magicNumber);
         super.applyPowers();
-        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
-    }
-
-    public void onMoveToDiscard() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
-        baseDamage = AbstractDungeon.player.currentBlock;
+        this.baseDamage = AbstractDungeon.player.currentBlock + (this.block*this.magicNumber);
         super.calculateCardDamage(mo);
-        //this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
+        rawDescription = DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     public void upp() {
-        upgradeBlock(4);
+        upgradeBlock(1);
     }
 
-    @Override
-    public void triggerOnGlowCheck() {
-            if (banditBoost(0, true)) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-                return;
-            }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
 }

@@ -39,17 +39,14 @@ import charbosses.bosses.Defect.CharBossDefect;
 import charbosses.bosses.Hermit.CharBossHermit;
 import charbosses.bosses.Ironclad.CharBossIronclad;
 import charbosses.bosses.Merchant.CharBossMerchant;
-import charbosses.bosses.Merchant.CharBossMerchant;
 import charbosses.bosses.Silent.CharBossSilent;
 import charbosses.bosses.Watcher.CharBossWatcher;
 import collector.CollectorChar;
 import collector.CollectorMod;
-import collector.potions.TempHPPotion;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import downfall.cards.MajorBeam;
 import downfall.cards.curses.Sapped;
 import collector.util.CollectibleCardReward;
-//import collector.util.EssenceReward;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -139,22 +136,17 @@ import slimebound.characters.SlimeboundCharacter;
 import slimebound.potions.ThreeZeroPotion;
 import sneckomod.SneckoMod;
 import sneckomod.TheSnecko;
-import sneckomod.cards.unknowns.*;
 import sneckomod.potions.MuddlingPotion;
 import sneckomod.util.ColorfulCardReward;
-
 import sneckomod.util.UpgradedUnknownReward;
 import theHexaghost.HexaMod;
 import theHexaghost.TheHexaghost;
-import theHexaghost.potions.SoulburnPotion;
 import theHexaghost.util.SealSealReward;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-
 import static downfall.patches.EvilModeCharacterSelect.evilMode;
 import static reskinContent.reskinContent.unlockAllReskin;
 import static sneckomod.OffclassHelper.getARandomOffclass;
@@ -193,6 +185,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
     public static boolean normalMapLayout = false;
     public static boolean sneckoNoModCharacters = false;
     public static boolean useIconsForAppliedProperties = false;
+    public static boolean makeCollectorWorse = false;
 
     public static ArrayList<AbstractRelic> shareableRelics = new ArrayList<>();
     public static final String PROP_RELIC_SHARING = "contentSharing_relics";
@@ -207,6 +200,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
     public static final String PROP_SNECKO_MODLESS = "sneckoNoModCharacters";
     public static final String PROP_NO_MUSIC = "disableMusicOverride";
     public static final String PROP_ICONS_FOR_APPLIED_PROPERTIES = "useIconsForAppliedProperties";
+    public static final String PROP_BAD_COLLECTOR = "makeCollectorWorse";
 
     public static String Act1BossFaced = "";
     public static String Act2BossFaced = "";
@@ -277,7 +271,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
         configDefault.setProperty(PROP_UNLOCK_ALL, "FALSE");
         configDefault.setProperty(PROP_NO_MUSIC, "FALSE");
         configDefault.setProperty(PROP_ICONS_FOR_APPLIED_PROPERTIES, "FALSE");
-
+        configDefault.setProperty(PROP_BAD_COLLECTOR, "FALSE");
 
         loadConfigData();
     }
@@ -357,11 +351,14 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             config.setBool(PROP_CHAR_CROSSOVER, crossoverCharacters);
             config.setBool(PROP_MOD_CHAR_CROSSOVER, crossoverModCharacters);
             config.setBool(PROP_NORMAL_MAP, normalMapLayout);
+            config.setBool(PROP_NORMAL_MAP, normalMapLayout);
 
             config.setBool(PROP_UNLOCK_ALL, unlockEverything);
             config.setBool(PROP_SNECKO_MODLESS, sneckoNoModCharacters);
             config.setBool(PROP_NO_MUSIC, noMusic);
             config.setBool(PROP_ICONS_FOR_APPLIED_PROPERTIES, useIconsForAppliedProperties);
+            config.setBool(PROP_BAD_COLLECTOR, makeCollectorWorse);
+
             config.save();
             GoldenIdol_Evil.save();
         } catch (IOException e) {
@@ -559,14 +556,14 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
     }
 
     public void receivePostInitialize() {
-        addPotions();
+        //addPotions();
         UnlockTracker.betaCardPref = new IndividualBetaArtEnablerPref(UnlockTracker.betaCardPref);
         soulsImage = TextureLoader.getTexture(downfallMod.assetPath("images/ui/Souls.png"));
 
         loadOtherData();
 
         this.initializeMonsters();
-        this.addPotions(); // sorry
+        this.addPotions();
         this.initializeEvents();
         this.initializeConfig();
 
@@ -748,6 +745,13 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
                 unlockAllReskin();
             });
 
+            configPos -= configStep;
+            ModLabeledToggleButton badCollectorButton = new ModLabeledToggleButton(configStrings.TEXT[13], 350.0f, configPos, Settings.CREAM_COLOR, FontHelper.charDescFont, unlockAllReskin, settingsPanel, (label) -> {
+            }, (button) -> {
+                makeCollectorWorse = button.enabled;
+                saveData();
+            });
+
             settingsPanel.addUIElement(contentSharingBtnCurses);
             settingsPanel.addUIElement(contentSharingBtnEvents);
             settingsPanel.addUIElement(contentSharingBtnPotions);
@@ -759,6 +763,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             settingsPanel.addUIElement(noMusicBtn);
             settingsPanel.addUIElement(unlockAllSkinBtn);
             settingsPanel.addUIElement(characterModCrossoverBtn);
+            settingsPanel.addUIElement(badCollectorButton);
         }
 
         BaseMod.registerModBadge(badgeTexture, "downfall", "Downfall Team", "A very evil Expansion.", settingsPanel);
@@ -788,7 +793,6 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             clearData();
         }
     }
-
 
     public static void clearData() {
         saveData();

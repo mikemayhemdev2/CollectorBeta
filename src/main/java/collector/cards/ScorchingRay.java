@@ -39,6 +39,6 @@ public class ScorchingRay extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
     }
 }

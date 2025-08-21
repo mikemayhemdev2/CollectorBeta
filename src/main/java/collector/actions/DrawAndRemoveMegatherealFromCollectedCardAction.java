@@ -35,6 +35,7 @@ public class DrawAndRemoveMegatherealFromCollectedCardAction extends AbstractGam
                 }
             }));
         } else {
+            /*
             if (AbstractDungeon.player.hasRelic(HolidayCoal.ID)) {
                 AbstractDungeon.player.getRelic(HolidayCoal.ID).flash();
                 AbstractCard tar = new LuckyWick();
@@ -49,6 +50,7 @@ public class DrawAndRemoveMegatherealFromCollectedCardAction extends AbstractGam
                     }
                 }));
             }
+            */
         }
         this.isDone = true;
     }

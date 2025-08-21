@@ -7,6 +7,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+@Deprecated
+/**
+ * Legacy code.
+ * Does not actually apply regular ethereal, overrides retain.
+ * Do not use this modifier for new cards or effects.
+ */
 public class EtherealMod extends AbstractCardModifier {
     public static String ID = "downfall:EtherealMod";
 

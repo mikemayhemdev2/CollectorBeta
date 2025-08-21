@@ -23,8 +23,8 @@ public class SoullitLamp extends CustomRelic {
     private static final String OUTLINE_IMG_PATH = SoullitLamp.class.getSimpleName() + ".png";
 
     public SoullitLamp() {
-        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.COMMON, LandingSound.MAGICAL);
-        tips.add(new CardPowerTip(new Ember()));
+        super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.UNCOMMON, LandingSound.MAGICAL);
+//        tips.add(new CardPowerTip(new Ember()));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class SoullitLamp extends CustomRelic {
     public void onExhaust(AbstractCard card){
         if (card.tags.contains(expansionContentMod.KINDLING)) {
             for (AbstractMonster mon : DFL.activeMonsterList()) {
-                atb(new ApplyPowerAction(mon, DFL.pl(), new BurnPower(mon, 2), 2));
+                atb(new ApplyPowerAction(mon, DFL.pl(), new BurnPower(mon, 4), 4));
             }
         }
     }

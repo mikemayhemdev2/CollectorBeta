@@ -16,9 +16,9 @@ public class DoubleTrouble extends AbstractCollectorCard {
 
     public DoubleTrouble() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseBlock = 6;
+        baseBlock = 9;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.selfRetain = true;
+//        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

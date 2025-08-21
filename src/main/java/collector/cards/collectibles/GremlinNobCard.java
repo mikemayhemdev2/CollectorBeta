@@ -13,8 +13,8 @@ public class GremlinNobCard extends AbstractCollectibleCard {
     // intellij stuff power, self, uncommon, , , , , , 
 
     public GremlinNobCard() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
@@ -23,6 +23,7 @@ public class GremlinNobCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        //upgradeBaseCost(1);
+        upgradeMagicNumber(1);
     }
 }

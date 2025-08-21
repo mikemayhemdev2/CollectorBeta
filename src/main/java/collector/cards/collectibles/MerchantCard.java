@@ -14,16 +14,23 @@ public class MerchantCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, rare, , , , , 4, 2
 
     public MerchantCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(CardTags.HEALING);
         this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
             AbstractCard toGen = AbstractDungeon.returnTrulyRandomColorlessCardInCombat().makeCopy();
-            toGen.costForTurn = 0;
+            if (toGen.cost >= 1){
+                toGen.isCostModified = true;
+            }
+            if (toGen.cost >= 1) {//Protip: Don't accidentally modify X cost!
+                toGen.cost = 0;
+                toGen.costForTurn = 0;
+            }
             makeInHand(toGen);
         }
     }

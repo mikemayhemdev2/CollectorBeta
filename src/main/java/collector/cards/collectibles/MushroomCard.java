@@ -25,11 +25,11 @@ public class MushroomCard extends AbstractCollectibleCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        if (AbstractDungeon.cardRandomRng.randomBoolean()) {
+//        if (AbstractDungeon.cardRandomRng.randomBoolean()) {
             applyToEnemy(m, new WeakPower(m, magicNumber, false));
-        } else {
-            applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
-        }
+//        } else {
+//            applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
+//        }
         applyToSelf(new MushroomDamagePower(secondMagic));
     }
 

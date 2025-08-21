@@ -14,18 +14,17 @@ public class RagingCall extends AbstractCollectorCard {
     // intellij stuff power, self, uncommon, , , , , 6, 1
 
     public RagingCall() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 8;
-        baseSecondMagic = secondMagic = 2;
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, magicNumber));
+//        addToBot(new GainBlockAction(p, p, magicNumber));
         applyToSelf(new TorchHeadPower(1, secondMagic));
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+//        upgradeMagicNumber(2);
         upgradeSecondMagic(1);
     }
 }

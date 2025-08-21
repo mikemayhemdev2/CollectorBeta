@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static utilityClasses.Wiz.atb;
 
+/*
 public class DrawFromCollection {
 
     @SpirePatch(
@@ -42,3 +43,4 @@ public class DrawFromCollection {
         }
     }
 }
+*/

@@ -1,22 +1,17 @@
 package sneckomod.powers;
 
-import basemod.helpers.CardModifierManager;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import expansioncontent.actions.EchoACardAction;
-import expansioncontent.cardmods.EtherealMod;
-import expansioncontent.cardmods.ExhaustMod;
 import sneckomod.OffclassHelper;
 import sneckomod.SneckoMod;
 import downfall.util.TextureLoader;
-
 import java.util.ArrayList;
 
 public class UnendingSupplyPower extends AbstractPower implements CloneablePowerInterface {

@@ -29,7 +29,7 @@
       " #y储能。"
     ]
   },
-  "collector:DarkLordForm": {
+  "collector:DarkLordFormPower": {
     "NAME": "暗主形态",
     "DESCRIPTIONS": [
       "你的回合开始时，随机对一名敌人打出一张 #y你是我的了 。",

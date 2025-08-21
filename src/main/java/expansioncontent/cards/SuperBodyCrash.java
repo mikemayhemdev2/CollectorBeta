@@ -23,7 +23,7 @@ public class SuperBodyCrash extends AbstractExpansionCard {
     public SuperBodyCrash() {
         super(ID, 1, AbstractCard.CardType.ATTACK, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         setBackgroundTexture("expansioncontentResources/images/512/bg_boss_guardian.png", "expansioncontentResources/images/1024/bg_boss_guardian.png");
-        expansionContentMod.loadJokeCardImage((AbstractCard)this, "SuperBodyCrash.png");
+        expansionContentMod.loadJokeCardImage(this, "SuperBodyCrash.png");
         this.baseBlock = 6;
         this.tags.add(expansionContentMod.STUDY_GUARDIAN);
         this.tags.add(expansionContentMod.STUDY);
@@ -33,11 +33,10 @@ public class SuperBodyCrash extends AbstractExpansionCard {
         calculateCardDamage(m);
         this.baseDamage = p.currentBlock + this.block;
         calculateCardDamage(m);
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new GainBlockAction(p, this.block));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         this.rawDescription = this.DESCRIPTION;
         initializeDescription();
-
     }
 
     public void applyPowers() {

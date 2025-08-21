@@ -13,18 +13,18 @@ public class BindingCall extends AbstractCollectorCard {
     // intellij stuff power, self, uncommon, , , , , 6, 2
 
     public BindingCall() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 8;
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+//        baseMagicNumber = magicNumber = 8;
         baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, magicNumber));
+//        addToBot(new GainBlockAction(p, p, magicNumber));
         applyToSelf(new TorchHeadPower(0, secondMagic));
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+//        upgradeMagicNumber(2);
         upgradeSecondMagic(1);
     }
 }

@@ -137,7 +137,7 @@ public class BonfireSpirits_Evil extends AbstractImageEvent {
             case CHOOSE:
                 switch (buttonPressed) {
                     case 0: {
-                        if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
+                        if (!CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).isEmpty()) {
                             AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, OPTIONS[3], false, false, false, true);
                             this.cardSelect = true;
                         } else {

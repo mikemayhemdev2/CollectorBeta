@@ -29,7 +29,7 @@
       " 얻습니다."
     ]
   },
-  "collector:DarkLordForm": {
+  "collector:DarkLordFormPower": {
     "NAME": "어둠 군주의 형상",
     "DESCRIPTIONS": [
       "내 턴 시작 시 무작위 적에게 #y넌 #y나의 #y것이다!를 사용합니다.",

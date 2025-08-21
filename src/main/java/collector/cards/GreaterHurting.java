@@ -15,14 +15,13 @@ public class GreaterHurting extends AbstractCollectorCard {
     public final static String ID = makeID(GreaterHurting.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
-    public GreaterHurting() {
+    public GreaterHurting() {// Propagate maleficence.
         super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
 //        baseDamage = 20;
         this.selfRetain = true;
 //        isEthereal = true;
         cardsToPreview = new GreatestHurting();
         tags.add(expansionContentMod.UNPLAYABLE);
-        tags.add(expansionContentMod.KINDLING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -45,5 +44,6 @@ public class GreaterHurting extends AbstractCollectorCard {
  //       upgradeDamage(6);
         uDesc();
         cardsToPreview.upgrade();
+        tags.add(expansionContentMod.KINDLING);
     }
 }//Look at the top of the next one

@@ -20,29 +20,20 @@ public class PointyCard extends AbstractCollectibleCard {
     public PointyCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
         baseDamage = 4;
+        this.baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
-        atb(new MakeTempCardInHandAction(new Shiv()));
-        atb(new MakeTempCardInHandAction(new Shiv()));
-        if (banditBoost(2))
-            atb(new MakeTempCardInHandAction(new Shiv()));
-
+        dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
+        atb(new DrawCardAction(magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(1);
+        upgradeMagicNumber(1);
+        uDesc();
     }
 
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (banditBoost(2, true)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-            return;
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
 }

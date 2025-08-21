@@ -23,6 +23,7 @@ public class FinalBossCard extends AbstractCollectibleCard {
         atb(new RemoveSpecificPowerAction(m, p, InvinciblePower.POWER_ID));
         atb(new StunMonsterAction(m, p));
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(CardTags.HEALING);
     }
 
     public void upp() {

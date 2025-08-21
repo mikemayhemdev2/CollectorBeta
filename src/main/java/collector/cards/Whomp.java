@@ -12,20 +12,20 @@ public class Whomp extends AbstractCollectorCard {
     public final static String ID = makeID(Whomp.class.getSimpleName());
     // intellij stuff attack, enemy, rare, 25, 5, , , , 
 
-    public Whomp() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 12;
-        baseMagicNumber = magicNumber = 10;
+    public Whomp() {//Now Torchbearer.
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+ //       baseDamage = 12;
+        baseMagicNumber = magicNumber = 18;
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.SMASH);
+//        dmg(m, AbstractGameAction.AttackEffect.SMASH);
         atb(new AddTemporaryHPAction(p, p, magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(3);
-        upgradeMagicNumber(3);
+//        upgradeDamage(3);
+        upgradeMagicNumber(7);
     }
 }

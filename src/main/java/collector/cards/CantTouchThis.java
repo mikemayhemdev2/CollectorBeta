@@ -15,7 +15,7 @@ public class CantTouchThis extends AbstractCollectorCard {
     public CantTouchThis() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 3;
+        baseSecondMagic = secondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -25,6 +25,6 @@ public class CantTouchThis extends AbstractCollectorCard {
 
     public void upp() {
 //        upgradeMagicNumber(1);
-        upgradeSecondMagic(1);
+        upgradeSecondMagic(2);
     }
 }

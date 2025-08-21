@@ -25,7 +25,7 @@ public class JawWormCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBlock(4);
+        upgradeBlock(1);
         upgradeMagicNumber(1);
     }
 }

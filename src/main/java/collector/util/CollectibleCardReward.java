@@ -1,13 +1,13 @@
 package collector.util;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomReward;
 import basemod.helpers.CardModifierManager;
 import collector.CollectorCollection;
 import collector.CollectorMod;
 import collector.cardmods.CollectedCardMod;
-//import collector.patches.EssencePatches.TopPanelEssence;
 import collector.patches.CollectorBottleField;
-import collector.relics.BottledCollectible;
+import collector.patches.ExtraDeckButtonPatches.TopPanelExtraDeck;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,14 +20,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import downfall.downfallMod;
 import downfall.patches.RewardItemTypeEnumPatch;
+
+import java.util.UUID;
 
 import static collector.CollectorMod.makeID;
 
@@ -45,7 +45,6 @@ public class CollectibleCardReward extends CustomReward {
     protected static final float REWARD_X_POS = Settings.WIDTH * 0.434F;
     public AbstractCard card;
     protected AbstractCard renderCard;
-
     private boolean removedCard = false;
 
 
@@ -72,77 +71,91 @@ public class CollectibleCardReward extends CustomReward {
         TIP_COL.a = 0.65f;
     }
 
-  /*
-      @Override
-    public boolean claimReward() {// Old Version!
-        if (EssenceSystem.essenceCount() >= 2) {
-            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
-            EssenceSystem.changeEssence(-2);
-            return true;
-        } else {
-            return false;
+    private boolean addedAlready(){
+        UUID toMatch = card.uuid;
+        for (AbstractCard cards : CollectorCollection.collection.group){
+            if (cards.uuid == toMatch){
+                return true;
+            }
         }
+        return false;
     }
-  */
-  
+
     @Override
     public boolean claimReward() {
-        if (removedCard){
+        if (removedCard) {//When repeated after the screen, falls into here.
             this.hb.clicked = true;
             this.isDone = true;
             return true;
         }
 
-            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(card, InputHelper.mX, InputHelper.mY));
-            if (CollectorCollection.collection.size() > CollectorCollection.MaxCollectionSize - 1) {
-                if (AbstractDungeon.isScreenUp) {
-                    AbstractDungeon.dynamicBanner.hide();
-                    AbstractDungeon.overlayMenu.cancelButton.hide();
-                    AbstractDungeon.previousScreen = AbstractDungeon.screen;
-                }
-
-                CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-                for (AbstractCard col : CollectorCollection.collection.group) {
-                    //if (col != card){
-                        if (!CollectorBottleField.inCollectionBottle.get(col)){
-                            tmp.addToTop(col);
-                        }
-                   // }
-                }
-                tmp.addToTop(card);
-
-                AbstractDungeon.gridSelectScreen.open(tmp, 1, uiStrings.TEXT[2] + card.name + uiStrings.TEXT[3], false, false, false, true);
-            } else {
-
-                this.hb.clicked = true;
-                this.isDone = true;
-                return true;
+        if (!this.addedAlready()) {
+            //Collection add logic.
+            CollectorCollection.collection.addToTop(card);
+            if (ModHelper.isModEnabled("Hoarder")) {//Vanilla daily run modifier.
+                CollectorCollection.collection.addToTop(card);
+                CollectorCollection.collection.addToTop(card);
             }
-        return false;
+
+            //Positioning logic, this causes the card positions to update when opening the pannel, which must occur before the screen opens.
+            TopPanelExtraDeck collectionUIElement = CollectorMod.extraDeckPanel;
+            CardGroup groupRef = ReflectionHacks.getPrivate(collectionUIElement, TopPanelExtraDeck.class, "specialGroup");
+            groupRef.clear();
+            for (AbstractCard q : CollectorCollection.collection.group) {
+                groupRef.addToBottom(q);
+            }
+        }
+
+        /*
+        CollectorCollection.testSize();//Checks if bag of tricks, if so max is 7, otherwise 5.
+        if (CollectorCollection.collection.size() > CollectorCollection.MaxCollectionSize) {
+            if (AbstractDungeon.isScreenUp) {
+                AbstractDungeon.dynamicBanner.hide();
+                AbstractDungeon.overlayMenu.cancelButton.hide();
+                AbstractDungeon.previousScreen = AbstractDungeon.screen;
+            }
+
+            CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+            for (AbstractCard col : CollectorCollection.collection.group) {
+                //if (col != card){
+                if (!CollectorBottleField.inCollectionBottle.get(col)) {
+                    tmp.addToTop(col);
+                }
+                // }
+            }
+            tmp.addToTop(card);
+            //Note only uiStrings[2] is used anymore.
+            AbstractDungeon.gridSelectScreen.open(tmp, 1, uiStrings.TEXT[2], false, false, false, true);
+        } else {
+            this.hb.clicked = true;
+            this.isDone = true;
+            return true;
+        }
+         */
+        this.hb.clicked = true;
+        this.isDone = true;
+        return true;
+        //return false;
     }
 
     @Override
     public void update() {
+
         if (hb.hovered && InputHelper.justClickedRight && !isDone) {
             CardCrawlGame.sound.playA("UI_CLICK_1", 0.25f);
             CardCrawlGame.cardPopup.open(card);
         }
         if (AbstractDungeon.isScreenUp) {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
                 AbstractDungeon.effectsQueue.add(new PurgeCardEffect(c));
                 CollectorCollection.collection.removeCard(c);
-                if (c.name != card.name) AbstractDungeon.player.gainGold(5);
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
-
                 removedCard = true;
                 claimReward();
-
             }
         }
-
 
         super.update();
     }
@@ -189,17 +202,7 @@ public class CollectibleCardReward extends CustomReward {
         }
 
         hb.render(sb);
-
-        /*
-        sb.draw(TopPanelEssence.ICON, GOLD_IMG_X + 5.0F * Settings.scale, this.y - 30.0F * Settings.scale, GOLD_IMG_SIZE, GOLD_IMG_SIZE);
-        Color c = Color.WHITE.cpy();
-        if (EssenceSystem.essenceCount() < 2) {
-            c = Color.SALMON.cpy();
-        }
-        FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, Integer.toString(3), GOLD_TEXT_X, this.y , 1000.0F * Settings.scale, 0.0F, c);
-    */
     }
-
 
     //Due to reward scrolling's orthographic camera and render order of rewards, the card needs to be rendered outside of the render method
     public void renderCardOnHover(SpriteBatch sb) {

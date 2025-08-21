@@ -16,6 +16,8 @@ public class RanwidCard extends AbstractCollectibleCard {
     public RanwidCard() {
         super(ID, 3, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(CardTags.HEALING);
+        this.isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,6 +32,7 @@ public class RanwidCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBaseCost(2);
+        isEthereal = false;
+        uDesc();
     }
 }

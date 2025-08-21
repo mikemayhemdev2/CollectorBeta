@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
+
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.atb;
 
@@ -16,14 +18,16 @@ public class StashAway extends AbstractCollectorCard {
     public StashAway() {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseBlock = 5;
-        exhaust = true;
+//        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        int energy = energyOnUse;
+        DFL.atb(new LaterAction(()->{
+        int energy = EnergyPanel.totalCount;
         DFL.pl().energy.use(EnergyPanel.totalCount);
         atb(new GainReservesAction(energy));
+        }));
     }
 
     public void upp() {

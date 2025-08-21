@@ -19,7 +19,7 @@ public class ChosenCard extends AbstractCollectibleCard {
     public ChosenCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 1;
+        baseSecondMagic = secondMagic = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

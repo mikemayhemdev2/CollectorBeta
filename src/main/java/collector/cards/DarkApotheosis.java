@@ -1,87 +1,43 @@
 package collector.cards;
 
 import collector.CollectorCollection;
-import collector.CollectorMod;
 import collector.cards.collectibles.AbstractCollectibleCard;
-import collector.effects.MiniUpgradeShine;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
 import utilityClasses.DFL;
-
-import java.util.ArrayList;
+import utilityClasses.Later.LaterAction;
 import java.util.UUID;
-
-import static collector.CollectorMod.COLLECTIBLE_CARD_COLOR;
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
 
 public class DarkApotheosis extends AbstractCollectorCard {
     public final static String ID = makeID(DarkApotheosis.class.getSimpleName());
     // intellij stuff skill, self, rare, , , , , , 
 
     public DarkApotheosis() {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         exhaust = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(CardTags.HEALING);
+        PurgeField.purge.set(this, true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> toCheck = new ArrayList<>(CollectorCollection.combatCollection.group);//Collected pile.
 
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractCard q : toCheck) {//Anything in the pile upgrades.
-                    q.upgrade();
+        DFL.atb(new LaterAction(() -> {
+            for (AbstractCard c : CollectorCollection.collection.group) {
+                //DFL.pl().exhaustPile.removeCard(c);
+                if (this.upgraded) {
+                    c.upgrade();
+                    DFL.atb(new MakeTempCardInDrawPileAction(c.makeStatEquivalentCopy(), 1, true, false));
+                } else {
+                    DFL.pl().discardPile.addToBottom(c.makeStatEquivalentCopy());
                 }
             }
-        });
-
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractCard c : DFL.pl().discardPile.group) {
-                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
-                        c.upgrade();
-                        c.applyPowers();
-                    }
-                }
-            }
-        });
-
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractCard c : DFL.pl().drawPile.group) {
-                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
-                        c.upgrade();
-                        c.applyPowers();
-                    }
-                }
-            }
-        });
-
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractCard c : DFL.pl().hand.group) {
-                    if (c.canUpgrade() && (c instanceof AbstractCollectibleCard || !CollectorCollection.collection.isEmpty() && compareUUIDtoPile(c.uuid))) {
-                        c.superFlash(); //Cards in your hand sparkle!
-                        c.upgrade();
-                        c.applyPowers();
-                    }
-                }
-            }
-        });
+        }));
 
     }
 
@@ -95,8 +51,6 @@ public class DarkApotheosis extends AbstractCollectorCard {
     }
 
     public void upp() {
- //       this.isInnate = true;
- //       uDesc();
-        upgradeBaseCost(0);
+        uDesc();
     }
 }

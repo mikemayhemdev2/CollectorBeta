@@ -16,7 +16,7 @@ public class WrithingMassCard extends AbstractCollectibleCard {
 
     public WrithingMassCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
     }

@@ -17,7 +17,7 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
     public final static String ID = makeID(GreatestHurting.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 10, 2, , , 14, 2
 
-    public GreatestHurting() {
+    public GreatestHurting() {// Execute maleficence.
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
         this.selfRetain = true;
     }

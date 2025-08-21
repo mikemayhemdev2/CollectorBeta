@@ -4,9 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.*;
 import static utilityClasses.Wiz.*;
 
 public class LagavulinCard extends AbstractCollectibleCard {
@@ -14,13 +12,15 @@ public class LagavulinCard extends AbstractCollectibleCard {
     // intellij stuff skill, all_enemy, uncommon, , , , , 2, 1
 
     public LagavulinCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = 2;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        applyToEnemy(m, new StrengthPower(m, -secondMagic));
         forAllMonstersLiving(q -> applyToEnemy(q, new StrengthPower(q, -magicNumber)));
     }
 

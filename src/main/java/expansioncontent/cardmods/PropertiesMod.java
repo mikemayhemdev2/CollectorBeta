@@ -14,11 +14,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.sun.java.swing.plaf.windows.TMSchema;
 import downfall.downfallMod;
 import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static expansioncontent.cardmods.PropertiesMod.supportedProperties.ECHO;
 
 @AbstractCardModifier.SaveIgnore
 public class PropertiesMod extends AbstractCardModifier {
@@ -59,9 +63,9 @@ public class PropertiesMod extends AbstractCardModifier {
             bonusProperties.add(property);
     }
 
-    //I think that it is the best way to make sure that all of the properties are applied.
+    //I think that it is the best way to make sure that all the properties are applied.
     private void applyProperties(AbstractCard card) {
-        if (bonusProperties.contains(supportedProperties.ECHO))
+        if (bonusProperties.contains(ECHO))
             if (!card.hasTag(expansionContentMod.ECHO))
                 card.tags.add(expansionContentMod.ECHO);
 
@@ -170,7 +174,7 @@ public class PropertiesMod extends AbstractCardModifier {
     private static void keywordBuilder(StringBuilder description, ArrayList<supportedProperties> properties) {
         int counter = 0;
 
-        if (properties.contains(supportedProperties.ECHO)) {
+        if (properties.contains(ECHO)) {
             description.append(uiStrings.TEXT[6]);
             description.append(uiStrings.TEXT[7]);
             counter++;
@@ -269,7 +273,7 @@ public class PropertiesMod extends AbstractCardModifier {
     //This should be removed as soon as Echo gets a visual representation on the card.
     @Override
     public String modifyName(String cardName, AbstractCard card) {
-        return bonusProperties.contains(supportedProperties.ECHO) ? uiStrings.TEXT[14] + cardName : cardName;
+        return bonusProperties.contains(ECHO) ? uiStrings.TEXT[14] + cardName : cardName;
     }
 
     @Override
@@ -359,10 +363,25 @@ public class PropertiesMod extends AbstractCardModifier {
 
     //Retain Override - do not remove - even if it is technically different from how the game usually works, I will do what I am allowed to force the mechanics to work as they are described - Stanek
     //sorry - blue
+    //This behaviour is unique to echoes now.
    @Override
     public void onRetained(AbstractCard card) {
-        if (card.isEthereal)
-            AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
+
+       if (CardModifierManager.hasModifier(card, ID)){//Since this cardmod is secretly a bunch of cardmods in a trenchcoat, there's a few steps here.
+           ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(card, ID);//The card's list of cardmods.
+           PropertiesMod modGet = null;//We know the card has the modifier, but the get method is weird.
+           for (AbstractCardModifier mod : mods){
+               if (mod instanceof PropertiesMod){//This will match at some point.
+                   modGet = (PropertiesMod)mod;//The cards instance of properties mod.
+                   break;
+               }
+           }
+           assert modGet != null;//Cannot be null due to the if statement much further up.
+           if (modGet.bonusProperties.contains(ECHO)){//If it actually has echo, it can exhaust.
+               DFL.atb(new ExhaustSpecificCardAction(card, DFL.pl().hand));//Echoes say they exhaust when retained.
+           }
+       }
+
     }
 
     public enum supportedProperties {

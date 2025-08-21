@@ -1,7 +1,6 @@
 package saveData;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-
 import java.util.ArrayList;
 
 //gotta put anything you wanna save in here

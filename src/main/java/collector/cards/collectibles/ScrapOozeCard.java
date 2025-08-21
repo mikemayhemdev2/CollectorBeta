@@ -22,19 +22,20 @@ public class ScrapOozeCard extends AbstractCollectibleCard {
 
     public ScrapOozeCard() {
         super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
+        baseSecondMagic = secondMagic = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        isEthereal = true;
-        returnToHand = true;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawPileToHandAction(1, CardType.ATTACK));
         addToBot(new SelfDamageAction(new DamageInfo(p, magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
-
+        this.addToBot(new DrawPileToHandAction(secondMagic, CardType.ATTACK));
     }
+
 
     public void upp() {
         upgradeMagicNumber(-1);
+        upgradeSecondMagic(1);
     }
 }

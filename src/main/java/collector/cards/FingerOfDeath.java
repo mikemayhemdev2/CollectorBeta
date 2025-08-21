@@ -15,10 +15,10 @@ public class FingerOfDeath extends AbstractCollectorCard {
     // intellij stuff attack, enemy, rare, 50, , , , ,
 
     public FingerOfDeath() {
-        super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.ALL_ENEMY);
         baseMagicNumber = magicNumber = 50;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.exhaust = true;
+//        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

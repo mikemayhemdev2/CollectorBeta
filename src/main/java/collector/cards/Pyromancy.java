@@ -12,7 +12,7 @@ public class Pyromancy extends AbstractCollectorCard {
     // intellij stuff power, self, rare, , , , , , 
 
     public Pyromancy() {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1;
     }
 
@@ -22,6 +22,6 @@ public class Pyromancy extends AbstractCollectorCard {
 
     public void upp() {
 //        upgradeMagicNumber(1);
-        upgradeBaseCost(1);
+        upgradeBaseCost(0);
     }
 }

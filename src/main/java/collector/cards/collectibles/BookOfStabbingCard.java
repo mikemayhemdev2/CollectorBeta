@@ -1,13 +1,11 @@
 package collector.cards.collectibles;
 
-import collector.powers.collectioncards.BookOfStabbingCardPower;
+import collector.powers.TorchHeadPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.*;
 
 public class BookOfStabbingCard extends AbstractCollectibleCard {
     public final static String ID = makeID(BookOfStabbingCard.class.getSimpleName());
@@ -21,7 +19,7 @@ public class BookOfStabbingCard extends AbstractCollectibleCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("STAB_BOOK_DEATH");
-        applyToSelf(new BookOfStabbingCardPower(magicNumber));
+        applyToSelf(new TorchHeadPower(5, magicNumber));
     }
 
     public void upp() {

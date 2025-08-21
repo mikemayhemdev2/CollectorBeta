@@ -88,5 +88,14 @@
     "NAME": "Doomed Dagger",
     "DIALOG": [
     ]
+  },
+  "downfall:FuzzyLouseTangerine": {
+    "MOVES": [
+      "Grow Big"
+    ],
+    "NAME": "Tangerine",
+    "DIALOG": [
+      ""
+    ]
   }
 }

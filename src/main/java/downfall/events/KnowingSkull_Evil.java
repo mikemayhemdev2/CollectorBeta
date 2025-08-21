@@ -29,9 +29,9 @@ public class KnowingSkull_Evil extends AbstractImageEvent {
         super(NAME, DESC[0], "images/events/knowingSkull.jpg");
         this.curScreen = CurrentScreen.INTRO;
 
-        takeCost = AbstractDungeon.player.getAscensionMaxHPLoss();
+        takeCost = 5;
         if (AbstractDungeon.ascensionLevel >= 15) {
-            takeCost *= 2;
+            takeCost = 7;
         }
 
         this.imageEventText.setDialogOption(OPTIONS[0] + takeCost + OPTIONS[2], new KnowingSkull());

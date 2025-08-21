@@ -32,18 +32,6 @@ public class Haunt extends AbstractHexaCard implements HexaPurpleTextInterface {
         atb(new DrawCardAction(p, magicNumber));
         atb(new DrawCardAction(1));
         atb(new DrawUntilNonEtherealAction());
-//        atb(new AbstractGameAction() {
-//            @Override
-//            public void update() {
-//                isDone = true;
-//                for (AbstractCard c : p.hand.group) {
-//                    if (!c.isEthereal) {
-//                        CardModifierManager.addModifier(c, new PropertiesMod(PropertiesMod.supportedProperties.ETHEREAL, false));
-//                        c.superFlash(Color.PURPLE.cpy());
-//                    }
-//                }
-//            }
-//        });
     }
 
     @Override

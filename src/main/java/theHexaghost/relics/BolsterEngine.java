@@ -28,7 +28,7 @@ public class BolsterEngine extends CustomRelic {
     @Override
     public void atBattleStart() {
         grayscale = false;
-        beginLongPulse();
+        //beginLongPulse(); ???????????????????
     }
 
     @Override

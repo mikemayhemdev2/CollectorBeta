@@ -2,37 +2,29 @@ package collector.cards;
 
 import collector.powers.NextTurnReservePower;
 import collector.util.CollectorOrangeTextInterface;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import downfall.downfallMod;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.*;
 
 public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, CollectorOrangeTextInterface {
     public final static String ID = makeID(FuelTheFire.class.getSimpleName());
-    // intellij stuff skill, self, common, , , , , 2, 1
 
     public FuelTheFire() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.NONE);
+        baseBlock = 6;
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 1;
         isPyre();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            applyToSelf(new NextTurnReservePower(magicNumber));//When not upgraded, just 1*2R
-        }
+        blck();
     }
 
     @Override
@@ -43,14 +35,8 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, Co
         }else{
             pyredKindling = false;
         }
-        if (pyredKindling){//Idk when this goes off so im just going to blow it up from both piles.
-            if (!this.upgraded) {
-                applyToSelf(new NextTurnReservePower(magicNumber*2));//2*1R when not upgraded and fueled.
-            }else{
-                applyToSelf(new DrawCardNextTurnPower(DFL.pl(), secondMagic));//Upgrade draw 1 next turn effect.
-            }
-        }else if (!this.upgraded){
-            applyToSelf(new NextTurnReservePower(magicNumber));//1 when not upgraded and not fueled.
+        if (pyredKindling){
+            applyToSelf(new NextTurnReservePower(magicNumber));
         }
     }
 

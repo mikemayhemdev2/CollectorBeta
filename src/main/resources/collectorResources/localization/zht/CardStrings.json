@@ -283,7 +283,8 @@
   },
   "collector:MysteryWeaving": {
     "NAME": "Mystery Weaving",
-    "DESCRIPTION": "Gain !B! Block. NL Grants 2 less Block for each other card in your hand."
+    "DESCRIPTION": "Gain !M! Block for each card in your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Block for each card in your hand +3."
   },
   "collector:OakbrimKindling": {
     "NAME": "Oakbrim Kindling",
@@ -359,8 +360,8 @@
   },
   "collector:Soulforge": {
     "NAME": "Soulforge",
-    "DESCRIPTION": "Draw a card from your Collected pile. Gain !M! Upgraded copy of it. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw a card from your Collected pile. Gain !M! Upgraded copies of it. NL Exhaust."
+    "DESCRIPTION": "Upgrade !M! random card in hand and gain !M! collector:Reserve next turn.",
+    "UPGRADE_DESCRIPTION": "Upgrade !M! random cards in hand and gain !M! collector:Reserves next turn."
   },
   "collector:Spark": {
     "NAME": "Spark",
@@ -446,7 +447,7 @@
   },
   "collector:BookOfStabbingCard": {
     "NAME": "Book of Stabbing",
-    "DESCRIPTION": "Whenever you deal unblocked attack damage, apply !M! collector:Doom."
+    "DESCRIPTION": "collector:Torchhead gains: NL \"Gain !M! Temporary Strength.\""
   },
   "collector:BronzeOrbCard": {
     "NAME": "Bronze Orb",

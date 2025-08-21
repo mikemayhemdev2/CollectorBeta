@@ -29,7 +29,7 @@ public class GiantHeadCardStageTwo extends AbstractCollectibleCard {
         if (this.upgraded){
             tar.upgrade();
         }
-        applyToSelf(new AddCopyNextTurnPower(new GiantHeadCardStageThree()));
+        applyToSelf(new AddCopyNextTurnPower(tar));
     }
 
     public void upp() {

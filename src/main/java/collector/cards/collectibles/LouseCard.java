@@ -1,13 +1,11 @@
 package collector.cards.collectibles;
 
-import collector.powers.collectioncards.LouseCardPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BlurPower;
+import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import expansioncontent.expansionContentMod;
 import sneckomod.SneckoMod;
 import utilityClasses.DFL;
-
 import static collector.CollectorMod.makeID;
 
 public class LouseCard extends AbstractCollectibleCard {
@@ -15,12 +13,13 @@ public class LouseCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , 7, 3, , 
 
     public LouseCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseBlock = 4;
-        this.baseMagicNumber = magicNumber = 1;
+//        this.baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,8 +27,9 @@ public class LouseCard extends AbstractCollectibleCard {
 
     @Override
     public void triggerOnExhaust() {
-        applyToSelf(new BlurPower(DFL.pl(), magicNumber));
-        applyToSelf(new LouseCardPower(block));
+        //applyToSelf(new BlurPower(DFL.pl(), magicNumber));
+        blck();
+        applyToSelf(new NextTurnBlockPower(DFL.pl(), this.block));
     }
 
     @Override
@@ -39,6 +39,7 @@ public class LouseCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(2);
+//        upgradeMagicNumber(1);
     }
 }

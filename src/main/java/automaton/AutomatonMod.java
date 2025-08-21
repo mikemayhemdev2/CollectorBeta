@@ -39,7 +39,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import downfall.downfallMod;
 import downfall.util.CardIgnore;
 import downfall.util.TextureLoader;
-import expansioncontent.cardmods.EtherealMod;
+import expansioncontent.cardmods.ActualEtherealMod;
 import expansioncontent.cardmods.ExhaustMod;
 import guardian.patches.BottledStasisPatch;
 import javassist.CtClass;
@@ -420,7 +420,7 @@ public class AutomatonMod implements
             newStatus = new GrievousWound();
         } else {
             newStatus = new UnknownStatus();
-            if (ogStatus.isEthereal) CardModifierManager.addModifier(newStatus, new EtherealMod());
+            if (ogStatus.isEthereal) CardModifierManager.addModifier(newStatus, new ActualEtherealMod());
             if (ogStatus.exhaust) CardModifierManager.addModifier(newStatus, new ExhaustMod());
         }
         if (ogStatus.upgraded) newStatus.upgrade();

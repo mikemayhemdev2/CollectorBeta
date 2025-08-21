@@ -20,13 +20,14 @@ public class BlueSlaverCard extends AbstractCollectibleCard {
 
     public BlueSlaverCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 5;
+        baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        applyToEnemy(m, new WeakPower(m, 1, false));
+        applyToEnemy(m, new WeakPower(m, magicNumber, false));
         atb(new AbstractGameAction() {
             @Override
             public void update() {
@@ -38,22 +39,10 @@ public class BlueSlaverCard extends AbstractCollectibleCard {
             }
         });
 
-        CollectorMod.bluePlayedThisCombat = true;
-        slaverTrioCheck();
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
     }
 
-
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (CollectorMod.redPlayedThisCombat && CollectorMod.taskPlayedThisCombat && !CollectorMod.bluePlayedThisCombat) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-            return;
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
 }

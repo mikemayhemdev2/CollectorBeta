@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.SHAPESWARM;
 import static collector.CollectorMod.makeID;
@@ -23,11 +24,13 @@ public class ExploderCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, common, , , , , 3, 1
 
     public ExploderCard() {
-        super(ID, -2, CardType.ATTACK, CardRarity.COMMON, CardTarget.NONE);
-        baseDamage = 12;
-        this.tags.add(SHAPESWARM);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
+//        baseDamage = 15;
+        baseMagicNumber = magicNumber = 8;
+        baseSecondMagic = secondMagic = 4;
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
+        this.selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,17 +42,19 @@ public class ExploderCard extends AbstractCollectibleCard {
         return false;
     }
 
-    @Override
-    public void triggerOnExhaust() {
-        atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.damage, false), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+    public void onRetained() {
+        upgradeMagicNumber(this.secondMagic);
     }
 
     @Override
-    public void triggerWhenDrawn() {
-        atb(new DrawAllShapesFromCollectionAction());
+    public void triggerOnExhaust() {
+//        for (int t = 0; t < magicNumber; t++) {
+            atb(new DamageAllEnemiesAction(DFL.pl(), DamageInfo.createDamageMatrix(this.magicNumber), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+//        }
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeMagicNumber(2);
+        upgradeSecondMagic(1);
     }
 }

@@ -17,22 +17,22 @@
   "collector:CantTouchThis": {
     "NAME": "Can't Touch This",
     "DESCRIPTIONS": [
-      "Whenever you fully block an attack, apply #b",
+      "Whenever you are hit by an enemy attack, apply #b",
       " #yDoom to the attacker."
     ]
   },
   "collector:Crackle": {
-    "NAME": "Crackle",
+    "NAME": "Pyromancy",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b1 #yReserve.",
-      "At the start of your turn, gain #b",
-      " #yReserves."
+      "At the start of your turn, #yPyre [REMOVE_SPACE]. NL [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE].",
+      "At the start of your turn, #yPyre #b",
+      " Times. NL [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE]."
     ]
   },
-  "collector:DarkLordForm": {
+  "collector:DarkLordFormPower": {
     "NAME": "Dark Lord Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, apply #b",
+      "At the end of your turn, apply #b",
       " #yDoom to ALL enemies.",
       " NL Repeated #b",
       " times."
@@ -104,7 +104,7 @@
   "collector:NextAttackAppliesDoom": {
     "NAME": "Doomed Attack",
     "DESCRIPTIONS": [
-      "Your next Attack this turn applies #b",
+      "After playing attacks this turn apply #b",
       " #yDoom."
     ]
   },
@@ -189,7 +189,7 @@
   "collector:TorchHead": {
     "NAME": "Torch Head",
     "DESCRIPTIONS": [
-      "Whenever you deal unblocked #yAttack damage, if you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], Torch Head: NL ",
+      "Whenever you deal #yAttack damage, Torch Head: NL ",
       "Applies #b",
       " #yDoom to a random enemy.",
       "Deals #b",
@@ -199,7 +199,9 @@
       " #yPoison to a random enemy.",
       "Draws you #b",
       " card.",
-      " cards."
+      " cards.",
+      "Gain #b",
+      " #yTemporary #yStrength."
     ]
   },
   "collector:IncreasedCollectionDraw": {
@@ -339,18 +341,19 @@
       "Your next #bSentry is played twice, consuming this effect."
     ]
   },
-  "collector:GremlinGangPower": {
-    "NAME": "Gremlin Gang",
-    "DESCRIPTIONS": [
-      "When you next play a Gremlin Gang card other than #b",
-      ", play a copy of it."
-    ]
-  },
   "collector:MushroomDamagePower": {
     "NAME": "Fungal Bloom",
     "DESCRIPTIONS": [
-      "Increases damage dealt by Mushroom cards by #b",
-      "."
+      "Causes damage to ALL enemies when you gain more, currently provides #b",
+      " damage."
+    ]
+  },
+  "collector:CollectDraw": {
+    "NAME": "Hoarder's Draw",
+    "DESCRIPTIONS": [
+      "At the start of your next turn draw #b1 card. NL Effect lasts longer with more collected cards.",
+      "At the start of your next #b",
+      " turns draw #b1 card. NL Effect lasts longer with more collected cards."
     ]
   }
 }

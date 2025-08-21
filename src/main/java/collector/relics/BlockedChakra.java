@@ -4,6 +4,7 @@ import basemod.abstracts.CustomRelic;
 import collector.CollectorCollection;
 import collector.CollectorMod;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import downfall.downfallMod;
 import downfall.util.TextureLoader;
 
 public class BlockedChakra extends CustomRelic {
@@ -13,6 +14,7 @@ public class BlockedChakra extends CustomRelic {
 
     public BlockedChakra() {
         super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.BOSS, LandingSound.MAGICAL);
+        this.counter = -1;
     }
 
     @Override
@@ -26,18 +28,8 @@ public class BlockedChakra extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
-        counter = 666;
-    }
-
-    @Override
-    public void onVictory() {
-        counter = -1;
-    }
-
-    @Override
     public boolean canSpawn() {
-        return !CollectorCollection.collection.isEmpty();
+        return (!CollectorCollection.collection.isEmpty() && !downfallMod.makeCollectorWorse);
     }
 
     @Override

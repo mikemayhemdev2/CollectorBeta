@@ -19,7 +19,7 @@ public class RedSlaverCard extends AbstractCollectibleCard {
 
     public RedSlaverCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 9;
+        baseMagicNumber = magicNumber = 8;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.exhaust = true;
     }
@@ -35,7 +35,7 @@ public class RedSlaverCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(5);
+        upgradeMagicNumber(4);
     }
 
 

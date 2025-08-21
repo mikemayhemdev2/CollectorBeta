@@ -27,9 +27,8 @@ import java.util.ArrayList;
 public class ShopBossPatch {
     public static void Postfix(ShopScreen __instance) {
         if (EvilModeCharacterSelect.evilMode) {
-            ArrayList<AbstractCard> colorlessCards = (ArrayList<AbstractCard>) ReflectionHacks.getPrivate(__instance, ShopScreen.class, "colorlessCards");
+            ArrayList<AbstractCard> colorlessCards = ReflectionHacks.getPrivate(__instance, ShopScreen.class, "colorlessCards");
             if (1 == 1) {
-                //  if (AbstractDungeon.merchantRng.randomBoolean()) {
                 int x = colorlessCards.get(0).price;
                 colorlessCards.set(0, getReplacement(colorlessCards.get(0).rarity));
                 colorlessCards.get(0).price = x;
@@ -38,7 +37,6 @@ public class ShopBossPatch {
                 }
             }
             if (1 == 1) {
-                //  if (AbstractDungeon.merchantRng.randomBoolean()) {
                 int x = colorlessCards.get(1).price;
                 colorlessCards.set(1, getReplacement(colorlessCards.get(1).rarity));
                 colorlessCards.get(1).price = x;
@@ -88,9 +86,7 @@ public class ShopBossPatch {
             }
         }
         if (AbstractDungeon.player instanceof CollectorChar || RandomCardWithTagAction.collectorLocked()) {
-            if (q.hasTag(expansionContentMod.STUDY_COLLECTOR)){
-                return false;
-            }
+            return !q.hasTag(expansionContentMod.STUDY_COLLECTOR);
             }
 
         return true;

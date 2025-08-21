@@ -48,7 +48,7 @@
     "NAMES": [
       "echo"
     ],
-    "DESCRIPTION": "Add a copy of a card to you hand, it is #yEthereal and #yExhausts [REMOVE_SPACE]. NL Echoes cannot be Echoed."
+    "DESCRIPTION": "Add a copy of a card to you hand, it is #yEthereal and #yExhausts on play or when #yRetained [REMOVE_SPACE]. NL Echoes cannot be Echoed."
   },
   {
     "PROPER_NAME": "Exhume",

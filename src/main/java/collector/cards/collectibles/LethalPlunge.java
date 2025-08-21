@@ -13,6 +13,7 @@ import sneckomod.SneckoMod;
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
+/*
 public class LethalPlunge extends AbstractCollectibleCard {
     public final static String ID = makeID(LethalPlunge.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 20, 4, , , 3, -1
@@ -41,3 +42,4 @@ public class LethalPlunge extends AbstractCollectibleCard {
 //        cardsToPreview.upgrade();
     }
 }
+*/

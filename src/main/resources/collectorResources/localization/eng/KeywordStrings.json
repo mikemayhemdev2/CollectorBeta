@@ -21,7 +21,7 @@
     "NAMES": [
       "pyre"
     ],
-    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost. NL If the card used in pyre is a Kindling then it will [#ff9407]add[] [#ff9407]a[] [#ff9407]new[] [#ff9407]effect.[]"
+    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost. NL If the card used in pyre is a Kindling [#ff9407]then[] [#ff9407]it[] [#ff9407]will[] [#ff9407]add[] [#ff9407]a[] [#ff9407]new[] [#ff9407]effect.[]"
   },
   {
     "ID": "reserve",
@@ -44,7 +44,7 @@
     "NAMES": [
       "torchhead"
     ],
-    "DESCRIPTION": "While you have #yTemporary #yHP or #yBlock [REMOVE_SPACE], dealing unblocked #yAttack damage triggers the Torch Head."
+    "DESCRIPTION": "Dealing #yAttack damage triggers the Torch Head."
   },
 
   {
@@ -60,7 +60,7 @@
     "PROPER_NAME": "Fueled",
     "NAMES": [
       "fueled",
-      "Translator Note: NOT USED"
+      "Translator Note: NOT USED ANYMORE"
     ],
     "DESCRIPTION": "This effect will occur if you use a #yKindling when exhausting a card through #yPyre [REMOVE_SPACE]."
   },
@@ -102,6 +102,6 @@
       "fungal bloom",
       "fungal_bloom"
     ],
-    "DESCRIPTION": "Increases the damage dealt by #yMushroom cards this combat."
+    "DESCRIPTION": "When you gain #yFungal #yBloom deal damage to ALL enemies equal to your new amount."
   }
 ]

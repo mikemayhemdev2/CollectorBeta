@@ -1,5 +1,6 @@
 package collector.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,8 +20,11 @@ public class FleetingEmbers extends AbstractCollectorCard implements OnPyreCard,
     public FleetingEmbers() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
-        baseBlock = 6;
-        cardsToPreview = new Ember();
+        baseBlock = 3;
+//        cardsToPreview = new Ember();
+        Ember em = new Ember();
+        em.upgrade();
+        MultiCardPreview.add(this, new Ember(), em);
         isPyre();
     }
 

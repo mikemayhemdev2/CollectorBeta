@@ -18,28 +18,18 @@ public class RomeoCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, uncommon, , , , , 5, 3
 
     public RomeoCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        super(ID, 2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 5;
+        baseSecondMagic = secondMagic = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new FreeAttackPower(p, 1));
+        applyToSelf(new FreeAttackPower(p, secondMagic));
         vigor(magicNumber);
-        if (banditBoost(1)) atb(new DrawCardAction(1));
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
-    }
-
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (banditBoost(1, true)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-            return;
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+        upgradeMagicNumber(3);
     }
 }

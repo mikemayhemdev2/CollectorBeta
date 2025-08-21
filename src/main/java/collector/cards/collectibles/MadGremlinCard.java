@@ -1,7 +1,9 @@
 package collector.cards.collectibles;
 
 import collector.powers.collectioncards.GremlinGangPower;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,7 +23,8 @@ public class MadGremlinCard extends AbstractCollectibleCard {
 
     public MadGremlinCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
+        baseMagicNumber = magicNumber = 2;
+        baseSecondMagic = secondMagic = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.tags.add(GREMLINGANG);
     }
@@ -29,22 +32,11 @@ public class MadGremlinCard extends AbstractCollectibleCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new StrengthPower(p, magicNumber));
         applyToSelf(new LoseStrengthPower(p, magicNumber));
-        if (!p.hasPower(GremlinGangPower.POWER_ID)) applyToSelf(new GremlinGangPower(this));
+        atb(new MakeTempCardInHandAction(new Shiv(), secondMagic));
     }
 
     public void upp() {
         upgradeMagicNumber(2);
     }
 
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(GremlinGangPower.POWER_ID)) {
-            GremlinGangPower power = (GremlinGangPower) AbstractDungeon.player.getPower(GremlinGangPower.POWER_ID);
-            if (!Objects.equals(power.lastKnownGremlinCard.name, this.name))
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-            return;
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
 }

@@ -3,7 +3,7 @@
     "NAME": "Emerald Torch",
     "FLAVOR": "The fires of greed never fade.",
     "DESCRIPTIONS": [
-      "Start each combat with an #yEmber and draw #b1 card."
+      "The first time each combat you #yExhaust a #ycollector:Kindling draw #b2 cards."
     ]
   },
 
@@ -12,7 +12,7 @@
     "FLAVOR": "The ever-changing flames reflect fortune's favor.",
     "DESCRIPTIONS": [
       "Replaces ",
-      "[] [REMOVE_SPACE]. At the start of each combat, add an #yEmber+ into your hand. The first time you #yExhaust a #ycollector:Kindling each turn, gain #b1 #ycollector:Reserve [REMOVE_SPACE]."
+      "[] [REMOVE_SPACE]. The first time each turn you #yExhaust a #ycollector:Kindling draw #b2 card."
     ]
   },
 
@@ -20,7 +20,7 @@
     "NAME": "Krampian Coal",
     "FLAVOR": "\"Intriguing! But why only specific chimneys?\" - Ranwid",
     "DESCRIPTIONS": [
-      "When you would draw from an empty Collected pile, add a #yLucky #yWick to your hand."
+      "The first collected card you draw each combat that is not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
     ]
   },
 
@@ -28,8 +28,7 @@
     "NAME": "Bag of Tricks",
     "FLAVOR": "Tricky.",
     "DESCRIPTIONS": [
-      "At the start of each combat, draw #b",
-      " Collected cards."
+      "The Collected pile can hold #b2 more cards."
     ]
   },
 
@@ -46,7 +45,7 @@
     "NAME": "Soul-lit Lamp",
     "FLAVOR": "A ghoulish decoration. The crackles of fire are replaced by buzzing wails.",
     "DESCRIPTIONS": [
-      "When you #yExhaust a #ycollector:Kindling apply #b3 #yhexamod:Soulburn to ALL enemies."
+      "When you #yExhaust a #ycollector:Kindling apply #b4 #yhexamod:Soulburn to ALL enemies."
     ]
   },
 
@@ -55,7 +54,7 @@
     "FLAVOR": "Worn by the Spire's miniest heroes.",
     "DESCRIPTIONS": [
       "Start each combat with #b",
-      " #yTemporary_HP [REMOVE_SPACE]. When you collector:Pyre a card, gain #b1 Temporary HP."
+      "When you #ycollector:Pyre a card, gain #b1 #y:expansioncontent:Temp_HP."
     ]
   },
 
@@ -95,9 +94,9 @@
     "NAME": "Bottled Brain",
     "FLAVOR": "Collected from a wizard's laboratory.",
     "DESCRIPTIONS": [
-      "Upon pickup, #yUpgrade a card in your Collection. Start combats with it on top of your Collected pile.",
+      "Upon pickup, #yUpgrade a card in your Collection. Start combats with it on top of your draw pile.",
       "Start combat with ",
-      " on top of your Collected pile.",
+      " on top of your draw pile.",
       "Select a card to bottle for "
     ]
   },
@@ -106,7 +105,7 @@
     "NAME": "The Contract",
     "FLAVOR": "Sign in blood.",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b10 #yEssence [REMOVE_SPACE]."
+      "At the start of each combat, choose #b1 of #b3 collected cards to add into your hand."
     ]
   },
 
@@ -114,10 +113,7 @@
     "NAME": "Forbidden Fruit",
     "FLAVOR": "This species of fruit looks completely unfamiliar.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose and obtain one Common, Uncommon, and Rare card from all available. Then, obtain a #ySapped [REMOVE_SPACE].",
-      "Choose a Rare card to add to your deck.",
-      "Choose an Uncommon card to add to your deck.",
-      "Choose a Common card to add to your deck."
+      "Upon pickup, add a #pParasite to your deck and gain #b10 Max HP. Start each combat with #b1 #yDexterity [REMOVE_SPACE]."
     ]
   },
 
@@ -134,7 +130,15 @@
     "NAME": "Blocked Chakra",
     "FLAVOR": "One pulled muscle is all it takes.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. You don't draw from your Collected pile at the start of your turn."
+      "At the start of your turn, gain [E] [REMOVE_SPACE]. #yCollected cards no longer provide draw."
+    ]
+  },
+
+  "collector:SoulExtractor": {
+    "NAME": "Soul Extractor",
+    "FLAVOR": "Energy only for those most determined.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards #ystslib:Purge when played."
     ]
   }
 }

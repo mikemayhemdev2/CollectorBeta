@@ -15,7 +15,7 @@ public class GiantHeadCardStageOne extends AbstractCollectibleCard {
     // intellij stuff skill, self, uncommon, , , , , , 
 
     public GiantHeadCardStageOne() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         MultiCardPreview.add(this, new GiantHeadCardStageTwo(), new GiantHeadCardStageThree());
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.HeartBuffEffect;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
@@ -16,20 +17,19 @@ public class Empower extends AbstractCollectorCard {
 
     public Empower() {
         super(ID, -1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 0;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new EasyXCostAction(this, (effect, params) -> {
-//            if (effect > 0) {
-                att(new VFXAction(new HeartBuffEffect(Empower.this.hb.cX, Empower.this.hb.cY)));
-                applyToSelfTop(new StrengthOverTurnsPower(2, effect+magicNumber));
-//            }
+            att(new VFXAction(new HeartBuffEffect(DFL.pl().hb.cX, DFL.pl().hb.cY)));
+            applyToSelfTop(new StrengthOverTurnsPower(2, effect + magicNumber));
             return true;
         }));
     }
 
     public void upp() {
         upgradeMagicNumber(1);
+        uDesc();
     }
 }

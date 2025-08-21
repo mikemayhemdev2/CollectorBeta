@@ -1,5 +1,6 @@
 package collector.cards;
 
+import collector.powers.DoomPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,8 +19,8 @@ public class CursedWail extends AbstractCollectorCard {
 
     public CursedWail() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = 6;
-        baseSecondMagic = secondMagic = 2;
+        baseMagicNumber = magicNumber = 7;
+        baseSecondMagic = secondMagic = 5;
         exhaust = true;
     }
 
@@ -40,14 +41,14 @@ public class CursedWail extends AbstractCollectorCard {
 
         forAllMonstersLiving(q -> {
             if (isAfflicted(q)) {
-                applyToEnemy(q, new StrengthPower(q, secondMagic*-1));
+                applyToEnemy(q, new DoomPower(q, secondMagic));
             }
         });
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
-        upgradeSecondMagic(1);
+        upgradeMagicNumber(3);
+        upgradeSecondMagic(4);
     }
 
     @Override

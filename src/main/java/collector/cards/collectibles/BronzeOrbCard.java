@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.cards.HyperBeam;
+import guardian.cards.HyperBeam_Guardian;
 import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
@@ -24,32 +25,51 @@ public class BronzeOrbCard extends AbstractCollectibleCard {
         baseDamage = 6;
         baseBlock = 5;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        MultiCardPreview.add(this, new Hyperbeam(), new HyperBeam(), new automaton.cards.HyperBeam());
+        MultiCardPreview.add(this, new Hyperbeam(), new HyperBeam(), new automaton.cards.HyperBeam(), new HyperBeam_Guardian());
     }
 
-    public boolean searchPile(CardGroup cardsToSearch) {
+    public void searchPile(CardGroup cardsToSearch) {//Now a void with new discount behaviour
 
         for (AbstractCard c : cardsToSearch.group) {
             if (c instanceof Hyperbeam && c.cost > 0) {//Defect one
                 c.updateCost(-1);
-                return true;
+                c.isCostModified = true;
+                c.costForTurn = c.cost;
+                c.isCostModifiedForTurn = true;
+//                return true;
             }
         }
 
         for (AbstractCard c : cardsToSearch.group) {
             if (c instanceof HyperBeam && c.cost > 0) {//Auto one from boss pool
                 c.updateCost(-1);
-                return true;
+                c.isCostModified = true;
+                c.costForTurn = c.cost;
+                c.isCostModifiedForTurn = true;
+//                return true;
             }
         }
 
         for (AbstractCard c : cardsToSearch.group) {
             if (c instanceof automaton.cards.HyperBeam && c.cost > 0) {//The other auto one, it drops from act 2 boss.
                 c.updateCost(-1);
-                return true;
+                c.isCostModified = true;
+                c.costForTurn = c.cost;
+                c.isCostModifiedForTurn = true;
+//                return true;
             }
         }
-        return false;
+
+        for (AbstractCard c : cardsToSearch.group) {
+            if (c instanceof HyperBeam_Guardian && c.cost > 0) {//Giga beam.
+                c.updateCost(-1);
+                c.isCostModified = true;
+                c.costForTurn = c.cost;
+                c.isCostModifiedForTurn = true;
+//                return true;
+            }
+        }
+//        return false;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -58,12 +78,12 @@ public class BronzeOrbCard extends AbstractCollectibleCard {
 
             atb(new AbstractGameAction() {
                 @Override
-                public void update() {
+                public void update() {//Search each pile.
                     isDone = true;
-                    if (searchPile(AbstractDungeon.player.hand)) return;
-                    if (searchPile(AbstractDungeon.player.drawPile)) return;
-                    if (searchPile(AbstractDungeon.player.discardPile)) return;
-                    if (searchPile(CollectorCollection.combatCollection)) return;
+                    searchPile(AbstractDungeon.player.hand);
+                    searchPile(AbstractDungeon.player.drawPile);
+                    searchPile(AbstractDungeon.player.discardPile);
+                    searchPile(CollectorCollection.combatCollection);
                     searchPile(AbstractDungeon.player.exhaustPile);
                 }
             });

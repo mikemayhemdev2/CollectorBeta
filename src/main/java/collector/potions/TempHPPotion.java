@@ -1,23 +1,15 @@
 package collector.potions;
 
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomPotion;
-import collector.effects.ColoredSanctityEffect;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import collector.actions.kaboomActionTuah;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
-
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.atb;
-
 
 public class TempHPPotion extends CustomPotion {
     public static final String POTION_ID = makeID(TempHPPotion.class.getSimpleName());
@@ -26,8 +18,8 @@ public class TempHPPotion extends CustomPotion {
     public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
     public TempHPPotion() {
-        super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.H, PotionColor.ELIXIR);
-        this.isThrown = false;
+        super(NAME, POTION_ID, PotionRarity.RARE, PotionSize.BOTTLE, PotionColor.WHITE);
+        this.isThrown = true;
         this.targetRequired = false;
     }
 
@@ -40,21 +32,10 @@ public class TempHPPotion extends CustomPotion {
         }
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
-        this.tips.add(new PowerTip(TipHelper.capitalize(BaseMod.getKeywordTitle("expansioncontent:temp_hp")), BaseMod.getKeywordDescription("expansioncontent:temp_hp")));
     }
 
     public void use(AbstractCreature target) {
-        atb(new VFXAction(new ColoredSanctityEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, Color.CHARTREUSE.cpy())));
-        int roll = MathUtils.random(0, 2);
-        if (roll == 0) {
-            CardCrawlGame.sound.play("HEAL_1");
-        } else if (roll == 1) {
-            CardCrawlGame.sound.play("HEAL_2");
-        } else {
-            CardCrawlGame.sound.play("HEAL_3");
-        }
-
-        atb(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, potency));
+        atb(new kaboomActionTuah(this.potency));
     }
 
     public CustomPotion makeCopy() {
@@ -62,6 +43,6 @@ public class TempHPPotion extends CustomPotion {
     }
 
     public int getPotency(int ascensionLevel) {
-        return 8;
+        return 1;
     }
 }

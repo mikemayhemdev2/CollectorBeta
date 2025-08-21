@@ -305,7 +305,7 @@ public class FlipMap {
     }
 
     // prevents elite and rest rooms from being created in the first five floors (first meaning floors with Y=10-14)
-// only overrides base logic in evilMode
+    // only overrides base logic in evilMode
     @SpirePatch(
             clz = RoomTypeAssigner.class,
             method = "ruleAssignableToRow"

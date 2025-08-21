@@ -10,30 +10,40 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.CurlUpPower;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class LouseTangerine extends AbstractMonster {
     public static final String ID = "FuzzyLouseTangerine";
     private static final MonsterStrings monsterStrings;
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("hermit:SpecialFriend");
+//    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("hermit:SpecialFriend");
     public static final String NAME;
     private int biteDamage;
     public boolean sleepy = true;
 
     public LouseTangerine(float x, float y) {
-        super(NAME, "FuzzyLouseNormal", 48, 0.0F, -5.0F, 180.0F, 140.0F, (String)null, x, y);
-        this.loadAnimation("expansioncontentResources/images/bosses/hermit/1/tangerine/skeleton_2.atlas", "expansioncontentResources/images/bosses/hermit/1/tangerine/skeleton_2.json", 1.0F);
+        super(NAME, "FuzzyLouseTangerine", 48, 0.0F, -5.0F, 180.0F, 140.0F, (String)null, x, y);
+        this.type = AbstractMonster.EnemyType.BOSS;
+        this.loadAnimation("expansioncontentResources/images/bosses/hermit/1/tangerine/skeleton_2.atlas", "expansioncontentResources/images/bosses/hermit/1/tangerine/skeleton_2.json", 0.75F);
         AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
-        // Set damage.
+        //Set HP.
         if (AbstractDungeon.ascensionLevel >= 9) {
-            biteDamage = AbstractDungeon.monsterHpRng.random(6, 8);
+            setHp(53);
+        }
+        else {
+            setHp(48);
+        }
+
+        // Set damage.
+        if (AbstractDungeon.ascensionLevel >= 4) {
+            biteDamage = 7;
         } else {
-            biteDamage = AbstractDungeon.monsterHpRng.random(5, 7);
+            biteDamage = 6;
         }
 
         damage.add(new DamageInfo(this, biteDamage));
@@ -42,12 +52,24 @@ public class LouseTangerine extends AbstractMonster {
     @Override
     public void usePreBattleAction()
     {
-        int curl_amount = AbstractDungeon.monsterHpRng.random(8);
-
-        if (AbstractDungeon.ascensionLevel >= 9) curl_amount = 12;
+        int curl_amount;
+        int tangerine_amount;
+        if (AbstractDungeon.ascensionLevel >= 19){//Tougher all round moveset asc.
+            curl_amount = 18;
+            tangerine_amount = 4;
+        } else if (AbstractDungeon.ascensionLevel >= 9){//More hp/defensive powers asc.
+            curl_amount = 14;
+            tangerine_amount = 3;
+        }else if (AbstractDungeon.ascensionLevel >= 4){//More damage/damaging abilities asc
+        curl_amount = 9;
+        tangerine_amount = 3;
+        } else{//Low asc/no asc.
+            curl_amount = 9;
+            tangerine_amount = 2;
+        }
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new CurlUpPower(this, curl_amount)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new TangerinePower(this,3)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new TangerinePower(this,tangerine_amount)));
         setMove((byte)1, AbstractMonster.Intent.SLEEP);
     }
 
@@ -56,13 +78,25 @@ public class LouseTangerine extends AbstractMonster {
         switch(this.nextMove) {
             case 3:
                 AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 break;
             case 4:
-                if (AbstractDungeon.ascensionLevel >= 9) {
+                if (AbstractDungeon.ascensionLevel >= 19) {//Tougher all round moveset asc.
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, 4), 4));
-                } else {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MetallicizePower(this, 1), 1));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, 3), 3));
+                }
+                else if (AbstractDungeon.ascensionLevel >= 9) {//More hp/defensive powers asc.
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, 4), 4));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MetallicizePower(this, 1), 1));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, 2), 2));
+                }
+                else if (AbstractDungeon.ascensionLevel >= 4) {//More damage/damaging abilities asc
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, 4), 4));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, 2), 2));
+                }else{
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, 3), 3));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, 2), 2));
                 }
         }
 
@@ -83,15 +117,15 @@ public class LouseTangerine extends AbstractMonster {
             }
         }
         else if (this.lastMove((byte)4)) {
-                this.setMove((byte)3, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base);
+                this.setMove((byte)3, Intent.ATTACK, (this.damage.get(0)).base);
             } else {
                 this.setMove(MOVES[0], (byte)4, Intent.BUFF);
             }
     }
 
     static {
-        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("FuzzyLouseNormal");
-        NAME = uiStrings.TEXT[0];
+        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("downfall:FuzzyLouseTangerine");
+        NAME = monsterStrings.NAME;
         MOVES = monsterStrings.MOVES;
         DIALOG = monsterStrings.DIALOG;
     }

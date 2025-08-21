@@ -14,7 +14,7 @@ public class Arrogance extends AbstractCollectorCard {
     public Arrogance() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseBlock = 8;
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,6 +24,6 @@ public class Arrogance extends AbstractCollectorCard {
 
     public void upp() {
         upgradeBlock(2);
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
     }
 }

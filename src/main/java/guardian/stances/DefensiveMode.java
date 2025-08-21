@@ -28,6 +28,7 @@ import guardian.powers.DefensiveModeBooster;
 import guardian.powers.DontLeaveDefensiveModePower;
 import guardian.relics.DefensiveModeMoreBlock;
 import guardian.vfx.DefensiveModeStanceParticleEffect;
+import utilityClasses.DFL;
 
 public class DefensiveMode extends AbstractStance {
 
@@ -97,7 +98,11 @@ public class DefensiveMode extends AbstractStance {
         if (AbstractDungeon.player instanceof GuardianCharacter) {
             ((GuardianCharacter) AbstractDungeon.player).switchToOffensiveMode();
         }
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, ThornsPower.POWER_ID, 3));
+        ThornsPower debuff = new ThornsPower(DFL.pl(), -3);
+        debuff.type = AbstractPower.PowerType.DEBUFF;//This was reported as a bug and does not seem to be consistent with vanilla temp buff sources.
+        //To alleviate the problem, since negative thorns is not coded to be a debuff (it was not designed with this use case in mind), the type is manually changed.
+
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(DFL.pl(), DFL.pl(), debuff, -3));
         for (AbstractPower p : AbstractDungeon.player.powers) {
             if (p instanceof DefensiveModeBooster) {
                 ((DefensiveModeBooster) p).onLeave();

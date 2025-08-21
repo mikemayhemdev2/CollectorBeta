@@ -18,7 +18,7 @@ public class Heatwave extends AbstractCollectorCard {
 
     public Heatwave() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 14;
+        baseDamage = 13;
         cardsToPreview = new Ember();
         isMultiDamage = true;
         this.baseMagicNumber = magicNumber = 1;
@@ -33,7 +33,7 @@ public class Heatwave extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
 //        upgradeMagicNumber(1);
     }
 }

@@ -5,10 +5,12 @@ import basemod.helpers.CardPowerTip;
 import collector.CollectorMod;
 import collector.actions.GainReservesAction;
 import collector.cards.Ember;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import downfall.util.TextureLoader;
+import expansioncontent.expansionContentMod;
 
 import static utilityClasses.Wiz.atb;
 import static utilityClasses.Wiz.makeInHand;
@@ -22,18 +24,17 @@ public class PrismaticTorch extends CustomRelic {
 
     public PrismaticTorch() {
         super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.BOSS, LandingSound.MAGICAL);
-        Ember emm = new Ember();
-        emm.upgrade();
-        this.tips.add(new CardPowerTip(emm));
+//        Ember emm = new Ember();
+//        emm.upgrade();
+//        this.tips.add(new CardPowerTip(emm));
     }
 
     @Override
     public void atBattleStart() {
-        flash();
-        Ember em = new Ember();
-        em.upgrade();
-        makeInHand(em.makeStatEquivalentCopy(), EMBER_COUNT);
-//        atb(new GainReservesAction(1));
+//        flash();
+//        Ember em = new Ember();
+//        em.upgrade();
+//        makeInHand(em.makeStatEquivalentCopy(), 2);
     }
 
     @Override
@@ -42,12 +43,17 @@ public class PrismaticTorch extends CustomRelic {
     }
 
     @Override
+    public void onVictory(){
+        this.grayscale = false;
+    }
+
+    @Override
     public void onExhaust(AbstractCard card) {
-        if (!grayscale) {
-            if (card.cardID.equals(Ember.ID)) {
+        if (card.tags.contains(expansionContentMod.KINDLING)) {
+            if (!grayscale) {
                 flash();
-                atb(new GainReservesAction(1));
-                grayscale=true;
+                this.grayscale = true;
+                atb(new DrawCardAction(2));
             }
         }
     }

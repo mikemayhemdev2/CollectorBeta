@@ -26,11 +26,11 @@
     ]
   },
   "collector:TempHPPotion": {
-    "NAME": "Felwater",
+    "NAME": "Pyromaniac's Potion",
     "DESCRIPTIONS": [
-      "Gain #b8 #yTemp. #yHP.",
-      "Gain #b",
-      " #yTemp. #yHP [REMOVE_SPACE]."
+      "#yPyre your hand. Gain an #yUpgraded #yEmber for each card exhausted.",
+      "#yPyre your hand. ",
+      " Gain an #yUpgraded #ySunbloom #yKindling for each card exhausted."
     ]
   }
 }

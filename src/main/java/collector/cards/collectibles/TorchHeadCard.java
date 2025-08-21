@@ -24,13 +24,17 @@ public class TorchHeadCard extends AbstractCollectibleCard {
     private int previewIndex;
 
     public TorchHeadCard() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard toAdd = getRandomTorchheadCard();
         toAdd.setCostForTurn(0);
+        if (this.upgraded){
+            toAdd.upgrade();
+        }
         makeInHand(toAdd);
     }
 
@@ -44,7 +48,7 @@ public class TorchHeadCard extends AbstractCollectibleCard {
 
     public void upp() {
 //        upgradeBaseCost(0);
-        this.selfRetain = true;
+//        this.selfRetain = true;
         uDesc();
     }
 

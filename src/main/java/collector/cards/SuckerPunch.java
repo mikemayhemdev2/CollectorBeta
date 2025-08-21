@@ -13,10 +13,10 @@ public class SuckerPunch extends AbstractCollectorCard {
     // intellij stuff attack, enemy, common, 7, 2, , , 1, 1
 
     public SuckerPunch() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 4;
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 6;
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 1;
+        baseSecondMagic = secondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -34,8 +34,8 @@ public class SuckerPunch extends AbstractCollectorCard {
     public void upp() {
 //        upgradeDamage(2);
 //        upgradeMagicNumber(1);
-        upgradeDamage(-1);
-        upgradeSecondMagic(1);
+        upgradeDamage(1);
+        upgradeMagicNumber(1);
         uDesc();
     }
 }

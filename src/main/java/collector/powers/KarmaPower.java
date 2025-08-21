@@ -31,6 +31,7 @@ public class KarmaPower extends AbstractCollectorPower {
                 if (!mo.isDeadOrEscaped()) {
                     if (isAfflicted(mo)) {
                         addToBot(new GainBlockAction(owner, amount));
+                        return;
                     }
                 }
             }

@@ -1,11 +1,15 @@
 package collector;
 
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
+import basemod.TopPanelGroup;
+import basemod.TopPanelItem;
 import basemod.abstracts.CustomSavable;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.helpers.CardModifierManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.helpers.TopPanel.TopPanelHelper;
 import collector.cardmods.CollectedCardMod;
 import collector.cards.*;
 import collector.patches.CollectiblesPatches.CollectibleCardColorEnumPatch;
@@ -29,6 +33,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.monsters.exordium.SlimeBoss;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -39,6 +44,8 @@ import javassist.CtClass;
 import javassist.Modifier;
 import javassist.NotFoundException;
 import org.clapper.util.classutil.*;
+import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
 import utilityClasses.Wiz;
 
 import java.io.File;
@@ -174,6 +181,7 @@ public class CollectorMod implements
         BaseMod.addRelicToCustomPool(new BlockedChakra(), CollectorChar.Enums.COLLECTOR);
         BaseMod.addRelicToCustomPool(new BottledCollectible(), CollectorChar.Enums.COLLECTOR);
         BaseMod.addRelicToCustomPool(new TheContract(), CollectorChar.Enums.COLLECTOR);
+        BaseMod.addRelicToCustomPool(new SoulExtractor(), CollectorChar.Enums.COLLECTOR);
         //Shared relics
         BaseMod.addRelic(new AutoCurser(), RelicType.SHARED);
         BaseMod.addRelic(new Incense(), RelicType.SHARED);
@@ -187,9 +195,13 @@ public class CollectorMod implements
 
         BaseMod.addPotion(MiniCursePotion.class, Color.FIREBRICK, Color.GRAY, Color.TAN, MiniCursePotion.POTION_ID, CollectorChar.Enums.THE_COLLECTOR);
         BaseMod.addPotion(ReservePotion.class, Color.RED, Color.GREEN, Color.CLEAR, ReservePotion.POTION_ID, CollectorChar.Enums.THE_COLLECTOR);
-        BaseMod.addPotion(DebuffDoublePotion.class, Color.CORAL, Color.PURPLE, Color.MAROON, DebuffDoublePotion.POTION_ID, CollectorChar.Enums.THE_COLLECTOR);
-        BaseMod.addPotion(TempHPPotion.class, Color.BLACK, Color.PURPLE, Color.GRAY, TempHPPotion.POTION_ID, CollectorChar.Enums.THE_COLLECTOR);
-//        BanSharedContentPatch.registerRunLockedPotion(CollectorChar.Enums.THE_COLLECTOR, TempHPPotion.POTION_ID);
+        BaseMod.addPotion(DebuffDoublePotion.class, Color.CORAL, Color.PURPLE, Color.MAROON, DebuffDoublePotion.POTION_ID);
+
+        BaseMod.addPotion(TempHPPotion.class,
+                new Color(222/255f, 59/255f, 37/255f, 1),
+                new Color(223/255f, 26/255f, 44/255f, 1),
+                new Color(140/255f, 19/255f, 13/255f, 1),
+                TempHPPotion.POTION_ID, CollectorChar.Enums.THE_COLLECTOR);//Custom potion colours use n/255f.
 
         if (Loader.isModLoaded("widepotions")) {
             WidePotionsMod.whitelistSimplePotion(MiniCursePotion.POTION_ID);
@@ -231,7 +243,9 @@ public class CollectorMod implements
         addPotions();
         initializeSavedData();
         //essencePanel = new TopPanelEssence();
-        extraDeckPanel = new TopPanelExtraDeck();
+        if (extraDeckPanel == null) {
+            extraDeckPanel = new TopPanelExtraDeck();
+        }
     }
 
     @Override
@@ -240,6 +254,7 @@ public class CollectorMod implements
         NewReserves.resetReserves();
     }
 
+    public static boolean slimboInRoom = false;
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         CollectorCollection.atBattleStart();
@@ -248,6 +263,14 @@ public class CollectorMod implements
             if (((CollectorChar) AbstractDungeon.player).torchHead == null)
                 ((CollectorChar) AbstractDungeon.player).torchHead = new RenderOnlyTorchHead();
         }
+        DFL.atb(new LaterAction(()->{
+            DFL.activeMonsterList().forEach(c -> {
+                if (c instanceof SlimeBoss){
+                    slimboInRoom = true;
+                }
+            });
+        }));
+
 
         redPlayedThisCombat = false;
         taskPlayedThisCombat = false;
@@ -316,18 +339,18 @@ public class CollectorMod implements
 
     public static void renderCombatUiElements(SpriteBatch sb) {
         if (Wiz.isInCombat() && AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR)) {
-            if (combatCollectionPileButton != null) {
-                combatCollectionPileButton.setX(AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
-                combatCollectionPileButton.render(sb);
-            }
+//            if (combatCollectionPileButton != null) {
+//                combatCollectionPileButton.setX(AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
+//                combatCollectionPileButton.render(sb);
+//            }
         }
     }
 
     @Override
     public void receivePostDungeonUpdate() {
-        if (combatCollectionPileButton != null) {
-            combatCollectionPileButton.update();
-        }
+//        if (combatCollectionPileButton != null) {
+//            combatCollectionPileButton.update();
+//        }
     }
 
     @Override
@@ -340,11 +363,24 @@ public class CollectorMod implements
         NewReserves.resetReserves();
 
         if (AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR)) {
-            BaseMod.addTopPanelItem(extraDeckPanel);
+
+            boolean dontDuplicate = false;//Robust checks being added to prevent duplicate top panel items being generated.
+            ArrayList<TopPanelItem> check = ReflectionHacks.getPrivate(TopPanelHelper.topPanelGroup, TopPanelGroup.class, "topPanelItems");
+            for (TopPanelItem item : check){
+                if (item instanceof TopPanelExtraDeck){
+                    dontDuplicate = true;//This issue may be as simple as these top panel items not being cleaned up properly, but this will stop doubles.
+                }
+            }
+            if (!dontDuplicate) {
+                BaseMod.addTopPanelItem(extraDeckPanel);
+            }
+
             //BaseMod.addTopPanelItem(essencePanel);
         } else {
+
         	BaseMod.removeTopPanelItem(extraDeckPanel);
           //  BaseMod.removeTopPanelItem(essencePanel);
+
         }
     }
 
@@ -384,23 +420,6 @@ public class CollectorMod implements
             }
         });
 
-        /*
-        BaseMod.addSaveField("CollectorEssences", new CustomSavable<Integer>() {
-            @Override
-            public Integer onSave() {
-                return EssenceSystem.essenceCount();
-            }
-
-            @Override
-            public void onLoad(Integer integer) {
-                if (integer != null)
-                    EssenceSystem.setEssence(integer);
-            }
-        }
-
-         */
-
-
     }
 
 
@@ -418,7 +437,9 @@ public class CollectorMod implements
 
     @Override
     public void receivePreRoomRender(SpriteBatch spriteBatch) {
-        CollectorCollection.probe();//I belive this hook goes off after the init?.
+        if (AbstractDungeon.player instanceof CollectorChar) {
+            CollectorCollection.probe();//I believe this hook goes off after the init?.
+        }
     }
 
 

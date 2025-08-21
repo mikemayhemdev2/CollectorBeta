@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
 
+import static collector.cards.AbstractCollectorCard.pyreOrange;
+
 
 public class SuperSomberShield extends AbstractExpansionCard implements OnPyreCard {
     public final static String ID = makeID(SuperSomberShield.class.getSimpleName());
@@ -32,9 +34,9 @@ public class SuperSomberShield extends AbstractExpansionCard implements OnPyreCa
 
     @Override
     public void onPyred(AbstractCard card) {
-        if (card.tags.contains(expansionContentMod.KINDLING)){
-            card.upgrade();
-        }
+//        if (card.tags.contains(expansionContentMod.KINDLING)){
+//            card.upgrade();
+//        }
         applyToSelfTop(new AddCopyNextTurnPower(card));
     }
 

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public abstract class AbstractSealCard extends AbstractHexaCard {
 //    private String[] descriptorStrings = CardCrawlGame.languagePack.getUIString(HexaMod.makeID("SealDescriptor")).TEXT;
-//    private String EtherealStrings = CardCrawlGame.languagePack.getUIString(downfallMod.makeID("EtherealMod")).TEXT[0];
 
     public AbstractSealCard(final String id, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(id, cost, type, rarity, target);

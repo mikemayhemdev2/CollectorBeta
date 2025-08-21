@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import downfall.util.SelectCardsCenteredAction;
 import hermit.util.Wiz;
 import sneckomod.SneckoMod;
+import utilityClasses.DFL;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,9 @@ public class GreenpyreLocus extends AbstractCollectorCard {
     // intellij stuff skill, self, uncommon, , , , , 1, 1
 
     public GreenpyreLocus() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+//        baseSecondMagic = secondMagic = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.exhaust = true;
     }
@@ -39,15 +40,36 @@ public class GreenpyreLocus extends AbstractCollectorCard {
             AbstractCard tar = cards.get(0).makeCopy();
             CardModifierManager.addModifier(tar, new CollectedCardMod());
             makeInHandTop(tar);
-            int count = upgraded ? secondMagic : 1;
-            for (int i = 0; i < count; i++) {
-                CollectorCollection.combatCollection.addToRandomSpot(tar.makeStatEquivalentCopy());
+            if (tar.cost > 0){
+                tar.cost = 0;
+                tar.costForTurn = 0;
+                tar.isCostModified = true;
+                tar.isCostModifiedForTurn = true;
             }
+
+            /*
+            int count = this.magicNumber;
+            for (int i = 0; i < count; i++) {
+
+                DFL .
+                        pl()   .
+                        drawPile     .
+                        addToRandomSpot       (
+                                tar         .
+                                        makeStatEquivalentCopy           (
+
+                                        )            )
+                ;
+                //When the code is spaced out o.o
+
+            }
+             */
+
         }));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
-        uDesc();
+        upgradeMagicNumber(2);
+//        uDesc();
     }
 }

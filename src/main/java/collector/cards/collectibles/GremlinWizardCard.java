@@ -20,30 +20,18 @@ public class GremlinWizardCard extends AbstractCollectibleCard {
 
     public GremlinWizardCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
+        baseMagicNumber = magicNumber = 7;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.tags.add(GREMLINGANG);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new NextTurnVigorPower(magicNumber));
-        applyToSelf(new NextTurnReservePower(1));
-        if (!p.hasPower(GremlinGangPower.POWER_ID)) applyToSelf(new GremlinGangPower(this));
+//        applyToSelf(new NextTurnReservePower(1));
     }
 
     public void upp() {
-        upgradeMagicNumber(3);
+//        upgradeMagicNumber(3);
+        upgradeBaseCost(0);
     }
 
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(GremlinGangPower.POWER_ID)) {
-            GremlinGangPower power = (GremlinGangPower) AbstractDungeon.player.getPower(GremlinGangPower.POWER_ID);
-            if (!Objects.equals(power.lastKnownGremlinCard.name, this.name))
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-            return;
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
 }

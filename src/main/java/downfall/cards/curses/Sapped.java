@@ -6,19 +6,19 @@ import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import downfall.downfallMod;
+import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
 
 public class Sapped extends AbstractCollectorCard {
     public final static String ID = makeID(Sapped.class.getSimpleName());
-    // intellij stuff skill, none, special, , , , , 1, 1
+
     public Sapped() {
-        super(ID, 0, CardType.CURSE, CardRarity.SPECIAL, CardTarget.NONE, CardColor.CURSE);
+        super(ID, -2, CardType.CURSE, CardRarity.CURSE, CardTarget.NONE, CardColor.CURSE);
         baseMagicNumber = magicNumber = 1;
-        isPyre();
-        exhaust = true;
-        SoulboundField.soulbound.set(this, true);
+        isEthereal = true;
         tags.add(downfallMod.DOWNFALL_CURSE);
+        tags.add(expansionContentMod.UNPLAYABLE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

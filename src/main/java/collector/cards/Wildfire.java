@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import downfall.downfallMod;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
@@ -26,33 +27,29 @@ public class Wildfire extends AbstractCollectorCard implements OnPyreCard, Colle
     public Wildfire() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 3;
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
         isPyre();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                int count = 0;
-                for (AbstractPower q : m.powers) {
-                    if (q.type == AbstractPower.PowerType.DEBUFF) {
-                        dmg(m, AttackEffect.FIRE);
-                        count++;
-                    }
-                }
-                if (count >= 1 && pyredKindling){
-                    for (int j = 0; count > j; j++){
-                        DFL.atb(new ApplyPowerAction(m, p, new DoomPower(m, magicNumber), magicNumber));
-                    }
+        DFL.atb(new LaterAction(() -> {
+            int count = 0;
+            for (AbstractPower q : m.powers) {
+                if (q.type == AbstractPower.PowerType.DEBUFF) {
+                    dmg(m, AbstractGameAction.AttackEffect.FIRE);
+                    count++;
                 }
             }
-        });
+            if (count >= 1 && pyredKindling) {
+                for (int j = 0; count > j; j++) {
+                    DFL.atb(new ApplyPowerAction(m, p, new DoomPower(m, magicNumber), magicNumber));
+                }
+            }
+        }));
     }
 
     public void upp() {
-        upgradeDamage(1);
+        upgradeDamage(2);
         upgradeMagicNumber(1);
     }
 

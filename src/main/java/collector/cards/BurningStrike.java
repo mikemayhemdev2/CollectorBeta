@@ -24,7 +24,7 @@ public class BurningStrike extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(3);
 //        upgradeMagicNumber(1);
         uDesc();
     }

@@ -33,7 +33,7 @@ public class ChargeUp extends AbstractExpansionCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ReduceDebuffsAction((AbstractCreature)AbstractDungeon.player, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ReduceDebuffsAction(AbstractDungeon.player, this.magicNumber));
     }
 
     public void upgrade() {

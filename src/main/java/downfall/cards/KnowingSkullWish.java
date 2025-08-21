@@ -61,13 +61,13 @@ public class KnowingSkullWish extends AbstractExpansionCard implements OctopusCa
     public void doChoiceStuff(AbstractMonster m, OctoChoiceCard card) {
         switch (card.cardID) {
             case "ks:0": {
-                int gold = upgraded ? 20 : 15;
-                atb(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 3));
+                int gold = upgraded ? 25 : 20;
+                atb(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 4));
                 atb(new ChangeGoldAction(gold));
                 break;
             }
             case "ks:1": {
-                atb(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 3));
+                atb(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 2));
                 ArrayList<AbstractCard> list = new ArrayList<>(AbstractDungeon.colorlessCardPool.group);
                 AbstractCard q = list.get(cardRandomRng.random(list.size() - 1));
                 if (upgraded)
@@ -76,9 +76,9 @@ public class KnowingSkullWish extends AbstractExpansionCard implements OctopusCa
                 break;
             }
             case "ks:2": { //faster search     "Obtain Guardian *Boss cards."        获得守护者 *首领 牌。
-                int damage = upgraded ? 5 : 7;
+                int damage = upgraded ? 4 : 6;
                 atb(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, damage));
-                atb(new ObtainPotionAction(PotionHelper.getRandomPotion()));
+                atb(new ObtainPotionAction(AbstractDungeon.returnRandomPotion(true)));
                 break;
             }
         }

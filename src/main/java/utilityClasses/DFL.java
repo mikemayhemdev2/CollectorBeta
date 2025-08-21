@@ -24,6 +24,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
+
 /**
  * General util library.
  * Imported from BundleCore.
@@ -90,11 +92,11 @@ public class DFL {
             return arrayList;
         }
         ArrayList<AbstractCard> cardsList = new ArrayList<>();
-        for (AbstractCard c : AbstractDungeon.srcCommonCardPool.group) {
+        for (AbstractCard c : srcCommonCardPool.group) {
             if (pred.test(c))
                 cardsList.add(c.makeStatEquivalentCopy());
         }
-        for (AbstractCard c : AbstractDungeon.srcUncommonCardPool.group) {
+        for (AbstractCard c : srcUncommonCardPool.group) {
             if (pred.test(c))
                 cardsList.add(c.makeStatEquivalentCopy());
         }
@@ -237,6 +239,74 @@ public class DFL {
             }
         }
         return getCards.get(tmp.get(AbstractDungeon.cardRng.random(0, tmp.size() - 1))).makeCopy();
+    }
+
+    /**
+     *
+     * @param type
+     * @param size
+     * @return
+     */
+    public static ArrayList<AbstractCard> generateCardChoicesBetter(AbstractCard.CardType type, int size, Random rngQue, boolean restricted) {
+        ArrayList<AbstractCard> derp = new ArrayList<>();
+        while (derp.size() < size) {
+            boolean dupe = false;
+            AbstractCard tmp;
+            if (type == null) {
+                tmp = returnTrulyRandomCardInCombatBetter(rngQue, restricted);
+            } else {
+                tmp = returnTrulyRandomCardInCombatBetter(type, rngQue, restricted);
+            }
+            for (AbstractCard c : derp) {
+                if (c.cardID.equals(tmp.cardID)) {
+                    dupe = true;
+                    break;
+                }
+            }
+            if (!dupe)
+                derp.add(tmp.makeCopy());
+        }
+        return derp;
+    }
+
+    public static AbstractCard returnTrulyRandomCardInCombatBetter(Random rngQue, boolean restricted) {
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        for (AbstractCard c : srcCommonCardPool.group) {
+            if (!c.hasTag(AbstractCard.CardTags.HEALING)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        for (AbstractCard c : srcUncommonCardPool.group) {
+            if (!c.hasTag(AbstractCard.CardTags.HEALING)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        for (AbstractCard c : srcRareCardPool.group) {
+            if (!c.hasTag(AbstractCard.CardTags.HEALING)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        return list.get(rngQue.random(list.size() - 1));
+    }
+
+    public static AbstractCard returnTrulyRandomCardInCombatBetter(AbstractCard.CardType type, Random RngQue, boolean restricted) {
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        for (AbstractCard c : srcCommonCardPool.group) {
+            if (c.type == type && !c.hasTag(AbstractCard.CardTags.HEALING))
+                list.add(c);
+        }
+        for (AbstractCard c : srcUncommonCardPool.group) {
+            if (c.type == type && !c.hasTag(AbstractCard.CardTags.HEALING))
+                list.add(c);
+        }
+        for (AbstractCard c : srcRareCardPool.group) {
+            if (c.type == type && !c.hasTag(AbstractCard.CardTags.HEALING))
+                list.add(c);
+        }
+        return list.get(RngQue.random(list.size() - 1));
     }
 
 }

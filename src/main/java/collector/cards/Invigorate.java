@@ -20,8 +20,8 @@ public class Invigorate extends AbstractCollectorCard {
     // intellij stuff skill, enemy, common, , , , , , 
 
     public Invigorate() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
-        this.magicNumber = this.baseMagicNumber = 1;
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
+        this.magicNumber = this.baseMagicNumber = 2;
 //        isPyre();
 //        MultiCardPreview.add(this, new Trip(), new Blind());
 //        exhaust = true;
@@ -30,45 +30,22 @@ public class Invigorate extends AbstractCollectorCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         int weakVulnCount = 0;
-        if (m.hasPower(WeakPower.POWER_ID)){//If we have weak, counter go up.
-            weakVulnCount += m.getPower(WeakPower.POWER_ID).amount;
+        if (m.hasPower(WeakPower.POWER_ID)){//If we have weak, counter go down.
+            weakVulnCount -= m.getPower(WeakPower.POWER_ID).amount;
         }
-        if (m.hasPower(VulnerablePower.POWER_ID)){//If we have vuln, counter goes down
-            weakVulnCount -= m.getPower(VulnerablePower.POWER_ID).amount;
+        if (m.hasPower(VulnerablePower.POWER_ID)){//If we have vuln, counter goes up
+            weakVulnCount += m.getPower(VulnerablePower.POWER_ID).amount;
         }
 
-        if (weakVulnCount <= 0){//There is no weak or positive vuln, default behaviour.
-            applyToEnemy(m, new WeakPower(m, this.magicNumber, false));
-        }else{//If there is actually more weak than vuln, instead apply vuln.
+        if (weakVulnCount <= 0){//There is no vuln or more weak, default behaviour.
             applyToEnemy(m, new VulnerablePower(m, this.magicNumber, false));
+        }else{//If there is actually more vuln, instead applies weak.
+            applyToEnemy(m, new WeakPower(m, this.magicNumber, false));
         }
-
-        /*
-        ArrayList<AbstractCard> cards = new ArrayList<>();
-        cards.add(new Trip());
-        cards.add(new Blind());
-        if (upgraded){
-            for (AbstractCard c : cards)
-            {
-                c.upgrade();
-            }
-        }
-        atb(new SelectCardsCenteredAction(cards, 1, cardStrings.EXTENDED_DESCRIPTION[0], (selected) -> {
-            makeInHandTop(selected.get(0));
-        }));
-         */
     }
 
     public void upp() {
-        /*
-        AbstractCard q = new Trip();
-        AbstractCard q2 = new Blind();
-        q.upgrade();
-        q2.upgrade();
-        MultiCardPreview.clear(this);
-        MultiCardPreview.add(this, q, q2);
-        uDesc();
-        */
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
+        upgradeBaseCost(0);
     }
 }

@@ -2,9 +2,11 @@ package collector;
 
 import basemod.abstracts.CustomPlayer;
 import collector.cards.*;
+import collector.powers.TorchHeadPower;
 import collector.relics.EmeraldTorch;
 import collector.util.DoubleEnergyOrb;
 import collector.util.RenderOnlyTorchHead;
+import utilityClasses.DFL;
 import utilityClasses.Wiz;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -104,7 +106,7 @@ public class CollectorChar extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                75, 75, 0, 99, 5, this, getStartingRelics(),
+                80, 80, 0, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -152,7 +154,7 @@ public class CollectorChar extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 5;
+        return 4;
     }
 
     @Override
@@ -256,7 +258,7 @@ public class CollectorChar extends CustomPlayer {
         super.combatUpdate();
 
         if (torchHead != null) {
-            if (Wiz.isInCombat() && TempHPField.tempHp.get(AbstractDungeon.player) > 0) {
+            if (Wiz.isInCombat() && DFL.pl().hasPower(TorchHeadPower.POWER_ID)) {
                 torchHead.update();
             }
             torchHead.drawX = drawX + TORCHHEAD_XDIFF;
@@ -269,9 +271,10 @@ public class CollectorChar extends CustomPlayer {
         super.render(sb);
 
         if (torchHead != null) {
-            if (Wiz.isInCombat() && TempHPField.tempHp.get(AbstractDungeon.player) > 0) {
+            if (Wiz.isInCombat() && DFL.pl().hasPower(TorchHeadPower.POWER_ID)) {
                 torchHead.render(sb);
             }
         }
+
     }
 }

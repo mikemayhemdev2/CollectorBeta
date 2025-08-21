@@ -18,7 +18,7 @@ public class Ember extends AbstractCollectorCard {
 
     public Ember() {
         super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 2;
         selfRetain = true;
         exhaust = true;
         tags.add(expansionContentMod.UNPLAYABLE);
@@ -32,7 +32,9 @@ public class Ember extends AbstractCollectorCard {
     public void triggerOnExhaust() {
         this.addToBot(new VFXAction(AbstractDungeon.player, new InflameEffect(AbstractDungeon.player), 0.1F));
         applyToSelf(new StrengthPower(AbstractDungeon.player, magicNumber));
-        applyToSelf(new LoseStrengthPower(AbstractDungeon.player, magicNumber));
+        if (!this.upgraded) {
+            applyToSelf(new LoseStrengthPower(AbstractDungeon.player, magicNumber));
+        }
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
@@ -41,6 +43,6 @@ public class Ember extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        uDesc();
     }
 }

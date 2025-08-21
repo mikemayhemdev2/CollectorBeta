@@ -2,17 +2,15 @@ package collector.cards;
 
 import collector.CollectorCollection;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.combat.LightBulbEffect;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
-import static utilityClasses.Wiz.makeInHand;
+import static utilityClasses.Wiz.*;
 
 public class BrainDrain extends AbstractCollectorCard {
     public final static String ID = makeID(BrainDrain.class.getSimpleName());
@@ -21,14 +19,12 @@ public class BrainDrain extends AbstractCollectorCard {
     public BrainDrain() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         exhaust = true;
-        baseBlock = block = 3;
-//        baseMagicNumber = magicNumber = 6;
+//        baseBlock = block = 3;
+        baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        atb(new LoseHPAction(m, p, magicNumber));
-        blck();
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(new LightBulbEffect(m.hb)));
         } else {
@@ -38,15 +34,11 @@ public class BrainDrain extends AbstractCollectorCard {
         if (upgraded) {
             q.upgrade();
         }
-//        q.cost = 0;
-//        q.costForTurn = 0;
-//        q.isCostModified = (q.makeCopy().cost != 0);
+        applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
         makeInHand(q);
     }
 
     public void upp() {
-//        upgradeMagicNumber(1);
-        upgradeBlock(3);
         uDesc();
     }
 }

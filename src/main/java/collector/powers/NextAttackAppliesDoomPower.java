@@ -42,7 +42,7 @@ public class NextAttackAppliesDoomPower extends AbstractCollectorPower {
                     }
                 });
             }
-            atb(new RemoveSpecificPowerAction(owner, owner, this));
+            //atb(new RemoveSpecificPowerAction(owner, owner, this));
         }
     }
 

@@ -1,20 +1,15 @@
 package collector.cards.collectibles;
 
-import collector.CollectorMod;
-import collector.powers.collectioncards.SentryPower;
+import collector.cards.SentryWave;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.exordium.Sentry;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
@@ -24,38 +19,48 @@ public class SentryCard extends AbstractCollectibleCard {
 
     public SentryCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 6;
-        baseMagicNumber = magicNumber = 1;
+        baseDamage = 12;
+//        baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
+        this.cardsToPreview = new SentryWave();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, p.hb.cX, p.hb.cY), 0.3F));
         dmg(m, AbstractGameAction.AttackEffect.NONE);
-        applyToEnemy(m, new WeakPower(m, magicNumber, false));
 
-        if (AbstractDungeon.player.hasPower(SentryPower.POWER_ID)) {
-            dmg(m, AbstractGameAction.AttackEffect.NONE);
-            applyToEnemy(m, new WeakPower(m, magicNumber, false));
-            atb(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(SentryPower.POWER_ID)));
-        } else {
-            applyToSelf(new SentryPower());
-        }
+        //applyToEnemy(m, new WeakPower(m, magicNumber, false));
+        //if (AbstractDungeon.player.hasPower(SentryPower.POWER_ID)) {
+           // dmg(m, AbstractGameAction.AttackEffect.NONE);
+//            applyToEnemy(m, new WeakPower(m, magicNumber, false));
+           // atb(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(SentryPower.POWER_ID)));
+       // } else {
+//applyToSelf(new SentryPower());
+       // }
+
+    }
+
+    @Override
+    public void triggerOnExhaust(){
+        atb(new MakeTempCardInHandAction(new SentryWave() ,1));
     }
 
     public void upp() {
-        upgradeDamage(3);
-        //upgradeMagicNumber(1);
+        upgradeDamage(2);
+        cardsToPreview.upgrade();
+        uDesc();
+//        upgradeMagicNumber(1);
     }
 
 
-    @Override
+    /*@Override
     public void triggerOnGlowCheck() {
         if (AbstractDungeon.player.hasPower(SentryPower.POWER_ID)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
             return;
         }
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
+    }*/
 }

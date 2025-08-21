@@ -17,7 +17,7 @@ public class Hurting2 extends AbstractCollectorCard {
     public Hurting2() {//Look at the bottom of the next one
         super(ID, 1, CardType.ATTACK, AbstractCard.CardRarity.UNCOMMON, CardTarget.ENEMY);
         isEthereal = true;
-        baseDamage = 10;
+        baseDamage = 11;
         MultiCardPreview.add(this, new GreaterHurting2(), new GreatestHurting2());
     }
 
@@ -28,20 +28,16 @@ public class Hurting2 extends AbstractCollectorCard {
 
     @Override
     public void triggerOnExhaust() {
-        AbstractCard toAdd = new GreaterHurting();
+        AbstractCard toAdd = new GreaterHurting2();
         if (upgraded) {
             toAdd.upgrade();
         }
         makeInHand(toAdd);
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-
     public void upp() {
         uDesc();
-        upgradeDamage(3);
+        upgradeDamage(4);
         MultiCardPreview.multiCardPreview.get(this).forEach(AbstractCard::upgrade);
     }
 

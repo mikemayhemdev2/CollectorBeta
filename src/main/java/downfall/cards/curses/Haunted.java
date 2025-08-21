@@ -56,19 +56,6 @@ public class Haunted extends CustomCard implements OnOtherCardExhaustInHand {
 
     @Override
     public void triggerWhenDrawn() {
-//        super.triggerWhenDrawn();
-//        AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
-//            @Override
-//            public void update() {
-//                isDone = true;
-//                for (AbstractCard c : AbstractDungeon.player.hand.group) {
-//                    if (!c.isEthereal) {
-//                        CardModifierManager.addModifier(c, new PropertiesMod(PropertiesMod.supportedProperties.ETHEREAL, false));
-//                        c.superFlash(Color.PURPLE.cpy());
-//                    }
-//                }
-//            }
-//        });
     }
 
     @Override

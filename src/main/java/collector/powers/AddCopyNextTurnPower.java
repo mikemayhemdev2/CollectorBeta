@@ -1,10 +1,12 @@
 package collector.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import utilityClasses.DFL;
 
 import static utilityClasses.Wiz.atb;
 import static utilityClasses.Wiz.makeInHand;
@@ -25,10 +27,10 @@ public class AddCopyNextTurnPower extends AbstractCollectorPower implements NonS
     }
 
     @Override
-    public void atStartOfTurnPostDraw() {
+    public void atStartOfTurn() {
         flash();
-        makeInHand(tar.makeStatEquivalentCopy());
-        atb(new RemoveSpecificPowerAction(owner, owner, this));
+        DFL.att(new MakeTempCardInHandAction(tar.makeStatEquivalentCopy()));//Unconventional but needed due to collect draw occupying the same speed.
+        DFL.att(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override

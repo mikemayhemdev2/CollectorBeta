@@ -22,8 +22,8 @@ public class ThimbleHelm extends CustomRelic implements OnPyreRelic {
 
     @Override
     public void atBattleStart() {
-        flash();
-        atb(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, STARTING_TEMP_HP));
+//        flash();
+//        atb(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, STARTING_TEMP_HP));
 //        applyToSelf(new MoreBlockWithTempHPPower(1));
     }
 
@@ -34,6 +34,7 @@ public class ThimbleHelm extends CustomRelic implements OnPyreRelic {
 
     @Override
     public void onPyre(AbstractCard card) {
+        flash();
         addToBot(new AddTemporaryHPAction (DFL.pl(), DFL.pl(), 1));
     }
 }

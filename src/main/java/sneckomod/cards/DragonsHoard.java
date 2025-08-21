@@ -13,10 +13,10 @@ public class DragonsHoard extends AbstractSneckoCard {
 
     public final static String ID = makeID("DragonsHoard");
 
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 1;
 
     public DragonsHoard() {
-        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = MAGIC;
         isEthereal = true;
         SneckoMod.loadJokeCardImage(this, "DragonsHoard.png");

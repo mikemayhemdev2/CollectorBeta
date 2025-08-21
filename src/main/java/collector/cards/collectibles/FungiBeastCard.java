@@ -1,5 +1,6 @@
 package collector.cards.collectibles;
 
+import collector.powers.collectioncards.MushroomDamagePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -14,16 +15,18 @@ public class FungiBeastCard extends AbstractCollectibleCard {
 
     public FungiBeastCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
-        forAllMonstersLiving(q -> applyToEnemy(q, new VulnerablePower(q, 1, false)));
+        forAllMonstersLiving(q -> applyToEnemy(q, new VulnerablePower(q, this.magicNumber, false)));
+        applyToSelf(new MushroomDamagePower(secondMagic));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeSecondMagic(2);
     }
 }

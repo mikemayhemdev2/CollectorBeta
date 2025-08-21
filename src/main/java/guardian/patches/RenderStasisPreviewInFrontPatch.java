@@ -17,7 +17,6 @@ public class RenderStasisPreviewInFrontPatch {
             if (o instanceof StasisOrb) {
                 ((StasisOrb) o).renderPreview(sb);
             }
-
         }
     }
 }

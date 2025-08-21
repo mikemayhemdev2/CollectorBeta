@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.JAX;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import expansioncontent.cardmods.EtherealMod;
+import expansioncontent.cardmods.ActualEtherealMod;
 
 import static utilityClasses.Wiz.atb;
 
@@ -31,7 +31,7 @@ public class AugmenterPower extends AbstractCollectorPower {
             if (upgrade){
                 c.upgrade();
             }
-            CardModifierManager.addModifier(c, new EtherealMod());
+            CardModifierManager.addModifier(c, new ActualEtherealMod());
             atb(new MakeTempCardInHandAction(c));
         }
     }

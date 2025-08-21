@@ -1,6 +1,8 @@
 package collector.cards.collectibles;
 
 import collector.actions.GainReservesAction;
+import collector.powers.NextTurnReservePower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.curses.Shame;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +17,7 @@ public class VagrantCard extends AbstractCollectibleCard {
     // intellij stuff skill, self, uncommon, , , , , 2, 1
 
     public VagrantCard() {
-        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
         baseMagicNumber = magicNumber = 2;
         cardsToPreview = new Shame();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
@@ -23,8 +25,8 @@ public class VagrantCard extends AbstractCollectibleCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new GainReservesAction(magicNumber));
-        atb(new MakeTempCardInDrawPileAction(new Shame(), 1, false, true, false));
+        atb(new ApplyPowerAction(p, p, new NextTurnReservePower(magicNumber), magicNumber));
+        atb(new MakeTempCardInDrawPileAction(new Shame(), 1, false, true));
     }
 
     public void upp() {

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import expansioncontent.expansionContentMod;
 
 import static collector.CollectorMod.makeID;
@@ -18,9 +19,9 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard, Coll
     Shiv thisShiv = new Shiv();
 
     public JadedJabs() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 8;
-        baseMagicNumber = magicNumber = 1;
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 12;
+        baseMagicNumber = magicNumber = 2;
 
         cardsToPreview = thisShiv;
         isPyre();
@@ -52,13 +53,16 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard, Coll
             toAdd = this.magicNumber;
         }else {
             int result = freeToPlay() ? 0 : card.costForTurn;
+            if (card.cost == 0 && card.costForTurn == -1){
+                toAdd = EnergyPanel.getCurrentEnergy();
+            }
             toAdd = result > 0 ? result : -1;
         }
     }
 
     public void upp() {
-        upgradeDamage(4);
-        upgradeMagicNumber(1);
+        upgradeDamage(3);
+//        upgradeMagicNumber(1);
         thisShiv.upgrade();
         uDesc();
     }

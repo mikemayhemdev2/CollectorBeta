@@ -15,18 +15,18 @@ public class ReptomancerCard extends AbstractCollectibleCard {
 
     public ReptomancerCard() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 6;
+//        baseMagicNumber = magicNumber = 7;
         baseSecondMagic = secondMagic = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
+//        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         applyToSelf(new TorchHeadPower(3, secondMagic));
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
         upgradeSecondMagic(1);
     }
 }

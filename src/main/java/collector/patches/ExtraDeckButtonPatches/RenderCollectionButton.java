@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.ui.panels.DrawPilePanel;
 
+/*
 @SpirePatch(
         clz = DrawPilePanel.class,
         method = "render"
@@ -14,3 +15,4 @@ public class RenderCollectionButton {
         CollectorMod.renderCombatUiElements(spriteBatch);
     }
 }
+*/

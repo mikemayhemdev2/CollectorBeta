@@ -49,23 +49,6 @@ public class ReceiveTribute extends AbstractCollectorCard implements OnPyreCard 
             possibilities = new ArrayList<>();
             for (AbstractCard q : CardLibrary.getAllCards()) {
                 if (q.rarity != AbstractCard.CardRarity.SPECIAL && q.hasTag(expansionContentMod.STUDY) && !q.hasTag(AbstractCard.CardTags.HEALING)) {
-
-                    /*
-                    if (AbstractDungeon.player instanceof SlimeboundCharacter) {
-                        if (q.hasTag(expansionContentMod.STUDY_SLIMEBOSS)){continue;}
-                    } else if (AbstractDungeon.player instanceof TheHexaghost) {
-                        if(q.hasTag(expansionContentMod.STUDY_HEXAGHOST)){continue;}
-                    } else if (AbstractDungeon.player instanceof GuardianCharacter) {
-                        if(q.hasTag(expansionContentMod.STUDY_GUARDIAN)){continue;}
-                    } else if (AbstractDungeon.player instanceof ChampChar) {
-                        if(q.hasTag(expansionContentMod.STUDY_CHAMP)){continue;}
-                    } else if (AbstractDungeon.player instanceof AutomatonChar) {
-                        if(q.hasTag(expansionContentMod.STUDY_AUTOMATON)){continue;}
-                    } else if (AbstractDungeon.player instanceof CollectorChar) {
-                        if(q.hasTag(expansionContentMod.STUDY_COLLECTOR)){continue;}
-                    }Too mungus and not listed on the card! what if I wanted a whirling flame and thought I was just getting unlucky!!!
-                     */
-
                     AbstractCard r = q.makeCopy();
                     possibilities.add(r);
                 }

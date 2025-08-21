@@ -24,8 +24,8 @@ public class FlameLash extends AbstractCollectorCard implements OnPyreCard, Coll
 
     boolean pyredKindling = false;
     public FlameLash() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 11;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 9;
         isPyre();
     }
 

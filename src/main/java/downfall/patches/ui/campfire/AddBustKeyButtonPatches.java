@@ -18,7 +18,6 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-
 import java.util.ArrayList;
 
 public class AddBustKeyButtonPatches {

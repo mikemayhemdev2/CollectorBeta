@@ -19,13 +19,14 @@ public class SnakePlantCard extends AbstractCollectibleCard {
 
     public SnakePlantCard() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        baseDamage = 6;
+        baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX + MathUtils.random(-50.0F, 50.0F) * Settings.scale, m.hb.cY + MathUtils.random(-50.0F, 50.0F) * Settings.scale, Color.CHARTREUSE.cpy()), 0.2F));
             dmg(m, AbstractGameAction.AttackEffect.NONE);
         }

@@ -21,8 +21,8 @@ public class SunbloomKindling extends AbstractCollectorCard {
     public SunbloomKindling() {
         super(ID, -2, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
         baseMagicNumber = magicNumber = 3;
-        baseSecondMagic = secondMagic = 1;
-        cardsToPreview = new Ember();
+//        baseSecondMagic = secondMagic = 1;
+//        cardsToPreview = new Ember();
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
         this.selfRetain = true;
@@ -40,12 +40,7 @@ public class SunbloomKindling extends AbstractCollectorCard {
     @Override
     public void triggerOnExhaust() {
         CardCrawlGame.sound.play("HEAL_1");
-        applyToSelf(new NextTurnGainStrengthPower(DFL.pl(), DFL.pl(), magicNumber));
-        if (secondMagic >= 1 && secondMagic <= 10) {
-            makeInHand(new Ember(), secondMagic);
-        }else{
-            makeInHand(new Ember(), 1);//Fallback is 1.
-        }
+        applyToSelf(new StrengthPower(DFL.pl(), magicNumber));
     }
 
     public void upp() {

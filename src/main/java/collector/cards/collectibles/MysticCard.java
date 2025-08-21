@@ -1,6 +1,7 @@
 package collector.cards.collectibles;
 
 import collector.CollectorCollection;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -22,11 +23,11 @@ public class MysticCard extends AbstractCollectibleCard {
 
     public MysticCard() {
         super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
-        baseMagicNumber = magicNumber = 4;
+        baseMagicNumber = magicNumber = 5;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
-        tags.add(CardTags.HEALING);
+//        tags.add(CardTags.HEALING);
 //        cardsToPreview = new EnragedCenturion();
         this.selfRetain = true;
     }
@@ -41,38 +42,14 @@ public class MysticCard extends AbstractCollectibleCard {
     }
 
     public void searchPile(CardGroup cardsToSearch) {
-/*
-        for (AbstractCard c : cardsToSearch.group) {
-            if (c instanceof CenturionCard) {
-                AbstractCard newthing = new EnragedCenturion();
-                if (c.upgraded) newthing.upgrade();
-                cardsToSearch.group.add(cardsToSearch.group.indexOf(c), newthing);
-                cardsToSearch.group.remove(c);
-            }
-        }
- */ //Too mungus.
     }
 
     @Override
     public void triggerOnExhaust() {
-        atb(new HealAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
-
-        /*
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                searchPile(AbstractDungeon.player.drawPile);
-                searchPile(AbstractDungeon.player.discardPile);
-                searchPile(AbstractDungeon.player.hand);
-                searchPile(AbstractDungeon.player.exhaustPile);
-                searchPile(CollectorCollection.combatCollection);
-            }
-        });
-         */
+        atb(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(3);
     }
 }

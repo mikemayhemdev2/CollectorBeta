@@ -1,5 +1,6 @@
 package collector.cards;
 
+import collector.actions.ExhaustAllKindlingAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.unique.ExhaustAllNonAttackAction;
@@ -17,18 +18,17 @@ public class Extricate extends AbstractCollectorCard {
 
     public Extricate() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 16;
+        baseDamage = 15;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ExhaustAllNonAttackAction());
+        this.addToBot(new ExhaustAllKindlingAction());
         atb(new VFXAction(new GoldenSlashEffect(m.hb.cX, m.hb.cY, true), Settings.FAST_MODE ? 0.0F : 0.1F));
         dmg(m, AbstractGameAction.AttackEffect.NONE);
-
     }
 
     public void upp() {
-        upgradeDamage(6);
+        upgradeDamage(5);
     }
 
 }

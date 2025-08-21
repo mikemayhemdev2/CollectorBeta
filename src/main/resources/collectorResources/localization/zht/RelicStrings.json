@@ -18,7 +18,7 @@
     "NAME": "Krampian Coal",
     "FLAVOR": "\"Intriguing! But why only specific chimneys?\" - Ranwid",
     "DESCRIPTIONS": [
-      "When you would draw from an empty Collected pile, add a #yLucky #yWick to your hand."
+      "The first collected card you draw each combat that is not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
     ]
   },
   "collector:BagOfTricks": {

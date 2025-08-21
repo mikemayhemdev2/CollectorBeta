@@ -1,6 +1,7 @@
 package collector.cards.collectibles;
 
 import collector.cards.OnPyreCard;
+import collector.util.CollectorOrangeTextInterface;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -11,19 +12,20 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import expansioncontent.expansionContentMod;
 import sneckomod.SneckoMod;
 import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
 
-public class ClericCard extends AbstractCollectibleCard implements OnPyreCard {
+public class ClericCard extends AbstractCollectibleCard implements OnPyreCard, CollectorOrangeTextInterface {
     public final static String ID = makeID(ClericCard.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , 10, 4
 
     public ClericCard() {
         super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 8;
+        baseMagicNumber = magicNumber = 4;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
@@ -31,7 +33,7 @@ public class ClericCard extends AbstractCollectibleCard implements OnPyreCard {
     static boolean exhaustIfTrue2 = false;//Note a mechanism like this only works if one instance is doing stuff at any given time!
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        exhaustIfTrue2 = TempHPField.tempHp.get(p) <= 0;
+        /*exhaustIfTrue2 = TempHPField.tempHp.get(p) <= 0;
         atb(new AbstractGameAction() {
             @Override
             public void update() {
@@ -40,12 +42,19 @@ public class ClericCard extends AbstractCollectibleCard implements OnPyreCard {
                     ClericCard.exhaustIfTrue2 = true;
                 }
             }
-        });
+        });*/
+
         atb(new AddTemporaryHPAction(p, p, magicNumber));
+        atb(new LaterAction(()->{
+            if (pyredKindling){
+                atb(new AddTemporaryHPAction(p, p, magicNumber));
+            }
+        }));
+
     }
 
     public void upp() {
-        upgradeMagicNumber(4);
+        upgradeMagicNumber(2);
     }
 
     boolean pyredKindling = false;

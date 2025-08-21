@@ -36,10 +36,6 @@ public class GreatestHurting2 extends AbstractCollectorCard {
         makeInHand(toAdd);
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-
     public void upp() {
         upgradeDamage(10);
         uDesc();
