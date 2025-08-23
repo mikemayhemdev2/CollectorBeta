@@ -17,7 +17,7 @@ public class Darkstorm extends AbstractCollectorCard {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         cardsToPreview = new Blightning();
-//        exhaust = true;
+        exhaust = true;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

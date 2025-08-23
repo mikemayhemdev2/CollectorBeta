@@ -1,9 +1,11 @@
 package collector.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import utilityClasses.DFL;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.makeInHand;
@@ -15,17 +17,28 @@ public class AshenStrike extends AbstractCollectorCard {
     public AshenStrike() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 10;
+        this.baseMagicNumber = magicNumber = 1;
+        this.baseSecondMagic = secondMagic = 0;
         cardsToPreview = new Ember();
         tags.add(CardTags.STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        AbstractCard q = new Ember();
-        makeInHand(q);
+        for (int i = 0; i < magicNumber; i++) {
+            AbstractCard q = new Ember();
+            makeInHand(q);
+        }
+        if (secondMagic > 0) {
+            for (int ii = 0; ii < secondMagic; ii++) {
+                DFL.atb(new DrawCardAction(1));
+            }
+        }
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeSecondMagic(1);
+        uDesc();
+        //upgradeDamage(3);
     }
 }

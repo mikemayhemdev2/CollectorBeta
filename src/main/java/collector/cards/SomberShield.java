@@ -14,8 +14,8 @@ public class SomberShield extends AbstractCollectorCard implements OnPyreCard {
 
     public SomberShield() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 3;
-        baseMagicNumber = 2;
+        baseBlock = 2;
+        baseMagicNumber = 3;
         isPyre();
     }
 
@@ -31,7 +31,7 @@ public class SomberShield extends AbstractCollectorCard implements OnPyreCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
-        upgradeMagicNumber(1);
+        upgradeBlock(1);
+        upgradeMagicNumber(2);
     }
 }

@@ -82,7 +82,7 @@
   "collector:FeelMyPain": {
     "NAME": "Feel My Pain",
     "DESCRIPTIONS": [
-      "Whenever you #yExhaust a card, a random enemy loses #b",
+      "Whenever you #yExhaust a card, ALL enemies lose #b",
       " HP."
     ]
   },
@@ -192,8 +192,8 @@
       "Whenever you deal #yAttack damage, Torch Head: NL ",
       "Applies #b",
       " #yDoom to a random enemy.",
-      "Deals #b",
-      " damage to ALL enemies.",
+      "Upgrade #b",
+      " random card(s) in your hand.",
       "Grants you #b",
       " #yBlock.",
       " #yPoison to a random enemy.",
@@ -297,7 +297,7 @@
     "NAME": "Angery",
     "DESCRIPTIONS": [
       "Whenever you play a #ySkill, gain #b",
-      " #yVigor."
+      " #yTemporary #yStrength."
     ]
   },
   "collector:LanternFlare": {

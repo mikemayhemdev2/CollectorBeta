@@ -28,7 +28,6 @@ public class MysticCard extends AbstractCollectibleCard {
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
 //        tags.add(CardTags.HEALING);
-//        cardsToPreview = new EnragedCenturion();
         this.selfRetain = true;
     }
 

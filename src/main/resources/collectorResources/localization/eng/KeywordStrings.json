@@ -21,7 +21,7 @@
     "NAMES": [
       "pyre"
     ],
-    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost. NL If the card used in pyre is a Kindling [#ff9407]then[] [#ff9407]it[] [#ff9407]will[] [#ff9407]add[] [#ff9407]a[] [#ff9407]new[] [#ff9407]effect.[]"
+    "DESCRIPTION": "Requires exhausting a card in hand in addition to paying its energy cost. NL If the card used in pyre is a #yKindling [REMOVE_SPACE], [#ff9407]then[] [#ff9407]it[] [#ff9407]will[] [#ff9407]add[] [#ff9407]a[] [#ff9407]new[] [#ff9407]effect.[]"
   },
   {
     "ID": "reserve",

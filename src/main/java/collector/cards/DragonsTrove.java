@@ -36,7 +36,7 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("MAW_DEATH");
-        atb(new NewDrawCollectiblesActionSet(true, this.secondMagic, true, AbstractDungeon.cardRandomRng));
+        atb(new NewDrawCollectiblesActionSet(false, this.secondMagic, true, AbstractDungeon.cardRandomRng));
 
         atb(new AbstractGameAction() {
             @Override

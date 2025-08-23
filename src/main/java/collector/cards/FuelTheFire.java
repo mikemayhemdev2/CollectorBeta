@@ -62,6 +62,7 @@ public class FuelTheFire extends AbstractCollectorCard implements OnPyreCard, Co
     }
 
     public void upp() {
+        upgradeBlock(1);
         upgradeMagicNumber(1);
         uDesc();
         initializeDescription();

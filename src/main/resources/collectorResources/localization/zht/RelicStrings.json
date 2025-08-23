@@ -18,7 +18,7 @@
     "NAME": "Krampian Coal",
     "FLAVOR": "\"Intriguing! But why only specific chimneys?\" - Ranwid",
     "DESCRIPTIONS": [
-      "The first collected card you draw each combat that is not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
+      "The first #b2 Collected cards you draw each combat that is not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
     ]
   },
   "collector:BagOfTricks": {

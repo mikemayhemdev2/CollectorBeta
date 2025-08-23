@@ -2,6 +2,7 @@ package collector.cards.collectibles;
 
 import basemod.helpers.CardModifierManager;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import collector.cardmods.ActuallyCollectedCardMod;
 import collector.cardmods.CollectedCardMod;
 import collector.powers.AddCopyNextTurnPower;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,6 +25,7 @@ public class GiantHeadCardStageOne extends AbstractCollectibleCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         GiantHeadCardStageTwo tar = new GiantHeadCardStageTwo();
         CardModifierManager.addModifier(tar, new CollectedCardMod());
+        CardModifierManager.addModifier(tar, new ActuallyCollectedCardMod());
         if (this.upgraded){
             tar.upgrade();
         }

@@ -1,10 +1,9 @@
 package collector.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +20,7 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
     public static final boolean TURN_BASED = false;
 
     private int onAttackRandomDoom = 0;
-    private int onAttackAOE = 0;
+    private int onAttackSmith = 0;
     private int onAttackBlock = 0;
     private int onAttackPoison = 0;
     private int onAttackDraw = 0;
@@ -34,7 +33,7 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
                 onAttackRandomDoom += toAdd;
                 break;
             case 1:
-                onAttackAOE += toAdd;
+                onAttackSmith += toAdd;
                 break;
             case 2:
                 onAttackBlock += toAdd;
@@ -61,7 +60,7 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
             //Unblocked attack damage dealt
             //Owner has block or temp hp.
 
-            if (onAttackRandomDoom > 0 || onAttackAOE > 0 || onAttackBlock > 0 || onAttackPoison > 0 || onAttackDraw > 0 || onAttackFlex > 0) {
+            if (onAttackRandomDoom > 0 || onAttackSmith > 0 || onAttackBlock > 0 || onAttackPoison > 0 || onAttackDraw > 0 || onAttackFlex > 0) {
                 flash();
             }
 
@@ -69,8 +68,11 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
                 addToBot(new ApplyPowerAction(target, DFL.pl(), new DoomPower((AbstractMonster)target, onAttackRandomDoom), onAttackRandomDoom));
             }
 
-            if (onAttackAOE > 0) {
-                addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(onAttackAOE, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            if (onAttackSmith > 0) {
+                for (int i = 0; i < onAttackSmith; i++) {
+                    DFL.atb(new UpgradeRandomCardAction());
+                }
+                //addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(onAttackAOE, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             }
 
             if (onAttackBlock > 0) {
@@ -99,18 +101,18 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
         sb.append(DESCRIPTIONS[0]);
         if (onAttackRandomDoom > 0) {
             sb.append(DESCRIPTIONS[1] + onAttackRandomDoom + DESCRIPTIONS[2]);
-            if (onAttackAOE > 0 || onAttackBlock > 0 || onAttackPoison > 0 || onAttackDraw > 0 || onAttackFlex > 0) {//If something ahead has a value, add a new line.
+            if (onAttackSmith > 0 || onAttackBlock > 0 || onAttackPoison > 0 || onAttackDraw > 0 || onAttackFlex > 0) {//If something ahead has a value, add a new line.
                 sb.append(" NL ");
             }
         }
         if (onAttackPoison > 0) {
             sb.append(DESCRIPTIONS[1] + onAttackPoison + DESCRIPTIONS[7]);
-            if (onAttackAOE > 0 || onAttackBlock > 0 || onAttackDraw > 0 || onAttackFlex > 0) {
+            if (onAttackSmith > 0 || onAttackBlock > 0 || onAttackDraw > 0 || onAttackFlex > 0) {
                 sb.append(" NL ");
             }
         }
-        if (onAttackAOE > 0) {
-            sb.append(DESCRIPTIONS[3] + onAttackAOE + DESCRIPTIONS[4]);
+        if (onAttackSmith > 0) {
+            sb.append(DESCRIPTIONS[3] + onAttackSmith + DESCRIPTIONS[4]);
             if (onAttackBlock > 0 || onAttackDraw > 0 || onAttackFlex > 0) {
                 sb.append(" NL ");
             }
@@ -141,7 +143,7 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
     public boolean isStackable(AbstractPower power) {
         if (power instanceof TorchHeadPower) {
             this.onAttackRandomDoom += ((TorchHeadPower) power).onAttackRandomDoom;
-            this.onAttackAOE += ((TorchHeadPower) power).onAttackAOE;
+            this.onAttackSmith += ((TorchHeadPower) power).onAttackSmith;
             this.onAttackBlock += ((TorchHeadPower) power).onAttackBlock;
             this.onAttackPoison += ((TorchHeadPower) power).onAttackPoison;
             this.onAttackDraw += ((TorchHeadPower) power).onAttackDraw;

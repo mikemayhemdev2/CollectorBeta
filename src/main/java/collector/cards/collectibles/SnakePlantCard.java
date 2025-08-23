@@ -22,7 +22,7 @@ public class SnakePlantCard extends AbstractCollectibleCard {
         baseDamage = 6;
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        exhaust = true;
+        //exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

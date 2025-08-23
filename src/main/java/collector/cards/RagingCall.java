@@ -25,6 +25,8 @@ public class RagingCall extends AbstractCollectorCard {
 
     public void upp() {
 //        upgradeMagicNumber(2);
-        upgradeSecondMagic(1);
+        //upgradeSecondMagic(1);
+        this.isInnate = true;
+        uDesc();
     }
 }

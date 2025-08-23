@@ -28,6 +28,7 @@ public class CollectorCard extends AbstractCollectibleCard implements OnPyreCard
         baseSecondMagic = secondMagic = 4;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

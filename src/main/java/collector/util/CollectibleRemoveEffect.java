@@ -71,6 +71,7 @@ public class CollectibleRemoveEffect extends AbstractGameEffect {
             CollectorCollection.collection.group.removeAll(AbstractDungeon.gridSelectScreen.selectedCards);
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             CardCrawlGame.sound.play("CARD_EXHAUST");
+            AbstractDungeon.dungeonMapScreen.open(false);
             this.duration = 1.0F;
             removalComplete = true;
         }
@@ -92,7 +93,6 @@ public class CollectibleRemoveEffect extends AbstractGameEffect {
 
         else if (duration <= 0.0F && removalComplete) {
             SlimeboundMod.logger.info("Removal complete");
-
             this.isDone = true;
         }
 

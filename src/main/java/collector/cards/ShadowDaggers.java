@@ -28,7 +28,7 @@ public class ShadowDaggers extends AbstractCollectorCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < checkCount()+1; i++) {
+        for (int i = 0; i < checkCount(); i++) {
             dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         }
     }
@@ -36,7 +36,7 @@ public class ShadowDaggers extends AbstractCollectorCard {
     public void applyPowers() {
         super.applyPowers();
         //int count = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(q -> q instanceof AbstractCollectibleCard).count();
-        int count = checkCount()+1;
+        int count = checkCount();
 
         this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + count;

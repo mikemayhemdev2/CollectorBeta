@@ -15,6 +15,7 @@ import sneckomod.SneckoMod;
 
 import static collector.CollectorMod.makeID;
 
+/*
 @NoPools @NoCompendium @Deprecated
 public class EnragedCenturion extends AbstractCollectibleCard {
     public final static String ID = makeID(EnragedCenturion.class.getSimpleName());
@@ -38,3 +39,4 @@ public class EnragedCenturion extends AbstractCollectibleCard {
         upgradeDamage(3);
     }
 }
+*/

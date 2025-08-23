@@ -1,5 +1,6 @@
 package collector.cards.collectibles;
 
+import collector.actions.GainReservesAction;
 import collector.cards.OnPyreCard;
 import collector.util.CollectorOrangeTextInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,32 +26,26 @@ public class BonfireSpiritsCard extends AbstractCollectibleCard implements OnPyr
         isPyre();
         tags.add(CardTags.HEALING);
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
+        this.exhaust = true;
     }
-
-    private boolean wasRare = false;
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new AbstractGameAction() {
             @Override
             public void update() {
                 isDone = true;
-                if (wasRare) {
-                    att(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            isDone = true;
-                            AbstractDungeon.player.increaseMaxHp(magicNumber, true);
-                        }
-                    });
+                if (pyredKindling) {
+                    AbstractDungeon.player.increaseMaxHp(magicNumber, true);
                 }
             }
         });
     }
 
+    boolean pyredKindling = false;
     @Override
     public void onPyred(AbstractCard card) {
         if (card.tags.contains(expansionContentMod.KINDLING)) {
-            wasRare = true;
+            pyredKindling = true;
         }
     }
 

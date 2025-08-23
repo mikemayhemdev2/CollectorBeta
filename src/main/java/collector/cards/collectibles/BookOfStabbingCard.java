@@ -13,7 +13,7 @@ public class BookOfStabbingCard extends AbstractCollectibleCard {
 
     public BookOfStabbingCard() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

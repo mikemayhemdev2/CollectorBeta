@@ -14,32 +14,31 @@ public class HoardersStrike extends AbstractCollectorCard {
     public final static String ID = makeID(HoardersStrike.class.getSimpleName());
 
     public HoardersStrike() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, 3, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 0;
         tags.add(CardTags.STRIKE);
-        this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.magicNumber = baseMagicNumber = 2;
+        this.magicNumber = baseMagicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        atb(new NewDrawCollectiblesActionSet(false, this.magicNumber, true, AbstractDungeon.cardRandomRng));
+//        atb(new NewDrawCollectiblesActionSet(false, this.magicNumber, true, AbstractDungeon.cardRandomRng));
     }
 
     public void applyPowers() {
-        this.baseDamage = (AbstractDungeon.player.masterDeck.size() + CollectorCollection.collection.size());
+        this.baseDamage = (((AbstractDungeon.player.masterDeck.size() + CollectorCollection.collection.size()) * magicNumber) + (upgraded ? 15 : 6));
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + damage + cardStrings.EXTENDED_DESCRIPTION[1];
+        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0] + damage + cardStrings.EXTENDED_DESCRIPTION[1];
         initializeDescription();
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + damage + cardStrings.EXTENDED_DESCRIPTION[1];
+        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0] + damage + cardStrings.EXTENDED_DESCRIPTION[1];
         initializeDescription();
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        uDesc();
     }
 }

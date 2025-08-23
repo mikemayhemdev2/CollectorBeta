@@ -22,14 +22,14 @@ public class Torchbearer extends AbstractCollectorCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        for (int j = 0; j < magicNumber; j++){
-            atb(new MakeTempCardInHandAction(new Shiv()));
-        }
+        //for (int j = 0; j < magicNumber; j++){
+            atb(new MakeTempCardInHandAction(new Shiv(), magicNumber));
+        //}
 //        atb(new AddTemporaryHPAction(p, p, magicNumber));
     }
 
     public void upp() {
-        upgradeBlock(1);
-        upgradeMagicNumber(1);
+        upgradeBlock(3);
+        //upgradeMagicNumber(1);
     }
 }

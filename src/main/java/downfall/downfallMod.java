@@ -305,7 +305,6 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
         return modID + ":" + id;
     }
 
-
     public static String assetPath(String path) {
         return "downfallResources/" + path;
     }
@@ -746,7 +745,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             });
 
             configPos -= configStep;
-            ModLabeledToggleButton badCollectorButton = new ModLabeledToggleButton(configStrings.TEXT[13], 350.0f, configPos, Settings.CREAM_COLOR, FontHelper.charDescFont, unlockAllReskin, settingsPanel, (label) -> {
+            ModLabeledToggleButton badCollectorButton = new ModLabeledToggleButton(configStrings.TEXT[14], 350.0f, configPos, Settings.CREAM_COLOR, FontHelper.charDescFont, unlockAllReskin, settingsPanel, (label) -> {
             }, (button) -> {
                 makeCollectorWorse = button.enabled;
                 saveData();

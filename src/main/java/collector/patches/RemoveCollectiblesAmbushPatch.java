@@ -1,19 +1,12 @@
 package collector.patches;
 
 import collector.CollectorCollection;
-import collector.actions.RemoveCardsFromCollectionAction;
 import collector.util.CollectibleRemoveEffect;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.DungeonMapScreen;
-import com.megacrit.cardcrawl.vfx.campfire.CampfireTokeEffect;
 import slimebound.SlimeboundMod;
-import utilityClasses.DFL;
-import utilityClasses.Later.LaterEffect;
-import static collector.CollectorMod.makeID;
 
 @SpirePatch(clz = com.megacrit.cardcrawl.screens.DungeonMapScreen.class, method = "open")
 public class RemoveCollectiblesAmbushPatch {
