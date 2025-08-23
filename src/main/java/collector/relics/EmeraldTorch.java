@@ -25,35 +25,27 @@ public class EmeraldTorch extends CustomRelic {
 
     @Override
     public void atBattleStart() {
+
         this.counter = 3;
         this.grayscale = false;
     }
 
     @Override
-    public void onExhaust(AbstractCard card) {
-//        if (card.tags.contains(expansionContentMod.KINDLING)) {
-//            if (!grayscale) {
-//                flash();
-//                this.grayscale = true;
-//                atb(new DrawCardAction(2));
-//           }
-//        }
-    }
-
-    @Override
-    public void atTurnStartPostDraw() {
-        if (this.counter > 0) {
-//            addToBot(new GainReservesAction(1));
+    public void atTurnStart() {
+        super.atTurnStart();
+        if (counter > 0){
             flash();
-            this.counter--;
-            DFL.atb(new DrawCardAction(1));
-//            Ember em = new Ember();
-//            makeInHand(em.makeCopy(), 1);
-            if (this.counter == 0) {
+            Wiz.atb(new DrawCardAction(1));
+            counter--;
+            if (counter == 0){
                 this.grayscale = true;
             }
         }
     }
+
+    
+
+
 
     @Override
     public void onVictory(){

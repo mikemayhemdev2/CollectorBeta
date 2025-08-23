@@ -26,33 +26,22 @@ public class SpiritLeech extends AbstractCollectorCard {
     // intellij stuff attack, enemy, common, 9, 3, , , 3, 2
 
     public SpiritLeech() {
+
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 10;
         baseMagicNumber = 1;
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         vfx(new BiteEffect(m.hb.cX + MathUtils.random(-25.0F, 25.0F) * Settings.scale, m.hb.cY + MathUtils.random(-25.0F, 25.0F) * Settings.scale, Color.CHARTREUSE.cpy()), 0.0F);
         applyToEnemy(m, new DemisePower(m, magicNumber));
+        dmg(m, AbstractGameAction.AttackEffect.NONE);
         //DFL.atb(new LeechAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(4);
-        //upgradeMagicNumber(1);
-        //uDesc();
-    }
 
-    /*
-    @Override
-    public void triggerOnGlowCheck() {
-        for (AbstractMonster m : getEnemies()) {
-            if (m.hasPower(VulnerablePower.POWER_ID) && m.hasPower(WeakPower.POWER_ID)) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
-                return;
-            }
-        }
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
-    */
+        upgradeDamage(4);
+
 }
