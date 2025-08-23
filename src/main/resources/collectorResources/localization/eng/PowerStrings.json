@@ -34,8 +34,8 @@
     "DESCRIPTIONS": [
       "At the end of your turn, apply #b",
       " #yDoom to ALL enemies.",
-      " NL Repeated #b",
-      " times."
+      " NL Then increase the amount by #b",
+      " #yDoom."
     ]
   },
   "collector:DarkLordFormPlus": {

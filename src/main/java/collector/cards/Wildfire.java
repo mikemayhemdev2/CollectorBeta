@@ -26,8 +26,8 @@ public class Wildfire extends AbstractCollectorCard implements OnPyreCard, Colle
 
     public Wildfire() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 3;
-        baseMagicNumber = magicNumber = 2;
+        baseDamage = 2;
+        baseMagicNumber = magicNumber = 3;
         isPyre();
     }
 
@@ -49,8 +49,8 @@ public class Wildfire extends AbstractCollectorCard implements OnPyreCard, Colle
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(1);
+        upgradeMagicNumber(2);
     }
 
     @Override //zhs card text thing

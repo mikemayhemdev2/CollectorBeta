@@ -3,7 +3,7 @@
     "NAME": "Emerald Torch",
     "FLAVOR": "The fires of greed never fade.",
     "DESCRIPTIONS": [
-      "The first time each combat you #yExhaust a #ycollector:Kindling draw #b2 cards."
+      "At the start of your first #b3 turns draw #b1 card."
     ]
   },
 

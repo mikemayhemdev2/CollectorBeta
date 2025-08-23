@@ -17,9 +17,9 @@ public class SeedOfDoubt extends AbstractCollectorCard implements OnOtherCardExh
     // intellij stuff skill, enemy, uncommon, , , , , 4, 2
 
     public SeedOfDoubt() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 3;
-        baseSecondMagic = secondMagic = 1;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 4;
+        baseSecondMagic = secondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -35,6 +35,7 @@ public class SeedOfDoubt extends AbstractCollectorCard implements OnOtherCardExh
     }
 
     public void upp() {
-        upgradeSecondMagic(1);
+        //upgradeMagicNumber(2);
+        upgradeSecondMagic(2);
     }
 }

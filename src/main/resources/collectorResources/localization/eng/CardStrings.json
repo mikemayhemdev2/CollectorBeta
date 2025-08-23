@@ -329,8 +329,7 @@
   },
   "collector:RagingCall": {
     "NAME": "Clanging Call",
-    "DESCRIPTION": "collector:Torchhead gains: NL \"Upgrade !clm2! random card in your hand.\".",
-    "UPGRADE_DESCRIPTION": "Innate. NL collector:Torchhead gains: NL \"Upgrade !clm2! random card in your hand.\"."
+    "DESCRIPTION": "collector:Torchhead gains: NL \"Upgrade !clm2! random card in your hand.\"."
   },
   "collector:ReceiveTribute": {
     "NAME": "Tributary Act",
@@ -356,7 +355,7 @@
   },
   "collector:ScorchingRay": {
     "NAME": "Scorching Ray",
-    "DESCRIPTION": "Deal !D! damage to a random enemy X times."
+    "DESCRIPTION": "Apply !M! collector:Doom X times."
   },
   "collector:SeedOfDoubt": {
     "NAME": "Seed of Doubt",

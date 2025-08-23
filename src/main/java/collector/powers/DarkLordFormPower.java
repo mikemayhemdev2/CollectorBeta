@@ -11,9 +11,12 @@ public class DarkLordFormPower extends AbstractCollectorPower {
     public static final String POWER_ID = makeID(NAME);
     public static final PowerType TYPE = PowerType.BUFF;
     public static final boolean TURN_BASED = false;
+    private int secondAmount = 0;
 
-    public DarkLordFormPower() {
-        super(NAME, TYPE, TURN_BASED, AbstractDungeon.player, null, 1);
+    public DarkLordFormPower(int firstAmt, int secondAmt) {
+        super(NAME, TYPE, TURN_BASED, AbstractDungeon.player, null, firstAmt);
+        secondAmount += secondAmt;
+        updateDescription();
     }
 
     @Override
@@ -24,15 +27,19 @@ public class DarkLordFormPower extends AbstractCollectorPower {
                 addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, DFL.pl().exhaustPile.size() * this.amount), DFL.pl().exhaustPile.size()  * this.amount));
             }
         }
+        this.amount += secondAmount;
+        updateDescription();
+    }
+
+    public void stackCorrectly(int first, int second){
+        super.stackPower(first);
+        this.secondAmount += second;
+        updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + DFL.pl().exhaustPile.size() + DESCRIPTIONS[1];
-        } else {
-            this.description = DESCRIPTIONS[0] + DFL.pl().exhaustPile.size() + DESCRIPTIONS[1] + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
-        }
+            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[2] + secondAmount + DESCRIPTIONS[3];
     }
 
     @Override

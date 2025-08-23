@@ -14,7 +14,7 @@ public class RagingCall extends AbstractCollectorCard {
     // intellij stuff power, self, uncommon, , , , , 6, 1
 
     public RagingCall() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseSecondMagic = secondMagic = 1;
     }
 
@@ -26,7 +26,8 @@ public class RagingCall extends AbstractCollectorCard {
     public void upp() {
 //        upgradeMagicNumber(2);
         //upgradeSecondMagic(1);
-        this.isInnate = true;
-        uDesc();
+        //this.isInnate = true;
+        //uDesc();
+        upgradeBaseCost(1);
     }
 }
