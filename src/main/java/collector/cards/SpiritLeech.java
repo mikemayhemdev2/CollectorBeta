@@ -46,4 +46,5 @@ public class SpiritLeech extends AbstractCollectorCard {
         //uDesc();
         upgradeDamage(4);
 
+    }
 }
