@@ -1,19 +1,12 @@
 [
   {
-    "PROPER_NAME": "Afflicted",
-    "NAMES": [
-      "afflicted"
-    ],
-    "DESCRIPTION": "Creatures are Afflicted when they are both #yVulnerable and #yWeak."
-  },
-  {
     "ID": "doom",
     "PROPER_NAME": "Doom",
     "NAMES": [
       "doom",
       "doomed"
     ],
-    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn, then Doom is removed unless the creature is #yAfflicted (has both #yWeak and #yVulnerable [REMOVE_SPACE])."
+    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn, then Doom decays: NL -50% Doom if creature is not #yWeak. NL -50% Doom if creature is not #yVulnerable."
   },
   {
     "ID": "pyre",

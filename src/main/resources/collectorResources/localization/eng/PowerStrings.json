@@ -60,7 +60,7 @@
     "NAME": "Doom",
     "DESCRIPTIONS": [
       "Loses #b",
-      " HP at the start of its turn, removing all #yDoom unless they are #yAfflicted."
+      " HP at the start of its turn, then decays. Half decays if not #yWeak, and half decays if not #yVulnerable."
     ]
   },
   "collector:DoublePlayCollectibles": {
@@ -69,14 +69,6 @@
       "Collected cards are played twice.",
       "Collected cards are played #b",
       " additional times."
-    ]
-  },
-  "collector:DemisePower": {
-    "NAME": "Inevitable Demise",
-    "DESCRIPTIONS": [
-      "Prevent the next time #yDoom would be removed from this enemy.",
-      "Prevent the next #b",
-      " times #yDoom would be removed from this enemy."
     ]
   },
   "collector:FeelMyPain": {
@@ -97,7 +89,7 @@
   "collector:Karma": {
     "NAME": "Karma",
     "DESCRIPTIONS": [
-      "At the end of your turn, if any enemy is #yAfflicted [REMOVE_SPACE], gain #b",
+      "At the end of your turn, if any enemy has Weak AND Vulnerable [REMOVE_SPACE], gain #b",
       " #yBlock."
     ]
   },

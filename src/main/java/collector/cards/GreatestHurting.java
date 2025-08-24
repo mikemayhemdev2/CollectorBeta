@@ -26,15 +26,10 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
         int loop = 1;
         int targetLoss = m.hasPower(DoomPower.POWER_ID) ? m.getPower(DoomPower.POWER_ID).amount : 0;
         if (targetLoss > 0) {
+
+            atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
+            loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
             if (this.upgraded) {
-                atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
-                loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
-                if (isAfflicted(m)) {
-                    atb(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
-                    loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
-                }
-            } else {
-                atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
                 loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
             }
         }

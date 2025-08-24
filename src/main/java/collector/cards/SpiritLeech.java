@@ -2,6 +2,7 @@ package collector.cards;
 
 import collector.actions.LeechAction;
 import collector.powers.DemisePower;
+import collector.powers.NextTurnReservePower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,25 +27,19 @@ public class SpiritLeech extends AbstractCollectorCard {
     // intellij stuff attack, enemy, common, 9, 3, , , 3, 2
 
     public SpiritLeech() {
-
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 10;
-        baseMagicNumber = 1;
+        baseDamage = 7;
 
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         vfx(new BiteEffect(m.hb.cX + MathUtils.random(-25.0F, 25.0F) * Settings.scale, m.hb.cY + MathUtils.random(-25.0F, 25.0F) * Settings.scale, Color.CHARTREUSE.cpy()), 0.0F);
-        applyToEnemy(m, new DemisePower(m, magicNumber));
-        //DFL.atb(new LeechAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber));
+        applyToSelf(new NextTurnReservePower(1));
+        dmg(m, AbstractGameAction.AttackEffect.NONE);
     }
 
     public void upp() {
-
         upgradeDamage(3);
-        //upgradeMagicNumber(1);
-        //uDesc();
-        upgradeDamage(4);
 
     }
 }

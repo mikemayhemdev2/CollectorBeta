@@ -37,7 +37,7 @@
   },
   "collector:BlackBindings": {
     "NAME": "Black Bindings",
-    "DESCRIPTION": "Apply !M! Weak, then apply !clm2! collector:Doom. NL Repeat if the target was already collector:Afflicted."
+    "DESCRIPTION": "Apply !clm2! collector:Doom if the target has Weak. NL Apply !M! Weak."
   },
   "collector:Blightning": {
     "NAME": "Blightning",
@@ -78,7 +78,7 @@
   },
   "collector:CursedWail": {
     "NAME": "Cursed Wail",
-    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL collector:Afflicted enemies gain !clm2! collector:Doom. NL Exhaust."
+    "DESCRIPTION": "Apply !clm2! collector:Doom to ALL enemies and reduce their Strength by !M! this turn. NL Exhaust."
   },
   "collector:DarkApotheosis": {
     "NAME": "Dark Genesis",
@@ -192,7 +192,7 @@
   "collector:GreatestHurting": {
     "NAME": "Maleficence",
     "DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom. NL Repeat if target is collector:Afflicted."
+    "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom twice."
   },
 
   "collector:Hurting2": {
@@ -248,7 +248,7 @@
   },
   "collector:InflictAgony": {
     "NAME": "Inflict Agony",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is not collector:Afflicted, apply !M! Weak and Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has no Weak or no Vulnerable, apply !M! of each."
   },
   "collector:Invigorate": {
     "NAME": "Flash",
@@ -277,7 +277,7 @@
   },
   "collector:Karma": {
     "NAME": "Karma",
-    "DESCRIPTION": "At the end of your turn, if an enemy is collector:Afflicted, gain !M! Block."
+    "DESCRIPTION": "At the end of your turn, if an enemy is Weak AND Vulnerable, gain !M! Block."
   },
   "collector:LanternFlare": {
     "NAME": "Lantern Flare",
@@ -390,8 +390,7 @@
   },
   "collector:SpiritLeech": {
     "NAME": "Spirit Leech",
-    "DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 collector:Reserve next turn."
   },
   "collector:StashAway": {
     "NAME": "Stash Away",

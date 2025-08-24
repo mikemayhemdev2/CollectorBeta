@@ -11,6 +11,9 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static utilityClasses.Wiz.atb;
@@ -55,16 +58,18 @@ public class DoomPower extends AbstractCollectorPower implements HealthBarRender
     public void explode() {
         this.flashWithoutSound();
         System.out.println("DEBUG: Checking Affliction.");
-        if (isAfflicted((AbstractMonster) this.owner)) {         System.out.println("DEBUG: Affliction confirmed.");
-        } else {
-            if (this.owner.hasPower(DemisePower.POWER_ID)) {
-                System.out.println("DEBUG: There is no Affliction. Reducing DemisePower by 1.");
-                atb(new ReducePowerAction(this.owner, this.owner, DemisePower.POWER_ID, 1));
-            } else {
-                System.out.println("DEBUG: There is no Affliction. Removing DoomPower");
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        if (isAfflicted((AbstractMonster) this.owner)) {
+            System.out.println("DEBUG: Affliction confirmed.");
+        } else  {
+                if ((this.owner.hasPower(VulnerablePower.POWER_ID) && !this.owner.hasPower(WeakPower.POWER_ID)) || (this.owner.hasPower(WeakPower.POWER_ID) && !this.owner.hasPower(VulnerablePower.POWER_ID))){
+                    System.out.println("DEBUG: Only one is present between Weak and Vuln. Halving DoomPower.");
+                    this.addToBot(new ReducePowerAction(this.owner, this.owner, this, (int) Math.floor(this.amount/2)));
+                } else {
+                    System.out.println("DEBUG: There is no Weaak or Vuln. Removing DoomPower");
+                    this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                }
             }
-        }
+
 
         if (AbstractDungeon.player.hasRelic(JadeRing.ID)) {
             if (amount+6 >= owner.currentHealth) {

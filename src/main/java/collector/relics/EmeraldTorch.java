@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import downfall.util.TextureLoader;
 import expansioncontent.expansionContentMod;
+import hermit.util.Wiz;
 import utilityClasses.DFL;
 
 import static utilityClasses.Wiz.*;
