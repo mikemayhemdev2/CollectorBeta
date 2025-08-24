@@ -16,7 +16,7 @@ public class AshenStrike extends AbstractCollectorCard {
 
     public AshenStrike() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 10;
+        baseDamage = 9;
         this.baseMagicNumber = magicNumber = 1;
         this.baseSecondMagic = secondMagic = 0;
         cardsToPreview = new Ember();
@@ -37,6 +37,7 @@ public class AshenStrike extends AbstractCollectorCard {
     }
 
     public void upp() {
+        upgradeDamage(1);
         upgradeSecondMagic(1);
         uDesc();
         //upgradeDamage(3);

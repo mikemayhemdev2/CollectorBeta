@@ -49,7 +49,7 @@ public class BlackBindings extends AbstractCollectorCard {
 
     public void upp() {
         upgradeSecondMagic(2);
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
     }
 
     @Override //zhs card text thing

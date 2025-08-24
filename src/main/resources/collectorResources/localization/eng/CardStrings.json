@@ -87,8 +87,8 @@
   },
   "collector:DarkLordForm": {
     "NAME": "Dark Lord Form",
-    "DESCRIPTION": "At the end of your turn, apply collector:Doom to ALL enemies for each card in the exhaust pile.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, apply collector:Doom to ALL enemies for each card in the exhaust pile."
+    "DESCRIPTION": "At the end of your turn apply !M! collector:Doom to ALL enemies and increase this amount by !clm2!.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn apply !M! collector:Doom to ALL enemies and increase this amount by !clm2!."
   },
   "collector:Darkstorm": {
     "NAME": "Darkstorm",
@@ -221,7 +221,7 @@
   },
   "collector:Heatwave": {
     "NAME": "Heat Wave",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! *Ember."
+    "DESCRIPTION": "Deal !D! damage and Apply !M! Vulnerable to ALL enemies."
   },
   "collector:Hoard": {
     "NAME": "Hoard",
@@ -340,7 +340,7 @@
   },
   "collector:Roast": {
     "NAME": "Roast",
-    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL [#ff9407]Deal[] !M! [#ff9407]additional[] [#ff9407]damage.[]"
+    "DESCRIPTION": "collector:Pyre. NL Deal !D! damage. NL [#ff9407]Gain[] !M! [#ff9407]Ember[]."
   },
   "collector:RotwoodKindling": {
     "NAME": "Rotwood Kindling",
@@ -372,7 +372,7 @@
   },
   "collector:SomberShield": {
     "NAME": "Somber Shield",
-    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block. NL Next turn, gain a copy of the *Exhausted card. NL [#ff9407]Gain[] !M! [#ff9407]additional[] [#ff9407]Block.[]"
+    "DESCRIPTION": "collector:Pyre. NL Gain !B! Block [#ff9407]twice[]. NL Next turn, gain a copy of the *Exhausted card."
   },
   "collector:SoulSnare": {
     "NAME": "Soul Snare",

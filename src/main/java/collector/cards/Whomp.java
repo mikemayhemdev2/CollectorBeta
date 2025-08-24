@@ -15,7 +15,7 @@ public class Whomp extends AbstractCollectorCard {
     public Whomp() {//Now Torchbearer.
         super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
  //       baseDamage = 12;
-        baseMagicNumber = magicNumber = 18;
+        baseMagicNumber = magicNumber = 15;
         exhaust = true;
     }
 
@@ -26,6 +26,6 @@ public class Whomp extends AbstractCollectorCard {
 
     public void upp() {
 //        upgradeDamage(3);
-        upgradeMagicNumber(7);
+        upgradeMagicNumber(5);
     }
 }

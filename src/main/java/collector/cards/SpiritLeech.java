@@ -27,7 +27,7 @@ public class SpiritLeech extends AbstractCollectorCard {
 
     public SpiritLeech() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 9;
+        baseDamage = 10;
         baseMagicNumber = 1;
     }
 
@@ -38,7 +38,7 @@ public class SpiritLeech extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
         //upgradeMagicNumber(1);
         //uDesc();
     }

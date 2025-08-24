@@ -15,8 +15,7 @@ import utilityClasses.DFL;
 import utilityClasses.Later.LaterAction;
 
 import static collector.CollectorMod.makeID;
-import static utilityClasses.Wiz.atb;
-import static utilityClasses.Wiz.att;
+import static utilityClasses.Wiz.*;
 
 
 public class Roast extends AbstractCollectorCard implements OnPyreCard, CollectorOrangeTextInterface {
@@ -25,20 +24,17 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
 
     public Roast() {//Hello extremely overrated card.
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 5;
-        baseMagicNumber = magicNumber = 3;
+        baseDamage = 6;
+        baseMagicNumber = magicNumber = 1;
+        cardsToPreview = new Ember();
         isPyre();
 //        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        calculateCardDamage(m);
-//        AbstractCard self = this;
-
         DFL.atb(new LaterAction(()->{
             if (pyredKindling) {
-                this.baseDamage += this.magicNumber;
-                calculateCardDamage(m);
+                makeInHand(new Ember(), magicNumber);
                 dmg(m, AbstractGameAction.AttackEffect.FIRE);
             }else{
                 dmg(m, AbstractGameAction.AttackEffect.FIRE);
@@ -47,8 +43,8 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(3);
+        //upgradeMagicNumber(1);
     }
 
     boolean pyredKindling = false;

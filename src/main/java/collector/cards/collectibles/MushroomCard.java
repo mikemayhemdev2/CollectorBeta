@@ -48,6 +48,6 @@ public class MushroomCard extends AbstractCollectibleCard {
     public void upp() {
         upgradeDamage(1);
         upgradeSecondMagic(1);
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 }

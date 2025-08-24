@@ -23,7 +23,7 @@ public class ScorchingRay extends AbstractCollectorCard {
     public ScorchingRay() {
         super(ID, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         //baseDamage = 9;
-        magicNumber = 6;
+        baseMagicNumber = magicNumber = 6;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -1,5 +1,8 @@
 package collector.cards.collectibles;
 
+import basemod.helpers.CardModifierManager;
+import collector.cardmods.ActuallyCollectedCardMod;
+import collector.cardmods.CollectedCardMod;
 import collector.cards.SentryWave;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -44,7 +47,10 @@ public class SentryCard extends AbstractCollectibleCard {
 
     @Override
     public void triggerOnExhaust(){
-        atb(new MakeTempCardInHandAction(new SentryWave() ,1));
+        SentryWave card = new SentryWave();
+        CardModifierManager.addModifier(card, new CollectedCardMod());
+        CardModifierManager.addModifier(card, new ActuallyCollectedCardMod());
+        atb(new MakeTempCardInHandAction(card ,1));
     }
 
     public void upp() {

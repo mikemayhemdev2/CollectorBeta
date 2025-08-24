@@ -22,11 +22,11 @@ public class DarkLordFormPower extends AbstractCollectorPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         flash();
-        for (int i = 0; i < amount; i++) {
+//        for (int i = 0; i < amount; i++) {
             for (AbstractMonster m : DFL.activeMonsterList()){
-                addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, DFL.pl().exhaustPile.size() * this.amount), DFL.pl().exhaustPile.size()  * this.amount));
+                addToBot(new ApplyPowerAction(m, this.owner, new DoomPower(m, this.amount), this.amount));
             }
-        }
+//        }
         this.amount += secondAmount;
         updateDescription();
     }

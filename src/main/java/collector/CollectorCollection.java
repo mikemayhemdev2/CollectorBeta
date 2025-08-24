@@ -48,10 +48,7 @@ import downfall.monsters.gauntletbosses.*;
 import expansioncontent.cards.*;
 import guardian.cards.AncientConstruct;
 import guardian.cards.ConstructionForm;
-import hermit.cards.Adapt;
-import hermit.cards.FromBeyond;
-import hermit.cards.Magnum;
-import hermit.cards.ShadowCloak;
+import hermit.cards.*;
 import sneckomod.cards.PureSnecko;
 import utilityClasses.DFL;
 
@@ -250,7 +247,7 @@ public class CollectorCollection {
         act1BossPool.add(CorpseExplosion.ID);
         act1BossPool.add(Buffer.ID);
         act1BossPool.add(ConjureBlade.ID);
-        act1BossPool.add(Adapt.ID);
+        act1BossPool.add(Purgatory.ID);
 
         //Act 2
         act2HallwayPool.add(ThievesCard.ID);
@@ -370,7 +367,7 @@ public class CollectorCollection {
             } else if (m instanceof CharBossHermit && ((CharBossHermit) m).chosenArchetype != null) {
                 switch (((CharBossHermit) m).chosenArchetype.actNum) {
                     case 1:
-                        returnValue = CardLibrary.getCopy(Adapt.ID);
+                        returnValue = CardLibrary.getCopy(Purgatory.ID);
                         break;
                     case 2:
                         returnValue = CardLibrary.getCopy(Magnum.ID);

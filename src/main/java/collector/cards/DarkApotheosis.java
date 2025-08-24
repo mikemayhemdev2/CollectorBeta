@@ -3,6 +3,7 @@ package collector.cards;
 import collector.CollectorCollection;
 import collector.cards.collectibles.AbstractCollectibleCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,12 +30,12 @@ public class DarkApotheosis extends AbstractCollectorCard {
 
         DFL.atb(new LaterAction(() -> {
             for (AbstractCard c : CollectorCollection.collection.group) {
-                //DFL.pl().exhaustPile.removeCard(c);
+                AbstractCard d = c.makeStatEquivalentCopy();
                 if (this.upgraded) {
-                    c.upgrade();
-                    DFL.atb(new MakeTempCardInDrawPileAction(c.makeStatEquivalentCopy(), 1, true, false));
+                    d.upgrade();
+                    DFL.atb(new MakeTempCardInDrawPileAction(d, 1, true, false));
                 } else {
-                    DFL.pl().discardPile.addToBottom(c.makeStatEquivalentCopy());
+                    addToBot(new MakeTempCardInDiscardAction(d, 1));
                 }
             }
         }));

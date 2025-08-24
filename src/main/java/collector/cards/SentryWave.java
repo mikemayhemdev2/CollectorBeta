@@ -1,5 +1,8 @@
 package collector.cards;
 
+import basemod.helpers.CardModifierManager;
+import collector.cardmods.ActuallyCollectedCardMod;
+import collector.cardmods.CollectedCardMod;
 import collector.cards.collectibles.AbstractCollectibleCard;
 import collector.cards.collectibles.SentryCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -16,7 +19,7 @@ public class SentryWave extends AbstractCollectibleCard {
     public final static String ID = makeID(SentryWave.class.getSimpleName());
 
     public SentryWave() {
-        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
+        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         this.exhaust = true;
@@ -32,6 +35,8 @@ public class SentryWave extends AbstractCollectibleCard {
         if (this.upgraded){
             card.upgrade();
         }
+        CardModifierManager.addModifier(card, new CollectedCardMod());
+        CardModifierManager.addModifier(card, new ActuallyCollectedCardMod());
         atb(new MakeTempCardInHandAction(card ,1));
     }
 
