@@ -26,11 +26,13 @@ public class EmeraldTorch extends CustomRelic {
     @Override
     public void atBattleStart() {
 
+
         this.counter = 3;
-        this.grayscale = false;
+
     }
 
     @Override
+
     public void atTurnStart() {
         super.atTurnStart();
         if (counter > 0){
@@ -39,11 +41,11 @@ public class EmeraldTorch extends CustomRelic {
             counter--;
             if (counter == 0){
                 this.grayscale = true;
+
             }
         }
     }
 
-    
 
 
 

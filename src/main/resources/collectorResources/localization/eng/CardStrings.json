@@ -390,7 +390,8 @@
   },
   "collector:SpiritLeech": {
     "NAME": "Spirit Leech",
-    "DESCRIPTION": "Deal !D! damage. NL Prevent the next time collector:Doom would be removed."
+    "DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target."
   },
   "collector:StashAway": {
     "NAME": "Stash Away",

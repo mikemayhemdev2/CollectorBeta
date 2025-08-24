@@ -36,12 +36,14 @@ public class SpiritLeech extends AbstractCollectorCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         vfx(new BiteEffect(m.hb.cX + MathUtils.random(-25.0F, 25.0F) * Settings.scale, m.hb.cY + MathUtils.random(-25.0F, 25.0F) * Settings.scale, Color.CHARTREUSE.cpy()), 0.0F);
         applyToEnemy(m, new DemisePower(m, magicNumber));
-        dmg(m, AbstractGameAction.AttackEffect.NONE);
         //DFL.atb(new LeechAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber));
     }
 
     public void upp() {
 
+        upgradeDamage(3);
+        //upgradeMagicNumber(1);
+        //uDesc();
         upgradeDamage(4);
 
 }
